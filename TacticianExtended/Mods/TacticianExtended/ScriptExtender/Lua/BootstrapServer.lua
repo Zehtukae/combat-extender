@@ -26,8 +26,6 @@ local function OnSessionLoaded()
     configTable = {}
     -- Initialize global flags
     hasPrinted = false
-    -- This one is for the INFO message on function call
-    hasPrintedInfo = false
 
     function readJsonFile()
         -- Load the file and get its content
