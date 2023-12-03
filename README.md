@@ -1,2 +1,2 @@
-# combat-extender
-Baldur's Gate 3 Combat Extender
+# Baldur's Gate 3 Combat Extender
+...
