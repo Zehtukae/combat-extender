@@ -151,7 +151,8 @@ local function OnSessionLoaded()
 
             -- Check if the target has the current passive
             if HasPassive(guid, passive["PassiveName"]) == 1 then
-                print("INFO: Target has " .. passive["PassiveName"] .. " guid: " .. guid)
+                --print("DEBUG: Target has " .. passive["PassiveName"] .. " guid: " .. guid) -- Verbose Debug
+                print("DEBUG: Target has " .. passive["PassiveName"])
 
                 -- Access the "Spells" key in the passive
                 local spells = passive["Spells"]
@@ -168,14 +169,109 @@ local function OnSessionLoaded()
                             AddSpell(guid, spell)
                         end
                     else
-                        print("INFO: No spells for " .. passive["PassiveName"] .. ". Spells array is empty.")
+                        print("DEBUG: No spells for " .. passive["PassiveName"] .. ". Spells array is empty.")
                     end
                 else
-                    print("INFO: No spells for " .. passive["PassiveName"] .. ". Spells key is nil.")
+                    print("DEBUG: No spells for " .. passive["PassiveName"] .. ". Spells key is nil.")
                 end
             --  Uncomment for debug
             --else
                 --print("Target does not have " .. passive["PassiveName"] .. " guid: " .. guid)
+            end
+        end
+    end
+
+
+--[[    function GiveSpellSlots(guid)
+        -- Check if configTable is not nil
+        if not configTable or not configTable.Passives then
+            print("DEBUG: Failed to load or parse JSON. Ending SpellSlot boost function execution.")
+            return
+        end
+
+        local checkGUID = "S_LOW_Elfsong_GithyankiShield_Paladin_54467aa9-33dd-41c4-bd77-87a71ed22c16"
+        if guid == checkGUID then
+
+            print("DEBUG: guid: " .. guid)
+            -- Print the number of spell slots for each level before the function is applied
+            local spellSlotsBefore = {}
+            for level = 1, 6 do
+                local slots = GetActionResourceValuePersonal(guid, "SpellSlot", level)
+                table.insert(spellSlotsBefore, slots)
+            end
+            print("Spell slots before: " .. table.concat(spellSlotsBefore, ", "))
+
+            -- Add SpellSlot
+            AddBoosts(guid,"ActionResource(SpellSlot,1,1)","","")
+
+            local spellSlotsAfter = {}
+            for level = 1, 6 do
+                local slots = GetActionResourceValuePersonal(guid, "SpellSlot", level)
+                table.insert(spellSlotsAfter, slots)
+            end
+            print("Spell slots after: " .. table.concat(spellSlotsAfter, ", "))
+
+            print("Round two")
+
+            local spellSlotsBefore = {}
+            for level = 1, 6 do
+                local slots = GetActionResourceValuePersonal(guid, "SpellSlot", level)
+                table.insert(spellSlotsBefore, slots)
+            end
+            print("Spell slots before: " .. table.concat(spellSlotsBefore, ", "))
+
+            -- Add SpellSlot
+            for i = 6,1,-1 do
+                if (true) then
+                    AddBoosts(guid,"ActionResource(SpellSlot," .. i .. "," .. i .. ")","Randomizer","Randomizer")
+                end
+            end
+
+            local spellSlotsAfter = {}
+            for level = 1, 6 do
+                local slots = GetActionResourceValuePersonal(guid, "SpellSlot", level)
+                table.insert(spellSlotsAfter, slots)
+            end
+            print("Spell slots after: " .. table.concat(spellSlotsAfter, ", "))
+            return
+        end
+    end]]
+
+
+    function GiveSpellSlots(guid)
+        -- Check if configTable is not nil
+        if not configTable or not configTable.Passives then
+            print("DEBUG: Failed to load or parse JSON. Ending SpellSlot boost function execution.")
+            return
+        end
+
+        -- Define the passives we are interested in
+        local passives = {"TX_Spells_L1", "TX_Spells_L2", "TX_Spells_L3", "TX_Spells_L4", "TX_Spells_L5", "TX_Spells_L6"}
+
+        -- Iterate over the passives
+        for _, passive in ipairs(passives) do
+            -- Check if the target has the current passive
+            if HasPassive(guid, passive) == 1 then
+                -- Iterate over the Passives array in the configTable
+                for _, config in ipairs(configTable.Passives) do
+                    -- Check if the PassiveName matches the current passive
+                    if config["PassiveName"] == passive then
+                        -- Access the "ExtraSpellSlots" key in the config
+                        local extraSpellSlots = config["ExtraSpellSlots"]
+                        print ("extraSpellSlots: " .. extraSpellSlots)
+
+                        -- Extract the level from the passive name
+                        local level = string.sub(passive, -1)
+                        print ("Level value: " .. level)
+
+                        AddBoosts(guid,"ActionResource(SpellSlot,1,1)","","")
+--[[                        print(string.format("DEBUG: Add %d spell slot(s) for %s", extraSpellSlots, passive))
+                        for i = 1, extraSpellSlots do
+                            local spellSlot = "ActionResource(SpellSlot," .. level .. "," .. i .. ")"
+                            AddBoosts(guid, spellSlot, "", "")
+                        end]]
+                    end
+                end
             end
         end
     end
@@ -467,6 +563,7 @@ local function OnSessionLoaded()
             end
 
             CheckPassive(guid)
+            GiveSpellSlots(guid)
             GiveHPIncrease(guid)
             GiveAttackRollBonus(guid)
             GiveSavingThrowRollBonus(guid)
