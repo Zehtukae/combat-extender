@@ -40,10 +40,4 @@
 	<content contentuid="TX_Ranger_Boost_I" version="1">Adds more abilities to Rangers.</content>
 	<content contentuid="TX_Rogue_Boost_N" version="1">Rogue Boost</content>
 	<content contentuid="TX_Rogue_Boost_I" version="1">Adds more abilities to Rogues.</content>
-	<content contentuid="TX_Action_N" version="1">Extra Action</content>
-	<content contentuid="TX_Action_I" version="1">Adds an extra action point.</content>
-	<content contentuid="TX_BonusAction_N" version="1">Extra Bonus Action</content>
-	<content contentuid="TX_BonusAction_I" version="1">Adds an extra bonus action point.</content>
-	<content contentuid="TX_Movement_N" version="1">Extra Movement</content>
-	<content contentuid="TX_Movement_I" version="1">Increases movement speed by 3m/10ft.</content>
 </contentList>

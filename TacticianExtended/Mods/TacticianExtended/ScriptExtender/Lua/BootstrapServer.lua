@@ -181,63 +181,6 @@ local function OnSessionLoaded()
         end
     end
 
-
---[[    function GiveSpellSlots(guid)
-        -- Check if configTable is not nil
-        if not configTable or not configTable.Passives then
-            print("DEBUG: Failed to load or parse JSON. Ending SpellSlot boost function execution.")
-            return
-        end
-
-        local checkGUID = "S_LOW_Elfsong_GithyankiShield_Paladin_54467aa9-33dd-41c4-bd77-87a71ed22c16"
-        if guid == checkGUID then
-
-            print("DEBUG: guid: " .. guid)
-            -- Print the number of spell slots for each level before the function is applied
-            local spellSlotsBefore = {}
-            for level = 1, 6 do
-                local slots = GetActionResourceValuePersonal(guid, "SpellSlot", level)
-                table.insert(spellSlotsBefore, slots)
-            end
-            print("Spell slots before: " .. table.concat(spellSlotsBefore, ", "))
-
-            -- Add SpellSlot
-            AddBoosts(guid,"ActionResource(SpellSlot,1,1)","","")
-
-            local spellSlotsAfter = {}
-            for level = 1, 6 do
-                local slots = GetActionResourceValuePersonal(guid, "SpellSlot", level)
-                table.insert(spellSlotsAfter, slots)
-            end
-            print("Spell slots after: " .. table.concat(spellSlotsAfter, ", "))
-
-            print("Round two")
-
-            local spellSlotsBefore = {}
-            for level = 1, 6 do
-                local slots = GetActionResourceValuePersonal(guid, "SpellSlot", level)
-                table.insert(spellSlotsBefore, slots)
-            end
-            print("Spell slots before: " .. table.concat(spellSlotsBefore, ", "))
-
-            -- Add SpellSlot
-            for i = 6,1,-1 do
-                if (true) then
-                    AddBoosts(guid,"ActionResource(SpellSlot," .. i .. "," .. i .. ")","Randomizer","Randomizer")
-                end
-            end
-
-            local spellSlotsAfter = {}
-            for level = 1, 6 do
-                local slots = GetActionResourceValuePersonal(guid, "SpellSlot", level)
-                table.insert(spellSlotsAfter, slots)
-            end
-            print("Spell slots after: " .. table.concat(spellSlotsAfter, ", "))
-            return
-        end
-    end]]
-
-
     function GiveSpellSlots(guid)
         -- Check if configTable is not nil
         if not configTable or not configTable.Passives then
@@ -258,18 +201,14 @@ local function OnSessionLoaded()
                     if config["PassiveName"] == passive then
                         -- Access the "ExtraSpellSlots" key in the config
                         local extraSpellSlots = config["ExtraSpellSlots"]
-                        print ("extraSpellSlots: " .. extraSpellSlots)
+                        -- print ("DEBUG: extraSpellSlots: " .. extraSpellSlots)
 
                         -- Extract the level from the passive name
                         local level = string.sub(passive, -1)
-                        print ("Level value: " .. level)
+                        -- print ("DEBUG: Level value: " .. level)
 
-                        AddBoosts(guid,"ActionResource(SpellSlot,1,1)","","")
---[[                        print(string.format("DEBUG: Add %d spell slot(s) for %s", extraSpellSlots, passive))
-                        for i = 1, extraSpellSlots do
-                            local spellSlot = "ActionResource(SpellSlot," .. level .. "," .. i .. ")"
-                            AddBoosts(guid, spellSlot, "", "")
-                        end]]
+                        -- Call AddBoosts function with the appropriate parameters
+                        AddBoosts(guid,"ActionResource(SpellSlot," .. extraSpellSlots .. "," .. level .. ")","","")
                     end
                 end
             end
