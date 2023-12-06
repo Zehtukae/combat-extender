@@ -1,5 +1,5 @@
 local function OnSessionLoaded()
-    print("Tactician Extended")
+    print("Combat Extender")
 
     -- Define configTable as a global variable
     configTable = {}
@@ -28,11 +28,11 @@ local function OnSessionLoaded()
 
     function readJsonFile()
         -- Load the file and get its content
-        local status, json = pcall(Ext.IO.LoadFile, "TacticianExtended.json")
+        local status, json = pcall(Ext.IO.LoadFile, "CombatExtender.json")
 
         -- Check if the file was loaded successfully
         if not status or not json then
-            print("INFO: Failed to load config file: " .. (json or "TacticianExtended.json"))
+            print("INFO: Failed to load config file: " .. (json or "CombatExtender.json"))
             return nil
         end
 
@@ -126,7 +126,7 @@ local function OnSessionLoaded()
     end
 
     -- Passive Check (To add extra spells)
-    -- This builds upon the TX_NAME passives such as TX_Fighter_Boost
+    -- This builds upon the CX_NAME passives such as CX_Fighter_Boost
     -- You can also use any other passive from the game, or from other mods
     function CheckPassive(guid)
         -- Check if configTable is not nil
@@ -182,7 +182,7 @@ local function OnSessionLoaded()
         end
 
         -- Define the passives we are interested in
-        local passives = {"TX_Spells_L1", "TX_Spells_L2", "TX_Spells_L3", "TX_Spells_L4", "TX_Spells_L5", "TX_Spells_L6"}
+        local passives = {"CX_Spells_L1", "CX_Spells_L2", "CX_Spells_L3", "CX_Spells_L4", "CX_Spells_L5", "CX_Spells_L6"}
 
         -- Iterate over the passives
         for _, passive in ipairs(passives) do
@@ -426,9 +426,9 @@ local function OnSessionLoaded()
     end
 
     -- Combat Listener
-    -- Apply TX_APPLIED Boost which includes TX_APPLIED Passive to each processed character
+    -- Apply CX_APPLIED Boost which includes CX_APPLIED Passive to each processed character
     -- This should prevent multiple boosts being granted to the same character
-    local TX_APPLIED = "TX_APPLIED"
+    local CX_APPLIED = "CX_APPLIED"
 
     Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(guid, combatid)
         -- Check if configTable is loaded properly
@@ -440,7 +440,7 @@ local function OnSessionLoaded()
         Current_combat = combatid
         for k, d in ipairs(Osi.DB_PartyMembers:Get(nil)) do table.insert(Party, d[1]) end
 
-        if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, TX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
+        if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
             table.insert(CombatNPCS, guid)
 
             local isEnemy = IsEnemy(guid, GetHostCharacter())
@@ -465,7 +465,7 @@ local function OnSessionLoaded()
             GiveMovementBoost(guid)
             GiveActionPointBoost(guid)
             GiveBonusActionPointBoost(guid)
-            ApplyStatus(guid, TX_APPLIED, -1)
+            ApplyStatus(guid, CX_APPLIED, -1)
         end
     end)
 
