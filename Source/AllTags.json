@@ -1,0 +1,5322 @@
+{
+	"AARAKOCRA" : 
+	{
+		"Description" : "Character looks like an aarakocra",
+		"UUID" : "e8193d83-f2bc-4e21-8573-b4e158cc9363"
+	},
+	"AASIMAR" : 
+	{
+		"Description" : "Character looks like an aasimar",
+		"UUID" : "41c6cdc9-aff5-46ae-afc4-aa0ccd9cd201"
+	},
+	"ABERRATION" : 
+	{
+		"Description" : "Type Tag for aberration-type monsters",
+		"UUID" : "f6fd70e6-73d3-4a12-a77e-f24f30b3b424"
+	},
+	"ACOLYTE" : 
+	{
+		"Description" : "",
+		"UUID" : "906d1961-e9c6-4170-b775-62797a0efe1c"
+	},
+	"ACT1B_CRE_CARETAKER" : 
+	{
+		"Description" : "A tag for custom crimes for caretaker",
+		"UUID" : "982b48a1-fd2f-464a-a02f-0a5b2cc83a4e"
+	},
+	"ACT1B_CRE_GITHALLY" : 
+	{
+		"Description" : "For turrets to discern who to shoot at in the gith creche",
+		"UUID" : "70082ca5-e943-4e79-9490-56a0e98bc52d"
+	},
+	"ACT1B_CRE_GITHYANKI_YOUTH" : 
+	{
+		"Description" : "Combat Tag. Used to help Githyanki Sa'Varsh apply his Buf to Youth gith only",
+		"UUID" : "f6ba0295-fe26-467a-a77e-4aa672106354"
+	},
+	"ACT1B_CRE_INQUISITOR_TRIGGERMINDSTEALTEMPEST" : 
+	{
+		"Description" : "Combat Tag. Used to trigger Inquisitor's Mindsteal Tempest (2nd phase) if N of his minions are dead.",
+		"UUID" : "1271938d-b5a2-4321-9cae-f681045981b2"
+	},
+	"ACT1B_CRE_MAGEHANDIGNORE" : 
+	{
+		"Description" : "For gith magehands to discern which targets to ignore.",
+		"UUID" : "3bd1ef33-35b9-41e6-ab53-dc9414fe7b8a"
+	},
+	"ACT1B_CRE_TEMPLAR" : 
+	{
+		"Description" : "For the Templar to trigger a unique crime when attacked from an unseen source",
+		"UUID" : "427318f0-480b-40a1-a316-38cb8e4c5e56"
+	},
+	"ACT1B_CRE_VARRL" : 
+	{
+		"Description" : "Used to deliver custom Assault AD.",
+		"UUID" : "a9fcbd06-c9cb-4ee5-922c-caf3197b5fbe"
+	},
+	"ACT1_DEN_AI_HINT_RAMPARTS" : 
+	{
+		"Description" : "",
+		"UUID" : "34ebba96-404b-42f9-9726-ac4063f37161"
+	},
+	"ACT1_DEN_APPRENTICE" : 
+	{
+		"Description" : "For the Apprentice's custom disturbance",
+		"UUID" : "210f09f5-81e0-406c-baa3-2ea44e2f20d8"
+	},
+	"ACT1_DEN_CHARMEDKID" : 
+	{
+		"Description" : "| Status tag for the Harpy Meal charmed halfling |",
+		"UUID" : "c070d771-944d-474b-b594-3786d545521e"
+	},
+	"ACT1_DEN_DRUIDTRESPASS" : 
+	{
+		"Description" : "|Tag druids who must have a disturbance reaction to the player trespassing into the Sacred Pond area.|",
+		"UUID" : "4d4377c2-5061-4c6a-8ded-73d37a11b6fa"
+	},
+	"ACT1_DEN_FAITHWARDEN" : 
+	{
+		"Description" : "Honorary title that a druid player may receive if they help free the Grove from the Shadow Druids",
+		"UUID" : "cd873546-4158-4d9a-9c87-958ea63a1b08"
+	},
+	"ACT1_DEN_GATEAIHINT" : 
+	{
+		"Description" : "For Siege raiders, helper to move into the den after the gate ahs been destroyed.",
+		"UUID" : "6aadddaf-cc7b-448d-a4e1-b2fc539bf23d"
+	},
+	"ACT1_DEN_GREETING" : 
+	{
+		"Description" : "|NPC will do a custom generic reaction.|",
+		"UUID" : "9f2e27f1-dca8-4376-a148-92a016b08142"
+	},
+	"ACT1_DEN_HAGTRADER" : 
+	{
+		"Description" : "Auntie Ethel in the Den.",
+		"UUID" : "55fe3f63-d568-43d3-936e-b3984eed3cc3"
+	},
+	"ACT1_DEN_HIDEOUTGUARD" : 
+	{
+		"Description" : "|React to thiefling hideout crime.|",
+		"UUID" : "205f0c01-e07d-486d-b751-b05f73e136d0"
+	},
+	"ACT1_DEN_IDOLTHEFT" : 
+	{
+		"Description" : "| Can catch the thief who stole the Idol |",
+		"UUID" : "8991c4c4-59f6-40b8-a8e1-c70138eea64d"
+	},
+	"ACT1_DEN_OGRETHROWTARGET" : 
+	{
+		"Description" : "",
+		"UUID" : "a780967b-0e8e-4b78-a625-c008e05c70a8"
+	},
+	"ACT1_DEN_STORAGE" : 
+	{
+		"Description" : "",
+		"UUID" : "68f671ac-42dc-43f7-9ec3-d95c21f554c2"
+	},
+	"ACT1_DEN_STORAGEKEY" : 
+	{
+		"Description" : "",
+		"UUID" : "c2e0bb63-62ce-46ea-b553-9f30ae4d37db"
+	},
+	"ACT1_FOR_AI_SKELETONCASKET" : 
+	{
+		"Description" : "Set on caskets for skeletons to use them.",
+		"UUID" : "05c0f89c-b3d5-4065-8415-d7a55554e586"
+	},
+	"ACT1_FOR_BOTTOMLESS_ETTERCAPS" : 
+	{
+		"Description" : "Ettercaps that will react to players trespassing in their nest",
+		"UUID" : "b2d42bb3-38c9-4c83-a7a0-6c6eb34959bc"
+	},
+	"ACT1_FOR_GLADEGUARD" : 
+	{
+		"Description" : "Generics flag, for NPCs guarding the dryad's glade in the forest",
+		"UUID" : "af54ab50-4ffb-41f3-9485-f7c81bd37cfd"
+	},
+	"ACT1_FOR_SPIDERQUEENEGGS" : 
+	{
+		"Description" : "Combat AI tag used for the Spider Queen fight.",
+		"UUID" : "49458de3-20c1-4471-a8a6-2febeaf89e96"
+	},
+	"ACT1_GOB_ASSISTANT_TORTURER" : 
+	{
+		"Description" : "|Tag for Goblet, reacts if you kill Liam, but differently from Spike|",
+		"UUID" : "13e4707d-1fd1-4850-94f8-29e755a0200e"
+	},
+	"ACT1_GOB_DIGGINGTOOL" : 
+	{
+		"Description" : "Items that can be used to dig out of GOB Wolf Pens Prison",
+		"UUID" : "09ad9054-26f9-422b-98a0-61d28981e157"
+	},
+	"ACT1_GOB_DROWCOMNOBUFF" : 
+	{
+		"Description" : "|Target condition to prevent Minthara from using her buff on tagged characters|",
+		"UUID" : "9f26585a-4e60-4ea7-bb3f-ca718c0b36a6"
+	},
+	"ACT1_GOB_Festivities" : 
+	{
+		"Description" : "|Reacts when the player poisons the area|",
+		"UUID" : "614b7f6c-e6ef-4d6d-b58d-4d514f4bdff6"
+	},
+	"ACT1_GOB_OGREBODYGUARD" : 
+	{
+		"Description" : "A combat tag allowing Gut, the goblin priestess, to use a certain spell on Polma, her ogre bodyguard.",
+		"UUID" : "6f7c1d13-635f-461d-ad02-410799d0098f"
+	},
+	"ACT1_GOB_PENITENT" : 
+	{
+		"Description" : "|Took part in the pain priest's penance, so is excluded from the reaction voice bark|",
+		"UUID" : "ffc90ec2-bdab-4866-8f0a-0b8db2a164f9"
+	},
+	"ACT1_GOB_PRIESTESS" : 
+	{
+		"Description" : "A combat tag allowing the goblin priestess's allies to use healing spells on her, and on her only.",
+		"UUID" : "b4a82c4b-74eb-41aa-96a1-5a2c5dedf06d"
+	},
+	"ACT1_GOB_PRIESTESS_PLAYER_DANGER" : 
+	{
+		"Description" : "A combat tag allowing Gut, the goblin priestess, to see that the player is in front of the statue, so that she can use CC spells to keep them there.",
+		"UUID" : "27a0ab52-9a5e-473f-aabd-573fa54d30eb"
+	},
+	"ACT1_GOB_PRIESTESS_STATUE" : 
+	{
+		"Description" : "A combat tag allowing Gut, the goblin priestess, to use her spells on the statues around her.",
+		"UUID" : "f1fbea64-76c0-4ab0-9e3d-c5a748351b17"
+	},
+	"ACT1_GOB_PRIESTESS_STATUE_NOMELEE" : 
+	{
+		"Description" : "A combat tag preventing Gut, the goblin priestess, from manually attacking the statues around her.",
+		"UUID" : "99e663f6-26b4-47b4-bb6e-682a597a8983"
+	},
+	"ACT1_GOB_PRIESTESS_STATUE_UNSAFE" : 
+	{
+		"Description" : "A combat tag allowing Gut, the goblin priestess, to know that she should not use a spell if she's too close to a statue she may have considered for destruction.",
+		"UUID" : "9ceba3bd-c44b-4b7b-a52c-ba6109c73b68"
+	},
+	"ACT1_GOB_SPIDERNEST_GUARDS" : 
+	{
+		"Description" : "|Guards at Spider Pit in Gob camp - will react to players opening spider's cage|",
+		"UUID" : "82d1439c-2e6f-4734-ab75-a264c44b8ef1"
+	},
+	"ACT1_GOB_TORTURER" : 
+	{
+		"Description" : "|Tag for Torturer Spike, reacts if you kill Liam|",
+		"UUID" : "7a425fa4-def2-4591-8a97-481a05a38eb7"
+	},
+	"ACT1_GOB_WARPAINT" : 
+	{
+		"Description" : "|Reacts when sees War Paint|",
+		"UUID" : "b450e5e9-9c2f-4be9-aee2-71d0b2cecfa4"
+	},
+	"ACT1_HAG_AIHELPER_CAGE" : 
+	{
+		"Description" : "Helps AI try to lower the cage.",
+		"UUID" : "d5e810be-c790-42a6-afbd-3d5fcf1de1b8"
+	},
+	"ACT1_HAG_HUSBAND" : 
+	{
+		"Description" : "Identifies Mayrina's husband",
+		"UUID" : "d61567bd-ea67-4b07-a7ed-1b71eb4e714d"
+	},
+	"ACT1_HAG_ILLUSION" : 
+	{
+		"Description" : "AI tag for the hag's Illusions",
+		"UUID" : "2a84bac4-3111-43a6-8f0c-9995b6187962"
+	},
+	"ACT1_MOO_DROW_GUARD" : 
+	{
+		"Description" : "Generics tag for Moonrise Towers guards",
+		"UUID" : "f64626cd-da8c-4ddf-a17c-a03227ff5fd6"
+	},
+	"ACT1_MOO_MINDWITNESS" : 
+	{
+		"Description" : "Crime reaction tag for Moonrise Dungeon Mindwitness",
+		"UUID" : "0ef680af-d077-466f-a9f3-0f9fa7104d24"
+	},
+	"ACT1_ORI_WYLLCONFRONTATION_BONDEDAVATAR" : 
+	{
+		"Description" : "",
+		"UUID" : "27a08796-8a75-4bd3-b441-c8124244ce62"
+	},
+	"ACT1_PLA_STUCKHALFELF" : 
+	{
+		"Description" : "",
+		"UUID" : "edd388de-4376-483d-a6fd-d656b6f46015"
+	},
+	"ACT1_PLA_ZARIELCULTIST" : 
+	{
+		"Description" : "Crime tag for zariel cultists.",
+		"UUID" : "7d034aef-d1a9-4899-a4e8-65952eac3cad"
+	},
+	"ACT1_SHA_SKELETON_GUARD" : 
+	{
+		"Description" : "|Skeleton guard reacting to players trespassing into the treasure room.|",
+		"UUID" : "adc7502c-2c14-4eb7-9f51-56e1835431fe"
+	},
+	"ACT1_UND_FULLBUCKET" : 
+	{
+		"Description" : "Tag for checking whether the bucket in myconid circle full. Used in anubis",
+		"UUID" : "c5d2d42f-8204-4dc4-a4d3-241f2241496d"
+	},
+	"ACT1_UND_LONEDUERGAR" : 
+	{
+		"Description" : "|Tag that indicates Gekh Coal, needed for custom crime|",
+		"UUID" : "00dfb1f8-0a49-4fce-9b1c-d0869b095272"
+	},
+	"ACT2_COL_BARRACKS_MISTRESS" : 
+	{
+		"Description" : "",
+		"UUID" : "d35c6c4a-3542-4cf8-9af8-b77daad75370"
+	},
+	"ACT2_COL_BUTCHER" : 
+	{
+		"Description" : "",
+		"UUID" : "d815623d-67d8-4074-a5e7-cdadf18e10ba"
+	},
+	"ACT2_COL_CANDLELIGHTER" : 
+	{
+		"Description" : "Marks the character who's going to light the candle in the zombie fight with the Necromancer",
+		"UUID" : "bd119f76-0e10-4201-81f7-45708ec2ca18"
+	},
+	"ACT2_COL_INNECROMANCERCAGE" : 
+	{
+		"Description" : "This character is inside one of the intact cages in the Necro-Lab.",
+		"UUID" : "eb6f9627-3093-497b-8d6b-d5b2f6fd8995"
+	},
+	"ACT2_COL_NECROMANCERZOMBIE" : 
+	{
+		"Description" : "Identifies the zombies for trespassing near the Necromancer.",
+		"UUID" : "92a54816-bfd1-4af0-a0de-90bbfffaaa0b"
+	},
+	"ACT2_COL_RESTORATIONSOURCE" : 
+	{
+		"Description" : "This character is being used as a source for a Colony Restoration Station.",
+		"UUID" : "847fa022-ee37-427c-b74e-5373726badcf"
+	},
+	"ACT2_COL_VAULT_ATGRANDDESIGNSCULPTURE" : 
+	{
+		"Description" : "This character is at the Grand Design sculpture in the Colony Vault.",
+		"UUID" : "40eb3c03-0dec-4244-a8d5-83b89af32727"
+	},
+	"ACT2_COL_VAULT_SOLVING" : 
+	{
+		"Description" : "Player is solving the Vault",
+		"UUID" : "50d2cab2-7636-43c7-be04-a76ee83829a4"
+	},
+	"ACT2_HAV_AI_HINT_ISOBELFLEE" : 
+	{
+		"Description" : "Tag set on Isobel to make her 'flee' in a prefered direction",
+		"UUID" : "3f261d03-8132-4f0d-a954-689a040f9f58"
+	},
+	"ACT2_HAV_FLAMINGSPY" : 
+	{
+		"Description" : "Tag set on Marcus for combat/SpellData targeting purposes.",
+		"UUID" : "a5e92dfc-7fa2-4619-bdd7-8c13d9ae7d47"
+	},
+	"ACT2_HAV_GUARD" : 
+	{
+		"Description" : "Tag for for all the guards in haven (used for checkpoint crime and dialog).",
+		"UUID" : "e4b05758-8995-4ca1-9aad-7409991b7095"
+	},
+	"ACT2_HAV_HALSINLAKESIDE_DARKVINES" : 
+	{
+		"Description" : "A tag to make the vines in halsin lakeside fight stay inside.",
+		"UUID" : "11a6d2a2-e349-42d4-a151-c9b7ae5703d6"
+	},
+	"ACT2_HAV_HARPER1" : 
+	{
+		"Description" : "Tag to identify S_HAV_HarperGuard_001_8082f1d4-8942-492e-8d26-1e1ed6bd881f for voice recording.",
+		"UUID" : "e765757d-707c-4aef-9b39-8e9f5ec265ef"
+	},
+	"ACT2_HAV_HARPER2" : 
+	{
+		"Description" : "Tag to identify S_HAV_HarperGuard_002_34a9bfd8-1ca2-4a1c-b72e-2bf1cfc046a4 for voice recording.",
+		"UUID" : "3e50f8fd-6292-4b5c-af49-854634a59121"
+	},
+	"ACT2_HAV_ISOBEL" : 
+	{
+		"Description" : "Combat tag - allows Marcus's tadpole power to leave Isobel unharmed",
+		"UUID" : "feddd4ac-752b-43db-97b7-78ad68654ee0"
+	},
+	"ACT2_HAV_MOL" : 
+	{
+		"Description" : "",
+		"UUID" : "cea2da07-5a6d-4883-b62a-daad19afd357"
+	},
+	"ACT2_HAV_SIEGE_SHADOWCURSED_PRESERVE_HP" : 
+	{
+		"Description" : "A combat tag to help appropriately balance the HAV siege scene.",
+		"UUID" : "54d84ff5-73f6-4eaf-aa92-0fec99cdace0"
+	},
+	"ACT2_HAV_SUMMONREADY" : 
+	{
+		"Description" : "Used to tag when Marcus can summon hands via Spell Stats",
+		"UUID" : "816cea1e-49c5-431f-85ff-521cc8571df8"
+	},
+	"ACT2_MOO_BOOKANIMATEDTARGET" : 
+	{
+		"Description" : "Set on targets that have already been animated by the animate dead book trap.",
+		"UUID" : "4e97c12f-b77a-4a7d-a42d-9a157c8ec7f5"
+	},
+	"ACT2_MOO_CAT" : 
+	{
+		"Description" : "",
+		"UUID" : "1c1d2a2d-1d64-4565-b1bb-f5383cfe9f34"
+	},
+	"ACT2_MOO_JAILBREAKTOOL" : 
+	{
+		"Description" : "Tools that can break rocks.",
+		"UUID" : "b148e963-283a-4c02-a7c4-3193ce2ec8e9"
+	},
+	"ACT2_MOO_KETHERIC" : 
+	{
+		"Description" : "Used by AI for prefered targetting",
+		"UUID" : "01d32285-432f-4430-a85b-c50ddf98d9d2"
+	},
+	"ACT2_MOO_KETHERIC_BLOCKCOMMAND" : 
+	{
+		"Description" : "Used to prevent Ketheric using his command troops ability after too many of his troops are killed.",
+		"UUID" : "e97caba7-e96d-46d6-a1ac-01bade846aeb"
+	},
+	"ACT2_MOO_KETHERIC_TAUNT" : 
+	{
+		"Description" : "Used for Ketheric's Taunt Mechanic in phase 1",
+		"UUID" : "34ccbf00-621b-4cb2-a3e7-daef32df9146"
+	},
+	"ACT2_MOO_MASTERKEY" : 
+	{
+		"Description" : "Used to track master keys in MOO.",
+		"UUID" : "bd7e0b26-7c5c-4f50-b07f-4e62489d514c"
+	},
+	"ACT2_MOO_SCRYINGEYE" : 
+	{
+		"Description" : "A tag set on scrying eyes in the Moonrise Towers for crime handling.",
+		"UUID" : "ed9e7c5c-d578-4769-bf8c-13870ee139ed"
+	},
+	"ACT2_SCL_FISHERMANSHUT_NETIGNORETARGET" : 
+	{
+		"Description" : "",
+		"UUID" : "de82eeb4-9595-4ed3-9f1d-9d08b8d17930"
+	},
+	"ACT2_SCL_FISHERMANSHUT_PRIORITYTARGET" : 
+	{
+		"Description" : "",
+		"UUID" : "8112eae1-d98d-4d47-a6b6-88589aefb455"
+	},
+	"ACT2_SELUNEOINTMENTAPPLIED" : 
+	{
+		"Description" : "This character has the ointment of selune applied on them.",
+		"UUID" : "fcb7764b-5f7c-4c51-b230-b9c0cf9340b4"
+	},
+	"ACT2_SHADOW_CURSE_IMMUNE" : 
+	{
+		"Description" : "Immune to effects of shadow curse",
+		"UUID" : "b47643e0-583c-4808-b108-f6d3b605b0a9"
+	},
+	"ACT2_SHADOW_CURSE_RESISTANT_DONT_PROPAGATE" : 
+	{
+		"Description" : "Tag used for characters who don't propagate their resistance to other characters following them in the party.",
+		"UUID" : "87dc3ebb-0eca-47d8-971e-3c500c743dd7"
+	},
+	"ACT2_SHA_BALTHAZAR" : 
+	{
+		"Description" : "Combat tag for combat fallback AD",
+		"UUID" : "e6cd3ba7-7a49-44c5-a10b-8799efe36d8c"
+	},
+	"ACT2_SHA_BALTHAZAR_SKELETON" : 
+	{
+		"Description" : "Combat tag for combat fallback AD",
+		"UUID" : "3472c5e3-8a90-40bd-800b-619ab2781e4c"
+	},
+	"ACT2_SHA_TRIALS_DONTTELEPORT" : 
+	{
+		"Description" : "Items that shouldn't be teleported when entering the death triggers in the Shar temple trials.",
+		"UUID" : "6be0d584-ab13-402a-8e6c-ddab996f9813"
+	},
+	"ACT2_TWN_ACIDPIT_OOZE" : 
+	{
+		"Description" : "A tag to identify the enemies in the acid pit fight so that they can be made immune to the Fetid Aura status.",
+		"UUID" : "d1bf2480-ec9b-46fa-a10c-d403f058741b"
+	},
+	"ACT2_TWN_HOSPITAL_NURSE" : 
+	{
+		"Description" : "Combat tag. Lets the Surgeon only cast his request spell on the Nurses.",
+		"UUID" : "04e1eeed-7fad-46b5-8555-cbdea2214b6d"
+	},
+	"ACT2_TWN_HOSPITAL_RECEPTIONIST" : 
+	{
+		"Description" : "Receptionist at the hospital, the tag is needed for checkpoint crime",
+		"UUID" : "903a911c-41a2-4679-9b4b-14ebb34a5575"
+	},
+	"ACT2_TWN_HOSPITAL_SURGEON" : 
+	{
+		"Description" : "Combat tag. Lets the Nurse only cast their enabling spells on the Surgeon.",
+		"UUID" : "d6664ad8-a51d-4003-b5b0-be440b730dda"
+	},
+	"ACT2_TWN_MASONSGUILD_VALIDTRAPTARGET" : 
+	{
+		"Description" : "Tag which tells the traps in the Mason's Guild which creatures and items can be pushed by the stone wall and gratings in the trap in the basement. Required because the min range of spells is 1 which is too much.",
+		"UUID" : "dda79ecf-88ae-4ac7-a714-1530e395783c"
+	},
+	"ACT2_TWN_SOULAMULET_EQUIPPED" : 
+	{
+		"Description" : "Soul Amulet from Regretful Hunter is equipped",
+		"UUID" : "18c4f28a-7bcc-41c0-8d87-3ea807cb55b6"
+	},
+	"ACT2_TWN_SOULRELEASETARGET" : 
+	{
+		"Description" : "Can be targeted by Regretful Hunter Soul Release",
+		"UUID" : "ca1b6360-b456-47ec-a67e-152e33bace20"
+	},
+	"ACT2_TWN_TOLLHOUSECOLLECTOR" : 
+	{
+		"Description" : "Tag for the Toll Collector. Used to block using \"Flesh to Gold\" on her.",
+		"UUID" : "0b9f73c2-ed02-4a45-abe1-8c1427ae9d9a"
+	},
+	"ACT2_TWN_TOLLHOUSECOLLECTOR_FACE" : 
+	{
+		"Description" : "Combat tag for the TC's undead faces",
+		"UUID" : "b03c73a9-a44d-4ba9-a329-038a07288c6c"
+	},
+	"ACT2_TWN_WARDINGBONDRECEIVER" : 
+	{
+		"Description" : "Tag which is set when you equip a magical ring. Allows the wearer of the matching ring from pait to target you with Warding Bond spell.",
+		"UUID" : "334f1e22-a7e2-4705-8aab-d0c2a9807d77"
+	},
+	"ACT3C_END_GHOST_AVATAR" : 
+	{
+		"Description" : "Origin Avatar character is dead but playable as a ghost.",
+		"UUID" : "8b70b692-f2a1-4115-bf81-de93fe62e0f1"
+	},
+	"ACT3_BALDURSMOUTH_WANDERER_01" : 
+	{
+		"Description" : "Tag used for gazzete wanderers ADing on seeing players through crime reactions",
+		"UUID" : "3605d4dc-9e36-40e2-9d9c-cbcbeafe1c5e"
+	},
+	"ACT3_BALDURSMOUTH_WANDERER_02" : 
+	{
+		"Description" : "Tag used for gazzete wanderers ADing on seeing players through crime reactions",
+		"UUID" : "b19e2a4f-c0bd-4185-8141-24a53bca8e6a"
+	},
+	"ACT3_BALDURSMOUTH_WANDERER_03" : 
+	{
+		"Description" : "Tag used for gazzete wanderers ADing on seeing players through crime reactions",
+		"UUID" : "09921751-4eb7-41b4-91b9-9d688aea0824"
+	},
+	"ACT3_BALDURSMOUTH_WANDERER_04" : 
+	{
+		"Description" : "Tag used for gazzete wanderers ADing on seeing players through crime reactions",
+		"UUID" : "ab35f8fd-135b-4c02-8649-b65ba1934ecc"
+	},
+	"ACT3_BALDURSMOUTH_WANDERER_05" : 
+	{
+		"Description" : "Tag used for gazzete wanderers ADing on seeing players through crime reactions",
+		"UUID" : "b2b39ab8-d2ce-4ad2-9834-55407e5ce34d"
+	},
+	"ACT3_BALDURSMOUTH_WANDERER_06" : 
+	{
+		"Description" : "Tag used for gazzete wanderers ADing on seeing players through crime reactions",
+		"UUID" : "1993e54f-89e9-4e1a-99c9-df267b89fe66"
+	},
+	"ACT3_BALDURSMOUTH_WANDERER_07" : 
+	{
+		"Description" : "Tag used for gazzete wanderers ADing on seeing players through crime reactions",
+		"UUID" : "49816f80-c238-43fb-9887-565d5ec6fe39"
+	},
+	"ACT3_BALDURSMOUTH_WANDERER_08" : 
+	{
+		"Description" : "Tag used for gazzete wanderers ADing on seeing players through crime reactions",
+		"UUID" : "82eab2e2-be68-4e5d-b5d0-5ff5f88e1802"
+	},
+	"ACT3_END_MINDPLATFORM" : 
+	{
+		"Description" : "A tag to filter interactivity of endgame mind platforms.",
+		"UUID" : "e0805552-7bb2-4a73-9fab-98bb7cf64ce9"
+	},
+	"ACT3_END_MINDPORTALDISABLED" : 
+	{
+		"Description" : "Used in END to disable some characters the player controls from using the portal to the mind arena.",
+		"UUID" : "6f7d24c4-ffdf-4258-bf74-bb7f155ef83e"
+	},
+	"ACT3_END_MINFLAYER_AIHINT_A" : 
+	{
+		"Description" : "",
+		"UUID" : "89d8a7dd-adac-4634-a244-b43d52beb1d4"
+	},
+	"ACT3_END_MINFLAYER_AIHINT_B" : 
+	{
+		"Description" : "",
+		"UUID" : "50f9e776-f4a0-46c3-9d40-d29599298d2f"
+	},
+	"ACT3_END_MINFLAYER_AIHINT_C" : 
+	{
+		"Description" : "",
+		"UUID" : "2914c0df-77a6-4f84-a944-63d1eb9a7aa5"
+	},
+	"ACT3_END_MINFLAYER_AIHINT_D" : 
+	{
+		"Description" : "",
+		"UUID" : "d9296499-db49-40c9-adfe-dcea05bd16d5"
+	},
+	"ACT3_END_ORPHEUS_SHACKLES" : 
+	{
+		"Description" : "",
+		"UUID" : "f9e13f98-450d-4b6e-9a64-2f41f901142e"
+	},
+	"ACT3_END_SEARCHINGABSOLUTIST" : 
+	{
+		"Description" : "Tag for Underground crime reactions",
+		"UUID" : "2c9ac2c0-78db-4d68-988c-6816d6766a63"
+	},
+	"ACT3_HOH_ORTHON_SPELL_LIMIT" : 
+	{
+		"Description" : "A tag to stop the Orthon from using certain spells in Raphael boss fight.",
+		"UUID" : "5f13326a-be94-4ca9-926b-8d6bec318ab0"
+	},
+	"ACT3_LOW_CAZADOR" : 
+	{
+		"Description" : "Combat tag for combat fallback AD",
+		"UUID" : "1e65b2b1-4fcc-42ca-9edb-b84e5a14d493"
+	},
+	"ACT3_LOW_CAZADORS_PALACE_GUARD" : 
+	{
+		"Description" : "Tag for the main guard at the Guard Tower that leads to Cazador's palace.",
+		"UUID" : "aa2910ca-02d7-4857-ac17-566898ed7ee8"
+	},
+	"ACT3_LOW_COUNTINGHOUSE_AI_DISARMVAULTTRAP" : 
+	{
+		"Description" : "Set on vault trap disarm button when it's needed to be used by cashguards",
+		"UUID" : "b2d39cc2-21cb-4e3f-85a4-891490272916"
+	},
+	"ACT3_LOW_COUNTINGHOUSE_AI_DOCKSALARM_TRIGGER" : 
+	{
+		"Description" : "Set on docks Counting House alrm triggers.",
+		"UUID" : "c24e747b-2d7c-44b5-bf3c-1425b4650313"
+	},
+	"ACT3_LOW_COUNTINGHOUSE_AI_LOWERALARM_TRIGGER" : 
+	{
+		"Description" : "Set on lower Counting House alrm triggers.",
+		"UUID" : "b76df365-15e5-4954-ae92-a7eadf76e13d"
+	},
+	"ACT3_LOW_COUNTINGHOUSE_AI_UPPERALARM_TRIGGER" : 
+	{
+		"Description" : "Set on upper Counting House alrm triggers.",
+		"UUID" : "558f4c12-c503-4c20-bed9-26adc3efcf35"
+	},
+	"ACT3_LOW_COUNTINGHOUSE_CASHGUARD" : 
+	{
+		"Description" : "Used for custom Cashguard crime reactions",
+		"UUID" : "b5a316ac-921c-4884-9a2c-8fd05c64c64b"
+	},
+	"ACT3_LOW_DEVILSFEE_COINOFMAMMON" : 
+	{
+		"Description" : "",
+		"UUID" : "41a50e74-133f-4ac0-997d-9c98da47d313"
+	},
+	"ACT3_LOW_FIREWORKS_BANITE" : 
+	{
+		"Description" : "Fireworks House crime tag",
+		"UUID" : "dd06dc34-9749-4430-a7a2-f820570f68a3"
+	},
+	"ACT3_LOW_GROTTOSENTRY" : 
+	{
+		"Description" : "",
+		"UUID" : "5266a00f-7340-4a34-aea5-eb67cc07c1f3"
+	},
+	"ACT3_LOW_HAG" : 
+	{
+		"Description" : "Unlocks spells for characters involved in Act 3 Hag situation",
+		"UUID" : "9b91e9ae-0205-476d-a381-17dca1b2cdc7"
+	},
+	"ACT3_LOW_HAG_PHASE1" : 
+	{
+		"Description" : "Unlocks specific spells for phase 1 of Act 3 Hag combat. All the Hag mushrooms are alive",
+		"UUID" : "5e17174e-3ac1-45fd-aee7-7f3e58c5a4e9"
+	},
+	"ACT3_LOW_HAG_PHASE2" : 
+	{
+		"Description" : "Unlocks specific spells for phase 2 of Act 3 Hag combat. 1 Hag mushroom killed",
+		"UUID" : "23736f75-cb7c-4211-8a83-d6100bf09b04"
+	},
+	"ACT3_LOW_HAG_PHASE3" : 
+	{
+		"Description" : "Unlocks specific spells for phase 3 of Act 3 Hag combat. 2 Hag mushroom killed",
+		"UUID" : "c7d23663-bfd0-4e62-bd31-4d5c9b4d5e8e"
+	},
+	"ACT3_LOW_HAG_PHASE4" : 
+	{
+		"Description" : "Unlocks specific spells for phase 4 of Act 3 Hag combat. 3 Hag mushroom killed",
+		"UUID" : "3c6f95e0-6d5e-4e80-bdc6-9e325e63d022"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_FEAR_BETRAYAL" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player choses Betrayal as their fear in Viconia's personality test.",
+		"UUID" : "64c980e9-5a36-4445-bb73-be08a2cd70e6"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_FEAR_DARKNESS" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player choses Darkness as their fear in Viconia's personality test.",
+		"UUID" : "2905d006-36ac-4dd2-8cfc-f6f898001a52"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_FEAR_DISEASE" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player choses Disease as their fear in Viconia's personality test.",
+		"UUID" : "10a6215e-1152-4550-bf6f-443f15369951"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_FEAR_MINDFLAYER" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player choses \"Turning into a Mindflayer\" as their fear in Viconia's personality test.",
+		"UUID" : "6aeefcd3-25b4-4d13-928f-6c13ff63d0a9"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_FEAR_POWERLESS" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player choses Becoming Powerless as their fear in Viconia's personality test.",
+		"UUID" : "2e33a20d-0a3a-495a-83e6-aa91503d489d"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_FEAR_SPIDERS" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player choses Spiders as their fear in Viconia's personality test.",
+		"UUID" : "b0581c50-c2c8-4140-b793-dfaea33945da"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_HEART_CRAVEN" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player recieves the heartform of Craven Heart.",
+		"UUID" : "fe684418-2454-45c1-a482-328b12f60b7a"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_HEART_FALSE" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player recieves the heartform of False Heart.",
+		"UUID" : "04bfa5a1-5701-443b-90a3-cf8e596ac503"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_HEART_JEALOUS" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player recieves the heartform of Jealous Heart.",
+		"UUID" : "9b15de08-d0aa-439f-bcad-e7a6201505a7"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_HEART_MELANCHOLY" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player recieves the heartform of Melancholy Heart.",
+		"UUID" : "e57c19fe-4f1c-4a44-9b5a-a9b511fdbbef"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_HEART_PRYING" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player recieves the heartform of Prying Heart.",
+		"UUID" : "f8d720f9-9c6b-4097-be00-1661ec059de8"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_HEART_VIOLENT" : 
+	{
+		"Description" : "A tag that is applied to Viconia when the player recieves the heartform of Violent Heart.",
+		"UUID" : "71c456cd-8cc2-4eac-9425-e7e359b3eea9"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_POLYMORPH" : 
+	{
+		"Description" : "A tag to identify which of Viconia's allies can be polymorphed by her.",
+		"UUID" : "627d87be-85c2-406b-b1b6-8e51c08b652f"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_SHADOWHEART" : 
+	{
+		"Description" : "A tag that is applied to Viconia when Shadowheart is in the player's party.",
+		"UUID" : "f16ff923-66b8-46d2-80db-95108612bbee"
+	},
+	"ACT3_LOW_HOUSEOFGRIEF_VICTIM" : 
+	{
+		"Description" : "A tag that is applied to the player-character who took Viconia's \"personity test\"",
+		"UUID" : "8d2d234e-a25a-4a92-b1a1-df5e90b08ebd"
+	},
+	"ACT3_LOW_HOUSEOFHOPE_BANISHABLECHARACTER" : 
+	{
+		"Description" : "This tag will be added to all the characters that Hope can banish from her house with his custom spell. Mostly everyone except Raphael",
+		"UUID" : "13a5d85a-5624-4d8d-bad7-c2ab834b2856"
+	},
+	"ACT3_LOW_HOUSEOFHOPE_DEBTOR" : 
+	{
+		"Description" : "A tag to show which characters react on trespassing in House of Hope",
+		"UUID" : "9fb62daf-68db-483e-bc3b-6032d9ea7bd8"
+	},
+	"ACT3_LOW_HOUSEOFHOPE_SOULPILLAR" : 
+	{
+		"Description" : "%%% A tag to identify the soul pillars.",
+		"UUID" : "6ad77773-3043-47d8-a4f6-fc0434eaf28c"
+	},
+	"ACT3_LOW_IRONTHRONE_DEADPLAYER" : 
+	{
+		"Description" : "",
+		"UUID" : "656bc31a-5949-4c9b-9690-334dd3d5bfe8"
+	},
+	"ACT3_LOW_IRONTHRONE_MIZORASPIDERSTARGET_FIRSTLADDER" : 
+	{
+		"Description" : "",
+		"UUID" : "bb83e4b4-d819-4252-a53a-2616204c76a6"
+	},
+	"ACT3_LOW_IRONTHRONE_PRISONER" : 
+	{
+		"Description" : "",
+		"UUID" : "af8b63d3-64c8-4d84-8222-a2bc54ac887b"
+	},
+	"ACT3_LOW_IRONTHRONE_RAVENGARDTARGET" : 
+	{
+		"Description" : "",
+		"UUID" : "6953dce2-8f2f-4ff4-bb29-78cbb3dc5638"
+	},
+	"ACT3_LOW_IRONTHRONE_SWARMTARGET_HATCH" : 
+	{
+		"Description" : "",
+		"UUID" : "905c6c3b-22b3-4fa0-a8df-c0a7095bd897"
+	},
+	"ACT3_LOW_IRONTHRONE_SWARMTARGET_INNERDOOR" : 
+	{
+		"Description" : "",
+		"UUID" : "a7f4b2a4-97d2-41f8-9fe9-39160750d1e1"
+	},
+	"ACT3_LOW_IRONTHRONE_SWARMTARGET_OUTERDOOR" : 
+	{
+		"Description" : "",
+		"UUID" : "4116c28d-b243-4c28-8ecb-9b2385d2fe68"
+	},
+	"ACT3_LOW_JANNATHSBUTLER" : 
+	{
+		"Description" : "The butler at Jannath's House",
+		"UUID" : "5eddaac2-3745-479b-a49e-eb4578279d3c"
+	},
+	"ACT3_LOW_KURWINCOFFIN_FORBIDDENBYGHOSTS" : 
+	{
+		"Description" : "",
+		"UUID" : "5494ba04-c134-472a-b072-2b167ed74253"
+	},
+	"ACT3_LOW_ORIN" : 
+	{
+		"Description" : "Combat tag, specifically for combat fallback AD, as we want Orin to have unique lines.",
+		"UUID" : "fd10b344-0360-412c-acd1-a12529acd673"
+	},
+	"ACT3_LOW_OSKARSBELOVED_THROWABLEITEM" : 
+	{
+		"Description" : "",
+		"UUID" : "71409555-b8c7-4b30-91fa-74093d68139e"
+	},
+	"ACT3_LOW_SAREVOK" : 
+	{
+		"Description" : "Tag for Sarevok in the Murder Tribunal.",
+		"UUID" : "94378bca-62f8-4fa4-a558-5d8d43f2740f"
+	},
+	"ACT3_LOW_SORCEROUSSUNDRIES_NIGHTSONGNOTICE" : 
+	{
+		"Description" : "",
+		"UUID" : "defa680c-03b5-402f-93a9-bc646fc65413"
+	},
+	"ACT3_LOW_SORCEROUSSUNDRIES_TOLNA" : 
+	{
+		"Description" : "",
+		"UUID" : "6969134c-9c7b-4527-8bb6-43b78600667f"
+	},
+	"ACT3_LOW_SORCEROUSSUNDRIES_VENDOR" : 
+	{
+		"Description" : "",
+		"UUID" : "9f66044c-876d-48cb-94c4-5b8c7a5f5d9e"
+	},
+	"ACT3_LOW_STEELWATCHFOUNDRY_CINEHIDE" : 
+	{
+		"Description" : "Characters with this tag should be hidden during the escape from the foundry cinematic.",
+		"UUID" : "9f00b763-df79-49fb-9915-9fd7aa1117cc"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_BAHAMUT" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Bahamut",
+		"UUID" : "a3b9315c-7001-44c2-8318-e1acbacc8230"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_BANE" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Bane",
+		"UUID" : "12f4c348-31ab-423b-a21f-dbe42e18dd44"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_BHAAL" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Bhaal",
+		"UUID" : "2089f8fe-f812-42a5-be72-8a0739a53f69"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_CORELLON" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Corellon",
+		"UUID" : "1e113ed2-99cb-4012-90cd-2be84e5a0ae2"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_EILISTRAEE" : 
+	{
+		"Description" : "Tag for characers blessed/cursed by EIlistraee",
+		"UUID" : "9bbe6247-0eac-48e6-9a3d-7e8e28e99bd7"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_GARLGLITTERGOLD" : 
+	{
+		"Description" : "Tag for characers blessed/cursed by Garglittergold",
+		"UUID" : "1f33d6cf-ab44-42ac-8601-392fc6260ead"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_GRUUMSH" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Gruumsh",
+		"UUID" : "033b0956-aa65-4cff-9b57-b800d0a3cdc4"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_HELM" : 
+	{
+		"Description" : "Tag for characers blessed/cursed by HELM",
+		"UUID" : "0f0a7b98-c86d-4cb6-97ec-98a5d3ec16c6"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_ILMATER" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Ilmater",
+		"UUID" : "9a88b755-f10e-4583-8794-abacf7f61e7a"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_KELEMVOR" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Kelemvor",
+		"UUID" : "2499ebcb-6a85-4467-94b6-343fbf03a4b0"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_LADUGUER" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Ladguer",
+		"UUID" : "026336a7-a2bb-4f9c-8a04-1736b773cbc4"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_LATHANDER" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Lathander",
+		"UUID" : "a8877ac1-91ae-4828-a2e7-0e1c39596269"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_LOLTH" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Lolth",
+		"UUID" : "1f1d7b0f-1a7e-453c-abe6-676bc7c1eefb"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_MIELIKKI" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Mielikki",
+		"UUID" : "c1f482d7-bfac-4f67-b688-510982992359"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_MORADIN" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Moradin",
+		"UUID" : "77777169-9e97-4d81-8279-4f496a42c699"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_MYRKUL" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Myrkul",
+		"UUID" : "daf0d9f4-6adf-4b92-ad01-9a2146ec1fed"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_MYSTRA" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Mystra",
+		"UUID" : "948ae667-3541-42ea-9e73-8776dc436c21"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_OGHMA" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Oghma",
+		"UUID" : "b0c0eea0-f60a-400c-af98-204d5c7a0c4f"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_SELUNE" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Selune",
+		"UUID" : "0d41b6a9-86e8-47b4-9b5a-a779c412abb1"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_SHAR" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Shar",
+		"UUID" : "2387e65f-1135-401c-b539-310de48d6a85"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_TALOS" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Talos",
+		"UUID" : "21cf6608-e7f7-4bf6-b441-dddf9c0b373b"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_TEMPUS" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Tempus",
+		"UUID" : "5ecb8e6f-d8b6-4472-9083-d4ce2e5a411b"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_TIAMAT" : 
+	{
+		"Description" : "Tag for chraacters blessed/cursed by Tiamat",
+		"UUID" : "27441afb-d83e-4f09-ba71-39ad40e042f5"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_TYMORA" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Tymora",
+		"UUID" : "81c97b80-afc6-4410-8a08-1183b0efaf09"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_TYR" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Tyr",
+		"UUID" : "4c895d50-20dc-4891-bcf3-7c25ea92af28"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_VLAAKITH" : 
+	{
+		"Description" : "Tag for characters blessed/cursed by Vlaakith",
+		"UUID" : "48c33379-1e5c-4da4-b431-502cf8e96222"
+	},
+	"ACT3_LOW_STORMSHORETABERNACLE_YONDALLA" : 
+	{
+		"Description" : "Tag for chraacters blessed/cursed by Yondalla",
+		"UUID" : "9fe3ca2b-0c57-46bb-b5df-98740725cb6f"
+	},
+	"ACT3_LOW_TRESSYMTRADE_MAGICITEM" : 
+	{
+		"Description" : "This item can be traded to Tressym to receive her item",
+		"UUID" : "983087c8-c9d3-4a87-bc69-65f9329666c8"
+	},
+	"ACT3_LOW_UMBERLEECULTIST" : 
+	{
+		"Description" : "Combat fallback AD tag",
+		"UUID" : "756d8d63-645d-4561-84c7-7716eadf2217"
+	},
+	"ACT3_LOW_VICONIA" : 
+	{
+		"Description" : "Combat tag, specifically for combat fallback AD, as we want Vico to have unique lines.",
+		"UUID" : "f7ce8204-7043-425f-8746-a7162e49786e"
+	},
+	"ACT3_STEELWATCHFOUNDRY_DETONATOR_HOLDER" : 
+	{
+		"Description" : "",
+		"UUID" : "31ab6af3-94de-418f-9921-197d1d8b2f44"
+	},
+	"ACT3_VOSS" : 
+	{
+		"Description" : "Added to Voss in Act3 to enable certain combat spells from being cast",
+		"UUID" : "835818c1-8cf2-4d0a-85cc-6822f2b27bcf"
+	},
+	"ACT3_WYR_CHESS_PLAYERSIDE" : 
+	{
+		"Description" : "The piece can be moved by the player.",
+		"UUID" : "443d1f4b-26f4-4fd6-a3b4-7d1d95046231"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS1" : 
+	{
+		"Description" : "Valid position for figure 1 of the Wyrm's Way chess pieces.",
+		"UUID" : "2826afb6-6acc-431b-bf08-614cb1fd8906"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS10" : 
+	{
+		"Description" : "Valid position for figure 10 of the Wyrm's Way chess pieces.",
+		"UUID" : "3095740b-af8b-4c81-9372-32c331dbdd65"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS11" : 
+	{
+		"Description" : "Valid position for figure 11 of the Wyrm's Way chess pieces.",
+		"UUID" : "8e0860d4-f88d-4312-ba34-0619db70663f"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS12" : 
+	{
+		"Description" : "Valid position for figure 12 of the Wyrm's Way chess pieces.",
+		"UUID" : "35886142-5e0c-4ac0-ad99-04a29546d9c9"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS13" : 
+	{
+		"Description" : "Valid position for figure 13 of the Wyrm's Way chess pieces.",
+		"UUID" : "c3a239d5-8b3b-41bf-b5e5-06c4c8df3ebd"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS14" : 
+	{
+		"Description" : "Valid position for figure 14 of the Wyrm's Way chess pieces.",
+		"UUID" : "308bb08a-8ef1-4285-a8c6-9cec22aa878b"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS15" : 
+	{
+		"Description" : "Valid position for figure 15 of the Wyrm's Way chess pieces.",
+		"UUID" : "5a919708-f6a8-4aa0-a7ca-17858989ef37"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS16" : 
+	{
+		"Description" : "Valid position for figure 16 of the Wyrm's Way chess pieces.",
+		"UUID" : "ef67c85c-7861-4e35-bd03-4e95d14f49e0"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS17" : 
+	{
+		"Description" : "Valid position for piece 17 of the Wyrm's Way chess pieces.",
+		"UUID" : "1bc7f496-38b3-4986-a9a7-b52f5c91979a"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS18" : 
+	{
+		"Description" : "Valid position for piece 18 of the Wyrm's Way chess pieces.",
+		"UUID" : "9696d26c-f268-4b2f-b68f-a628fe598277"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS19" : 
+	{
+		"Description" : "Valid position for piece 19 of the Wyrm's Way chess pieces.",
+		"UUID" : "b10d148e-4b6b-4129-8276-f3f0eacfbccb"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS2" : 
+	{
+		"Description" : "Valid position for figure 2 of the Wyrm's Way chess pieces.",
+		"UUID" : "cb1aa16e-f82b-4c31-bb1d-3e4354f8178c"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS3" : 
+	{
+		"Description" : "Valid position for figure 3 of the Wyrm's Way chess pieces.",
+		"UUID" : "4dba2eaa-fc50-43f9-8fca-a1083c525667"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS4" : 
+	{
+		"Description" : "Valid position for figure 4 of the Wyrm's Way chess pieces.",
+		"UUID" : "2a1ab916-179f-47e6-b9ae-0cb4cb4393f3"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS5" : 
+	{
+		"Description" : "Valid position for figure 5 of the Wyrm's Way chess pieces.",
+		"UUID" : "f39e97bf-131d-47df-b0ea-b77781814a59"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS6" : 
+	{
+		"Description" : "Valid position for figure 6 of the Wyrm's Way chess pieces.",
+		"UUID" : "711bfaaa-b7f1-4e88-b25c-21c262e39791"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS7" : 
+	{
+		"Description" : "Valid position for figure 7 of the Wyrm's Way chess pieces.",
+		"UUID" : "e42ee9ed-00c7-4b5f-ba2d-5c74d4d8d835"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS8" : 
+	{
+		"Description" : "Valid position for figure 8 of the Wyrm's Way chess pieces.",
+		"UUID" : "27a40a92-7e08-475f-9966-ca35b7d95eb9"
+	},
+	"ACT3_WYR_CHESS_VALIDPOS9" : 
+	{
+		"Description" : "Valid position for figure 9 of the Wyrm's Way chess pieces.",
+		"UUID" : "c56a58c6-f041-4190-abc1-dbda5f5cd2e2"
+	},
+	"ACT3_WYR_CIRCUS_BEASTCAGE" : 
+	{
+		"Description" : "Is set on a locked cage where circus beast is held.",
+		"UUID" : "c2e9f87c-ec66-4519-bbf6-fb8ce249e6dc"
+	},
+	"ACT3_WYR_CIRCUS_CAGEOPENER" : 
+	{
+		"Description" : "Is set on a character who can open the beast cages.",
+		"UUID" : "f3acc92a-eb22-4076-940b-e52988d0dbdf"
+	},
+	"ACT3_WYR_CIRCUS_DUMMYCONTAINER" : 
+	{
+		"Description" : "Is set on the circus dummy to switch it's use action to act as a container when discovered.",
+		"UUID" : "5bb43a05-d32a-41b5-94d8-bcaaee608178"
+	},
+	"ACT3_WYR_CIRCUS_MERCHANT" : 
+	{
+		"Description" : "Tag to use for the kobold merchant for the crime reactions.",
+		"UUID" : "0f027f0f-39ae-410e-96e7-a387771e02e6"
+	},
+	"ACT3_WYR_CIRCUS_THIEFGLOVES" : 
+	{
+		"Description" : "For applying special properties based on this tag through Osiris.",
+		"UUID" : "3777b973-c1d2-45db-9c3b-f055cfc4dc6f"
+	},
+	"ACT3_WYR_DAPPERDROW" : 
+	{
+		"Description" : "Used for trespass crime reactions.",
+		"UUID" : "08b29047-12b0-4390-8ed2-caabcd937e78"
+	},
+	"ACT3_WYR_GORTASH" : 
+	{
+		"Description" : "Combat tag",
+		"UUID" : "ece30580-7788-4488-955d-7ee0a32322ed"
+	},
+	"ACT3_WYR_POSTHOUSE_CLEANINGCAGES" : 
+	{
+		"Description" : "Tag on S_WYR_Posthouse_Groom to prevent him from accidentally opening doors while cleaning cages",
+		"UUID" : "3f1841b9-a03a-4127-819b-ec652de79102"
+	},
+	"ACT3_WYR_POSTHOUSE_TRESSYM" : 
+	{
+		"Description" : "A tag that identifies Tara in case of crime reactions concerning her stuff",
+		"UUID" : "67d39477-dcab-42bd-956d-cdaedb12c4c4"
+	},
+	"ACT3_WYR_REFUGEECAMP_BIGBARNCAPTAIN" : 
+	{
+		"Description" : "Tag for the Flaming Fist captain, standing near the Big Barn in Refugee Camp.",
+		"UUID" : "79fbc518-fb56-49a1-b93f-61928f4d802d"
+	},
+	"ACT3_WYR_SENTIENTAMULET_POSSESSED" : 
+	{
+		"Description" : "This zombie is possessed by the Mad Monk. For behaviour.",
+		"UUID" : "db31e8b2-fcf1-4b66-9184-1a6cde92d9ce"
+	},
+	"ACT3_WYR_WINDMILLMINDFLAYER_HASEATENBRAIN" : 
+	{
+		"Description" : "A tag to add to the Windmill's Mindflayer in WYR if it has eaten brains in order to unlock the mindflayer spells.",
+		"UUID" : "dacd9d7a-4b49-4c0b-8d91-5ebef8959ad4"
+	},
+	"ACT3_WYR_WYRMROCK_FLAMINGFISTOFFICEMAINGUARD" : 
+	{
+		"Description" : "",
+		"UUID" : "e5241030-09fd-4df3-8858-df22121e86a4"
+	},
+	"ACT3_WYR_WYRMROCK_FLAMINGFISTTHIEF" : 
+	{
+		"Description" : "Tag for the Flaming Fist Thief, needed for a custom trespassing crime",
+		"UUID" : "185eb8d6-c3d8-449c-90d8-842a6fbfb70a"
+	},
+	"ACT3_WYR_WYRMROCK_PRISONGUARD" : 
+	{
+		"Description" : "Tag for the prison guards. They are more aggressive towards fugitive.",
+		"UUID" : "c6866623-dd02-446b-85dc-f25c96230b71"
+	},
+	"ACT3_WYR_WYRMROCK_SECRETARY" : 
+	{
+		"Description" : "Tag for the Ravengard's Secretary, needed for a custom trespassing crime",
+		"UUID" : "b43a8aa0-467f-42f0-9e3b-bfdb19554310"
+	},
+	"AGGRESSIVEBEAST" : 
+	{
+		"Description" : "Generic Behaviours Beast that attacks you if you attack it",
+		"UUID" : "1ed04fb5-e654-4dbf-893c-a795952e77e1"
+	},
+	"AGGRESSIVE_GUARD" : 
+	{
+		"Description" : "Used in Generics: arrests people like GUARD, but more aggressive dialogs (like NOT_MESSING_AROUND). Should alsowork for goblins and generally low INT NPCs.",
+		"UUID" : "9753e2e5-34be-48d5-bf05-c6ae9a616f3b"
+	},
+	"AI_AVOID_TARGET" : 
+	{
+		"Description" : "AI helper tag used in spell conditions to improve targetting for AI.",
+		"UUID" : "3eebe42c-39ec-4165-9e70-b6811ab7b313"
+	},
+	"AI_BLOCKOFFHANDATTACK" : 
+	{
+		"Description" : "A combat tag for the AI to be unable to use offhand attacks.",
+		"UUID" : "20a2809a-36a7-4b02-baa2-3a022767d7cb"
+	},
+	"AI_BLOCKWEAPONACTIONS" : 
+	{
+		"Description" : "Assign to characters or roots who should not use weapon actions spells (slash, rush, pin down etc)",
+		"UUID" : "53c3304c-032d-4c49-86df-00b3b03a6b13"
+	},
+	"AI_HINT_CALLFORHELP" : 
+	{
+		"Description" : "|AI hint specifically for enemeis who use the Call For Help spell|",
+		"UUID" : "527e1935-b73d-41e1-97e8-4b90e45b00a1"
+	},
+	"AI_HINT_CASTER" : 
+	{
+		"Description" : "AI Hint tag for Trigger, used for range spell casters",
+		"UUID" : "45a231e4-e94f-4b0e-a941-2daf1adf44b5"
+	},
+	"AI_HINT_RANGER" : 
+	{
+		"Description" : "Ai hint trigger for Rangers",
+		"UUID" : "3cae4ff5-e9c0-485b-b695-f8830961a781"
+	},
+	"AI_HINT_SUMMONER" : 
+	{
+		"Description" : "Ai hint trig, used for summon skills",
+		"UUID" : "0353b9e8-b2a1-45b9-8eec-3d59ef6c0514"
+	},
+	"AI_HINT_TACRETREAT" : 
+	{
+		"Description" : "Ai hint tag for trigger",
+		"UUID" : "85f430aa-2b76-408a-9390-051d55ed12a5"
+	},
+	"AI_HINT_TELEPORT" : 
+	{
+		"Description" : "",
+		"UUID" : "32049276-fd31-469a-a1d2-f37db9482be7"
+	},
+	"AI_HINT_UNIQUE" : 
+	{
+		"Description" : "Ai hints for unique skills",
+		"UUID" : "1902723d-dd16-4e7a-87d6-7b07f63add79"
+	},
+	"AI_IGNORED_TARGET" : 
+	{
+		"Description" : "Tag characters that the Ai should completely ignore in the calculations.",
+		"UUID" : "ff6d7d1f-094f-432e-a117-fdc3a0ab7ac1"
+	},
+	"AI_PREFERRED_TARGET" : 
+	{
+		"Description" : "Tag characters that the Ai should prefer, such as the king in the Kill the King Arena game mode.",
+		"UUID" : "64bc9da1-9262-475a-a397-157600b7debd"
+	},
+	"AI_RESURRECTABLE" : 
+	{
+		"Description" : "Tag used for filtering resurrect() spells used by AI",
+		"UUID" : "379efa66-1428-4f46-a2e6-7dd59cd5d0bf"
+	},
+	"AI_THROWITEM" : 
+	{
+		"Description" : "Tag used for AI to find objects in their environment to use with the Throw spell.",
+		"UUID" : "ef5d1184-dd1c-4988-bef9-ad19471aadba"
+	},
+	"AI_UNPREFERRED_TARGET" : 
+	{
+		"Description" : "Tag characters that the Ai should prefer not to target",
+		"UUID" : "9787450d-f34d-43bd-be88-d2bac00bb8ee"
+	},
+	"AI_USEITEM_A" : 
+	{
+		"Description" : "Combat AI tag used for use objects",
+		"UUID" : "f532d904-4e7c-469f-8e47-67a639cd1ae1"
+	},
+	"AI_USESPELL_A" : 
+	{
+		"Description" : "Generic tag for AI spell use",
+		"UUID" : "33aa698c-aea0-43e2-bd16-582aa718fd3e"
+	},
+	"AI_USESPELL_B" : 
+	{
+		"Description" : "Generic tag for AI spell use",
+		"UUID" : "3297ed55-ccc1-473e-8475-ac4162a63fdd"
+	},
+	"AI_USESPELL_C" : 
+	{
+		"Description" : "Generic tag for AI spell use",
+		"UUID" : "64d4bb52-dd35-4d61-a112-0bc9a5789597"
+	},
+	"AI_USESPELL_D" : 
+	{
+		"Description" : "Generic tag for AI spell use",
+		"UUID" : "2d17a512-3d41-4f88-8953-f9c4ad4722b2"
+	},
+	"AI_USESPELL_E" : 
+	{
+		"Description" : "Generic tag for AI spell use",
+		"UUID" : "72c898ce-e277-46ad-b6fe-2f030c57737f"
+	},
+	"AI_USETORCH" : 
+	{
+		"Description" : "Generic tag for the AI to use torches. Used only in specific situations.",
+		"UUID" : "2ec769ab-8dec-4865-b7d8-02960ed594b9"
+	},
+	"ALCH_EXTRACT" : 
+	{
+		"Description" : "Tag for all alchemy Extract roots",
+		"UUID" : "85b58b89-c881-43c2-bbbe-7c8a0b3bf981"
+	},
+	"ALCH_EXTRACT_AIR" : 
+	{
+		"Description" : "",
+		"UUID" : "396d2447-7bea-4a24-9d67-759bef6ea30e"
+	},
+	"ALCH_EXTRACT_EARTH" : 
+	{
+		"Description" : "",
+		"UUID" : "b1a48fd7-e57f-4ccc-a074-77a8c73ff9c9"
+	},
+	"ALCH_EXTRACT_FEY" : 
+	{
+		"Description" : "",
+		"UUID" : "27a3d2ef-8d8b-4880-ae82-325b617ef627"
+	},
+	"ALCH_EXTRACT_FIRE" : 
+	{
+		"Description" : "",
+		"UUID" : "49eaebbf-cbc9-4ec7-a3ad-1ebaa61c69d6"
+	},
+	"ALCH_EXTRACT_SHADOW" : 
+	{
+		"Description" : "",
+		"UUID" : "793792be-c22c-48db-a3aa-3003a7566c4b"
+	},
+	"ALCH_EXTRACT_WATER" : 
+	{
+		"Description" : "",
+		"UUID" : "2abf1548-ab1a-43ce-85de-f7127465c879"
+	},
+	"ALCH_INGREDIENT" : 
+	{
+		"Description" : "",
+		"UUID" : "64b824e7-50c5-475a-98c2-52026e372d77"
+	},
+	"ALCH_SOLUTION" : 
+	{
+		"Description" : "",
+		"UUID" : "4b9a13c2-5499-4dd5-b8ba-331a2e972d78"
+	},
+	"ALCH_SOLUTION_COATING" : 
+	{
+		"Description" : "",
+		"UUID" : "9a42f996-decf-4fcc-ad11-2ba6abada287"
+	},
+	"ALCH_SOLUTION_ELIXIR" : 
+	{
+		"Description" : "",
+		"UUID" : "71031c9c-eb3e-49b3-bf38-20ce078eff15"
+	},
+	"ALCH_SOLUTION_GRENADE" : 
+	{
+		"Description" : "",
+		"UUID" : "f87b203d-75ad-4527-b717-137044bc2ea1"
+	},
+	"ALCH_SOLUTION_POTION" : 
+	{
+		"Description" : "",
+		"UUID" : "8798a644-4720-4487-bc1a-6a4bf8f3a126"
+	},
+	"ALCOHOL" : 
+	{
+		"Description" : "Tag to check whether drink is alcoholic or not",
+		"UUID" : "b8496c62-4ecb-45de-860c-ae3aab0ed7da"
+	},
+	"ALFIRA" : 
+	{
+		"Description" : "",
+		"UUID" : "c93d7c45-ff8f-4565-b4de-5b5eb48207bb"
+	},
+	"ALIGN_EVIL" : 
+	{
+		"Description" : "Tag used on God UUID objects to define their alignment. Don't change its name",
+		"UUID" : "6d08632e-0300-4587-80b9-8e411b0efb3b"
+	},
+	"ALIGN_GOOD" : 
+	{
+		"Description" : "Tag used on God UUID objects to define their alignment. Don't change its name",
+		"UUID" : "34064d50-38fe-44e4-aaed-129ac3b44933"
+	},
+	"ALIGN_NEUTRAL" : 
+	{
+		"Description" : "Tag used on God UUID objects to define their alignment. Don't change its name",
+		"UUID" : "c1ff8a7f-c430-4671-bc4e-098f874ae302"
+	},
+	"ALLOW_PICKPOCKET_FOR_SUBRACE" : 
+	{
+		"Description" : "|This character can be pickpocketed, even if its race tag nomrally blocks it. Should be only set on a root of a subrace.|",
+		"UUID" : "8064838d-48cc-454e-bdcd-7a1f76f798c5"
+	},
+	"ALLOW_SPEAK_WITH_DEAD" : 
+	{
+		"Description" : "|Allows SwD on entities normally wouldn't allow it.|",
+		"UUID" : "cd5365fe-990a-4855-b203-503203d8dd9e"
+	},
+	"ALWAYS_PERMANENTLY_HOSTILE_TO_ALL_PLAYERS" : 
+	{
+		"Description" : "NPC's faction is set permanently hostile to player factions as soon as they enter any combat",
+		"UUID" : "6115eeaa-0a4c-46b1-8a6d-2a83fbd65e07"
+	},
+	"APOSTLE_OF_MYRKUL" : 
+	{
+		"Description" : "",
+		"UUID" : "7fb75b00-68b1-4217-874e-6ce1812d20e8"
+	},
+	"ARCHDRUID_KAGHA" : 
+	{
+		"Description" : "A combat tag allowing character to exclusively target Kagha.",
+		"UUID" : "e1850f47-8063-45b6-b6cf-1dd6ade7f840"
+	},
+	"ARROW" : 
+	{
+		"Description" : "Special arrow, e.g. Arrow of Fire",
+		"UUID" : "fa8afea4-4742-4467-bdef-69851bd15878"
+	},
+	"ASMODEUSTIEFLING" : 
+	{
+		"Description" : "|Asmodeus Tiefling|",
+		"UUID" : "c3fd1fc3-2edf-4d17-935d-44ab92406df1"
+	},
+	"ASTARION" : 
+	{
+		"Description" : "| Astarion, Vampire Companion |",
+		"UUID" : "23a46e79-e73c-4043-940f-cb0aace9ab2e"
+	},
+	"ASTARIONHUNGER_CANDIDATE" : 
+	{
+		"Description" : "IVB Helper for NIGHT_AstarionHungerA",
+		"UUID" : "bd4e9140-4749-42d2-82b5-235b288c88a3"
+	},
+	"ASTARION_BITE_VICTIM" : 
+	{
+		"Description" : "| Technical tag for a voicebark system|",
+		"UUID" : "c912718b-b200-4305-80ef-4020de96356e"
+	},
+	"ASTRAL_ZEALOT" : 
+	{
+		"Description" : "Lae'zel variant background",
+		"UUID" : "a1103fcc-da28-40d0-872e-2c46899ae240"
+	},
+	"AUTOMATON" : 
+	{
+		"Description" : "",
+		"UUID" : "0f9099e9-a4d8-4b17-b2e5-e6f74eeb79b4"
+	},
+	"AVATAR" : 
+	{
+		"Description" : "A Character Selected in Character Creation",
+		"UUID" : "306b9b05-1057-4770-aa17-01af21acd650"
+	},
+	"Ally" : 
+	{
+		"Description" : "",
+		"UUID" : "9addaf05-65e6-4a78-836e-92f668e42ca6"
+	},
+	"BADASSCIVILIAN" : 
+	{
+		"Description" : "Generic Behaviours Civilian that have harsher reactions to crimes",
+		"UUID" : "91f4b379-63a2-40e9-a509-7b9b2f90e4c8"
+	},
+	"BADGER" : 
+	{
+		"Description" : "Species type for VFX",
+		"UUID" : "c00895b9-7d92-4848-af0b-477a231e00f5"
+	},
+	"BAHAMUT" : 
+	{
+		"Description" : "|Player or NPC chose Bahamut.|",
+		"UUID" : "fdccfc34-47e9-45ff-8755-511f91cb0e97"
+	},
+	"BALDURIAN" : 
+	{
+		"Description" : "For characters from Baldur's Gate. Used in Baldur's Gate 3",
+		"UUID" : "f15e9b0d-676c-4f52-9abf-365cff89ef0f"
+	},
+	"BALTHAZAR_NIGHSTONG_SKELETON" : 
+	{
+		"Description" : "Used for Balthazar's Reclaim Control spell",
+		"UUID" : "1ed53d67-c9d7-44aa-88dd-ab2b402154a0"
+	},
+	"BANE" : 
+	{
+		"Description" : "|Player or NPC chose Bane.|",
+		"UUID" : "494bddcf-9325-4883-a937-817fbdf11161"
+	},
+	"BANITE" : 
+	{
+		"Description" : "A tag to identify which Characters are Banites, so Iron Consuls can cast Voice of Command on them.",
+		"UUID" : "5f831985-6974-4106-91a7-44ae08341943"
+	},
+	"BANITE_BANEGHOST" : 
+	{
+		"Description" : "A tag to identify which Characters are Manifestations of Tyranny, so Iron Consuls canNOT cast Voice of Command on them.",
+		"UUID" : "8ed134bf-eecd-4ca0-ab83-78c0f3fb26e0"
+	},
+	"BANITE_BLACKGAUNTLET" : 
+	{
+		"Description" : "A tag to identify which Characters are Black Gauntlets, so Iron Consuls canNOT cast Voice of Command on them.",
+		"UUID" : "7132eb74-5836-42f4-ac50-bb26c0234fde"
+	},
+	"BARBARIAN" : 
+	{
+		"Description" : "They call you a savage, an animal. They don't know what it's like to need to fight, tooth and claw, just to survive. You do. ",
+		"UUID" : "02913f9a-f696-40cf-acdf-32032afab32c"
+	},
+	"BARD" : 
+	{
+		"Description" : "An inspiring magician whose power echoes the music of creation.",
+		"UUID" : "d93434bd-6b71-4789-b128-ee24156057cc"
+	},
+	"BEAR" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "298e9df0-bd3c-40f4-82ae-14adb77d7c2e"
+	},
+	"BEAST" : 
+	{
+		"Description" : "Type Tag for beast-type monsters (animals)",
+		"UUID" : "890b5a2a-e773-48df-b191-c887d87bec16"
+	},
+	"BEETLE" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "5b931643-e739-4caf-8c80-168304861df6"
+	},
+	"BEHOLDER" : 
+	{
+		"Description" : "Monster tag",
+		"UUID" : "b4ecfb1d-d8e6-4f2d-a003-0ed1f62b495b"
+	},
+	"BERSERKER" : 
+	{
+		"Description" : "A supplimentary Berserker tag for more primal lines.",
+		"UUID" : "ac3449f7-c09b-4bc0-8634-fcff97d49279"
+	},
+	"BESTIAL" : 
+	{
+		"Description" : "Race group (aarakocra, kenku, lizardfolk, tabaxi, tortle)",
+		"UUID" : "92aae5aa-4595-4f1c-96d2-9e2499d35c6f"
+	},
+	"BHAAL" : 
+	{
+		"Description" : "|Player or NPC chose Bhaal.|",
+		"UUID" : "f5e62c47-fb93-449f-9057-cb1a3c003aff"
+	},
+	"BIRD" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "bb9ccc7a-405c-4ba5-bcb4-32445b2dfd33"
+	},
+	"BLADE_OF_FRONTIERS" : 
+	{
+		"Description" : "Wyll variant background",
+		"UUID" : "03423cd8-db56-4840-a01f-84c8c3b728a6"
+	},
+	"BLINDSIGHT" : 
+	{
+		"Description" : "|Applied by the Bind Sight Passive. A monster with blindsight can perceive its surroundings without relying on sight, within a specific radius.|",
+		"UUID" : "a49c94ac-6903-408e-8b05-86371fd865c0"
+	},
+	"BLOCK_BOSS_DISTURBANCES" : 
+	{
+		"Description" : "",
+		"UUID" : "04a90774-cd81-4173-8918-1c0f7dc8ec2a"
+	},
+	"BLOCK_PICKPOCKET" : 
+	{
+		"Description" : "|This character cannot be pickpocketed|",
+		"UUID" : "fe2e65d3-a8de-45bf-a372-c339adec669e"
+	},
+	"BLOCK_RESURRECTION" : 
+	{
+		"Description" : "|Block target from being targetting by resurrection Spells|",
+		"UUID" : "22a75dbb-1588-407e-b559-5aa4e6d4e6a6"
+	},
+	"BLOCK_SPEAK_WITH_DEAD" : 
+	{
+		"Description" : "|Dead body with this tag is not applicable for Speak with the Dead spell|",
+		"UUID" : "70f9d685-b791-4ea2-88e4-fc8fc48b4234"
+	},
+	"BLOCK_USE_FROM_CONSTELLATION" : 
+	{
+		"Description" : "Set by a constellation that wants story to block uses of an item, and make it trigger the UseBlockedFromStory input socket on the item",
+		"UUID" : "89a63758-d622-41cd-81f9-baceffc12618"
+	},
+	"BLOOD_WAR_VETERAN" : 
+	{
+		"Description" : "Karlach variant background",
+		"UUID" : "4ebf24e4-19f2-4634-a2ec-b0ce82199d6f"
+	},
+	"BLUDGEONING" : 
+	{
+		"Description" : "Put on weapons with bludgeoning damage that would be tradeable to Wulbren.",
+		"UUID" : "3cbf1ad9-ebb4-4b37-8075-945fbfb471b3"
+	},
+	"BOAR" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "aa120bba-b749-4b54-8457-62ceae41688c"
+	},
+	"BODYTYPE_STRONG" : 
+	{
+		"Description" : "Applied to characters with Strong Body model",
+		"UUID" : "d3116e58-c55a-4853-a700-bee996207397"
+	},
+	"BONE" : 
+	{
+		"Description" : "Used onBone items. For animals who eat bones (dogs)",
+		"UUID" : "4ab2ef8c-8766-45bb-b3bb-cacc82865889"
+	},
+	"BONE_CORPSE_PILE" : 
+	{
+		"Description" : "Used for Animate Dead",
+		"UUID" : "677d225c-19ea-4de1-bd1d-ec8c2f2b8772"
+	},
+	"BOO" : 
+	{
+		"Description" : "|Used to see if Boo has been thrown to apply blinded onto target.|",
+		"UUID" : "b2d0061d-97df-4e3e-8017-921a6602a981"
+	},
+	"BOOK" : 
+	{
+		"Description" : "",
+		"UUID" : "8a8e253a-c081-45a1-9fa2-91b6901dc568"
+	},
+	"BRANDED" : 
+	{
+		"Description" : "| Branded as a follower of the Absolute |",
+		"UUID" : "310f7186-bb0b-4905-b8f6-dfc2fe62570a"
+	},
+	"BREWER_CREATURE" : 
+	{
+		"Description" : "A combat tag for the Brewer & his minions",
+		"UUID" : "8d76358a-70fe-4ea1-9a16-4f27ddab06e2"
+	},
+	"BUGBEAR" : 
+	{
+		"Description" : "Species tag for bugbears",
+		"UUID" : "dc18a33a-bdd1-41be-8ad5-e6fca917b54e"
+	},
+	"BULETTE" : 
+	{
+		"Description" : "",
+		"UUID" : "06c1ef36-dac6-4224-8320-d4d38f84897f"
+	},
+	"CAMBION" : 
+	{
+		"Description" : "Subtype Tag for cambions",
+		"UUID" : "79563753-c1e4-4f3a-93a7-4aad1f3ab46e"
+	},
+	"CAMPSUPPLIES" : 
+	{
+		"Description" : "Any item with this tag will get added to the camp supplies if added to a player's inventory",
+		"UUID" : "14e17bf7-a466-404a-b097-29642492a2b2"
+	},
+	"CANBEBLINDED" : 
+	{
+		"Description" : "Marks an item to be able to be BLINDED.",
+		"UUID" : "e19f68ed-0c16-425e-92d3-3fbd5d3c58a0"
+	},
+	"CANBECALMED" : 
+	{
+		"Description" : "Marks an item to be able to be CALMED.",
+		"UUID" : "e3a622d6-e9f3-4925-9650-7a3e6fefee6c"
+	},
+	"CANCAST_FIND_DOG_FAMILIAR" : 
+	{
+		"Description" : "The player has access to Target_FindFamiliar_Dog",
+		"UUID" : "4fe9c7b8-2f74-4467-901e-00be49468c9f"
+	},
+	"CANDLE" : 
+	{
+		"Description" : "|This item is a candle|",
+		"UUID" : "489adf86-3f6c-4e2f-b3e8-7d30d3908896"
+	},
+	"CANTLOSEEYE" : 
+	{
+		"Description" : "This character only has one functioning eye.",
+		"UUID" : "b5de40c5-edec-43a7-a918-1d85c13232de"
+	},
+	"CANTSPEAK" : 
+	{
+		"Description" : "|A character that does not possess natural speaking abilities (e.g. animals, intellect devourers, possibly also silenced characters, ...)|",
+		"UUID" : "693d950b-2617-43ac-8e3c-2ff5fda7f956"
+	},
+	"CANT_SHOVE_THROW" : 
+	{
+		"Description" : "Used to stop shove/throw of tagged target",
+		"UUID" : "43a3d567-8e45-4257-ab62-4543fc1bbbf2"
+	},
+	"CAT" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "a7d28634-e3bf-40c3-8d8c-e1daf4acad74"
+	},
+	"CELESTIAL" : 
+	{
+		"Description" : "Type Tag for celestial-type monsters",
+		"UUID" : "7cba0bd7-b955-4ac9-95ba-79e75978d9ac"
+	},
+	"CHARLATAN" : 
+	{
+		"Description" : "|You know what makes people tick, and you use this to your advantage. You are a master of deception and schemes.|",
+		"UUID" : "07925e5b-af3d-4743-a565-b9fee04c24ac"
+	},
+	"CHARMED_ADV" : 
+	{
+		"Description" : "Advantage on rolls against charm statuses",
+		"UUID" : "ada75891-25ff-4bdc-9a11-ad32de62a961"
+	},
+	"CHASM_IMMUNE" : 
+	{
+		"Description" : "Upon entering any chasm, will be returned to the nearest valid position without dying.",
+		"UUID" : "1063224a-a5ab-41b1-b309-0ac730e4e8ce"
+	},
+	"CHASM_IMMUNE_FLY" : 
+	{
+		"Description" : "Upon entering a chasm not tagged with DEEP_WATER_CHASM, will be returned to the nearest valid position without dying.",
+		"UUID" : "8803503b-64e0-49dd-ba5b-0c4f2c5cc0b5"
+	},
+	"CHASM_IMMUNE_SWIM" : 
+	{
+		"Description" : "Upon entering a chasm tagged with DEEP_WATER_CHASM, will be returned to the nearest valid position without dying.",
+		"UUID" : "b7018e56-3185-4dde-8605-48bd9e782969"
+	},
+	"CHEESE" : 
+	{
+		"Description" : "Food Tag",
+		"UUID" : "8d0976b4-1019-4095-adf6-60f1216cb2dc"
+	},
+	"CHICKEN" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "0fc0e733-c539-4d4d-b0cb-fef6d666ba9b"
+	},
+	"CHOSENOFBOOOAL" : 
+	{
+		"Description" : "|You have been chosen by BOOOAL, the God of Murder|",
+		"UUID" : "8e4a646f-7ec2-49bb-974e-d2cc34e9b525"
+	},
+	"CIVILIAN" : 
+	{
+		"Description" : "Generic Behaviours",
+		"UUID" : "71120d5d-3853-46e4-9762-33f59aa6b4ae"
+	},
+	"CIVIL_RACE" : 
+	{
+		"Description" : "Tag that make to logic about Playable Races ",
+		"UUID" : "be87fe94-657b-49fd-bec5-1348119018c7"
+	},
+	"CLERIC" : 
+	{
+		"Description" : "|A priestly champion who wields divine magic in service of a higher power.|",
+		"UUID" : "1671b4bf-4f47-4bb7-9cb9-80bb1f6009d5"
+	},
+	"CLERIC_BAHAMUT" : 
+	{
+		"Description" : "Player or NPC is cleric of Bane.",
+		"UUID" : "28ee4ac1-86a3-490e-ab02-7085bd7c56d6"
+	},
+	"CLERIC_BANE" : 
+	{
+		"Description" : "Player or NPC is cleric of Bane.",
+		"UUID" : "178016d5-e3d3-44bd-8aa5-6ac3d1c61e6c"
+	},
+	"CLERIC_BHAAL" : 
+	{
+		"Description" : "Player or NPC is cleric of Bhaal.",
+		"UUID" : "b03d4a89-bba7-45a4-a89d-a132ddd75637"
+	},
+	"CLERIC_CORELLONLARETHIAN" : 
+	{
+		"Description" : "Player or NPC is cleric of Corellon Larethian.",
+		"UUID" : "ca4e5850-139e-4b52-9d5e-553e33ff082a"
+	},
+	"CLERIC_EILISTRAEE" : 
+	{
+		"Description" : "Player is a cleric of EIlistraee.",
+		"UUID" : "c4749983-8bb9-4aa5-bf18-afd9cb1ce915"
+	},
+	"CLERIC_EVIL" : 
+	{
+		"Description" : "Player is a cleric of an evil-aligned deity",
+		"UUID" : "aa9f126f-ac9a-48d9-a128-1394fae8f4e8"
+	},
+	"CLERIC_GARLGLITTERGOLD" : 
+	{
+		"Description" : "Player or NPC is cleric of Garl Glittergold.",
+		"UUID" : "67bd28cc-9cf4-4c64-9213-8d26fbe27e1b"
+	},
+	"CLERIC_GOOD" : 
+	{
+		"Description" : "Player is a cleric of a good-aligned deity",
+		"UUID" : "64dc9d31-db7a-418e-bbbe-6f5b4d32608f"
+	},
+	"CLERIC_GRUUMSH" : 
+	{
+		"Description" : "Player or NPC is cleric of Gruumsh.",
+		"UUID" : "c3743bdd-3653-47fb-8a5c-d8489d7a1be0"
+	},
+	"CLERIC_HELM" : 
+	{
+		"Description" : "Player or NPC is cleric of Helm.",
+		"UUID" : "6c28eba6-f46c-4755-9e4e-0223e64f7d72"
+	},
+	"CLERIC_ILMATER" : 
+	{
+		"Description" : "Player or NPC is cleric of Ilmater.",
+		"UUID" : "838e9a70-94fc-4bcf-850a-19be5247a43b"
+	},
+	"CLERIC_KELEMVOR" : 
+	{
+		"Description" : "Player or NPC is cleric of Kelemvor.",
+		"UUID" : "a01efcc1-9e2f-4438-956b-b448cbf73bde"
+	},
+	"CLERIC_LADUGUER" : 
+	{
+		"Description" : "Player or NPC is cleric of Laduguer.",
+		"UUID" : "4276e5a0-f6b3-4f4e-8836-4cd8b0cade2f"
+	},
+	"CLERIC_LATHANDER" : 
+	{
+		"Description" : "Player or NPC is cleric of Lathander.",
+		"UUID" : "6e31b516-92fc-4526-b1cd-92516e02cf86"
+	},
+	"CLERIC_LOLTH" : 
+	{
+		"Description" : "Player or NPC is cleric of Lolth.",
+		"UUID" : "7aee9e55-ecb4-4cdc-804d-1ec20d07efc5"
+	},
+	"CLERIC_MIELIKKI" : 
+	{
+		"Description" : "Player or NPC is cleric of Mielikki.",
+		"UUID" : "5ce73ec6-be80-4853-ad3c-12149d71e07e"
+	},
+	"CLERIC_MORADIN" : 
+	{
+		"Description" : "Player or NPC is cleric of Moradin.",
+		"UUID" : "3ce8734c-440c-43f8-b0f4-079d69e7eb33"
+	},
+	"CLERIC_MYRKUL" : 
+	{
+		"Description" : "Player or NPC is cleric of Myrkul.",
+		"UUID" : "7ea36792-21e5-4ea9-9544-de276651c376"
+	},
+	"CLERIC_MYSTRA" : 
+	{
+		"Description" : "Player or NPC is cleric of Mystra.",
+		"UUID" : "90de46bd-9f0c-4c2f-9505-56063b31b360"
+	},
+	"CLERIC_NEUTRAL" : 
+	{
+		"Description" : "Player is a cleric of a neutral-aligned deity.",
+		"UUID" : "2947a463-3c45-4a70-959a-3e81a943ab92"
+	},
+	"CLERIC_OGHMA" : 
+	{
+		"Description" : "Player or NPC is cleric of Oghma.",
+		"UUID" : "9fbbedb6-c485-4c6b-94b7-c7d7592223b3"
+	},
+	"CLERIC_SELUNE" : 
+	{
+		"Description" : "Player or NPC is cleric of Selune.",
+		"UUID" : "10b2a53c-3eb0-451c-8057-0f1cc9e62a4d"
+	},
+	"CLERIC_SHAR" : 
+	{
+		"Description" : "Player or NPC is cleric of Shar.",
+		"UUID" : "0d1d64b8-70d6-4702-8643-be348b0f3fc6"
+	},
+	"CLERIC_TALOS" : 
+	{
+		"Description" : "Player or NPC is cleric of Talos.",
+		"UUID" : "da25a7cc-066d-43dc-8f1e-74c17cd0d589"
+	},
+	"CLERIC_TEMPUS" : 
+	{
+		"Description" : "Player or NPC is cleric of Tempus.",
+		"UUID" : "31d96353-a4b8-4abf-9cce-f7a9174e65da"
+	},
+	"CLERIC_TIAMAT" : 
+	{
+		"Description" : "Player or NPC is cleric of Tiamat.",
+		"UUID" : "4cd1c7f7-7a8c-421a-87dc-687c4eefd683"
+	},
+	"CLERIC_TYMORA" : 
+	{
+		"Description" : "Player or NPC is cleric of Tymora.",
+		"UUID" : "edc085f7-63f8-4bb0-b60c-b68c92b67708"
+	},
+	"CLERIC_TYR" : 
+	{
+		"Description" : "Player or NPC is cleric of Tyr.",
+		"UUID" : "16657b43-323e-4eee-8982-77338229444b"
+	},
+	"CLERIC_VLAAKITH" : 
+	{
+		"Description" : "Player or NPC is cleric of Vlaakith.",
+		"UUID" : "91b2d344-fce8-48b3-a83d-9688cbddb1b8"
+	},
+	"CLERIC_YONDALLA" : 
+	{
+		"Description" : "Player or NPC is cleric of Yondalla.",
+		"UUID" : "dc005135-7eee-4406-a46e-9535e7412422"
+	},
+	"CLOAKER_PHASM_SPAWN_HELPER" : 
+	{
+		"Description" : "To determine where the first Cloaker Phantasm will spawn.",
+		"UUID" : "67861b17-bf46-4fa8-8f55-de1216cbec26"
+	},
+	"CLOAKER_PHASM_SPAWN_HELPER2" : 
+	{
+		"Description" : "To determine where the second Cloaker Phantasm will spawn.",
+		"UUID" : "c17ccab2-439c-4893-92a2-aa697db90661"
+	},
+	"CLOAKER_PHASM_SPAWN_HELPER3" : 
+	{
+		"Description" : "To determine where the third Cloaker Phantasm will spawn.",
+		"UUID" : "86fb6653-9c6e-4b9b-8355-03d9cc99b477"
+	},
+	"CLOISTERED_STRAY" : 
+	{
+		"Description" : "Shadowheart variant background",
+		"UUID" : "9a839349-e128-4b92-aee6-b2b8a311fd7a"
+	},
+	"COATING" : 
+	{
+		"Description" : "Tag used to play animation for consumables that coat weapon",
+		"UUID" : "354041e2-72d7-422d-ae75-aa0ac22d5ebd"
+	},
+	"COMBATPORTAL" : 
+	{
+		"Description" : "Specifies which portals or teleporters the NPCs can use during COMBAT.",
+		"UUID" : "bde69893-ee8d-4327-aa58-075e40ce1e05"
+	},
+	"COMBAT_FALLBACK_AD_MUTE" : 
+	{
+		"Description" : "Combat tag, specifically created for combat fallback AD filtering",
+		"UUID" : "c2ac7224-9157-446e-b909-4c01c53025f5"
+	},
+	"COMBAT_FORMATIONTACTICS" : 
+	{
+		"Description" : "This tag will govern who can benefit from Formation Tactics (Guards, Flaming Fist...)",
+		"UUID" : "adb71c5b-0f7d-44bf-9d34-6912d014578a"
+	},
+	"COMBAT_GOBLINKING" : 
+	{
+		"Description" : "This tag allows Dror Ragzlin's allies to cast healing spells upon him - and only upon him.",
+		"UUID" : "406d4f64-8713-4d6c-a498-abe40e9ec6c1"
+	},
+	"COMBAT_PACKTACTICS" : 
+	{
+		"Description" : "This tag will govern who can benefit from Pack Tactics (Hyenas, Zhentarim fighters...)",
+		"UUID" : "6e046250-7aa6-4a81-897f-e6cf3f208e5c"
+	},
+	"COMPREHEND_LANGUAGES" : 
+	{
+		"Description" : "Able to read any languages",
+		"UUID" : "1d6e36a6-d757-449b-8040-2af3f1a99c3a"
+	},
+	"CONSTRUCT" : 
+	{
+		"Description" : "Type Tag for Construct-type monsters",
+		"UUID" : "22e5209c-eaeb-40dc-b6ef-a371794110c2"
+	},
+	"CONSUMABLE" : 
+	{
+		"Description" : "Food or drink",
+		"UUID" : "4d79b277-97f0-4227-a780-7a14fb9827fc"
+	},
+	"CONTROL_UNDEAD_IMMUNE" : 
+	{
+		"Description" : "Tag used to give immunity against control undead to some characters.",
+		"UUID" : "9be69f6b-a5a9-4b84-ad7e-cd3a420fb81f"
+	},
+	"CORELLONLARETHIAN" : 
+	{
+		"Description" : "Player or NPC worships Corellon Larethian.",
+		"UUID" : "575b3b3c-4a5b-44d5-868f-0c6875f95568"
+	},
+	"CORPSE_PILE" : 
+	{
+		"Description" : "| Can be a target for Animate Dead |",
+		"UUID" : "b4ddc9cf-e406-47bb-aa77-0a1a603cdd2b"
+	},
+	"CORPSE_SPOKEN" : 
+	{
+		"Description" : "| Has been the target of speak with dead|",
+		"UUID" : "249ba319-6652-47ec-9f31-ef5be55429c3"
+	},
+	"COW" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "e9b781b3-40af-4d43-856c-e98b0694764c"
+	},
+	"CRAB" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "757ee779-e15e-4663-8a56-ab8929f56c02"
+	},
+	"CREATURE_SPORE_SERVANT" : 
+	{
+		"Description" : "This character has been reanimated by myconid spores and is now an undead spore servant.",
+		"UUID" : "e45d5440-4a29-42e1-845d-890ae8e82a63"
+	},
+	"CRE_ASTRALPRISON_SPOKETODAISY" : 
+	{
+		"Description" : "Does not display; internal tag to track the player who spoke to Daisy",
+		"UUID" : "4c0924fc-5a3e-435b-8d1d-cd2e70968e54"
+	},
+	"CRIMINAL" : 
+	{
+		"Description" : "|You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld.|",
+		"UUID" : "74ed9de3-fff5-419a-949b-18bd5e17944e"
+	},
+	"CROCODILE" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "a7e489d1-cfe5-44c3-9eb8-a60cd89ff71a"
+	},
+	"CROWDSYS_ITEM" : 
+	{
+		"Description" : "Tag that is set on certien Items to make them counted in the crowd system",
+		"UUID" : "421e9ec8-03d2-47eb-a6ca-db7aa30ab7c4"
+	},
+	"CROWDSYS_NPC" : 
+	{
+		"Description" : "Tag for disturbance/crime reactions by crowd system NPCs",
+		"UUID" : "1274ffab-2fa2-4d6f-801e-751664ceb771"
+	},
+	"CUSTOM_BURN_VFX" : 
+	{
+		"Description" : "",
+		"UUID" : "3e1e0629-2ded-4e27-8cbd-a6e92d3d3ed1"
+	},
+	"DAISY_DESIRETRACK" : 
+	{
+		"Description" : "",
+		"UUID" : "8f815f65-6fe5-4671-8e2b-63575e1f2e88"
+	},
+	"DAISY_FEARTRACK" : 
+	{
+		"Description" : "",
+		"UUID" : "c1400eed-4e63-4cb6-8ae1-f616505fda1a"
+	},
+	"DAISY_FEMALE" : 
+	{
+		"Description" : "|Daisy female gender|",
+		"UUID" : "17c2405e-5771-4150-ad00-b1ef8d1dd5ae"
+	},
+	"DAISY_FEMALE_VOICE" : 
+	{
+		"Description" : "Internal tag that should never display-- player selected daisy's female voice",
+		"UUID" : "3549f056-0826-45ee-a8ae-351449b70fe3"
+	},
+	"DAISY_MALE" : 
+	{
+		"Description" : "|Daisy male gender|",
+		"UUID" : "807af8f5-0183-42d9-8d40-6e93d5236cc2"
+	},
+	"DAISY_MALE_VOICE" : 
+	{
+		"Description" : "Does not dispaly; internal tag to mark the player has chosen Daisy's male voice",
+		"UUID" : "799118d3-901c-41cc-8f99-25326d23c649"
+	},
+	"DAISY_NEUTRAL" : 
+	{
+		"Description" : "A tag to identify lines that check on Daisy having a non-binary identity",
+		"UUID" : "3caea564-7be7-4f04-ad3c-05f4ebee3926"
+	},
+	"DAISY_REASONTRACK" : 
+	{
+		"Description" : "",
+		"UUID" : "6ea65c6d-3172-4478-9530-b74cbdcbb870"
+	},
+	"DARK_JUSTICIAR" : 
+	{
+		"Description" : "Character is a Dark Justiciar of Shar",
+		"UUID" : "4e4e26e8-9bbf-4913-93c7-c55972a6d051"
+	},
+	"DARK_URGE" : 
+	{
+		"Description" : "|Dark Urge origin tag.|",
+		"UUID" : "fe825e69-1569-471f-9b3f-28fd3b929683"
+	},
+	"DEAD_SPEAKER" : 
+	{
+		"Description" : "| A Tag to mark dead spekers in a dialog|",
+		"UUID" : "72de9ad8-bd70-4b1f-be9d-2551c5bd8837"
+	},
+	"DEBUG" : 
+	{
+		"Description" : "Tag for skipping certain challenges",
+		"UUID" : "b8d357e9-afe5-487d-b6c0-1fbcc22d3a92"
+	},
+	"DECLUTTER" : 
+	{
+		"Description" : "Tag to indicate that the trigger this is assigned to needs to be included in the declutter calculations when DeclutterLevelTemplate is called",
+		"UUID" : "7c601918-966e-45b1-8684-6b82a2066a99"
+	},
+	"DEEPGNOME" : 
+	{
+		"Description" : "|Deep Gnome|",
+		"UUID" : "2bbc3217-3d8c-46e6-b599-a0f1c9063f9a"
+	},
+	"DEEPROTHE" : 
+	{
+		"Description" : "",
+		"UUID" : "bba2bcc8-eb3c-435d-97dd-f522ec43ee67"
+	},
+	"DEEP_WATER_CHASM" : 
+	{
+		"Description" : "Tag to indicate that a chasm is \"deep water\" - see CHASM_IMMUNE_SWIM and CHASM_IMMUNE_FLY descriptions.",
+		"UUID" : "fb59fa11-9bd3-4af4-a81d-b5ad1882102e"
+	},
+	"DEER" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "f1a7354a-c38f-4d89-af73-a38403e1f9d3"
+	},
+	"DEFEATED" : 
+	{
+		"Description" : "Set on defeated characters. Removed by script when defeated status gets cleared.",
+		"UUID" : "f0020818-86f1-4ee9-a5a9-9ace9ecc9010"
+	},
+	"DEMON" : 
+	{
+		"Description" : "Demonic creatures",
+		"UUID" : "9a187721-0588-4f3c-ba9c-bff4989001b9"
+	},
+	"DEN_HIDEOUTKID" : 
+	{
+		"Description" : "| React to DEN_ThieflingHideoutTrespass custom crime. |",
+		"UUID" : "52c6aff2-d34c-44f6-bc1e-2992b5cb9461"
+	},
+	"DEN_KIDPROTECTOR" : 
+	{
+		"Description" : "| React to Thiefling Hideout Crime. |",
+		"UUID" : "31e8b88d-a232-43d5-8cce-74c590fe23c8"
+	},
+	"DETECTTHOUGHTS" : 
+	{
+		"Description" : "|Player has acces to Detect Thoughts (Either spell prepared and free spellslot or scroll available) | Also used in as Interal Speech indicator",
+		"UUID" : "7e0395f8-aa53-4549-9af3-e2d203d678ee"
+	},
+	"DEVA" : 
+	{
+		"Description" : "Deva",
+		"UUID" : "f3045a08-1739-4776-9d7b-6c52b55ba8a9"
+	},
+	"DEVIL" : 
+	{
+		"Description" : "|Tag for lawful evil fiends|",
+		"UUID" : "6abb4b64-51a7-4d63-9359-66f0047a6fe2"
+	},
+	"DIAMOND" : 
+	{
+		"Description" : "",
+		"UUID" : "c602daff-1e6b-45d3-a41d-e4ec332652f3"
+	},
+	"DIG" : 
+	{
+		"Description" : "Chest VFX during digging.",
+		"UUID" : "eccffef9-1e5e-44b8-b14c-2af0faeea423"
+	},
+	"DINOSAUR" : 
+	{
+		"Description" : "",
+		"UUID" : "c485baa6-d363-462b-856d-d946b60aab61"
+	},
+	"DISABLE_WEAPON_EFFECTS" : 
+	{
+		"Description" : "Disables weapon effects on the tagged weapon",
+		"UUID" : "e0a85c7e-09d4-4395-948a-4ee272ad1953"
+	},
+	"DISCOVERABLE" : 
+	{
+		"Description" : "|Used to determine what scratch can find in the game|",
+		"UUID" : "ebe17d12-23a8-4554-8bf4-20589d42ea52"
+	},
+	"DISPLACER_BEAST" : 
+	{
+		"Description" : "Displacer beast racial tag",
+		"UUID" : "ba107054-6d0a-45de-93bc-06d72d4feeb3"
+	},
+	"DIVINE_INTERVENTION" : 
+	{
+		"Description" : "",
+		"UUID" : "0aa50ec5-f0a5-4a9d-a3c8-3ae49a37941e"
+	},
+	"DIVINE_INTERVENTION_USED" : 
+	{
+		"Description" : "A tag to identify if a character has already used Divine Intervention. This makes sure the spell cannot be re-added.",
+		"UUID" : "37ad267f-7295-4c1e-9ca4-769c8c06441d"
+	},
+	"DJINNI" : 
+	{
+		"Description" : "|A tag for the Djinni.|",
+		"UUID" : "bf11285b-996d-4779-9273-d91e6d38860e"
+	},
+	"DOG" : 
+	{
+		"Description" : "Subspecies Tag",
+		"UUID" : "35313c46-61b6-4e06-b054-ae84400a1890"
+	},
+	"DONOTUSE_COMPANION" : 
+	{
+		"Description" : "Tagging possible companions and henchmen so that they put items on bottom bar like players.",
+		"UUID" : "2a4f9fcc-5891-4150-bf3f-a219e69a7f33"
+	},
+	"DONT_DECLUTTER" : 
+	{
+		"Description" : "This entity will not be decluttered (mostly done by camps)",
+		"UUID" : "b774a7ec-4c37-4223-9a03-2b321246cc55"
+	},
+	"DOUBLE_ALCHEMY" : 
+	{
+		"Description" : "Used in Osiris to roll Medicine check when crafting new potions and obtain double result.",
+		"UUID" : "648a06ce-8eb0-4905-b4b8-6724df91a5f5"
+	},
+	"DOWNED_DISABLED" : 
+	{
+		"Description" : "Does not become Downed",
+		"UUID" : "7095912e-fcb9-41dd-aec3-3cf7803e4b22"
+	},
+	"DO_NOT_TRANSLATE" : 
+	{
+		"Description" : "Used to remove tagged node from loca translation - used for nodes featuring only string vars",
+		"UUID" : "e10d0262-f1fe-425d-9e45-8bff373731d7"
+	},
+	"DRAGON" : 
+	{
+		"Description" : "Type Tag for Dragon-type monsters",
+		"UUID" : "95748ad1-cda2-4c0c-a9b2-875899327693"
+	},
+	"DRAGONBORN" : 
+	{
+		"Description" : "Character looks like a dragonborn",
+		"UUID" : "02e5e9ed-b6b2-4524-99cd-cb2bc84c754a"
+	},
+	"DRAGON_FLYPOINT_A" : 
+	{
+		"Description" : "",
+		"UUID" : "2f09de52-b7be-4e48-b8ff-7b15aeba1037"
+	},
+	"DRAGON_FLYPOINT_B" : 
+	{
+		"Description" : "",
+		"UUID" : "ff0b9ae6-43fe-4ace-8b47-c1e0a79e80c5"
+	},
+	"DRINK" : 
+	{
+		"Description" : "Food/Consumable",
+		"UUID" : "8e318736-9f62-458e-8fd0-463d0b298c05"
+	},
+	"DROWELF" : 
+	{
+		"Description" : "|Drow|",
+		"UUID" : "a672ac1d-d088-451a-9537-3da4bf74466c"
+	},
+	"DROWHALFELF" : 
+	{
+		"Description" : "|Drow Half-Elf|",
+		"UUID" : "4fa13243-199d-4c9a-b455-d844276a98f5"
+	},
+	"DRUID" : 
+	{
+		"Description" : "A priest of the Old Faith, wielding the powers of nature and adopting animal forms.",
+		"UUID" : "44ac4317-4d38-4d28-80e2-94024c6e42f0"
+	},
+	"DUERGARDWARF" : 
+	{
+		"Description" : "|Duergar|",
+		"UUID" : "78adf3cd-4741-47a8-94f6-f3d322432591"
+	},
+	"DWARF" : 
+	{
+		"Description" : "|Dwarf|",
+		"UUID" : "486a2562-31ae-437b-bf63-30393e18cbdd"
+	},
+	"EAGLE" : 
+	{
+		"Description" : "Combat tag for eagles so that they can screech!",
+		"UUID" : "85f98951-5d9f-4beb-9cb3-4828340ed23f"
+	},
+	"EILISTRAEE" : 
+	{
+		"Description" : "|Player or NPC chose Eilistraee.|",
+		"UUID" : "7cef166f-7766-4332-b9aa-d0d06fbca61e"
+	},
+	"ELEMENTAL" : 
+	{
+		"Description" : "Type Tag for ELEMENTAL-type monsters",
+		"UUID" : "196351e2-ff25-4e2b-8560-222ac6b94a54"
+	},
+	"ELEMENTAL_AIR" : 
+	{
+		"Description" : "Used by VFX for Elemental Warp spell",
+		"UUID" : "b9413db4-f096-4232-ae21-33ca0ac856af"
+	},
+	"ELEMENTAL_EARTH" : 
+	{
+		"Description" : "Used by VFX for Elemental Warp spell",
+		"UUID" : "ea959210-d136-454b-bc6a-8c153cb4efa6"
+	},
+	"ELEMENTAL_FIRE" : 
+	{
+		"Description" : "Used by VFX for Elemental Warp spell",
+		"UUID" : "4a12b219-8eae-471b-8f3b-c388da29fc1e"
+	},
+	"ELEMENTAL_WATER" : 
+	{
+		"Description" : "Used by VFX for Elemental Warp spell",
+		"UUID" : "c7fdad4f-2953-4de8-8a4f-109e36ec3640"
+	},
+	"ELF" : 
+	{
+		"Description" : "|Elf|",
+		"UUID" : "351f4e42-1217-4c06-b47a-443dcf69b111"
+	},
+	"EMPEROR" : 
+	{
+		"Description" : "Used for VFX filtering",
+		"UUID" : "234f357f-4b2b-4611-a225-52ef098b5fcc"
+	},
+	"END_CROWN_OF_KARSUS" : 
+	{
+		"Description" : "Tag for use with Karsus' Compulsion spell.",
+		"UUID" : "f61a0325-1150-47b7-8702-b0f0d24107c8"
+	},
+	"ENFORCE_ANALYSIS" : 
+	{
+		"Description" : "Tag for characters that must be looked at by Treasure and Experience Analyser",
+		"UUID" : "3bd9cf0a-5512-4d6a-9da8-d15684ea0412"
+	},
+	"ENTERTAINER" : 
+	{
+		"Description" : "|You know how to entrance, entertain, and inspire an audience. Your art is your life.|",
+		"UUID" : "bd3cfefd-5fe2-47ea-bd3c-e99eaad9b714"
+	},
+	"ETTERCAP" : 
+	{
+		"Description" : "Species' tag",
+		"UUID" : "ac54d665-f27c-4f14-8d4c-0df7a337a976"
+	},
+	"EXPLOSIVES" : 
+	{
+		"Description" : "Used to track all the smokepowder, runepowder and other explosive items.",
+		"UUID" : "f6e89388-0e91-4e9d-b5b7-1d4938dda540"
+	},
+	"EXTRA_ATTACK_BLOCKED" : 
+	{
+		"Description" : "A system tag to block Extra Attacks. Applied, for instance, to shadow-cursed undead in SCL.",
+		"UUID" : "d0e9dcd3-d65c-4c43-933d-af3fd9c30fb0"
+	},
+	"Enemy" : 
+	{
+		"Description" : "",
+		"UUID" : "43ef091a-1e8c-4906-a4fd-229506e6bb41"
+	},
+	"FEMALE" : 
+	{
+		"Description" : "",
+		"UUID" : "3806477c-65a7-4100-9f92-be4c12c4fa4f"
+	},
+	"FEY" : 
+	{
+		"Description" : "Type Tag for fey-type monsters",
+		"UUID" : "8cac055c-82dd-435c-9496-cf4c4b4581ab"
+	},
+	"FIEND" : 
+	{
+		"Description" : "Type Tag for fiend-type monsters",
+		"UUID" : "44be2f5b-f27e-4665-86f1-49c5bfac54ab"
+	},
+	"FIGHTER" : 
+	{
+		"Description" : "A master of martial combat, skilled with a variety of weapons and armour.",
+		"UUID" : "1ae7017c-4884-4a43-bc4a-742fa0d201c0"
+	},
+	"FIND_FAMILIAR" : 
+	{
+		"Description" : "",
+		"UUID" : "8713fda9-1855-42ef-8c54-a1e2d5a49194"
+	},
+	"FIRBOLG" : 
+	{
+		"Description" : "Character looks like a firbolg",
+		"UUID" : "45759dc2-4d7a-4853-af73-50cfd412409b"
+	},
+	"FISH" : 
+	{
+		"Description" : "Food",
+		"UUID" : "ec16c2d2-2943-41cf-9796-0439ef65b2cf"
+	},
+	"FLESH_GOLEM" : 
+	{
+		"Description" : "Monster tag",
+		"UUID" : "3fb78de4-190d-4ae4-b491-be89959fae56"
+	},
+	"FOLKHERO" : 
+	{
+		"Description" : "|You have humble beginnings, but are destined for so much more. Already the people of your home village regard you as their champion, and your destiny calls you to stand against the tyrants and monsters that threaten the common folk everywhere.|",
+		"UUID" : "9c38904c-4aed-4d22-9038-fc7d103aaed5"
+	},
+	"FOLLOWER" : 
+	{
+		"Description" : "Character is currently a follower in the player party.",
+		"UUID" : "275cee8d-2c1a-4afc-b6a0-0ef6ed2b11ee"
+	},
+	"FOOD" : 
+	{
+		"Description" : "Food/Consumable",
+		"UUID" : "c86e0114-a5ab-48f6-b497-de321ebff577"
+	},
+	"FORBIDDENKNOWLEDGE" : 
+	{
+		"Description" : "Earned by finishing the Tome of Thayan Necromancy. Will be relevant in later acts.",
+		"UUID" : "673cb6af-f12b-4d6e-abfa-1bb83cf4ce44"
+	},
+	"FORBIDDEN_FOR_SILENCE" : 
+	{
+		"Description" : "|Items with this tag will create Vandalize crime if Silence is applied on them.|",
+		"UUID" : "ff5acb44-0a6e-435a-968a-586bd03dd611"
+	},
+	"FORESTGNOME" : 
+	{
+		"Description" : "|Forest Gnome|",
+		"UUID" : "09518377-4ea1-4ce2-b8e8-61477c26ebdd"
+	},
+	"FOR_GOBLINTRIBE" : 
+	{
+		"Description" : "Goblin Tribe's generics tag. Used in a quest in the Forest",
+		"UUID" : "107e2c8a-8293-4650-9c9e-647ed66e1769"
+	},
+	"FRIGHTENED_ADV" : 
+	{
+		"Description" : "Advantage on rolls against frightened statuses",
+		"UUID" : "6fea07d3-020d-413d-b467-9616a99d25ef"
+	},
+	"FRIGHTENED_DISADV" : 
+	{
+		"Description" : "Disadvantage on rolls against frightened statuses",
+		"UUID" : "ff464189-e5a7-4f53-bacb-8dd21c024350"
+	},
+	"FROG" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "0976fc05-da0e-43ea-8978-5accef445e0f"
+	},
+	"FULL_CEREMORPH" : 
+	{
+		"Description" : "|Player has become a full Mind Flayer|",
+		"UUID" : "3797bfc4-8004-4a19-9578-61ce0714cc0b"
+	},
+	"FUNGUS" : 
+	{
+		"Description" : "For fungi items that need to be targetable by necrotic spells",
+		"UUID" : "9ce24229-8350-49ee-bd8f-da34a08e8be6"
+	},
+	"GALE" : 
+	{
+		"Description" : "|Gale companion|",
+		"UUID" : "a3907be6-50c2-407e-b159-8c53f9a3418e"
+	},
+	"GARLGLITTERGOLD" : 
+	{
+		"Description" : "Player or NPC worships Garl Glittergold.",
+		"UUID" : "4a4130a1-c96a-43e8-91cc-1e3959e50053"
+	},
+	"GASEOUS_FORM" : 
+	{
+		"Description" : "A gaseous form",
+		"UUID" : "22d7c29e-28d8-4126-ab03-8a7adbf98850"
+	},
+	"GASPIT" : 
+	{
+		"Description" : "Object is a gaspit",
+		"UUID" : "c39d6f8f-646e-485c-8d3f-df1ceb5afb87"
+	},
+	"GENASI" : 
+	{
+		"Description" : "Character looks like a genasi",
+		"UUID" : "48d7b679-dffd-4f68-a306-adac19de8acf"
+	},
+	"GENERIC" : 
+	{
+		"Description" : "|Generic origin|",
+		"UUID" : "730e82f3-c067-44a4-985b-0dfe079d4fea"
+	},
+	"GENITAL_PENIS" : 
+	{
+		"Description" : "Character has a penis",
+		"UUID" : "d27831df-2891-42e4-b615-ae555404918b"
+	},
+	"GENITAL_VULVA" : 
+	{
+		"Description" : "Character has a vulva",
+		"UUID" : "a0738fdf-ca0c-446f-a11d-6211ecac3291"
+	},
+	"GHOST" : 
+	{
+		"Description" : "",
+		"UUID" : "3def9d73-7c73-487b-8111-d1df1dce076e"
+	},
+	"GIANT" : 
+	{
+		"Description" : "Type Tag for giant-type monsters",
+		"UUID" : "375bd683-249f-488e-8ada-4ea49df5540d"
+	},
+	"GITHYANKI" : 
+	{
+		"Description" : "Character looks like a githyanki",
+		"UUID" : "677ffa76-2562-4217-873e-2253d4720ba4"
+	},
+	"GLO_GENERIC_CULTIST" : 
+	{
+		"Description" : "Combat fallback AD tag",
+		"UUID" : "35e61bba-f575-4d24-a3d4-ac29ad9878f9"
+	},
+	"GNOLL" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "1350164f-85e1-42f9-89c9-eb0c6703e890"
+	},
+	"GNOLL_FLESHGNAWER" : 
+	{
+		"Description" : "Monster tag",
+		"UUID" : "0ef7a827-b872-4c8c-85f0-2a2b516439c4"
+	},
+	"GNOLL_FLIND" : 
+	{
+		"Description" : "Monster tag",
+		"UUID" : "fbc00bf9-4124-4dd1-922e-9e508e271af5"
+	},
+	"GNOME" : 
+	{
+		"Description" : "|Gnome|",
+		"UUID" : "1f0551f3-d769-47a9-b02b-5d3a8c51978c"
+	},
+	"GOBLIN" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "608597d9-bf00-4ede-aabe-767457280925"
+	},
+	"GOBLIN_KID" : 
+	{
+		"Description" : "Behaviour Tag",
+		"UUID" : "88730ec2-439e-4172-95f4-b7f1875169fa"
+	},
+	"GREMISHKA" : 
+	{
+		"Description" : "Species Tag",
+		"UUID" : "8c0c7811-d944-4780-8e62-96f0911819e5"
+	},
+	"GRENADE" : 
+	{
+		"Description" : "",
+		"UUID" : "fe0d86c3-a562-430e-a633-d8bf9bb27284"
+	},
+	"GROVE_KEEPER" : 
+	{
+		"Description" : "Halsin variant background",
+		"UUID" : "2af9b9be-be8e-406a-852e-2df1f8684f3d"
+	},
+	"GRUUMSH" : 
+	{
+		"Description" : "|Player or NPC chose Gruumsh.|",
+		"UUID" : "7ef33e10-bdb0-4268-833a-5da1e52aa26a"
+	},
+	"GUARD" : 
+	{
+		"Description" : "Used In Generics",
+		"UUID" : "0b52f35e-fb1f-4865-bcd2-5d21ef7343cd"
+	},
+	"GUILD_ARTISAN" : 
+	{
+		"Description" : "",
+		"UUID" : "baf9fb0e-f535-40a0-bb78-3ec289d84e66"
+	},
+	"HAG" : 
+	{
+		"Description" : "Subtype Tag for hags",
+		"UUID" : "fe8308ce-d51c-4f41-a986-217a9c6dac5f"
+	},
+	"HAGEYED" : 
+	{
+		"Description" : "|This character's eye has been blinded by Auntie Ethel the Hag|",
+		"UUID" : "c1f7de2b-7cc5-41bc-a723-011172bbc4ba"
+	},
+	"HAG_AIHELPER_CAGELEVER" : 
+	{
+		"Description" : "",
+		"UUID" : "28d93787-9cce-47bd-b111-8f0c483fbade"
+	},
+	"HALFELF" : 
+	{
+		"Description" : "|Half-Elf|",
+		"UUID" : "34317158-8e6e-45a2-bd1e-6604d82fdda2"
+	},
+	"HALFLING" : 
+	{
+		"Description" : "|Halfling|",
+		"UUID" : "b99b6a5d-8445-44e4-ac58-81b2ee88aab1"
+	},
+	"HALFORC" : 
+	{
+		"Description" : "Player is a half-orc",
+		"UUID" : "3311a9a9-cdbc-4b05-9bf6-e02ba1fc72a3"
+	},
+	"HALSIN" : 
+	{
+		"Description" : "",
+		"UUID" : "b3af2048-9443-47eb-b643-b3b025c7af60"
+	},
+	"HARPY" : 
+	{
+		"Description" : "",
+		"UUID" : "4ce54d09-192f-4090-a5fd-72b84c9400de"
+	},
+	"HASSWDDIALOG" : 
+	{
+		"Description" : "Character is interesting for purposes of Speak With Dead.",
+		"UUID" : "21be1053-c642-4081-b64b-56678ae11594"
+	},
+	"HAUNTED_ONE" : 
+	{
+		"Description" : "Dark Ugre background",
+		"UUID" : "ce00b3b6-238e-4524-851b-3d1f2d2b1189"
+	},
+	"HAV_HARPER_LYMN" : 
+	{
+		"Description" : "Filters lines for Harper Lymn to reflect her specific speech pattern.",
+		"UUID" : "c4a5a026-c1f1-474f-b8d6-8775946d825e"
+	},
+	"HEALING_POTION" : 
+	{
+		"Description" : "Tags healing potions",
+		"UUID" : "1879a93d-2edf-4f54-85dd-81a3724d677f"
+	},
+	"HELM" : 
+	{
+		"Description" : "|Player or NPC chose Helm.|",
+		"UUID" : "c33d2cf7-1c8d-41ea-b4d9-4773778410f6"
+	},
+	"HENCHMAN" : 
+	{
+		"Description" : "Recruited henchman",
+		"UUID" : "bdf9490a-a51f-4995-96c2-e9da59e30253"
+	},
+	"HERMIT" : 
+	{
+		"Description" : "|You lived in seclusion -either in a sheltered community such as a monastery, or entirely alone- for a formative part of your life.|",
+		"UUID" : "2fa3f042-2b50-41b2-8045-39ddd4421ca9"
+	},
+	"HIGHELF" : 
+	{
+		"Description" : "|High Elf|",
+		"UUID" : "492c3200-1226-4114-bad1-f6b1ba737f3d"
+	},
+	"HIGHHALFELF" : 
+	{
+		"Description" : "|High Half-Elf|",
+		"UUID" : "52b71dea-9d4e-402d-9700-fb9c360a44c9"
+	},
+	"HILLDWARF" : 
+	{
+		"Description" : "|Hill Dwarf|",
+		"UUID" : "534098fa-601d-4f6e-8c4e-b3a8d4b1f141"
+	},
+	"HIT_PROXY" : 
+	{
+		"Description" : "Tag used to identify hit box proxy helper characters",
+		"UUID" : "1b1a83c5-4fc9-488f-b4ed-0fcf844b1f5c"
+	},
+	"HOBGOBLIN" : 
+	{
+		"Description" : "|Hobgoblin tag description|",
+		"UUID" : "193938c4-ed1c-4648-af3f-f4b59152ec92"
+	},
+	"HOOKHORROR" : 
+	{
+		"Description" : "",
+		"UUID" : "5e1d89d2-c7f6-49d2-8ed8-64b4ae7c4aba"
+	},
+	"HUMAN" : 
+	{
+		"Description" : "|Human|",
+		"UUID" : "69fd1443-7686-4ca9-9516-72ec0b9d94d7"
+	},
+	"HUMANOID" : 
+	{
+		"Description" : "Type Tag for humanoid-type monsters",
+		"UUID" : "7fbed0d4-cabc-4a9d-804e-12ca6088a0a8"
+	},
+	"HYENA" : 
+	{
+		"Description" : "Subspecies tag",
+		"UUID" : "035128b6-9778-4aa7-8f5f-6623aa4bf4c6"
+	},
+	"IDENTITY_NEUTRAL" : 
+	{
+		"Description" : "",
+		"UUID" : "987da248-4855-40b8-9182-4ff04eb7c13d"
+	},
+	"IGNORESEENCOMBAT" : 
+	{
+		"Description" : "used in behaviour Script to Ignore Cowering when seening a combat",
+		"UUID" : "8b0dabbf-6254-4f3f-b459-40246a4d6d90"
+	},
+	"IGNOREVANDALISE" : 
+	{
+		"Description" : "Item with this tag won't generate a Vandalise or VandaliseNoOwner crime",
+		"UUID" : "7e9915ff-d7a4-4e52-9ac3-806075102ccc"
+	},
+	"IGNORE_ANALYSIS" : 
+	{
+		"Description" : "Tag for characters that should be ignored by Treasure and Experience Analyser",
+		"UUID" : "71440223-b00f-4a44-9ce2-869adc9c9abc"
+	},
+	"IGNORE_AOO" : 
+	{
+		"Description" : "Combat tag for characters to ignore the Attack of Opportunity of enemies",
+		"UUID" : "0668a5fd-72e0-4f9e-b85e-baae8796c637"
+	},
+	"IGNORE_CHASMS" : 
+	{
+		"Description" : "Characters and items with this tag will not be affected by chasms (no \"enter\" event to script, no destruction or teleportation of the object, ...)",
+		"UUID" : "a50cb0b1-29a6-4711-a71d-0dc3e3642287"
+	},
+	"IGNORE_COMBAT_LATE_JOIN_PENALTY" : 
+	{
+		"Description" : "Allows object to ignore late join penalties and not have their turn skipped when entering an active combat.",
+		"UUID" : "6d60bed7-10cc-4b52-8fb7-baa75181cd49"
+	},
+	"IGNORE_DANGEROUS_SURFACES" : 
+	{
+		"Description" : "Characters with this tag will not try and move out of dangerous surfaces. Be careful with this tag!",
+		"UUID" : "bbf62461-4af4-4631-807a-eb0bd988d9a6"
+	},
+	"IGNORE_HEIGHT_DIFFERENCE" : 
+	{
+		"Description" : "Characters with this tag ignore vertical range limitations for melee interactions. Useful for very tall characters.",
+		"UUID" : "03a8e066-673e-4353-ae04-7c40174ea05b"
+	},
+	"IGNORE_PLATFORM_DESTRUCTION" : 
+	{
+		"Description" : "Items with this tag will not be destroyed when they are on a platform and the platform is destroyed",
+		"UUID" : "cf60d691-4307-4a8c-af4d-0e8781ea2503"
+	},
+	"IGNORE_SCRYINGEYE" : 
+	{
+		"Description" : "",
+		"UUID" : "fbe01665-b1dc-41f0-8db5-92e09499a632"
+	},
+	"ILLITHID" : 
+	{
+		"Description" : "|Is infected by an Illithid Tadpole| ",
+		"UUID" : "1eec74e8-3673-4500-abec-57b7ed8469ed"
+	},
+	"ILLITHID_HIDDEN_CHECK" : 
+	{
+		"Description" : "|A copy of ILLITHID, used to do dialog checks without showing [ILLITHID] in dialog text|",
+		"UUID" : "4835ba9d-c0d6-40fb-ad62-88f875b536c2"
+	},
+	"ILMATER" : 
+	{
+		"Description" : "|Player or NPC chose Ilmater.|",
+		"UUID" : "75586076-1aaf-4e4a-a516-93f1e6cd3472"
+	},
+	"INANIMATE" : 
+	{
+		"Description" : "Used for Aura status checking",
+		"UUID" : "a66639f1-15bd-43ae-8f13-fda1270187cc"
+	},
+	"INCENSE" : 
+	{
+		"Description" : "",
+		"UUID" : "cb78c689-21b5-49a2-ad0e-a44a83dbb8d7"
+	},
+	"INFERNAL_METAL" : 
+	{
+		"Description" : "Used to track infernal metal in magic pockets.",
+		"UUID" : "596255e4-37a3-4d06-b09d-2905874f892f"
+	},
+	"INGREDIENT" : 
+	{
+		"Description" : "Ingredient Tag Duh",
+		"UUID" : "18aef887-d7c7-46b9-9443-e3bb4af14ac9"
+	},
+	"INK" : 
+	{
+		"Description" : "Devil's Fee Puzzle",
+		"UUID" : "83a0c07c-f6d9-4c5a-9aff-d3f0e9ea1dc7"
+	},
+	"INNATE_FLYER" : 
+	{
+		"Description" : "This creature can naturally fly, and so should not be able to benefit from Fly spell.",
+		"UUID" : "801bd716-0666-4dd5-b449-45ffa9a52a0f"
+	},
+	"INTELLECT_DEVOURER" : 
+	{
+		"Description" : "Intellect devourer",
+		"UUID" : "69901347-23cb-4f60-abf3-527f23cdf0db"
+	},
+	"INTELLECT_DEVOURER_US" : 
+	{
+		"Description" : "A tag for Us, the Intellect Devourer companion",
+		"UUID" : "70da70c9-353d-4a53-aee5-7ee5fc9fcd94"
+	},
+	"IN_CAMP" : 
+	{
+		"Description" : "Characters with this tag are currently in camp",
+		"UUID" : "7fe47378-d9dc-48b4-b7be-53efbfbdca20"
+	},
+	"ITEMINTERACTION_UNLOCKED" : 
+	{
+		"Description" : "Generic tag to unlock item interaction.",
+		"UUID" : "6ca541e1-b5d9-4cfa-b745-61a5483052d7"
+	},
+	"ITEMINTERACTION_UNLOCKED2" : 
+	{
+		"Description" : "Second generic tag to unlock item interaction.",
+		"UUID" : "20319972-c9f2-4011-b1fc-34d4468752c7"
+	},
+	"ITEM_SELUNE" : 
+	{
+		"Description" : "|A relic looted from Selunites|",
+		"UUID" : "85acccfa-596c-4a9e-b476-47c3a16d2104"
+	},
+	"JAHEIRA" : 
+	{
+		"Description" : "|Jaheira companion|",
+		"UUID" : "2c948b46-0d8a-426b-ad8b-5f41233df4c1"
+	},
+	"JAHEIRA_ALLY" : 
+	{
+		"Description" : "|For use on anyone Jaheira would consider an ally and give you a warning for attacking - Important characters have specific reactions (Her family/Minsc for example)|",
+		"UUID" : "7c3a81df-17d9-4b46-bde6-652492898b4e"
+	},
+	"JAILOR" : 
+	{
+		"Description" : "Use in generics to denote guards in prisons",
+		"UUID" : "2f277b95-581b-4aee-995d-0e6488d16e78"
+	},
+	"KARLACH" : 
+	{
+		"Description" : "|Karlach, Hells' champion. Tiefling origin.|",
+		"UUID" : "9aab4bcd-e1f7-4008-8f7b-f1203789ae9b"
+	},
+	"KARLACH_CAN_TOUCH" : 
+	{
+		"Description" : "|Technical Tag after Karlach got upgraded and you can touch her|",
+		"UUID" : "52dbe682-7948-44cc-b152-ae9be23b8590"
+	},
+	"KELEMVOR" : 
+	{
+		"Description" : "|Player or NPC chose Kelemvor.|",
+		"UUID" : "23541bea-8177-496d-b58b-c29c4f13c22c"
+	},
+	"KENKU" : 
+	{
+		"Description" : "Character looks like a kenku",
+		"UUID" : "b7215e01-b86a-4ce1-96e0-4f035afaaeae"
+	},
+	"KEY" : 
+	{
+		"Description" : "Marks objects that serve as keys e.g. to be organized in dedicated keychain containers",
+		"UUID" : "9851fa99-5538-432a-8e77-c90929a88974"
+	},
+	"KID" : 
+	{
+		"Description" : "Behaviour Tag",
+		"UUID" : "ee978587-6c68-4186-9bfc-3b3cc719a835"
+	},
+	"KNOCKBLOCK" : 
+	{
+		"Description" : "Prevents the object from being a valid object for Knock if it's locked",
+		"UUID" : "e56e4df0-a4d7-480b-b69f-573c988b2f37"
+	},
+	"KNOCK_TARGET" : 
+	{
+		"Description" : "|The object is targetable by the Knock spell, even if it's not systemically locked.|",
+		"UUID" : "b0cf1015-6367-4f54-82ef-92cd9df72590"
+	},
+	"KOBOLD" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "f68151f2-58ee-42e6-98ad-7d858c4a0f13"
+	},
+	"KUOTOA" : 
+	{
+		"Description" : "Race Tag for KUOTOA",
+		"UUID" : "e3763301-199e-4022-8813-da1bb4eb9542"
+	},
+	"LADUGUER" : 
+	{
+		"Description" : "Player or NPC worships Laduguer.",
+		"UUID" : "92919073-a23b-490a-a316-a083f179f083"
+	},
+	"LAEZEL" : 
+	{
+		"Description" : "| Lae'zel, the Gith Companion |",
+		"UUID" : "3b07eac7-fab3-4120-a46c-51dbb3ec500b"
+	},
+	"LAEZEL_ORPHEUSPATH" : 
+	{
+		"Description" : "|A possible path for Laezel in her origin story. By default it's off and she is on her Vlaakith Path. If this tag is set, she switches to the OrpheusPath.|",
+		"UUID" : "616688cd-b203-4f14-8c33-086bb83062a3"
+	},
+	"LATHANDER" : 
+	{
+		"Description" : "Player or NPC worships Lathander.",
+		"UUID" : "7cae2d74-89f3-4312-9816-6ae6827f318c"
+	},
+	"LEGEND_OF_BALDURS_GATE" : 
+	{
+		"Description" : "Minsc variant background",
+		"UUID" : "927b8097-a925-4174-8150-81ba2190d129"
+	},
+	"LIGHTFOOTHALFLING" : 
+	{
+		"Description" : "|Lightfoot Halfling|",
+		"UUID" : "57a00605-9e74-477c-bd9d-53c721e25e56"
+	},
+	"LIZARDFOLK" : 
+	{
+		"Description" : "Character looks like a lizardfolk",
+		"UUID" : "615d115d-6d1d-477c-8b2c-d8e91b8cfe7d"
+	},
+	"LOCKPICKS" : 
+	{
+		"Description" : "|This item can be used to open locks|",
+		"UUID" : "1013e720-9b0f-4783-8686-9b5506840088"
+	},
+	"LOLTH" : 
+	{
+		"Description" : "Player or NPC worships Lolth.",
+		"UUID" : "899a6ce7-731e-473b-b87b-5d0cf383abff"
+	},
+	"LOLTHDROWELF" : 
+	{
+		"Description" : "LOLTH-SWORN",
+		"UUID" : "ef9c5b74-56a8-48cc-b0b9-169ee16bf026"
+	},
+	"LOOT_GOLD" : 
+	{
+		"Description" : "A tag allowing the Toll Collector to reason about goldpiles around her.",
+		"UUID" : "6c6b7cac-113c-42ee-bc46-05567b067a9f"
+	},
+	"LOW_DEVILSFEE_EXTRACT_FIRE" : 
+	{
+		"Description" : "Placeholder tag for certain items for the portal puzzle",
+		"UUID" : "70120e88-1d0e-4a3d-acfb-ff8134523e99"
+	},
+	"LOW_DEVILSFEE_INFERNALMARBLE" : 
+	{
+		"Description" : "Tag for the Infernal Marble, used in the portal puzzle.",
+		"UUID" : "e924da8f-2778-40d9-af7e-0e08722ec791"
+	},
+	"LOW_GUILDHALL_KEEPALLYNEARBY_TECHNICAL" : 
+	{
+		"Description" : "Tag for one of the NPCs in the Guildhall fight, to keep right next to its combat partner.",
+		"UUID" : "ec8fe209-95af-46da-9846-8a117aaf94ec"
+	},
+	"LOW_HOUSEOFHOPE_IDENTIFY_RAPHAEL" : 
+	{
+		"Description" : "A tag to identify Raphael so that statuses can be applied to him from environmental objects.",
+		"UUID" : "935acd43-8ff3-46b0-b8fa-f264235d39c9"
+	},
+	"LOW_HOUSEOFHOPE_RAPHAELIAN_CAMBION" : 
+	{
+		"Description" : "A tag to check for cambions in the Raphael Boss fight.",
+		"UUID" : "c1969619-dfea-43cb-a30a-c684cc43263e"
+	},
+	"LOW_OSKARSBELOVED_COUNTERFEITEDOBJECT" : 
+	{
+		"Description" : "",
+		"UUID" : "aaf9732c-41b1-41b6-ae17-b3145ff1662e"
+	},
+	"LOW_PHILGRAVESMANSION_UPPERFLOORGHOUL" : 
+	{
+		"Description" : "",
+		"UUID" : "e75b79f9-686f-4037-974e-d0c801f9511b"
+	},
+	"LOW_PRISON_EXPENSIVETRADER" : 
+	{
+		"Description" : "",
+		"UUID" : "67ce2dba-f55c-48e6-9303-673d5ed51331"
+	},
+	"LOW_RAMAZITHSTOWER_LORROAKAN_TECHNICAL" : 
+	{
+		"Description" : "A technical tag to identify Lorroakan specifically.",
+		"UUID" : "5902e1ed-b525-498a-bc98-253f8c1c6fce"
+	},
+	"LOW_RAMAZITHSTOWER_MISTYSTEP_HELPER" : 
+	{
+		"Description" : "| A tag to identify the characters whose AI can use the invisible teleporters in Ramazithh's Tower |",
+		"UUID" : "b0ceb7f3-c7ac-4911-be4c-f5de9705b472"
+	},
+	"LOW_RAMAZITHSTOWER_MISTYSTEP_HELPER_BLOCK" : 
+	{
+		"Description" : "| A tag to block characters from using the teleporters in Ramazith's Tower |",
+		"UUID" : "8b1ff560-25e2-40a3-9045-d405615b13d3"
+	},
+	"LOW_RAMAZITHSTOWER_TAG_AIR" : 
+	{
+		"Description" : "",
+		"UUID" : "bbe6a481-a1a5-46a5-a8d4-5402c5bb1a62"
+	},
+	"LOW_RAMAZITHSTOWER_TAG_EARTH" : 
+	{
+		"Description" : "",
+		"UUID" : "f8263585-23fb-491d-8f31-fa23d298cbb0"
+	},
+	"LOW_RAMAZITHSTOWER_TAG_FIRE" : 
+	{
+		"Description" : "",
+		"UUID" : "59b3dc0b-305e-47f1-9a5e-2f022caccae4"
+	},
+	"LOW_RAMAZITHSTOWER_TAG_WATER" : 
+	{
+		"Description" : "",
+		"UUID" : "ea415e07-8129-4e76-a99f-78dba923f37d"
+	},
+	"LOW_SEWERS_GREASEELEMENTAL" : 
+	{
+		"Description" : "A tag to identify grease elementals.",
+		"UUID" : "2ba49a5b-0818-4637-8932-f12f7f6b6d40"
+	},
+	"LOW_SEWERS_GREASEMEPHIT" : 
+	{
+		"Description" : "A tag to identify grease mephits.",
+		"UUID" : "31316a7d-2f70-468b-8904-2aaa4bb477f5"
+	},
+	"LOW_SEWERS_USED" : 
+	{
+		"Description" : "A tag to identify if a corspe has already been used by the Fire Wizard in the sewers.",
+		"UUID" : "e4cdfd8e-2314-4ff9-a6f4-76fc47a2d33b"
+	},
+	"MALE" : 
+	{
+		"Description" : "",
+		"UUID" : "8f74d144-041e-4035-a9ac-72f41fc32de7"
+	},
+	"MASKED" : 
+	{
+		"Description" : "Set for Masked Poisoned items ",
+		"UUID" : "0d07268e-a63b-40e4-b8eb-d5d002dcefdd"
+	},
+	"MEAT" : 
+	{
+		"Description" : "Checked by osi/behaviour for certain food type items",
+		"UUID" : "fae436d4-da32-42a6-a2b2-9635da0b82eb"
+	},
+	"MEAZEL" : 
+	{
+		"Description" : "Species Tag",
+		"UUID" : "de22a017-976b-4a19-a7c7-e9bbbad4ece9"
+	},
+	"MEPHISTOPHELESTIEFLING" : 
+	{
+		"Description" : "|Mephistopheles Tiefling|",
+		"UUID" : "ec5bea6b-26f1-4917-919c-375f67ac13d1"
+	},
+	"MEPHIT" : 
+	{
+		"Description" : "Subtype Tag for mephits",
+		"UUID" : "b875ad18-12ea-4f09-a19b-67988e2eeb73"
+	},
+	"METAL" : 
+	{
+		"Description" : "Used to determine whether item is made of metal for purpose of spell targeting.",
+		"UUID" : "abadcad5-9229-4999-8c7a-cd557ff2c95c"
+	},
+	"MIELIKKI" : 
+	{
+		"Description" : "Player or NPC worships Mielikki.",
+		"UUID" : "f21f419c-bbf8-42df-ae89-f1de72e90cf5"
+	},
+	"MINDFLAYER" : 
+	{
+		"Description" : "|Mindflayer, Illithid|",
+		"UUID" : "8ee4d870-3f6b-466c-968f-ab0ba2be6229"
+	},
+	"MINDMELD" : 
+	{
+		"Description" : "For Dialog lines that are marked a Mind Meld Internal Speech",
+		"UUID" : "4874959b-4811-4b89-8f55-85fe04fbcd61"
+	},
+	"MINOTAUR" : 
+	{
+		"Description" : "Race tag for Minotaurs",
+		"UUID" : "aa374556-6257-4326-829f-7a9667e6fcb4"
+	},
+	"MINSC" : 
+	{
+		"Description" : "Tag for ranger companion Minsc.",
+		"UUID" : "26fb71ce-d2c8-44b5-90d6-cb08705cb531"
+	},
+	"MINTHARA" : 
+	{
+		"Description" : "",
+		"UUID" : "4ec1d8be-fe5e-466f-ab0d-1f0f6f20fef3"
+	},
+	"MONK" : 
+	{
+		"Description" : "A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection.",
+		"UUID" : "e1e460bb-d0ae-4452-8529-c9e176558731"
+	},
+	"MONSTER" : 
+	{
+		"Description" : "A global tag for all non humanoid creatures",
+		"UUID" : "90101158-141e-4896-8e60-f8db03f6dde3"
+	},
+	"MONSTROSITY" : 
+	{
+		"Description" : "Type Tag for monstrosity-type monsters",
+		"UUID" : "081a2ef4-dc1b-4d5b-bae3-8db81bef1d06"
+	},
+	"MORADIN" : 
+	{
+		"Description" : "Player or NPC worships Moradin.",
+		"UUID" : "cfad7ead-098a-4944-84a6-d0570a98984d"
+	},
+	"MOUND_GRAVEL" : 
+	{
+		"Description" : "Mound uses gravel root template",
+		"UUID" : "c3613de9-f008-49c0-bf69-af42030743fa"
+	},
+	"MOUND_MUD" : 
+	{
+		"Description" : "Mound uses mud root template",
+		"UUID" : "7e6a4698-c855-4fce-a53f-c2e575edd9ee"
+	},
+	"MOUND_SAND" : 
+	{
+		"Description" : "Mound uses sand root template",
+		"UUID" : "ceed37ff-d663-4694-b231-ceb2a1df10fc"
+	},
+	"MOUNTAINDWARF" : 
+	{
+		"Description" : "|Mountain Dwarf|",
+		"UUID" : "1dc20a7a-00e7-4126-80ad-aa1152a2136c"
+	},
+	"MUSIC_VFX_DRUM" : 
+	{
+		"Description" : "",
+		"UUID" : "f3f2d52d-9ef3-492c-a7ec-d9b35a130c05"
+	},
+	"MUSIC_VFX_FLUTE" : 
+	{
+		"Description" : "",
+		"UUID" : "838663ea-de99-44a4-bc4c-13ed5a6d75e9"
+	},
+	"MUSIC_VFX_LUTE" : 
+	{
+		"Description" : "",
+		"UUID" : "3a9a899b-4177-4763-b329-2598528beca5"
+	},
+	"MUSIC_VFX_LYRE" : 
+	{
+		"Description" : "",
+		"UUID" : "cd85b343-55a9-4b66-bd92-42ca70a084aa"
+	},
+	"MUSIC_VFX_VIOLIN" : 
+	{
+		"Description" : "",
+		"UUID" : "81dbb2dd-ffe9-4b6a-9159-2c32c889e023"
+	},
+	"MUSIC_VFX_VOCAL" : 
+	{
+		"Description" : "",
+		"UUID" : "233a89ec-140a-4f77-a13d-72020f53e6d0"
+	},
+	"MUTED" : 
+	{
+		"Description" : "Character can't talk.",
+		"UUID" : "150ee63f-4d47-4951-b944-a853d8beb9a8"
+	},
+	"MYCONID" : 
+	{
+		"Description" : "|Species tag|",
+		"UUID" : "480f5568-7c49-45e4-9543-7c06e43bdf52"
+	},
+	"MYRKUL" : 
+	{
+		"Description" : "|Player or NPC chose Myrkul.|",
+		"UUID" : "f1fc9c3f-0db9-4d19-adb4-18b1174a6b9d"
+	},
+	"MYRMIDON_AIR" : 
+	{
+		"Description" : "|A Fire Myrmidon|",
+		"UUID" : "60b66bb9-6f24-4d2b-8b5f-6ac08e7ccc32"
+	},
+	"MYRMIDON_EARTH" : 
+	{
+		"Description" : "|A Earth Myrmidon|",
+		"UUID" : "b77d7a6c-9d1b-4ddc-a337-749b3b6dacd9"
+	},
+	"MYRMIDON_FIRE" : 
+	{
+		"Description" : "|A Earth Myrmidon|",
+		"UUID" : "f9fb6af0-50fa-48f9-b83d-091ada061359"
+	},
+	"MYRMIDON_WATER" : 
+	{
+		"Description" : "|A Water Myrmidon|",
+		"UUID" : "71c5162a-a842-4322-a208-125dba72b354"
+	},
+	"MYSTRA" : 
+	{
+		"Description" : "|Player or NPC chose Mystra.|",
+		"UUID" : "e79d9eca-e8ac-486a-bd21-cf42ef1133af"
+	},
+	"NARRATION" : 
+	{
+		"Description" : "Node is narration and should not have FaceFX applied",
+		"UUID" : "4cb0fac6-1396-46ff-8554-e64bc2635909"
+	},
+	"NECROMITE" : 
+	{
+		"Description" : "Used to identify necromites for the Apostle of Myrkul",
+		"UUID" : "be9fc042-a394-465f-a2ca-19ccc9b76a4d"
+	},
+	"NETHERBRAIN" : 
+	{
+		"Description" : "used to identify the Netherbrain",
+		"UUID" : "ab877313-c376-4462-a970-47b3d4c0dc49"
+	},
+	"NIGHTMARE" : 
+	{
+		"Description" : "Nightmare creatures",
+		"UUID" : "d41da646-2951-4f63-9dfc-db5bb674a123"
+	},
+	"NIGHTMAREWITCH" : 
+	{
+		"Description" : "Species tag for Nightmare Witch",
+		"UUID" : "1afa97c7-8b5c-4421-a432-a716f6ceadcd"
+	},
+	"NOBLE" : 
+	{
+		"Description" : "|You understand wealth, power, and privilege. You carry a noble title, and your family owns land, collects taxes, and wields significant political influence.|",
+		"UUID" : "56825486-9cfc-4ec2-87d1-c8065c41774b"
+	},
+	"NOT_FOR_EA" : 
+	{
+		"Description" : "Tag used to fliter out dialog nodes that should not be shipped in EA.",
+		"UUID" : "5a0ebff7-9930-4a99-908b-400fcc2411f0"
+	},
+	"NOT_MESSING_AROUND" : 
+	{
+		"Description" : "Disturbance (Crime) Tag",
+		"UUID" : "542b58f0-42ad-4157-a28e-27434e0e7b18"
+	},
+	"NO_GHOST" : 
+	{
+		"Description" : "",
+		"UUID" : "4392a3cc-07ad-4031-b5aa-bd92812572e5"
+	},
+	"NO_LEVELTEMPLATE_TRANSFER" : 
+	{
+		"Description" : "Used to mark objects that shouldn't be transfered between persistent level templates",
+		"UUID" : "577229d7-a806-40c9-81fc-3e843d1955c0"
+	},
+	"NO_PATHFINDING_PORTAL" : 
+	{
+		"Description" : "Used to indicate that a portal should not be used for pathfinding, but needs to be used explicitely. ",
+		"UUID" : "d9793375-20f0-437f-8033-011014b0b9ca"
+	},
+	"NO_RECORD" : 
+	{
+		"Description" : "For Voice Recording",
+		"UUID" : "c8f0beb0-9052-4546-8b99-71ac110db3a4"
+	},
+	"NO_SE_MOVE_SOUND" : 
+	{
+		"Description" : "Tag for checking if an items systemic movement sound events are triggered",
+		"UUID" : "03267cf2-d3d7-4a90-a928-fb5ff1537bbb"
+	},
+	"NUWT_ACTIVE" : 
+	{
+		"Description" : "Tag that indicates NUWT was enabled",
+		"UUID" : "82e21d0f-75cf-49d9-89d9-614b6020a40c"
+	},
+	"Neutral" : 
+	{
+		"Description" : "",
+		"UUID" : "a3262787-fea1-45a7-bd41-d7dc881acf07"
+	},
+	"OATHBREAKER" : 
+	{
+		"Description" : "Paladin subclass",
+		"UUID" : "c7bdcdf2-15e7-456e-adf1-21dda3172e18"
+	},
+	"OATHBREAKER_ANCIENTS" : 
+	{
+		"Description" : "Used to remember paladin subclass",
+		"UUID" : "d84a8a0b-b648-464c-9bd5-1ed9b965da2a"
+	},
+	"OATHBREAKER_DEVOTION" : 
+	{
+		"Description" : "Used to remember paladin subclass",
+		"UUID" : "d274b482-4add-4f36-a0a4-a94740f6630e"
+	},
+	"OATHBREAKER_VENGEANCE" : 
+	{
+		"Description" : "Used to remember paladin subclass",
+		"UUID" : "732db1ed-740c-4af3-8a08-7f135d3f703c"
+	},
+	"OBJ_LARGE_NOSPIN" : 
+	{
+		"Description" : "Used for item throwing spin",
+		"UUID" : "ed529293-ec51-4ada-95dc-6827e19f7623"
+	},
+	"OBJ_LARGE_SPIN" : 
+	{
+		"Description" : "Used for item throwing spin",
+		"UUID" : "892fdf2b-a9a2-4717-a8b8-675db02e7bb8"
+	},
+	"OBJ_MEDIUM_NOSPIN" : 
+	{
+		"Description" : "Used for item throwing spin",
+		"UUID" : "e53c02aa-1f2c-4f54-80a5-921742c6c613"
+	},
+	"OBJ_MEDIUM_SPIN" : 
+	{
+		"Description" : "Used for item throwing spin",
+		"UUID" : "4ab4f2f5-792e-4c7d-9148-e37f43159a34"
+	},
+	"OBJ_SMALL_NOSPIN" : 
+	{
+		"Description" : "Used for item throwing spin",
+		"UUID" : "497b3c05-c845-439a-95ce-c1e5878974a3"
+	},
+	"OBJ_SMALL_SPIN" : 
+	{
+		"Description" : "Used for item throwing spin",
+		"UUID" : "9b144af1-f4c4-45ec-8d63-fa2501502bb6"
+	},
+	"OBJ_TINY_NOSPIN" : 
+	{
+		"Description" : "Used for item throwing spin",
+		"UUID" : "738b3a6f-e2d2-4f76-b052-2e880280dbd4"
+	},
+	"OBJ_TINY_SPIN" : 
+	{
+		"Description" : "Used for item throwing spin",
+		"UUID" : "110287af-83cf-42c1-9cde-b2f8cc316d7f"
+	},
+	"OGHMA" : 
+	{
+		"Description" : "|Player or NPC chose Oghma.|",
+		"UUID" : "7b019d89-9b7e-4c2a-a6b4-ffb64f25f734"
+	},
+	"OGRE" : 
+	{
+		"Description" : "Species tag for ogres",
+		"UUID" : "cb53ec1e-af17-4dc2-bb28-2ac56d7eba96"
+	},
+	"ONEEYED" : 
+	{
+		"Description" : "|Character is missing an eye.|",
+		"UUID" : "8df7d133-21cb-4e8d-92dd-9ef9394fd2d1"
+	},
+	"OOZE" : 
+	{
+		"Description" : "Type tag for Ooze-type monsters",
+		"UUID" : "92f9e66f-630d-4249-b936-c3dc1ae2b337"
+	},
+	"ORGANIC_TRAP" : 
+	{
+		"Description" : "",
+		"UUID" : "24e33333-d67c-44b0-9ef5-4e6a63a23be4"
+	},
+	"ORI_GALE_CONSUMABLEARTEFACT" : 
+	{
+		"Description" : "Identifies objects consumable by Gale",
+		"UUID" : "7b96246c-54ba-43ea-b01d-4e0b20ad35f1"
+	},
+	"ORI_GALE_DONEWITHITEMS" : 
+	{
+		"Description" : "Gale's bomb has been disarmed, or he's consumed enough magic items. Blocks him from consuming any more magic items.",
+		"UUID" : "f37724b5-9235-4ab2-8d65-78efcf50f95b"
+	},
+	"ORI_GALE_MYSTRABLESSED" : 
+	{
+		"Description" : "Gale is blessed by Mystra",
+		"UUID" : "86539983-3b68-46f9-addb-08a0668cea27"
+	},
+	"ORI_GALE_WEAKENED" : 
+	{
+		"Description" : "Set on Gale while he's weak.",
+		"UUID" : "4abdc116-3f36-4d76-9a4c-4a840b7956c1"
+	},
+	"ORI_KARLACH_ENRAGED" : 
+	{
+		"Description" : "Set on Karlach while she is mad to avoid her from teleporting to the tollhouse basement.",
+		"UUID" : "019f7408-2900-4864-9878-5591294040ce"
+	},
+	"ORPHEUS" : 
+	{
+		"Description" : "Used to tag orpheus for item interactions in endgame.",
+		"UUID" : "ff993422-c5db-457e-834d-8fe3f3848ebe"
+	},
+	"ORPHIC_HAMMER" : 
+	{
+		"Description" : "Checking for the Orphic Hammer to condition spell on Mindflayer/Player for Orpheus situation.",
+		"UUID" : "3d1b8c17-e897-48ff-a5b5-7ed8a317ed67"
+	},
+	"OSKARSBELOVED_IMMUNITY" : 
+	{
+		"Description" : "A technical tag to ensure Oskar and Jannath are immune to incoming attacks from ghosts.",
+		"UUID" : "5e0d7e01-069a-4ebf-8302-07f4e20c8254"
+	},
+	"OUTLANDER" : 
+	{
+		"Description" : "|The wilds are in your blood, whether you were a nomad, an explorer, a recluse, a hunter-gatherer, or even a marauder. Even in places where you don't know the specific features of the terrain, you know the ways of the wild.|",
+		"UUID" : "d81df6f9-9f6e-4146-841a-9f285e6ee879"
+	},
+	"OWLBEAR" : 
+	{
+		"Description" : "",
+		"UUID" : "70913187-25ac-4301-9c12-16baf3634c65"
+	},
+	"PACT_OF_THE_BLADE" : 
+	{
+		"Description" : "Weapon with this tag has been summoned by Pact of the Blade feature",
+		"UUID" : "be460271-537a-4443-a9b5-6c6c6a005ab3"
+	},
+	"PALADIN" : 
+	{
+		"Description" : "A holy warrior bound to a sacred oath.",
+		"UUID" : "6d85ab2d-5c23-498c-a61e-98f05a00177a"
+	},
+	"PALADIN_ANCIENTS" : 
+	{
+		"Description" : "Paladin subclass",
+		"UUID" : "7c89622b-4194-41df-b2ff-145a5056ee49"
+	},
+	"PALADIN_BAHAMUT" : 
+	{
+		"Description" : "|Player or NPC is a paladin of Bahamut.|",
+		"UUID" : "28b5d96a-bbfb-433f-9cd4-bdff98eae252"
+	},
+	"PALADIN_BANE" : 
+	{
+		"Description" : "Player or NPC is a paladin of Bane.",
+		"UUID" : "2502057c-6210-4dcb-9943-2812b59c3737"
+	},
+	"PALADIN_BHAAL" : 
+	{
+		"Description" : "Player or NPC is a paladin of Bhaal.",
+		"UUID" : "5daae0e8-8f1a-4798-8247-c252dbc311da"
+	},
+	"PALADIN_BLOCK_OATHBREAK" : 
+	{
+		"Description" : "|Used to avoid paladins from breaking their oaths if they do something that it would against the entity with this tag.|",
+		"UUID" : "b5825091-f2ed-4657-8d86-c0d020c358a0"
+	},
+	"PALADIN_CORELLONLARETHIAN" : 
+	{
+		"Description" : "Player or NPC is a paladin of Corellon Larethian.",
+		"UUID" : "95abfcc0-8783-4647-a922-b2c34ec5c025"
+	},
+	"PALADIN_DEVOTION" : 
+	{
+		"Description" : "Paladin subclass",
+		"UUID" : "2de0a4fc-5831-4439-94d3-a7ff9b7aacf6"
+	},
+	"PALADIN_EILISTRAEE" : 
+	{
+		"Description" : "Player is a paladin of EIlistraee.",
+		"UUID" : "b438b4e8-fb16-4202-b338-17d2d874c2c1"
+	},
+	"PALADIN_EVIL" : 
+	{
+		"Description" : "Player is a paladin of an evil-aligned deity",
+		"UUID" : "826714c9-b2e3-4372-9f5a-e59271d5a426"
+	},
+	"PALADIN_GARLGLITTERGOLD" : 
+	{
+		"Description" : "Player or NPC is a paladin of Garl Glittergold.",
+		"UUID" : "9f6bb135-01f1-4b7d-80d3-50bab725728c"
+	},
+	"PALADIN_GOOD" : 
+	{
+		"Description" : "Player is a paladin of a good-aligned deity",
+		"UUID" : "66d66544-3ca8-442f-bbb4-b7e18d72c106"
+	},
+	"PALADIN_GRUUMSH" : 
+	{
+		"Description" : "|Player or NPC is a paladin of Gruumsh.|",
+		"UUID" : "e33e9729-73e1-4fb3-aea9-761d610d1551"
+	},
+	"PALADIN_HELM" : 
+	{
+		"Description" : "Player or NPC is a paladin of Helm.",
+		"UUID" : "36c5df8b-7efc-4125-828e-120ed6cffa71"
+	},
+	"PALADIN_ILMATER" : 
+	{
+		"Description" : "Player or NPC is a paladin of Ilmater.",
+		"UUID" : "bd987761-1952-4942-85f1-d4538042aff3"
+	},
+	"PALADIN_KELEMVOR" : 
+	{
+		"Description" : "Player or NPC is a paladin of Kelemvor.",
+		"UUID" : "74548677-271b-4cc3-9625-1782e5f0ebd1"
+	},
+	"PALADIN_LADUGUER" : 
+	{
+		"Description" : "Player or NPC is a paladin of Laduguer.",
+		"UUID" : "39cb63f2-3036-4641-9b43-777334c9ffab"
+	},
+	"PALADIN_LATHANDER" : 
+	{
+		"Description" : "Player or NPC is a paladin of Lathander.",
+		"UUID" : "cc528ff5-911c-467c-ac9f-7a1e94b97d25"
+	},
+	"PALADIN_LOLTH" : 
+	{
+		"Description" : "Player is a paladin of Lolth.",
+		"UUID" : "0cc54cdc-7b26-4b12-98af-f8000b37e988"
+	},
+	"PALADIN_MIELIKKI" : 
+	{
+		"Description" : "Player or NPC is a paladin of Mielikki.",
+		"UUID" : "f18e3f3c-c227-4d11-8764-51c7fed44419"
+	},
+	"PALADIN_MORADIN" : 
+	{
+		"Description" : "Player or NPC is a paladin of Moradin.",
+		"UUID" : "395c6cef-953e-45c2-a342-e1326033c027"
+	},
+	"PALADIN_MYRKUL" : 
+	{
+		"Description" : "Player or NPC is a paladin of Myrkul.",
+		"UUID" : "6c080131-acd9-42e3-8bea-5de394672465"
+	},
+	"PALADIN_MYSTRA" : 
+	{
+		"Description" : "Player or NPC is a paladin of Mystra.",
+		"UUID" : "498946c4-246a-47dc-9c21-89fb538b2614"
+	},
+	"PALADIN_NEUTRAL" : 
+	{
+		"Description" : "Player is a paladin of a neutral-aligned deity",
+		"UUID" : "5c09c86d-c068-4ef5-9850-aeb9aefd8038"
+	},
+	"PALADIN_OGHMA" : 
+	{
+		"Description" : "Player or NPC is a paladin of Oghma.",
+		"UUID" : "f639a9df-1adc-4897-b540-0a74b2bb5c2e"
+	},
+	"PALADIN_PROTECTED_NPC" : 
+	{
+		"Description" : "Protected NPC who can make a paladin player break their oath.",
+		"UUID" : "85a96b13-23ae-4cdf-91db-9a92973a1a9e"
+	},
+	"PALADIN_SELUNE" : 
+	{
+		"Description" : "Player or NPC is a paladin of Selune.",
+		"UUID" : "f6dfdd47-bbf1-4419-b4b9-7a1e67a197da"
+	},
+	"PALADIN_SHAR" : 
+	{
+		"Description" : "Player or NPC is a paladin of Shar.",
+		"UUID" : "62f5382a-27c3-441c-bd57-33db4ca00f10"
+	},
+	"PALADIN_TALOS" : 
+	{
+		"Description" : "Player or NPC is a paladin of Talos.",
+		"UUID" : "5cc0a323-50e0-4775-92af-76a719f53147"
+	},
+	"PALADIN_TEMPUS" : 
+	{
+		"Description" : "Player or NPC is a paladin of Tempus.",
+		"UUID" : "0b2bdab1-6455-4baa-883b-4f299376abb6"
+	},
+	"PALADIN_TIAMAT" : 
+	{
+		"Description" : "|Player or NPC is a paladin of Tiamat.|",
+		"UUID" : "70be60f2-016d-40e5-b944-81b8868c3af9"
+	},
+	"PALADIN_TYMORA" : 
+	{
+		"Description" : "Player or NPC is a paladin of Tymora.",
+		"UUID" : "aecc62c1-99ce-4ff7-952c-8ddc6afe7a30"
+	},
+	"PALADIN_TYR" : 
+	{
+		"Description" : "Player or NPC is a paladin of Tyr.",
+		"UUID" : "b8aec881-85fe-4e6e-8a28-7052ecd88899"
+	},
+	"PALADIN_VENGEANCE" : 
+	{
+		"Description" : "Paladin subclass",
+		"UUID" : "a1aa47b2-4d0a-4c97-931b-2c53353d5b23"
+	},
+	"PALADIN_VLAAKITH" : 
+	{
+		"Description" : "Player or NPC is a paladin of Vlaakith.",
+		"UUID" : "e64a45b2-ba13-4097-a7f9-05f6c8bee312"
+	},
+	"PALADIN_YONDALLA" : 
+	{
+		"Description" : "Player or NPC is a paladin of Yondalla.",
+		"UUID" : "c771a524-58fe-43e4-b8f0-b976e1b92d9f"
+	},
+	"PANTHER" : 
+	{
+		"Description" : "",
+		"UUID" : "e1ad9942-fa0e-467b-bfe9-c6e7c6680a83"
+	},
+	"PARALYZED_ADV" : 
+	{
+		"Description" : "Advantage on rolls against paralyze statuses",
+		"UUID" : "4c458b90-b91e-48fe-8a8f-e483f9e4142c"
+	},
+	"PARTIAL_CEREMORPH" : 
+	{
+		"Description" : "|Has the player accepted the Emperor's offer to start transforming into a mindflayer?|",
+		"UUID" : "c0cd4ed8-11d1-4fb1-ae3a-3a14e41267c8"
+	},
+	"PATCH_9_LINES" : 
+	{
+		"Description" : "A tag to denote lines we are adding as part of the 'neutral line pass' in patch 9",
+		"UUID" : "247c7c5e-a914-43f1-bab4-f50cea74ae7b"
+	},
+	"PERMA_DEFEATED" : 
+	{
+		"Description" : "Set on perma-defeated characters.",
+		"UUID" : "867f3a1e-1e4b-48c2-869e-343415231727"
+	},
+	"PERMA_DEFEATED_OR_OFFSTAGE" : 
+	{
+		"Description" : "Set on characters that are either perma-defeated or offstage (for use with queries to remove red outlines from items and corpses)",
+		"UUID" : "b9e63705-637a-4d3b-87ef-a49324cf703f"
+	},
+	"PETPAL" : 
+	{
+		"Description" : "Speak with Animals ability",
+		"UUID" : "dc860a81-f3c2-4c1a-ab90-e7583324845c"
+	},
+	"PIG" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "8c1ef184-43f1-46b1-bbf4-2aff5991dfa2"
+	},
+	"PLANAR" : 
+	{
+		"Description" : "Race group (githyanki, warforged)",
+		"UUID" : "bad00ba2-8a49-450c-8387-af47681717f1"
+	},
+	"PLANT" : 
+	{
+		"Description" : "Type Tag for plant-type monsters",
+		"UUID" : "125b3d94-3997-4fc4-8211-1768b67dbe4a"
+	},
+	"PLANT_IMPEDE_ADV" : 
+	{
+		"Description" : "Used by Lands Stride passive",
+		"UUID" : "075a0f7d-7457-4e85-9a52-5adfb1c78e3f"
+	},
+	"PLAYABLE" : 
+	{
+		"Description" : "Character is a potential player character",
+		"UUID" : "25bf5042-5bf6-4360-8df8-ab107ccb0d37"
+	},
+	"PLAYER" : 
+	{
+		"Description" : "System",
+		"UUID" : "9f55390e-06b7-4f43-9b20-c96b7ee8462e"
+	},
+	"POISONED" : 
+	{
+		"Description" : "Food/Consumable",
+		"UUID" : "b48a0baa-18f7-4bf0-85e9-d03148565a1a"
+	},
+	"POISONED_ADV" : 
+	{
+		"Description" : "Advantage on rolls against poisoned statuses",
+		"UUID" : "494276cb-a499-4843-a985-a11926bf2785"
+	},
+	"POISONED_MYRMIDON" : 
+	{
+		"Description" : "|Used to apply a tag for VFX|",
+		"UUID" : "da1b77f3-8e6e-42de-a7c2-ca1bf411b879"
+	},
+	"POLYMORPHED_UNWILLING" : 
+	{
+		"Description" : "Is currently polymorphed against their will.",
+		"UUID" : "59fb6527-bf28-4a78-bea2-bda70799ed16"
+	},
+	"POTION" : 
+	{
+		"Description" : "",
+		"UUID" : "56c99a77-8f6a-4584-8e41-2a3b9f6b5261"
+	},
+	"PRESET_HIRELING_BARBARIAN" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "e0d2bf22-63e0-40b1-96d3-796558364b0e"
+	},
+	"PRESET_HIRELING_BARD" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "694cfe5d-9a95-4cae-89c5-6bede382b111"
+	},
+	"PRESET_HIRELING_CLERIC" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "b3072bc4-2505-4c10-a308-ce6833641525"
+	},
+	"PRESET_HIRELING_DRUID" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "f4d1035b-5d77-411a-85fb-c9bdfeb00e8b"
+	},
+	"PRESET_HIRELING_FIGHTER" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "fcb45424-7516-4ead-8071-99e9c18d18be"
+	},
+	"PRESET_HIRELING_MONK" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "37e5a250-a5b4-4225-8ba0-d013f4288b6c"
+	},
+	"PRESET_HIRELING_PALADIN" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "009593a8-50c6-43bc-a5d6-52b72955fbd7"
+	},
+	"PRESET_HIRELING_RANGER" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "4df6ec8c-ba2f-49f3-830b-effadc1f8a65"
+	},
+	"PRESET_HIRELING_ROGUE" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "1d05dde1-8ee2-4109-9963-6ee775f3ca0a"
+	},
+	"PRESET_HIRELING_SORCERER" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "710d9065-a701-4b13-bb03-266a2c7996b9"
+	},
+	"PRESET_HIRELING_WARLOCK" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "81c59dc6-0ee0-4a1c-8e75-3811752df050"
+	},
+	"PRESET_HIRELING_WIZARD" : 
+	{
+		"Description" : "Tag for a specific hireling companion",
+		"UUID" : "58235251-ca50-4194-9889-85ecd49f849f"
+	},
+	"PSIONICS" : 
+	{
+		"Description" : "|Has developed psionic powers|",
+		"UUID" : "bfef85f2-6caa-40c8-b880-1983a49dcc07"
+	},
+	"Puzzle" : 
+	{
+		"Description" : "",
+		"UUID" : "09962a69-b99d-40ed-b28e-c2542020666c"
+	},
+	"Quest" : 
+	{
+		"Description" : "",
+		"UUID" : "8990df0e-adb1-4341-aca4-d6ef0fdfaa08"
+	},
+	"RABBIT" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "e4b1e457-f5fa-4611-8715-54fcb5a0b702"
+	},
+	"RANGER" : 
+	{
+		"Description" : "A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization.",
+		"UUID" : "37a733c1-a862-4157-b92a-9cff46232c6a"
+	},
+	"RANGER_BEAST_MASTER" : 
+	{
+		"Description" : "",
+		"UUID" : "bfaccaca-e512-43ea-89cc-372b5d1925ee"
+	},
+	"RANGER_COMPANION" : 
+	{
+		"Description" : "",
+		"UUID" : "228e9ea5-264d-428b-9451-e8602a745233"
+	},
+	"RANGER_GLOOM_STALKER" : 
+	{
+		"Description" : "",
+		"UUID" : "c023a2ef-b042-443b-b402-b1326f4b49f3"
+	},
+	"RANGER_HUNTER" : 
+	{
+		"Description" : "",
+		"UUID" : "5727fd64-090f-4932-a31c-c0e078b2146a"
+	},
+	"RARE" : 
+	{
+		"Description" : "Race group (aasimar, dragonborn, firbolg, genasi, githyanki, half-drow, half-orc, tiefling, triton, warforged, yuan-ti pureblood)",
+		"UUID" : "d2f86ec3-c41f-47e1-8acd-984872a4d7d5"
+	},
+	"RAT" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "9568e56b-27a2-45fc-92c5-fa33eeb6f54c"
+	},
+	"RAVEN" : 
+	{
+		"Description" : "Species type for VFX",
+		"UUID" : "ccf8ba00-8e00-4f74-b146-598f46c97e9a"
+	},
+	"REALLY_AARAKOCRA" : 
+	{
+		"Description" : "Character is really an aarakocra",
+		"UUID" : "7e97c590-911f-422a-bdb6-068c137eb2c8"
+	},
+	"REALLY_AASIMAR" : 
+	{
+		"Description" : "Character is really an aasimar",
+		"UUID" : "2fddf7dd-f79b-4998-882c-d7257badbfe6"
+	},
+	"REALLY_ALFIRA" : 
+	{
+		"Description" : "",
+		"UUID" : "0c8221b4-43c8-4c9e-aa00-1832f4d9bcb9"
+	},
+	"REALLY_ASMODEUSTIEFLING" : 
+	{
+		"Description" : "|Asmodeus Tiefling, shapeshifted or not|",
+		"UUID" : "6591a20a-12de-46ff-bf82-b866cd97bb9a"
+	},
+	"REALLY_ASTARION" : 
+	{
+		"Description" : "| Really Astarion, Vampire companion |",
+		"UUID" : "ffd08582-7396-4cac-bcd4-8f9cd0fd8ef3"
+	},
+	"REALLY_BESTIAL" : 
+	{
+		"Description" : "Race group for REALLY_ races (aarakocra, kenku, lizardfolk, tabaxi, tortle)",
+		"UUID" : "1029b3e3-3ff0-4d73-b4ed-79b622cad4f9"
+	},
+	"REALLY_DARK_URGE" : 
+	{
+		"Description" : "|Dark urge origin tag; ignores shapeshift.|",
+		"UUID" : "cd611d7d-b67d-42b4-a75c-a0c6091ef8a2"
+	},
+	"REALLY_DEEPGNOME" : 
+	{
+		"Description" : "|Deep Gnome, shapeshifted or not|",
+		"UUID" : "17d29357-beba-4096-accc-c28bdea88fda"
+	},
+	"REALLY_DISPLACER_BEAST" : 
+	{
+		"Description" : "Displacer beast racial tag",
+		"UUID" : "8fac3253-331c-4b9f-95fb-e2196fd1bc8d"
+	},
+	"REALLY_DRAGONBORN" : 
+	{
+		"Description" : "Character is really a dragonborn",
+		"UUID" : "39783f17-8484-46a6-aa3b-f3d51122e5f3"
+	},
+	"REALLY_DROWELF" : 
+	{
+		"Description" : "|Drow, shapeshifted or not|",
+		"UUID" : "676e854b-d74b-44f3-8363-3ef27164a54d"
+	},
+	"REALLY_DROWHALFELF" : 
+	{
+		"Description" : "|Drow Half-Elf, shapeshifted or not|",
+		"UUID" : "3dbe23e0-2c9f-4a81-b586-ec6e50f720e1"
+	},
+	"REALLY_DUERGARDWARF" : 
+	{
+		"Description" : "|Duergar, shapeshifted or not|",
+		"UUID" : "45b007f7-f4f6-46e2-9480-395a49b87ef3"
+	},
+	"REALLY_DWARF" : 
+	{
+		"Description" : "|Dwarf, shapeshifted or not|",
+		"UUID" : "ad129444-0f41-4114-9ee5-2b9902d7ca8d"
+	},
+	"REALLY_ELF" : 
+	{
+		"Description" : "|Elf, shapeshifted or not|",
+		"UUID" : "772b1dc6-14be-417f-afa3-c6cf364f45b4"
+	},
+	"REALLY_FIRBOLG" : 
+	{
+		"Description" : "Character is really a firbolg",
+		"UUID" : "9deae354-0108-40b4-a7db-6eb23fba050f"
+	},
+	"REALLY_FORESTGNOME" : 
+	{
+		"Description" : "|Forest Gnome, shapeshifted or not|",
+		"UUID" : "b0401c02-70b3-47f5-998f-8d440ad6954f"
+	},
+	"REALLY_GALE" : 
+	{
+		"Description" : "|Gale companion, shapeshifted or not|",
+		"UUID" : "9b0354c0-56d9-4723-8034-918ac9abab19"
+	},
+	"REALLY_GENASI" : 
+	{
+		"Description" : "Character is really a genasi",
+		"UUID" : "aa68eccb-7875-436f-881e-c3775eee37f6"
+	},
+	"REALLY_GENERIC" : 
+	{
+		"Description" : "|Really Generic origin|",
+		"UUID" : "264a6880-9a51-429c-a9fc-97f8952baf90"
+	},
+	"REALLY_GITHYANKI" : 
+	{
+		"Description" : "Character is really a githyanki",
+		"UUID" : "e49c027c-6ec6-4158-9afb-8b59236d10fd"
+	},
+	"REALLY_GNOME" : 
+	{
+		"Description" : "|Gnome, shapeshifted or not|",
+		"UUID" : "42483542-7915-4de5-a7d9-ac0d15fe301c"
+	},
+	"REALLY_HALFELF" : 
+	{
+		"Description" : "|Half-elf, shapeshifted or not|",
+		"UUID" : "277f9609-ad0c-4883-b56d-0850904e88df"
+	},
+	"REALLY_HALFLING" : 
+	{
+		"Description" : "|Halfling, shapeshifted or not|",
+		"UUID" : "2b40a033-7a5c-47e9-92f0-7de9b5cd3a42"
+	},
+	"REALLY_HALFORC" : 
+	{
+		"Description" : "Player is really a halforc",
+		"UUID" : "ab3eff19-d094-4102-88bd-d097b6b6e4f0"
+	},
+	"REALLY_HALSIN" : 
+	{
+		"Description" : "|Halsin, shapeshifted or not|",
+		"UUID" : "9b8709f9-8d2a-4b4e-a465-8505c561d7f5"
+	},
+	"REALLY_HIGHELF" : 
+	{
+		"Description" : "|High Elf, shapeshifted or not|",
+		"UUID" : "78884c5f-9504-41af-912d-ce212df0ebea"
+	},
+	"REALLY_HIGHHALFELF" : 
+	{
+		"Description" : "|High Half-Elf, shapeshifted or not|",
+		"UUID" : "bb7c731c-7af7-4c2d-b3d7-b4e8bd86a244"
+	},
+	"REALLY_HILLDWARF" : 
+	{
+		"Description" : "|Hill Dwarf, shapeshifted or not|",
+		"UUID" : "9a92ac6d-b7cc-4ccb-8965-074c6b36a342"
+	},
+	"REALLY_HUMAN" : 
+	{
+		"Description" : "|Human, shapeshifted or not|",
+		"UUID" : "8e288154-e7ca-4277-b2df-e61639b1cce8"
+	},
+	"REALLY_JAHEIRA" : 
+	{
+		"Description" : "|Jaheira companion, shapeshifted or not|",
+		"UUID" : "8457eb5f-036c-4143-b6cf-447a9f555c7a"
+	},
+	"REALLY_KARLACH" : 
+	{
+		"Description" : "|Karlach, Hells' champion. Tiefling origin. Whether or not she's shapeshifted.|",
+		"UUID" : "1a2f70d6-8ead-4eb5-a824-79ee1971764a"
+	},
+	"REALLY_KENKU" : 
+	{
+		"Description" : "Character is really a kenku",
+		"UUID" : "ec90a39d-ce0e-4ae1-b74d-0906dfd9a1d2"
+	},
+	"REALLY_LAEZEL" : 
+	{
+		"Description" : "| Lae'zel, the Gith Companion |",
+		"UUID" : "b5682d1d-c395-489c-9675-1f9b0c328ea5"
+	},
+	"REALLY_LIGHTFOOTHALFLING" : 
+	{
+		"Description" : "|Lightfoot Halfling, shapeshifted or not|",
+		"UUID" : "da1d4f47-8583-49a1-b262-d77d361b2e09"
+	},
+	"REALLY_LIZARDFOLK" : 
+	{
+		"Description" : "Character is really a lizardfolk",
+		"UUID" : "ef8444e2-a240-4cc1-9f57-73db6d99bc96"
+	},
+	"REALLY_LOLTHDROWELF" : 
+	{
+		"Description" : "|LOLTH-SWORN, shapeshifted or not|",
+		"UUID" : "c71eb8de-74e3-4d70-9826-22da7e2dc607"
+	},
+	"REALLY_MEPHISTOPHELESTIEFLING" : 
+	{
+		"Description" : "|Mephistopheles Tiefling, shapeshifted or not|",
+		"UUID" : "c70e1dc2-72d4-44f9-83fd-c63d247edd9b"
+	},
+	"REALLY_MINSC" : 
+	{
+		"Description" : "",
+		"UUID" : "aeb694fc-83fb-452d-819a-b97ba442dc42"
+	},
+	"REALLY_MINTHARA" : 
+	{
+		"Description" : "",
+		"UUID" : "3e84e1cd-2193-4f9f-80b4-c2ededefaea6"
+	},
+	"REALLY_MOUNTAINDWARF" : 
+	{
+		"Description" : "|Mountain Dwarf, shapeshifted or not|",
+		"UUID" : "18659b46-73ae-49d2-85a8-7e6cc43ce94f"
+	},
+	"REALLY_PLANAR" : 
+	{
+		"Description" : "Race group for REALLY_ races (githyanki, warforged)",
+		"UUID" : "4cb02915-7ad7-4141-907e-93253c6a8644"
+	},
+	"REALLY_RARE" : 
+	{
+		"Description" : "Race group for REALLY_ races (aasimar, dragonborn, firbolg, genasi, githyanki, half-drow, half-orc, tiefling, triton, warforged, yuan-ti pureblood)",
+		"UUID" : "987a41e3-2482-4c74-8c30-f3843cfdb7f3"
+	},
+	"REALLY_ROCKGNOME" : 
+	{
+		"Description" : "|Rock Gnome, shapeshifted or not|",
+		"UUID" : "df697d73-5469-405a-aa95-6e1e720c5ee6"
+	},
+	"REALLY_SELDARINEDROWELF" : 
+	{
+		"Description" : "|Seldarine Drow, shapeshifted or not|",
+		"UUID" : "d2d60a81-688e-4d3d-ba56-3e467cae37fc"
+	},
+	"REALLY_SHADOWHEART" : 
+	{
+		"Description" : "|Really Shadowheart|",
+		"UUID" : "642d2aee-e3df-47e3-9f47-bbcd441bb9e0"
+	},
+	"REALLY_STOUTHALFLING" : 
+	{
+		"Description" : "|Stout Halfling, shapeshifted or not|",
+		"UUID" : "058df86a-97b6-4dc4-a246-a1db65ff3c0f"
+	},
+	"REALLY_TABAXI" : 
+	{
+		"Description" : "Character is really a tabaxi",
+		"UUID" : "bafc25f8-20b0-4693-a0fe-73967befcf05"
+	},
+	"REALLY_TIEFLING" : 
+	{
+		"Description" : "|Tiefling, shapeshifted or not|",
+		"UUID" : "7bf7207f-7406-49c0-b501-eaaa2bb4efd7"
+	},
+	"REALLY_TORTLE" : 
+	{
+		"Description" : "Character is really a tortle",
+		"UUID" : "7839884d-892a-4d60-95cc-b073420d8474"
+	},
+	"REALLY_TRITON" : 
+	{
+		"Description" : "Character is really a triton",
+		"UUID" : "2a7e679e-2567-47f7-9645-550471cffcf7"
+	},
+	"REALLY_UNDERDARK" : 
+	{
+		"Description" : "Character internally belongs to an Underdark race",
+		"UUID" : "2d0a73b9-f113-4d35-bdee-a31ab9163d74"
+	},
+	"REALLY_US" : 
+	{
+		"Description" : "A tag for Us, the Intellect Devourer companion",
+		"UUID" : "2cff7db0-ae50-4267-82ea-84e961d3e3fa"
+	},
+	"REALLY_WARFORGED" : 
+	{
+		"Description" : "Character is really a warforged",
+		"UUID" : "e30b5b4d-2ceb-4791-914e-b6c6c122f059"
+	},
+	"REALLY_WOODELF" : 
+	{
+		"Description" : "|Wood Elf, shapeshifted or not|",
+		"UUID" : "b12e8dff-c1f0-4e9c-9ec0-1cafd22bb637"
+	},
+	"REALLY_WOODHALFELF" : 
+	{
+		"Description" : "|Wood Half-Elf, shapeshifted or not|",
+		"UUID" : "8ac1b27c-c5c4-4a2c-95dd-256e4349e483"
+	},
+	"REALLY_WYLL" : 
+	{
+		"Description" : "|Really Wyll, superhero warlock|",
+		"UUID" : "5f40def5-d3ec-4698-a367-01a339888956"
+	},
+	"REALLY_YUANTIPUREBLOOD" : 
+	{
+		"Description" : "Character is really a yuan-ti pureblood",
+		"UUID" : "3d80e0d5-0e28-4363-b153-c1a1076d36d4"
+	},
+	"REALLY_ZARIELTIEFLING" : 
+	{
+		"Description" : "|Zariel Tiefling, shapeshifted or not|",
+		"UUID" : "3a5efd84-5925-4a75-83ee-4f336b56f716"
+	},
+	"RECORD_ANTAGONIST" : 
+	{
+		"Description" : "This character is a major Antagonist in the story. For Voice Recording Team only.",
+		"UUID" : "cf6225be-c617-420f-96bc-3da63143aa15"
+	},
+	"RECORD_EXTRA" : 
+	{
+		"Description" : "This character is an Extra character. For Voice Recording Team only.",
+		"UUID" : "4e3a48be-f1a7-4f1f-a6c4-57b852eaa898"
+	},
+	"RECORD_PLAYER" : 
+	{
+		"Description" : "This character is a Player Character or an Origin Story. For Voice Recording Team only.",
+		"UUID" : "1402369e-b821-47be-95cc-435c90e5ca48"
+	},
+	"RECORD_PROTAGONIST" : 
+	{
+		"Description" : "This character is a major Protagonist in the story. For Voice Recording Team only.",
+		"UUID" : "541bd0f1-9164-4c16-b04e-7b5c96038471"
+	},
+	"RECORD_QUEST" : 
+	{
+		"Description" : "This character is a Quest Giving character. For Voice Recording Team only.",
+		"UUID" : "855a45e4-91a4-41a1-9401-95b5bd015336"
+	},
+	"REDCAP" : 
+	{
+		"Description" : "|Redcap tag used for spell targeting conditions|",
+		"UUID" : "ec2ee51e-80de-42a2-9d34-a5c9aa75cf75"
+	},
+	"RESTRAINED_ADV" : 
+	{
+		"Description" : "Advantage on rolls against restrained statuses",
+		"UUID" : "eacd09eb-cddc-4902-8133-b9d1b2a7c5cb"
+	},
+	"RESTRAINED_DISADV" : 
+	{
+		"Description" : "Disadvantage on rolls against restrained statuses",
+		"UUID" : "6b9d73ac-e853-43ad-acbb-492bbe3c4940"
+	},
+	"RETREAT" : 
+	{
+		"Description" : "AI hint tag for trigger, Indicies interesting area for retreating",
+		"UUID" : "9cefcf81-6c03-4505-96e1-9de55c8ab647"
+	},
+	"RISING_PLATFORM" : 
+	{
+		"Description" : "Rising platforms have these tags so they don't interfer with each other.",
+		"UUID" : "7f6c27d9-0ee6-4840-8d42-297cf5791f49"
+	},
+	"ROCKGNOME" : 
+	{
+		"Description" : "|Rock Gnome|",
+		"UUID" : "664cc044-a0ea-43a1-b21f-d8cad7721102"
+	},
+	"ROGUE" : 
+	{
+		"Description" : "A scoundrel who uses stealth and trickery to overcome obstacles and enemies.",
+		"UUID" : "f8a0608b-666c-4be6-a49c-03b369c10bd2"
+	},
+	"ROLAN_TARGET" : 
+	{
+		"Description" : "A tag to apply to Rolan so he is targets by the Shadows in the Rolan Rescue fight.",
+		"UUID" : "8c7bdccd-132c-496a-a34f-75c39e721214"
+	},
+	"Reward" : 
+	{
+		"Description" : "",
+		"UUID" : "d5cd4ee4-6c5d-429a-b3ef-2f56ec906dd7"
+	},
+	"SABERTOOTH" : 
+	{
+		"Description" : "",
+		"UUID" : "83485d43-2f1a-4916-b428-ab3f37aafedf"
+	},
+	"SAGE" : 
+	{
+		"Description" : "|You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your fields of study.|",
+		"UUID" : "dad18490-c61d-4958-805c-f017eb68f8a0"
+	},
+	"SAHUAGIN" : 
+	{
+		"Description" : "Combat tag for combat fallback AD",
+		"UUID" : "5cb1729c-eff3-4878-adc5-128f71ecccdc"
+	},
+	"SAILOR" : 
+	{
+		"Description" : "",
+		"UUID" : "3f4cfd9e-cc97-4fd9-ae7a-21f2948fd1b0"
+	},
+	"SALAMANDER" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "d3be3db4-1261-422d-a2ff-2662a06884fd"
+	},
+	"SCL_DRIDER" : 
+	{
+		"Description" : "A combat tag for spells addressed to the drider",
+		"UUID" : "0111a41a-d47f-42e5-a000-eea3f75e354d"
+	},
+	"SCL_SHADOWCURSE_LANTERN" : 
+	{
+		"Description" : "A tag to identify moon lanterns with",
+		"UUID" : "d40f0c3a-d95d-49fe-ae62-ca90ff2c2202"
+	},
+	"SCL_SHADOWCURSE_LANTERN_INBLIGHT" : 
+	{
+		"Description" : "Identifies that the lantern is in blight.",
+		"UUID" : "8a98d81f-ec79-483e-aa89-9e71806a339e"
+	},
+	"SCRATCH" : 
+	{
+		"Description" : "|Tag for scratch to find things in the world.|",
+		"UUID" : "13a8385d-d502-496a-8b91-f6d9a8e7a2cb"
+	},
+	"SCROLL" : 
+	{
+		"Description" : "Magic scroll with a spell",
+		"UUID" : "dd86c045-0370-4ec9-b7c5-b0b160706f09"
+	},
+	"SCRYING_EYE" : 
+	{
+		"Description" : "Scrying Eyes crime reactions.",
+		"UUID" : "0bdf874a-3703-49be-b1cf-4d291d4e495b"
+	},
+	"SELDARINEDROWELF" : 
+	{
+		"Description" : "|Seldarine Drow|",
+		"UUID" : "6e913b6e-58b1-41bf-8751-89250dd17bff"
+	},
+	"SELUNE" : 
+	{
+		"Description" : "|Player or NPC chose Selune.|",
+		"UUID" : "4533d292-5b1f-43c7-ad44-6bc7db1000ca"
+	},
+	"SEPARATE_STACK_MERGING" : 
+	{
+		"Description" : "|Can be set on items to prevent them from getting merged with other items that are otherwise the same (unless they also have this tag, so be careful). Use for shop triggers: when selecting an item, it gets temporarily added to the trader's inventory. It shouldn't be merged with other items of the same kind, so we can place it back if the player doesn't buy it.|",
+		"UUID" : "f5071dac-7a94-4302-a3e6-a631d0d53619"
+	},
+	"SEVEREDHEAD" : 
+	{
+		"Description" : "Bodyparts that are severed heads",
+		"UUID" : "80572cea-ebf2-4c53-8905-b0d53bbef449"
+	},
+	"SFX" : 
+	{
+		"Description" : "|For dialogue nodes that need SFX treatment in addition to VO|",
+		"UUID" : "794849b6-f8d9-49da-9c0c-d2b1f7517b2d"
+	},
+	"SFX_Only" : 
+	{
+		"Description" : "|For dialogue nodes that are only SFX, no voice|",
+		"UUID" : "450f4137-1a60-45e3-90cf-de9e182f3078"
+	},
+	"SHADOW" : 
+	{
+		"Description" : "A tag to identify shadows so that their combat fallback AD works as intended.",
+		"UUID" : "a04374d9-c40f-4c41-a10f-7f3ca496b16a"
+	},
+	"SHADOWHEART" : 
+	{
+		"Description" : "|Shadow Heart, Sharite companion|",
+		"UUID" : "8b4cf0fa-f712-4839-9439-f86a519078fa"
+	},
+	"SHADOWHEART_ENEMYOFSHARPATH" : 
+	{
+		"Description" : "",
+		"UUID" : "8eca8027-996c-4c61-bec6-77f853de295b"
+	},
+	"SHADOWHEART_SHARPATH" : 
+	{
+		"Description" : "",
+		"UUID" : "9624a3fe-bb9e-47c5-b9ab-417e6da6f84b"
+	},
+	"SHAR" : 
+	{
+		"Description" : "|Player or NPC chose Shar.|",
+		"UUID" : "486e4a27-e6f9-40a5-9dd1-108a1d0f60eb"
+	},
+	"SHARK" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "9fd9e0bb-bfc5-4696-90c7-133fd7e8e9f8"
+	},
+	"SHEEP" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "c52888c3-4131-41e7-89e4-f4366a334289"
+	},
+	"SHOPTRIGGER_BLOCK_FOR_SALE" : 
+	{
+		"Description" : "|Set on items in shop triggers that should not be for sale, even if their root is for sale by default (e.g. a personal heirloom or quest reward)|",
+		"UUID" : "f8fca7c4-c06b-4c2c-a9d4-43d959df51ec"
+	},
+	"SHOPTRIGGER_FOR_SALE" : 
+	{
+		"Description" : "|Set on roots that should be for sale by default in shop triggers. E.g. weapons, armor, ...|",
+		"UUID" : "b148cfca-53d8-4b73-b052-de08394a235e"
+	},
+	"SHORT" : 
+	{
+		"Description" : "|Is a small humanoid.|",
+		"UUID" : "50e7beca-4e90-43cd-b7c5-c235e236077f"
+	},
+	"SHOVEL" : 
+	{
+		"Description" : "Tags items with which you can dig",
+		"UUID" : "e2db698a-0705-43f4-9674-06fff1fd1e67"
+	},
+	"SKELETON" : 
+	{
+		"Description" : "",
+		"UUID" : "146a89e7-802f-4926-bc21-4a41c2478502"
+	},
+	"SLAYER" : 
+	{
+		"Description" : "Slayer species tag",
+		"UUID" : "ff6e2e2e-198c-40e3-ae79-4499c5a59eea"
+	},
+	"SLIPPING_ADV" : 
+	{
+		"Description" : "Advantage on rolls against slipping surfaces.",
+		"UUID" : "1b6b3f27-23cc-4594-b0f2-a94054be0fc2"
+	},
+	"SOLDIER" : 
+	{
+		"Description" : "|War has been your life for as long as you care to remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the battlefield.|",
+		"UUID" : "d135f265-c2e1-4077-a836-b548ee871681"
+	},
+	"SORCERER" : 
+	{
+		"Description" : "A spellcaster who draws on inherent magic from a gift or bloodline.",
+		"UUID" : "18266c0b-efbc-4c80-8784-ada4a37218d7"
+	},
+	"SORCERER_DRACONIC" : 
+	{
+		"Description" : "",
+		"UUID" : "f6d0e042-5b90-41d8-ab4a-a2239e27a13e"
+	},
+	"SORCERER_METAMAGIC" : 
+	{
+		"Description" : "Character with this tag has access to metamagic",
+		"UUID" : "6078032a-1638-4d33-ba16-996066490ccf"
+	},
+	"SORCERER_WILDMAGIC" : 
+	{
+		"Description" : "",
+		"UUID" : "885f8675-e400-4d53-924d-6204ff1d9558"
+	},
+	"SORCERER_WILD_MAGIC_GUARANTEED" : 
+	{
+		"Description" : "Character with this tag will have guaranteed wild magic next spell cast",
+		"UUID" : "4bac801e-9471-4f41-88bc-caa39e358c52"
+	},
+	"SORCERER_WILD_MAGIC_SUPRESSED" : 
+	{
+		"Description" : "Character with this tag cannot trigger wild magic",
+		"UUID" : "a3b7a422-4d28-413d-adc4-e7d2001e37f5"
+	},
+	"SPECIFIC_LADDERS" : 
+	{
+		"Description" : "This creature only uses ladders that are meant for its race (e.g. NPC spiders only use web ladders). This must NOT apply to player transformations, as they are supposed to use any ladder that aren't specifically blocked from them.",
+		"UUID" : "10a24282-b306-40f8-9e44-410799dc21cd"
+	},
+	"SPECTATOR" : 
+	{
+		"Description" : "A combat tag allowing the petrified drow, around the spectator, to cast healing spells on him, and only on him",
+		"UUID" : "9c79bbd4-c01c-4894-a2cf-51e1aae09a90"
+	},
+	"SPELLLIGHTOBJECT" : 
+	{
+		"Description" : "A helper object created by a light-type spell.",
+		"UUID" : "292e7f29-ff10-462d-8be9-94ddd18970ea"
+	},
+	"SPIDER" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "8c8932c5-45f7-4d45-8f62-182db82ddcb0"
+	},
+	"SPIDER_PHASE" : 
+	{
+		"Description" : "",
+		"UUID" : "c3b3e9cd-ad18-475a-8df1-4562b2a6af19"
+	},
+	"SQUIRREL" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "f2f86f8a-b927-4e70-888f-deffa10ec796"
+	},
+	"STEEL_WATCHER" : 
+	{
+		"Description" : "",
+		"UUID" : "bc09a589-e076-4b2d-8b86-f8cccbb64449"
+	},
+	"STEEL_WATCHER_BIPED" : 
+	{
+		"Description" : "",
+		"UUID" : "6427d19c-0b93-4079-b76f-2647945081c5"
+	},
+	"STEEL_WATCHER_MALFUNCTION" : 
+	{
+		"Description" : "",
+		"UUID" : "62b8df63-c303-4956-97a9-5c9c97520ebf"
+	},
+	"STONE" : 
+	{
+		"Description" : "Used To mark movable items to play sounds according to the material",
+		"UUID" : "556b33c9-2cde-4d41-8c00-ddcdc161c868"
+	},
+	"STONE_CREATURE" : 
+	{
+		"Description" : "Used to make Shatter disadvantage work on earth elementals",
+		"UUID" : "3b030365-927d-43a1-83ba-111f3bab3059"
+	},
+	"STOUTHALFLING" : 
+	{
+		"Description" : "|Stout Halfling|",
+		"UUID" : "8d545fa1-8416-493f-8325-7d112bceced8"
+	},
+	"SUMMON" : 
+	{
+		"Description" : "Generic tag for summons. Allows different treatements of crimes, similarly to the ANIMAL tag.",
+		"UUID" : "26c78224-a4c1-43e4-b943-75e7fa1bfa41"
+	},
+	"SUMMONWITHOUTMOUTH" : 
+	{
+		"Description" : "Used to determine which summons can drink potions. ",
+		"UUID" : "ff16e8ab-e8e6-4acb-a105-aae53a9d510e"
+	},
+	"SURFACE_INTERRACTIONS_FROM_CENTER" : 
+	{
+		"Description" : "Do not use the pivot but the bound center as source of any surface transform actions caused by this object",
+		"UUID" : "30cc2141-376e-4bbf-9188-9d3a9c5741cb"
+	},
+	"TABAXI" : 
+	{
+		"Description" : "Character looks like a tabaxi",
+		"UUID" : "b83aa083-9544-454e-baef-2cb28f9c151b"
+	},
+	"TADPOLE_00" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "c15c2234-9b19-453e-99cc-00b7358b9fce"
+	},
+	"TADPOLE_01" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "c67231b6-93d5-4bab-888b-c5eeaa60a8df"
+	},
+	"TADPOLE_02" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "f8b010f9-9e1b-49bb-92a9-986e91331926"
+	},
+	"TADPOLE_03" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "9cde0249-0e85-4d4d-b410-a88b5f073215"
+	},
+	"TADPOLE_04" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "0a6b3d54-dcb5-4fa3-a47c-bed147936461"
+	},
+	"TADPOLE_05" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "9d789ea8-3982-418d-b0e9-e1fa731c132d"
+	},
+	"TADPOLE_06" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "aad197e7-b335-423b-a718-384f1774e5de"
+	},
+	"TADPOLE_07" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "bbc4f0e0-38fd-40da-af69-0660ce53d92a"
+	},
+	"TADPOLE_08" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "488c84ef-24a7-4d56-8343-0eba225eb842"
+	},
+	"TADPOLE_09" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "b2666bd3-eeba-4bea-8395-673ccb9930ed"
+	},
+	"TADPOLE_10" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "08b493da-3bbc-41f9-848d-73b7b9ecfacd"
+	},
+	"TADPOLE_11" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "efc0b8ab-5ab2-4859-b1e7-6aa244d35f70"
+	},
+	"TADPOLE_12" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "6cda55d9-75ce-490d-8636-5a16ffd7ccdb"
+	},
+	"TADPOLE_13" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "814c5204-7803-4a5d-ab3e-4b5f976f37db"
+	},
+	"TADPOLE_14" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "38e0fbdf-f3bb-42ae-a6c6-def7a3009eec"
+	},
+	"TADPOLE_15" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "120777be-9221-4e7a-9dbc-295cb36faa0c"
+	},
+	"TADPOLE_16" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "6661566d-269e-4497-9129-bd793fb5b9e8"
+	},
+	"TADPOLE_17" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "52ef4242-0716-4aeb-9800-0b98f97124a1"
+	},
+	"TADPOLE_18" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "a7b5acb7-0c12-4aad-9b2d-e9a9f1fd2f71"
+	},
+	"TADPOLE_19" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "521814d2-8cf2-4da5-9dad-726d2973f4da"
+	},
+	"TADPOLE_20" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "b99ebe04-463e-427c-bb22-e3d7583c63e3"
+	},
+	"TADPOLE_21" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "6c5dce0a-92a6-476a-a527-ff4c68c14a60"
+	},
+	"TADPOLE_22" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "34b507c8-c414-450b-824d-128fd9e57ed7"
+	},
+	"TADPOLE_23" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "2dd0903c-c5ff-454f-94e0-678a66bfa9c1"
+	},
+	"TADPOLE_24" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "bf2e5c5e-a664-4f71-a017-bc4def71d50d"
+	},
+	"TADPOLE_25" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "27ec7196-c8ca-4b56-9b15-105b21c01281"
+	},
+	"TADPOLE_ASSIGNED" : 
+	{
+		"Description" : "",
+		"UUID" : "089d4ca5-2cf0-4f54-84d9-1fdea055c93f"
+	},
+	"TADPOLE_NORMAL" : 
+	{
+		"Description" : "Used to mark basic consumable tadpoles.",
+		"UUID" : "a81294a2-e779-464f-8c8a-4e84f8e9da34"
+	},
+	"TADPOLE_POWERS_BLOCKED" : 
+	{
+		"Description" : "|All tadpole special powers are blocked with this tag.|",
+		"UUID" : "dbbb5a43-a45f-4d6e-b6dd-eba372e8f294"
+	},
+	"TADPOLE_REFUSAL" : 
+	{
+		"Description" : "",
+		"UUID" : "e7aa40e4-05e4-41c4-a3ee-bc95d934d35c"
+	},
+	"TADPOLE_TREE_UNLOCKED" : 
+	{
+		"Description" : "Used to make sure that tadpole powers are loaded with party presets. Debug reasons only.",
+		"UUID" : "efedb058-d4f5-4ab8-8add-bd5e32cdd9cd"
+	},
+	"TALOS" : 
+	{
+		"Description" : "Player or NPC worships Talos.",
+		"UUID" : "c8650f16-4610-4648-95d1-18a44a1188b7"
+	},
+	"TARGET_BOUND_CENTER" : 
+	{
+		"Description" : "???",
+		"UUID" : "9d7b1a5a-c1ca-40d5-a7b9-aeaf9e512608"
+	},
+	"TELEPATHY" : 
+	{
+		"Description" : "For Dialog lines that are marked a Telephaty Internal Speech",
+		"UUID" : "ad247b59-d101-4f04-99ef-471c65678662"
+	},
+	"TELEPORTER_HOLE_SMALL" : 
+	{
+		"Description" : "Set on TeleporterHole roots to allow AD on use",
+		"UUID" : "263a8a31-154a-45dc-8479-5e75edc0cc75"
+	},
+	"TELEPORTER_HOLE_TINY" : 
+	{
+		"Description" : "Set on TeleporterHole roots to allow AD on use",
+		"UUID" : "2e6933bc-7c9b-4293-992b-49a07875c460"
+	},
+	"TEMPUS" : 
+	{
+		"Description" : "|Player or NPC chose Tempus.|",
+		"UUID" : "f6b88f18-328f-41c3-a579-e8a9b99c410b"
+	},
+	"TIAMAT" : 
+	{
+		"Description" : "|Player or NPC chose Tiamat.|",
+		"UUID" : "328683c2-8785-4b71-b128-7cec90df0abe"
+	},
+	"TIEFLING" : 
+	{
+		"Description" : "|Tiefling|",
+		"UUID" : "aaef5d43-c6f3-434d-b11e-c763290dbe0c"
+	},
+	"TIGER" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "91333a5b-4a98-4a91-a0a8-54facf62f373"
+	},
+	"TORCH" : 
+	{
+		"Description" : "Tag for setting Status VFX overrides.",
+		"UUID" : "a8139e1a-c593-4e0b-88cd-f703f888db83"
+	},
+	"TORCH_BLUE_FX" : 
+	{
+		"Description" : "Alt color for the torch",
+		"UUID" : "11504ff6-abb5-4e18-867a-2bd2eb3d8388"
+	},
+	"TORCH_CURSED_FX" : 
+	{
+		"Description" : "Alt color for the torch",
+		"UUID" : "b25e76da-ae10-4922-ade3-975cf393e77e"
+	},
+	"TORCH_GREEN_FX" : 
+	{
+		"Description" : "Alt color for the torch",
+		"UUID" : "e749196a-3564-4420-9293-847bc2ee7cd2"
+	},
+	"TORCH_LANTERN" : 
+	{
+		"Description" : "A different kind of torch, with a hanging light.",
+		"UUID" : "6d68eef3-1ad6-4954-8ab8-447002138df1"
+	},
+	"TORCH_PURPLE_FX" : 
+	{
+		"Description" : "Alt color for the torch",
+		"UUID" : "678d693a-75dc-4b40-95a4-d331ce849249"
+	},
+	"TORCH_REVOCATION_FX" : 
+	{
+		"Description" : "Alt color for the torch",
+		"UUID" : "6374d29f-eaed-4f95-8e1b-a9912190714c"
+	},
+	"TORCH_TRUE_FX" : 
+	{
+		"Description" : "Alt color for the torch",
+		"UUID" : "2db3999b-8662-4e13-aba9-e55ef26e8e7e"
+	},
+	"TORTLE" : 
+	{
+		"Description" : "Character looks like a tortle",
+		"UUID" : "be68063a-83d0-4e3b-8d03-8127888af222"
+	},
+	"TOY" : 
+	{
+		"Description" : "Toys with which children play",
+		"UUID" : "3c33430b-c7f0-4e26-907d-ab2a26ddb823"
+	},
+	"TRADER" : 
+	{
+		"Description" : "All skill and equipment traders are marked with this.",
+		"UUID" : "91d5ebc6-91ea-44db-8a51-216860d69b5b"
+	},
+	"TRICKSTER_HEDONIST" : 
+	{
+		"Description" : "Astarion's variant background",
+		"UUID" : "4978ed0d-9bb9-4d87-82e0-02e785512661"
+	},
+	"TRITON" : 
+	{
+		"Description" : "Character looks like a triton",
+		"UUID" : "c622d782-f676-444a-bb31-9657b0f1415b"
+	},
+	"TROLL" : 
+	{
+		"Description" : "Species tag for Trolls",
+		"UUID" : "df87ba10-f7bd-43f9-8af1-29dd378b3e29"
+	},
+	"TRUESOUL" : 
+	{
+		"Description" : "| Became a true soul by using tadpoled convince a lot. |",
+		"UUID" : "11491bda-fa57-44ed-a306-a13fdf8e3b82"
+	},
+	"TURNED_ADV" : 
+	{
+		"Description" : "Advantage on rolls against turned status",
+		"UUID" : "3f4cc1a0-fad8-4432-815d-f0803efea68e"
+	},
+	"TURTLE" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "0f68567e-1e38-41d9-b2ca-2833195ab2f4"
+	},
+	"TYMORA" : 
+	{
+		"Description" : "Player or NPC worships Tymora.",
+		"UUID" : "c0b03fe2-6495-4340-a0c8-ed6ccf206bcc"
+	},
+	"TYR" : 
+	{
+		"Description" : "|Player or NPC chose Tyr.|",
+		"UUID" : "aa9a53ed-afad-4a6d-824c-ff0125986eb7"
+	},
+	"Tool" : 
+	{
+		"Description" : "",
+		"UUID" : "273296fc-764e-4119-b36e-a2c2f29c96b1"
+	},
+	"UMBERLEE_PRIESTESS" : 
+	{
+		"Description" : "",
+		"UUID" : "dd51e703-36cc-416a-97c4-bdb83da2c463"
+	},
+	"UNDEAD" : 
+	{
+		"Description" : "Type Tag for undead-type monsters",
+		"UUID" : "33c625aa-6982-4c27-904f-e47029a9b140"
+	},
+	"UNDEAD_BEAST" : 
+	{
+		"Description" : "Species tag for undead that are NOT members of the Undead race",
+		"UUID" : "1d156657-b014-48fa-b34c-327763480627"
+	},
+	"UNDERDARK" : 
+	{
+		"Description" : "Character visually belongs to an Underdark race",
+		"UUID" : "60f6b464-752f-4970-a855-f729565b5e07"
+	},
+	"UNDERDARK_EXILE" : 
+	{
+		"Description" : "Minthara variant background",
+		"UUID" : "22097482-335b-43bb-9eb0-55fa7883b1e6"
+	},
+	"UND_ADMANTINEGOLEM_TAUNT" : 
+	{
+		"Description" : "Used in the UND_ADMANTINEGOLEM_TAUNT status to determine Taunt Target for the AI.",
+		"UUID" : "c70bfd7e-1287-42cd-bb5a-fa0f17bfcf38"
+	},
+	"UND_MONKAMULET_EQUIPPED" : 
+	{
+		"Description" : "Indicates if the player currently has the Monk's Amulet equipped",
+		"UUID" : "ee7b438e-10cf-4298-8e78-232b3a2211be"
+	},
+	"UND_SUSSURTREEANTIMAGIC" : 
+	{
+		"Description" : "|Set on entities under with UND_SUSSURTREEANTIMAGIC status.|",
+		"UUID" : "2c17c8a0-2aa4-49f3-8df2-9955762e51fc"
+	},
+	"UND_SUSSUR_SUSCEPTIBLE" : 
+	{
+		"Description" : "|Set on magical items in the Underdark that could be affected by Sussur Flowers aura. Not intended to be seen by player.|",
+		"UUID" : "45dad4f3-f6f2-4b7f-8c2c-6324435847c9"
+	},
+	"UNLOAD_WITH_LEVELTEMPLATE" : 
+	{
+		"Description" : "Used to mark that this object should not be moved to the main level when the parent levelmplate is unloaded by Osiris, and will thus be unloaded",
+		"UUID" : "87572f4a-8462-4042-a06a-caba1e0eb2cb"
+	},
+	"URCHIN" : 
+	{
+		"Description" : "|You grew up on the streets alone, orphaned, and poor. You've survived despite all odds, and did so through cunning, strength, speed, or some combination of each.|",
+		"UUID" : "2faee476-d77b-42a7-a4c6-2b9ac934673c"
+	},
+	"VAMPIRE" : 
+	{
+		"Description" : "Used for both Vampires and Vampire spawn.",
+		"UUID" : "f6662b6e-b3bf-468e-82cb-402247176a1b"
+	},
+	"VEGETABLE" : 
+	{
+		"Description" : "Food/Consumable",
+		"UUID" : "93267e98-b748-47c9-94b9-142decce3de5"
+	},
+	"VETERAN_MENTOR" : 
+	{
+		"Description" : "Jaheira variant background",
+		"UUID" : "5666d6ce-21d5-491f-8833-2650b15a699d"
+	},
+	"VFX_ASHPILE_LARGE" : 
+	{
+		"Description" : "|This creature will have a large ash pile on Disintegration Death|",
+		"UUID" : "0a9ff41b-d599-4d51-bfbc-2389475ec883"
+	},
+	"VFX_ASHPILE_MEDIUM" : 
+	{
+		"Description" : "|This creature will have a medium ash pile upon its death.|",
+		"UUID" : "0a79a905-d41f-401f-a0e4-a2401143fc17"
+	},
+	"VFX_BLOOD_ACID" : 
+	{
+		"Description" : "Tag to identify creatures with Acid blood for VFX",
+		"UUID" : "a171ef78-79b3-4512-a648-ca28fe06f60b"
+	},
+	"VFX_BLOOD_GREEN" : 
+	{
+		"Description" : "Tag to identify creatures with Green blood for VFX",
+		"UUID" : "f791b866-0cc4-48e9-ba4b-80d356a49387"
+	},
+	"VFX_BLOOD_SILVER" : 
+	{
+		"Description" : "Tag to identify creatures with Silver blood for VFX",
+		"UUID" : "9d0fd44c-2495-44db-a184-4ca824832f3e"
+	},
+	"VFX_BLOOD_SKELETON" : 
+	{
+		"Description" : "Used for the Explode death on the Blood Skeleton",
+		"UUID" : "5ae94f72-939d-45c9-83b2-8a20a626e371"
+	},
+	"VFX_DEAD_WISP" : 
+	{
+		"Description" : "|Used for dead wisp VFX.|",
+		"UUID" : "f31d1582-9498-4a92-8559-def7a3222aef"
+	},
+	"VFX_KNOCK_HATCH" : 
+	{
+		"Description" : "Knock spell VFX for hatches",
+		"UUID" : "a89ed58f-4f71-4fe5-b0e2-41c027e699c4"
+	},
+	"VFX_KNOCK_LARGE" : 
+	{
+		"Description" : "Knock spell VFX for large objects",
+		"UUID" : "b451184e-bb49-450e-9e77-d82d0e20a5e7"
+	},
+	"VFX_KNOCK_MEDIUM" : 
+	{
+		"Description" : "Knock spell VFX for medium objects",
+		"UUID" : "c61c8907-8f50-46ab-9bdb-6fde97913a39"
+	},
+	"VFX_KNOCK_SMALL" : 
+	{
+		"Description" : "Knock spell VFX for small objects",
+		"UUID" : "9b6f9531-c2d3-47b2-9153-861425152eb3"
+	},
+	"VFX_MOONLANTERN_POLE" : 
+	{
+		"Description" : "Pole version of the moon lantern",
+		"UUID" : "a3a713b6-f06a-401d-a5e5-0b878fdb472e"
+	},
+	"VFX_OLIVER_OWLBEAR" : 
+	{
+		"Description" : "Used to apply the purple-ish VFX that indicates that this creature was summoned by Oliver. For the Lifting the Curse quest.",
+		"UUID" : "ed37b9f1-16ee-44cb-a833-e433d36ab906"
+	},
+	"VFX_OLIVER_SHADOW" : 
+	{
+		"Description" : "Used to apply the purple-ish VFX that indicates that this creature was summoned by Oliver. For the Lifting the Curse quest.",
+		"UUID" : "b20686d0-1b08-4187-b55e-6a3e5a6fdabd"
+	},
+	"VFX_OLIVER_SHADOWMASTIFF" : 
+	{
+		"Description" : "Used to apply the purple-ish VFX that indicates that this creature was summoned by Oliver. For the Lifting the Curse quest.",
+		"UUID" : "04674772-1ca1-4a3d-a2d1-2b9e28efc5d8"
+	},
+	"VFX_RAGE" : 
+	{
+		"Description" : "Rage causes VFX of the spells change",
+		"UUID" : "2dcbb93b-28fb-4805-8b7a-028f90171663"
+	},
+	"VFX_SNEAKING" : 
+	{
+		"Description" : "",
+		"UUID" : "2c9222d8-0db3-481c-b70f-78e6243edf69"
+	},
+	"VLAAKITH" : 
+	{
+		"Description" : "Player or NPC worships Vlaakith.",
+		"UUID" : "d84b4081-6800-45f9-b03f-16dba592c75d"
+	},
+	"VOLO_SLAYER" : 
+	{
+		"Description" : "This is used to give the Slayer the special volo additional ability. ",
+		"UUID" : "f09707c1-7c58-4611-a06b-ce34dd2826c6"
+	},
+	"VO_DO_NOT_RECORD" : 
+	{
+		"Description" : "Used to make sure VO is not recorded for a node",
+		"UUID" : "3844a596-bf41-4cfe-a6d0-64d0ded9a07e"
+	},
+	"VO_IGNORE_GENDER" : 
+	{
+		"Description" : "Indicates to ignore gender filtering for this character",
+		"UUID" : "057ca665-7d1c-4cef-a29d-bb00d5a1059b"
+	},
+	"VO_POSTPROCESS" : 
+	{
+		"Description" : "a Tag that indicates that this character will need Voice Processing on thier voice",
+		"UUID" : "eae44d86-3321-4a0a-811d-4fd8e48b5723"
+	},
+	"WARFORGED" : 
+	{
+		"Description" : "Character looks like a warforged",
+		"UUID" : "54a4726b-9399-4e8e-825e-42c60273939e"
+	},
+	"WARLOCK" : 
+	{
+		"Description" : "A wielder of magic that is derived from a bargain with an extraplanar entity.",
+		"UUID" : "5804f55a-93f7-4281-9512-8d548a9e2a22"
+	},
+	"WARLOCK_ARCHFEY" : 
+	{
+		"Description" : "",
+		"UUID" : "86de94fa-91a2-4abb-8601-f2ad96c70659"
+	},
+	"WARLOCK_FIEND" : 
+	{
+		"Description" : "This warlock's patron is a Fiend",
+		"UUID" : "fbe3ee5d-1bb8-4c0b-a18c-26386101a680"
+	},
+	"WARLOCK_GREAT_OLD_ONE" : 
+	{
+		"Description" : "This warlock's patron is a Great Old One",
+		"UUID" : "cdad1fc1-352b-4441-82f2-73d8433e42ea"
+	},
+	"WATERDAVIAN_MAGUS" : 
+	{
+		"Description" : "Gale variant background",
+		"UUID" : "b20cb269-417c-4a01-9f00-4c0f493f47fa"
+	},
+	"WEIGHT_GARGANTUAN" : 
+	{
+		"Description" : "Gargantuan Weight Category",
+		"UUID" : "7f26284a-0c98-48d8-85f3-6c7ab52997df"
+	},
+	"WEIGHT_HUGE" : 
+	{
+		"Description" : "Huge Weight Category",
+		"UUID" : "5e77c1e9-5dbf-4b24-a616-80b5740e77b5"
+	},
+	"WEIGHT_LARGE" : 
+	{
+		"Description" : "Large Weight Category",
+		"UUID" : "346b447c-93ba-426c-acf5-da9244fb22ec"
+	},
+	"WEIGHT_MEDIUM" : 
+	{
+		"Description" : "Medium Weight Category",
+		"UUID" : "653cb906-38d1-4b80-b598-00b064efff3d"
+	},
+	"WEIGHT_SMALL" : 
+	{
+		"Description" : "Small Weight Category",
+		"UUID" : "7e99123d-6833-4461-9b4a-b5e281586734"
+	},
+	"WEIGHT_TINY" : 
+	{
+		"Description" : "Tiny Weight Category",
+		"UUID" : "9360d001-0cef-49e0-a2e0-4d715d4976ea"
+	},
+	"WILDSHAPE" : 
+	{
+		"Description" : "",
+		"UUID" : "04ae77c4-f708-4ffa-8b8c-763b062a2e6e"
+	},
+	"WINDUPTOY" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "ccc174af-46e1-452b-a177-8d33579a3b36"
+	},
+	"WIZARD" : 
+	{
+		"Description" : "A scholarly magic-user capable of manipulating the structures of reality.",
+		"UUID" : "6fe3ae27-dc6c-4fc9-9245-710c790c396c"
+	},
+	"WIZARD_NECROMANCY" : 
+	{
+		"Description" : "",
+		"UUID" : "90d7fbd5-1264-4bd6-93ba-67c2116e6ab0"
+	},
+	"WOLF" : 
+	{
+		"Description" : "Species tag",
+		"UUID" : "5f38a755-e386-4a3a-a145-d22c9d6bf6b7"
+	},
+	"WOOD" : 
+	{
+		"Description" : "Used To mark movable items to play sounds according to the material",
+		"UUID" : "4ddafc45-7b85-4ae3-a616-8f4a228d04ed"
+	},
+	"WOODELF" : 
+	{
+		"Description" : "|Wood Elf|",
+		"UUID" : "889e0db5-d03e-4b63-86d7-13418f69729f"
+	},
+	"WOODHALFELF" : 
+	{
+		"Description" : "|Wood Half-Elf|",
+		"UUID" : "5ffb703c-3ef4-493b-966d-749bc038f6bd"
+	},
+	"WOODWOAD" : 
+	{
+		"Description" : "A tag to identify Wood Woads. Useful for their tree stride ability.",
+		"UUID" : "84906b84-1c8a-44d5-b40e-0301920a8727"
+	},
+	"WOODWOAD_CLUB" : 
+	{
+		"Description" : "|Used for applying extra damage as the woodwoad with its special club|",
+		"UUID" : "21a90b16-03ab-43c3-b145-020eb9ccbef9"
+	},
+	"WORG" : 
+	{
+		"Description" : "Subspecies tag",
+		"UUID" : "4cdfd238-10eb-4b06-945f-f9a4b865179b"
+	},
+	"WPN_BATTLEAXE" : 
+	{
+		"Description" : "",
+		"UUID" : "7609654e-b213-410d-b08f-6d2930da6411"
+	},
+	"WPN_CLUB" : 
+	{
+		"Description" : "",
+		"UUID" : "9b333d67-365f-41fa-80b2-08e86588e9ac"
+	},
+	"WPN_DAGGER" : 
+	{
+		"Description" : "",
+		"UUID" : "7490e5d0-d346-4b0e-80c6-04e977160863"
+	},
+	"WPN_DART" : 
+	{
+		"Description" : "",
+		"UUID" : "c23ac9ef-5b47-4c2d-8ce5-7b60a8b34787"
+	},
+	"WPN_FLAIL" : 
+	{
+		"Description" : "",
+		"UUID" : "5d7b1304-6d20-4d60-ba1b-0fbb491bfc18"
+	},
+	"WPN_GLAIVE" : 
+	{
+		"Description" : "",
+		"UUID" : "7a15ea4f-cb00-4201-8e7f-024627e3d014"
+	},
+	"WPN_GREATAXE" : 
+	{
+		"Description" : "",
+		"UUID" : "02da79f5-6f13-4f90-9819-102e37693f48"
+	},
+	"WPN_GREATCLUB" : 
+	{
+		"Description" : "",
+		"UUID" : "ab44887d-0eb0-4fef-bd9d-943ea8971aa2"
+	},
+	"WPN_GREATSWORD" : 
+	{
+		"Description" : "",
+		"UUID" : "aec4ed1a-993b-491f-a2db-640bf11869c1"
+	},
+	"WPN_HALBERD" : 
+	{
+		"Description" : "",
+		"UUID" : "2c74855f-769a-43f5-b6db-48c4c47721ff"
+	},
+	"WPN_HANDAXE" : 
+	{
+		"Description" : "",
+		"UUID" : "09dd1e1e-6d9f-4cc6-b514-68e981c80543"
+	},
+	"WPN_HAND_CROSSBOW" : 
+	{
+		"Description" : "",
+		"UUID" : "1c12ee6d-50e2-459f-90c8-ae56701190ce"
+	},
+	"WPN_HEAVY_CROSSBOW" : 
+	{
+		"Description" : "",
+		"UUID" : "2cc23bb9-d777-4265-a34c-333528628b90"
+	},
+	"WPN_JAVELIN" : 
+	{
+		"Description" : "",
+		"UUID" : "b6e3bfa1-2c63-404f-becb-21d047aacce1"
+	},
+	"WPN_LIGHT_CROSSBOW" : 
+	{
+		"Description" : "",
+		"UUID" : "a302a8e2-a3f9-41e1-a68c-70a453e65399"
+	},
+	"WPN_LIGHT_HAMMER" : 
+	{
+		"Description" : "",
+		"UUID" : "edc46cc0-25d0-4da9-bfcb-edba239edcce"
+	},
+	"WPN_LONGBOW" : 
+	{
+		"Description" : "",
+		"UUID" : "557d335c-0780-4665-9802-709a7d202dba"
+	},
+	"WPN_LONGSWORD" : 
+	{
+		"Description" : "",
+		"UUID" : "96a99a42-ec5d-4081-9d62-c9e3f0057136"
+	},
+	"WPN_MACE" : 
+	{
+		"Description" : "",
+		"UUID" : "c29fc6ce-0482-420d-a839-41a0bab95c2d"
+	},
+	"WPN_MAUL" : 
+	{
+		"Description" : "",
+		"UUID" : "2503012b-9cc4-491c-a068-282f8cea8707"
+	},
+	"WPN_MORNINGSTAR" : 
+	{
+		"Description" : "",
+		"UUID" : "aa4cfcea-aee8-44b9-a460-e7231df796b1"
+	},
+	"WPN_PIKE" : 
+	{
+		"Description" : "",
+		"UUID" : "ca1a548b-f409-4cad-af5a-dfdd5834c709"
+	},
+	"WPN_RAPIER" : 
+	{
+		"Description" : "",
+		"UUID" : "aeaf4e95-38d7-45ec-8900-40bc9e6106b0"
+	},
+	"WPN_SCIMITAR" : 
+	{
+		"Description" : "",
+		"UUID" : "206f9701-7b24-4eaf-9ac4-a47746c251e2"
+	},
+	"WPN_SHIELD" : 
+	{
+		"Description" : "",
+		"UUID" : "dc9e09f0-b2ba-4720-bd28-ee9ddbdef2f1"
+	},
+	"WPN_SHORTBOW" : 
+	{
+		"Description" : "",
+		"UUID" : "81197304-7116-4d7b-8ef4-207bbf636682"
+	},
+	"WPN_SHORTSWORD" : 
+	{
+		"Description" : "",
+		"UUID" : "c826fd1e-4780-43d4-b49b-87f30c060fe6"
+	},
+	"WPN_SICKLE" : 
+	{
+		"Description" : "",
+		"UUID" : "bfdc63bd-b8f6-4eac-9363-0c71882ff46f"
+	},
+	"WPN_SLING" : 
+	{
+		"Description" : "",
+		"UUID" : "59c686ae-c70c-453a-a6ce-8ffceb82026d"
+	},
+	"WPN_SPEAR" : 
+	{
+		"Description" : "",
+		"UUID" : "fef6b399-19da-4d4b-b1ec-c79dff7f46c3"
+	},
+	"WPN_STAVE" : 
+	{
+		"Description" : "",
+		"UUID" : "00a09d42-c23c-48b0-90cc-c67f6cbd9e3d"
+	},
+	"WPN_TRIDENT" : 
+	{
+		"Description" : "",
+		"UUID" : "c808f076-4a0f-422a-97db-e985ce35f3f9"
+	},
+	"WPN_VFX_AXE_LARGE" : 
+	{
+		"Description" : "",
+		"UUID" : "3db6e0f6-1af6-4155-b5c8-c84a4abc5067"
+	},
+	"WPN_VFX_AXE_SMALL" : 
+	{
+		"Description" : "",
+		"UUID" : "11101253-7810-4806-b689-dc216a3ecdc2"
+	},
+	"WPN_VFX_BOW" : 
+	{
+		"Description" : "",
+		"UUID" : "bb363e2e-9a11-4828-80cb-8409e347ff8a"
+	},
+	"WPN_VFX_DAGGER" : 
+	{
+		"Description" : "",
+		"UUID" : "0006ca6f-28f9-48e9-9f34-3deb32ff0fef"
+	},
+	"WPN_VFX_HAMMER_LARGE" : 
+	{
+		"Description" : "",
+		"UUID" : "d931bca0-7d04-42b0-971a-7d5b236adad2"
+	},
+	"WPN_VFX_HAMMER_SMALL" : 
+	{
+		"Description" : "",
+		"UUID" : "d72c59a0-a9a5-482b-8ebb-c1f2e7e9eab0"
+	},
+	"WPN_VFX_LONGBLADE" : 
+	{
+		"Description" : "",
+		"UUID" : "ef13fc1c-dd55-4167-ab82-88059e5798f3"
+	},
+	"WPN_VFX_QUARTERSTAFF" : 
+	{
+		"Description" : "",
+		"UUID" : "0b1663f7-ebdd-4f63-9c03-d310ac8036ed"
+	},
+	"WPN_VFX_SHORTBLADE" : 
+	{
+		"Description" : "",
+		"UUID" : "9e3ed11b-61c4-4540-8c26-13168c8dc0d0"
+	},
+	"WPN_VFX_SHORTBLADE_SLASH" : 
+	{
+		"Description" : "",
+		"UUID" : "0b8538bc-9d96-41de-93c0-223b581263f4"
+	},
+	"WPN_VFX_SPEAR" : 
+	{
+		"Description" : "",
+		"UUID" : "6a584605-6605-497b-bd6f-d38d07af6d16"
+	},
+	"WPN_WARHAMMER" : 
+	{
+		"Description" : "",
+		"UUID" : "1dff197e-b74c-4173-94d3-e1323239556c"
+	},
+	"WPN_WAR_PICK" : 
+	{
+		"Description" : "",
+		"UUID" : "eed87cdb-c5ee-45c2-9a5a-6949dce87a1e"
+	},
+	"WYLL" : 
+	{
+		"Description" : "|Wyll, the superhero warlock|",
+		"UUID" : "facf82dc-a6e1-4720-a0bd-6efde960dc5f"
+	},
+	"WYLL_DEVIL" : 
+	{
+		"Description" : "|Wyll is in devil form|",
+		"UUID" : "5e844f0e-d822-4210-a28e-6af149a7bd4b"
+	},
+	"WYR_CIRCUS_CHEESE" : 
+	{
+		"Description" : "| Cheese polymorph. |",
+		"UUID" : "6c06f5e4-d4fa-498a-91b9-e1ed98773e92"
+	},
+	"WYR_PUZZLEBRAZIER" : 
+	{
+		"Description" : "A tag for the Wyrmway Trial of Courage.",
+		"UUID" : "b8c31431-3412-4e93-b648-df5208deca34"
+	},
+	"WYR_PUZZLEPAINTING" : 
+	{
+		"Description" : "Solution Paintings in the Wyrmway solutions.",
+		"UUID" : "b05da0e7-999e-4de2-a590-15414c810cd9"
+	},
+	"WYR_WYRMWAY_PUZZLES_ENTRANCE_GALE_MINSC" : 
+	{
+		"Description" : "",
+		"UUID" : "ade20608-45b9-449f-aef4-3fa34216cd1b"
+	},
+	"YONDALLA" : 
+	{
+		"Description" : "Player or NPC worships Yondalla.",
+		"UUID" : "4335093d-2fa7-4775-a4cc-bc17b5d16e5a"
+	},
+	"YUANTIPUREBLOOD" : 
+	{
+		"Description" : "Character looks like a yuan-ti pureblood",
+		"UUID" : "1ff4bf9e-a8dd-4627-8142-f60b3aa7123e"
+	},
+	"ZARIELTIEFLING" : 
+	{
+		"Description" : "|Zariel Tiefling|",
+		"UUID" : "ab677895-e08a-479f-a043-eac2d8447188"
+	},
+	"ZHENTRECRUIT" : 
+	{
+		"Description" : "Player has been recruited by the Zhentarim.",
+		"UUID" : "7ba800bc-5a08-428c-bb72-0fa2b61e2673"
+	},
+	"ZOMBIE" : 
+	{
+		"Description" : "A tag to identify zombies so that their combat fallback AD works as intended.",
+		"UUID" : "6181b81c-b910-4e1c-b9ec-5099ac210ae7"
+	},
+	"\u00ba" : 
+	{
+		"Description" : "",
+		"UUID" : "592d975a-e25d-481b-8e80-02e3ee1b98eb"
+	}
+}

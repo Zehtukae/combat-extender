@@ -59,22 +59,22 @@ local function OnSessionLoaded()
     -- Call the readJsonFile function to read the JSON file and store the returned table in configTable
     readJsonFile()
 
-    ExcludedNPCs=
+    ExcludedCharacters=
     {
-        "S_Player_Karlach_2c76687d-93a2-477b-8b18-8a14b549304c",
-        "S_Player_Minsc_0de603c5-42e2-4811-9dad-f652de080eba",
-        "S_GOB_DrowCommander_25721313-0c15-4935-8176-9f134385451b",
         "S_GLO_Halsin_7628bc0e-52b8-42a7-856a-13a6fd413323",
-        "S_Player_Jaheira_91b6b200-7d00-4d62-8dc9-99e8339dfa1a",
-        "S_Player_Gale_ad9af97d-75da-406a-ae13-7071c563f604",
+        "S_GOB_DrowCommander_25721313-0c15-4935-8176-9f134385451b",
         "S_Player_Astarion_c7c13742-bacd-460a-8f65-f864fe41f255",
+        "S_Player_Gale_ad9af97d-75da-406a-ae13-7071c563f604",
+        "S_Player_Jaheira_91b6b200-7d00-4d62-8dc9-99e8339dfa1a",
+        "S_Player_Karlach_2c76687d-93a2-477b-8b18-8a14b549304c",
         "S_Player_Laezel_58a69333-40bf-8358-1d17-fff240d7fb12",
-        "S_Player_Wyll_c774d764-4a17-48dc-b470-32ace9ce447d",
-        "S_Player_ShadowHeart_3ed74f06-3c60-42dc-83f6-f034cb47c679"
+        "S_Player_Minsc_0de603c5-42e2-4811-9dad-f652de080eba",
+        "S_Player_ShadowHeart_3ed74f06-3c60-42dc-83f6-f034cb47c679",
+        "S_Player_Wyll_c774d764-4a17-48dc-b470-32ace9ce447d"
     }
-    function CheckIfOrigin(target)
-        for i=#ExcludedNPCs,1,-1 do
-            if (ExcludedNPCs[i] == target) then
+    function CheckIfExcluded(target)
+        for i=#ExcludedCharacters,1,-1 do
+            if (ExcludedCharacters[i] == target) then
                 return 1
             end
         end
@@ -94,16 +94,8 @@ local function OnSessionLoaded()
         end
     end
 
-    -- Health Boost
-    -- a value of 1.5 means going from 50 -> 75 HP
-    -- a value of 2 here means going from 50 -> 100 HP
+    -- Health Boost: Here a value of 1.5 means going from 50 -> 75 HP. And a value of 2 here means going from 50 -> 100 HP
     function GiveHPIncrease(target)
-        -- Check if configTable is not nil
-        if not configTable or next(configTable) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending health function execution.")
-            return
-        end
-
         local healthConfig
 
         if IsBoss(target) == 1 then
@@ -137,10 +129,11 @@ local function OnSessionLoaded()
     -- This builds upon the TX_NAME passives such as TX_Fighter_Boost
     -- You can also use any other passive from the game, or from other mods
     function CheckPassive(guid)
-
         -- Check if configTable is not nil
-        if not configTable or next(configTable) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending passive function execution.")
+        if not configTable.Passives or next(configTable["Passives"]) == nil then
+            if Ext.Debug.IsDeveloperMode() then
+                print("DEBUG: Failed to load or parse JSON. Ending passive function execution.")
+            end
             return
         end
 
@@ -181,8 +174,10 @@ local function OnSessionLoaded()
 
     function GiveSpellSlots(guid)
         -- Check if configTable is not nil
-        if not configTable or not configTable.Passives then
-            print("DEBUG: Failed to load or parse JSON. Ending SpellSlot boost function execution.")
+        if not configTable.Passives or next(configTable["Passives"]) == nil then
+            if Ext.Debug.IsDeveloperMode() then
+                print("DEBUG: Failed to load or parse JSON. Ending SpellSlot boost function execution.")
+            end
             return
         end
 
@@ -204,8 +199,6 @@ local function OnSessionLoaded()
                         -- Extract the level from the passive name
                         local level = string.sub(passive, -1)
                         -- print ("DEBUG: Level value: " .. level)
-
-                        -- Call AddBoosts function with the appropriate parameters
                         AddBoosts(guid,"ActionResource(SpellSlot," .. extraSpellSlots .. "," .. level .. ")","","")
                     end
                 end
@@ -215,12 +208,6 @@ local function OnSessionLoaded()
 
     -- Additional Action
     function GiveActionPointBoost(target)
-        -- Check if configTable is not nil
-        if not configTable or next(configTable) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending Action Point boost function execution.")
-            return
-        end
-
         local actionPointConfig
 
         if IsBoss(target) == 1 then
@@ -248,12 +235,6 @@ local function OnSessionLoaded()
 
     -- Additional Bonus Action
     function GiveBonusActionPointBoost(target)
-        -- Check if configTable is not nil
-        if not configTable or next(configTable) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending Bonus Action Point boost function execution.")
-            return
-        end
-
         local bonusActionPointConfig
 
         if IsBoss(target) == 1 then
@@ -281,15 +262,10 @@ local function OnSessionLoaded()
 
     -- Movement Bonus in meters
     function GiveMovementBoost(target)
-        -- Check if configTable is not nil
-        if not configTable or next(configTable) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending Movement boost function execution.")
-            return
-        end
 
         local excludeGUID = "S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255" -- Grym GUID
         if target == excludeGUID then
-            print("DEBUG: Grym is excluded from receiving movement boost")
+            print("DEBUG: Grym is excluded from receiving a movement boost")
             return
         end
 
@@ -320,12 +296,6 @@ local function OnSessionLoaded()
 
     -- Armour Class
     function GiveACBoost(target)
-        -- Check if configTable is not nil
-        if not configTable or next(configTable) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending Armour Class boost function execution.")
-            return
-        end
-
         local armourClassConfig
 
         if IsBoss(target) == 1 then
@@ -358,14 +328,7 @@ local function OnSessionLoaded()
     end
 
     -- Attack Roll
-    -- Vanilla Tactician for reference: "IncreaseMaxHP(30%);RollBonus(Attack,2);SpellSaveDC(2)"
     function GiveAttackRollBonus(target)
-        -- Check if configTable is not nil
-        if not configTable or next(configTable) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending attack roll bonus function execution.")
-            return
-        end
-
         local rollBonusConfig
 
         if IsBoss(target) == 1 then
@@ -399,12 +362,6 @@ local function OnSessionLoaded()
 
     -- Saving Throw Rolls
     function GiveSavingThrowRollBonus(target)
-        -- Check if configTable is not nil
-        if not configTable or next(configTable) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending saving throw roll bonus function execution.")
-            return
-        end
-
         local rollBonusConfig
 
         if IsBoss(target) == 1 then
@@ -438,12 +395,6 @@ local function OnSessionLoaded()
 
     -- Damage Boost (for each attack)
     function GiveDamageBoost(target)
-        -- Check if configTable is not nil
-        if not configTable or next(configTable) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending damage function execution.")
-            return
-        end
-
         local damageConfig
 
         if IsBoss(target) == 1 then
@@ -477,14 +428,19 @@ local function OnSessionLoaded()
     -- Combat Listener
     -- Apply TX_APPLIED Boost which includes TX_APPLIED Passive to each processed character
     -- This should prevent multiple boosts being granted to the same character
-
     local TX_APPLIED = "TX_APPLIED"
 
     Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(guid, combatid)
+        -- Check if configTable is loaded properly
+        if not configTable or next(configTable) == nil then
+            print("INFO: Failed to load or parse JSON.")
+            return
+        end
+
         Current_combat = combatid
         for k, d in ipairs(Osi.DB_PartyMembers:Get(nil)) do table.insert(Party, d[1]) end
 
-        if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, TX_APPLIED) == 0 and CheckIfOrigin(guid) == 0 then
+        if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, TX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
             table.insert(CombatNPCS, guid)
 
             local isEnemy = IsEnemy(guid, GetHostCharacter())
