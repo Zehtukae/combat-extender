@@ -1,5 +1,5 @@
 {
-    "RequiredVersion": 11,
+    "RequiredVersion": 10,
     "ModTable": "CombatExtender",
     "FeatureFlags": ["Lua"]
 }
