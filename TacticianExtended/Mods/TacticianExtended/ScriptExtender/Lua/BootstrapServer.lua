@@ -1,6 +1,10 @@
 local function OnSessionLoaded()
     print("Tactician Extended")
 
+    -- Define configTable as a global variable
+    configTable = {}
+    hasPrinted = false
+
     function printTableAddress(t)
         for k, v in pairs(t) do
             print(k, v)
@@ -21,11 +25,6 @@ local function OnSessionLoaded()
             end
         end
     end
-
-    -- Define configTable as a global variable
-    configTable = {}
-    -- Initialize global flags
-    hasPrinted = false
 
     function readJsonFile()
         -- Load the file and get its content
@@ -49,11 +48,10 @@ local function OnSessionLoaded()
         -- Assign the result to the global configTable
         configTable = result
 
-        -- Print the entire table for debugging only if hasPrinted is false (which it should be on first load)
-        if not hasPrinted then
+        -- Print the entire table for debugging only if hasPrinted is false
+        if not hasPrinted and Ext.Debug.IsDeveloperMode() then
             printTableAddress(configTable)
             printTable(configTable)
-            -- Set the flag to true so that the table is not printed again
             hasPrinted = true
         end
     end
