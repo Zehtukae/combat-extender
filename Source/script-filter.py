@@ -16,7 +16,7 @@ def extract_blocks(input_filename, output_filename):
                 block.append('using "{}"'.format(new_entry_value))
             elif line.startswith('data "Passives"'):
                 passives = line.split('"')[3]
-                if passives.startswith('TX_'):
+                if passives.startswith('CX_'):
                     write_block = True
                 block.append(line.rstrip())
         if write_block:

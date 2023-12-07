@@ -31,7 +31,7 @@ data "Passives" "CX_Fighter_Boost"
 new entry "Dwarf_Duergar_Melee_StoneGuard"
 type "Character"
 using "Dwarf_Duergar_Melee_StoneGuard"
-data "Passives" "CX_Fighter_Boost;PhalanxFormation_Duergar;Dwarf_DwarvenResilience;Duergar_DuergarResilience;SunlightSensitivity;AttackOfOpportunity;SuperiorDarkvision;DarknessRules"
+data "Passives" "CX_Fighter_Boost;PhalanxFormation_Duergar;Dwarf_DwarvenResilience;Duergar_DuergarResilience;SunlightSensitivity;AttackOfOpportunity;SuperiorDarkvision;DarknessRules;"
 
 new entry "Dwarf_Duergar_Melee_Strong"
 type "Character"
