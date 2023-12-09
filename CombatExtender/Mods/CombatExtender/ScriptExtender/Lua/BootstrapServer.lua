@@ -26,14 +26,68 @@ local function OnSessionLoaded()
         end
     end
 
+    function beautifyJson(json)
+        local result = ""
+        local indent = 0
+        local inString = false
+        local currentChar = ""
+
+        for i = 1, #json do
+            currentChar = json:sub(i, i)
+
+            if currentChar == '"' and json:sub(i - 1, i - 1) ~= "\\" then
+                inString = not inString
+            end
+
+            if inString then
+                result = result .. currentChar
+            else
+                if currentChar == "{" or currentChar == "[" then
+                    indent = indent + 2
+                    result = result .. currentChar .. "\n" .. string.rep(" ", indent)
+                elseif currentChar == "}" or currentChar == "]" then
+                    indent = indent - 2
+                    result = result .. "\n" .. string.rep(" ", indent) .. currentChar
+                elseif currentChar == "," then
+                    result = result .. currentChar .. "\n" .. string.rep(" ", indent)
+                else
+                    result = result .. currentChar
+                end
+            end
+        end
+        return result
+    end
+
+    function writeDefaultConfig()
+        -- Define the default configuration
+        local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Spells":["Throw_FrenziedThrow","Target_RecklessAttack"]},{"PassiveName":"CX_Cleric_Boost","Spells":["Projectile_GuidingBolt","Target_InflictWounds"]},{"PassiveName":"CX_Fighter_Boost","Spells":["Target_DistractingStrike","Target_PushingAttack"]},{"PassiveName":"CX_Paladin_Boost","Spells":["Target_Smite_Thunderous"]},{"PassiveName":"CX_Ranger_Boost","Spells":["Target_HuntersMark"]},{"PassiveName":"CX_Rogue_Boost","Spells":["Projectile_SneakAttack","Target_SneakAttack"]},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Health":{"Allies":{},"Bosses":{"HealthMultiplier":1.1},"Enemies":{"HealthMultiplier":1.1}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":2,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":3}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}}}}'
+
+        -- Beautify the JSON string
+        local defaultConfig = beautifyJson(defaultConfigRaw)
+
+        -- Write the default configuration to the file
+        Ext.IO.SaveFile("CombatExtender.json", defaultConfig)
+    end
+
     function readJsonFile()
         -- Load the file and get its content
         local status, json = pcall(Ext.IO.LoadFile, "CombatExtender.json")
 
         -- Check if the file was loaded successfully
         if not status or not json then
-            print("INFO: Failed to load config file: " .. (json or "CombatExtender.json"))
-            return nil
+            print("INFO: Couldn't load: %LOCALAPPDATA%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\" .. (json or "CombatExtender.json") .. " Applying default")
+
+            -- If the file is not present or fails to load, write the default config file
+            writeDefaultConfig()
+
+            -- Try to load the file again after writing the default config
+            status, json = pcall(Ext.IO.LoadFile, "CombatExtender.json")
+
+            -- If the file still fails to load, return nil
+            if not status or not json then
+                print("ERROR: Failed to load config file after writing default config")
+                return nil
+            end
         end
 
         -- Parse the JSON string into a Lua table
@@ -41,7 +95,7 @@ local function OnSessionLoaded()
 
         -- Check if the JSON was parsed successfully
         if not status then
-            print("Failed to parse JSON: " .. result) -- result contains the error message
+            print("ERROR: Failed to parse JSON: " .. result) -- result contains the error message
             return nil
         end
 
@@ -320,8 +374,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(target)
-        --local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
-        local totalBoost = staticBoost + boostPerIncrement * math.floor((levelMultiplier - 1) / levelIncrement)
+        local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
 
         local ac = "AC(" .. totalBoost .. ")"
         AddBoosts(target, ac, "", "")
@@ -353,8 +406,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(target)
-        --local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement)
-        local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor((levelMultiplier - 1) / levelIncrement)
+        local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement)
 
         local attackRollBonus = "RollBonus(Attack," .. totalRollBonus .. ")"
         AddBoosts(target, attackRollBonus, "", "")
@@ -386,8 +438,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(target)
-        --local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement)
-        local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor((levelMultiplier - 1) / levelIncrement)
+        local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement)
 
         local savingThrowRollBonus = "RollBonus(SavingThrow," .. totalRollBonus .. ")"
         AddBoosts(target, savingThrowRollBonus, "", "")
