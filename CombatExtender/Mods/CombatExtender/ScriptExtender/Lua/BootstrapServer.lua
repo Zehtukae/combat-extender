@@ -491,7 +491,14 @@ local function OnSessionLoaded()
         Current_combat = combatid
         for k, d in ipairs(Osi.DB_PartyMembers:Get(nil)) do table.insert(Party, d[1]) end
 
-        if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
+        if IsCharacter(guid) == 0 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
+            local isEnemy = IsEnemy(guid, GetHostCharacter())
+            if isEnemy == 1 then
+                print("DEBUG: S_Enemy: " .. guid)
+                GiveHPIncrease(guid)
+                ApplyStatus(guid, CX_APPLIED, -1)
+            end
+        elseif IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
             table.insert(CombatNPCS, guid)
 
             local isEnemy = IsEnemy(guid, GetHostCharacter())
@@ -503,7 +510,7 @@ local function OnSessionLoaded()
                 print("DEBUG: Boss: " .. guid)
             else
                 print("DEBUG: Ally: " .. guid)
-                return -- Not applying boosts to Allies
+                --return -- Not applying boosts to Allies
             end
 
             CheckPassive(guid)
