@@ -1,7 +1,7 @@
 local function OnSessionLoaded()
     print("Combat Extender")
 
-    -- Define configTable as a global variable
+    -- Define global variables
     configTable = {}
     hasPrinted = false
 
@@ -26,6 +26,7 @@ local function OnSessionLoaded()
         end
     end
 
+    -- Without JSON beautify in SE this will have to do
     function beautifyJson(json)
         local result = ""
         local indent = 0
@@ -75,7 +76,7 @@ local function OnSessionLoaded()
 
         -- Check if the file was loaded successfully
         if not status or not json then
-            print("INFO: Couldn't load: %LOCALAPPDATA%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\" .. (json or "CombatExtender.json") .. " Applying default")
+            print(string.format("INFO: Couldn't load: %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\%s Applying default", json or "CombatExtender.json"))
 
             -- If the file is not present or fails to load, write the default config file
             writeDefaultConfig()
@@ -95,7 +96,7 @@ local function OnSessionLoaded()
 
         -- Check if the JSON was parsed successfully
         if not status then
-            print("ERROR: Failed to parse JSON: " .. result) -- result contains the error message
+            print(string.format("ERROR: Failed to parse JSON: %s", result)) -- result contains the error message
             return nil
         end
 
@@ -126,9 +127,9 @@ local function OnSessionLoaded()
         "S_Player_ShadowHeart_3ed74f06-3c60-42dc-83f6-f034cb47c679",
         "S_Player_Wyll_c774d764-4a17-48dc-b470-32ace9ce447d"
     }
-    function CheckIfExcluded(target)
+    function CheckIfExcluded(guid)
         for i=#ExcludedCharacters,1,-1 do
-            if (ExcludedCharacters[i] == target) then
+            if (ExcludedCharacters[i] == guid) then
                 return 1
             end
         end
@@ -139,9 +140,9 @@ local function OnSessionLoaded()
     Party = {}
     CombatNPCS= {}
 
-    function CheckIfParty(target)
+    function CheckIfParty(guid)
         for i = #Party,1,-1 do
-            if (IsPartyMember(target,1) == 1) then
+            if (IsPartyMember(guid,1) == 1) then
                 return 1
             else return 0
             end
@@ -149,34 +150,33 @@ local function OnSessionLoaded()
     end
 
     -- Health Boost: Here a value of 1.5 means going from 50 -> 75 HP. And a value of 2 here means going from 50 -> 100 HP
-    function GiveHPIncrease(target)
+    function GiveHPIncrease(guid)
         local healthConfig
 
-        if IsBoss(target) == 1 then
+        if IsBoss(guid) == 1 then
             healthConfig = configTable["Health"]["Bosses"]
-        elseif IsEnemy(target, GetHostCharacter()) == 0 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 0 then
             if next(configTable["Health"]["Allies"]) == nil then
                 return
             else
                 healthConfig = configTable["Health"]["Allies"]
             end
-        elseif IsEnemy(target, GetHostCharacter()) == 1 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 1 then
             healthConfig = configTable["Health"]["Enemies"]
         end
 
         local healthMultiplier = tonumber(healthConfig["HealthMultiplier"])
 
-        -- Check if the configuration is enabled for this type of character as 1 equals no change
-        if healthMultiplier == 1 then
+        if healthMultiplier == 1 then -- Check if the configuration is enabled for this type of character as 1 equals no change
             return
         end
 
-        local maxHealth = Ext.Entity.Get(target).Health.MaxHp
-        local desiredHealth = maxHealth * healthMultiplier
-        local hpincrease = math.ceil(desiredHealth - maxHealth)
+        local maxHealth = Ext.Entity.Get(guid).Health.MaxHp
+        local desiredHealth = math.ceil(maxHealth * healthMultiplier)
+        local hpincrease = desiredHealth - maxHealth
 
         local hpBoost = "IncreaseMaxHP(" .. hpincrease .. ")"
-        AddBoosts(target, hpBoost, "1", "1")
+        AddBoosts(guid, hpBoost, "1", "1")
     end
 
     -- Passive Check (To add extra spells)
@@ -196,8 +196,7 @@ local function OnSessionLoaded()
 
             -- Check if the target has the current passive
             if HasPassive(guid, passive["PassiveName"]) == 1 then
-                --print("DEBUG: Target has " .. passive["PassiveName"] .. " guid: " .. guid) -- Verbose Debug
-                print("DEBUG: Target has " .. passive["PassiveName"])
+                print(string.format("DEBUG: Target has %s", passive["PassiveName"]))
 
                 -- Access the "Spells" key in the passive
                 local spells = passive["Spells"]
@@ -206,22 +205,18 @@ local function OnSessionLoaded()
                 if spells then
                     -- Check if spells is not empty
                     if #spells > 0 then
-                        -- Uncomment for debug
-                        --print("Boosting: " .. guid)
                         for _, spell in ipairs(spells) do
-                            -- Uncomment for debug
-                            --print("Spell: " .. spell)
                             AddSpell(guid, spell)
                         end
                     else
-                        print("DEBUG: No spells for " .. passive["PassiveName"] .. ". Spells array is empty.")
+                        print(string.format("DEBUG: No spells for %s. Spells array is empty.", passive["PassiveName"]))
                     end
                 else
-                    print("DEBUG: No spells for " .. passive["PassiveName"] .. ". Spells key is nil.")
+                    print(string.format("DEBUG: No spells for %s. Spells key is nil.", passive["PassiveName"]))
                 end
             --  Uncomment for debug
             --else
-                --print("Target does not have " .. passive["PassiveName"] .. " guid: " .. guid)
+                --print(string.format("DEBUG: Target does not have %s", passive["PassiveName"]))
             end
         end
     end
@@ -261,45 +256,44 @@ local function OnSessionLoaded()
     end
 
     -- Additional Action
-    function GiveActionPointBoost(target)
+    function GiveActionPointBoost(guid)
         local actionPointConfig
 
-        if IsBoss(target) == 1 then
+        if IsBoss(guid) == 1 then
             actionPointConfig = configTable["ExtraAction"]["Bosses"]["Action"]
-        elseif IsEnemy(target, GetHostCharacter()) == 0 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 0 then
             if next(configTable["ExtraAction"]["Allies"]) == nil or next(configTable["ExtraAction"]["Allies"]["Action"]) == nil then
                 return
             else
                 actionPointConfig = configTable["ExtraAction"]["Allies"]["Action"]
             end
-        elseif IsEnemy(target, GetHostCharacter()) == 1 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 1 then
             actionPointConfig = configTable["ExtraAction"]["Enemies"]["Action"]
         end
 
         local additional = tonumber(actionPointConfig["Additional"])
 
-        -- Check if the configuration is enabled for this type of character
-        if additional == 0 then
+        if additional == 0 then  -- Check if the configuration is enabled for this type of character
             return
         end
 
         local actionPoints = "ActionResource(ActionPoint," .. additional .. ",0)"
-        AddBoosts(target, actionPoints, "1", "1")
+        AddBoosts(guid, actionPoints, "1", "1")
     end
 
     -- Additional Bonus Action
-    function GiveBonusActionPointBoost(target)
+    function GiveBonusActionPointBoost(guid)
         local bonusActionPointConfig
 
-        if IsBoss(target) == 1 then
+        if IsBoss(guid) == 1 then
             bonusActionPointConfig = configTable["ExtraAction"]["Bosses"]["BonusAction"]
-        elseif IsEnemy(target, GetHostCharacter()) == 0 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 0 then
             if next(configTable["ExtraAction"]["Allies"]) == nil or next(configTable["ExtraAction"]["Allies"]["BonusAction"]) == nil then
                 return
             else
                 bonusActionPointConfig = configTable["ExtraAction"]["Allies"]["BonusAction"]
             end
-        elseif IsEnemy(target, GetHostCharacter()) == 1 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 1 then
             bonusActionPointConfig = configTable["ExtraAction"]["Enemies"]["BonusAction"]
         end
 
@@ -311,56 +305,55 @@ local function OnSessionLoaded()
         end
 
         local bonusActionPoints = "ActionResource(BonusActionPoint," .. additional .. ",0)"
-        AddBoosts(target, bonusActionPoints, "1", "1")
+        AddBoosts(guid, bonusActionPoints, "1", "1")
     end
 
     -- Movement Bonus in meters
-    function GiveMovementBoost(target)
+    function GiveMovementBoost(guid)
 
         local excludeGUID = "S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255" -- Grym GUID
-        if target == excludeGUID then
+        if guid == excludeGUID then
             print("DEBUG: Grym is excluded from receiving a movement boost")
             return
         end
 
         local movementConfig
 
-        if IsBoss(target) == 1 then
+        if IsBoss(guid) == 1 then
             movementConfig = configTable["Movement"]["Bosses"]
-        elseif IsEnemy(target, GetHostCharacter()) == 0 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 0 then
             if next(configTable["Movement"]["Allies"]) == nil then
                 return
             else
                 movementConfig = configTable["Movement"]["Allies"]
             end
-        elseif IsEnemy(target, GetHostCharacter()) == 1 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 1 then
             movementConfig = configTable["Movement"]["Enemies"]
         end
 
         local staticBoost = tonumber(movementConfig["StaticBoost"])
 
-        -- Check if the configuration is enabled for this type of character
         if staticBoost == 0 then
             return
         end
 
         local movement = "ActionResource(Movement," .. staticBoost .. ",0)"
-        AddBoosts(target, movement, "1", "1")
+        AddBoosts(guid, movement, "1", "1")
     end
 
     -- Armour Class
-    function GiveACBoost(target)
+    function GiveACBoost(guid)
         local armourClassConfig
 
-        if IsBoss(target) == 1 then
+        if IsBoss(guid) == 1 then
             armourClassConfig = configTable["ArmourClass"]["Bosses"]
-        elseif IsEnemy(target, GetHostCharacter()) == 0 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 0 then
             if next(configTable["ArmourClass"]["Allies"]) == nil then
                 return
             else
                 armourClassConfig = configTable["ArmourClass"]["Allies"]
             end
-        elseif IsEnemy(target, GetHostCharacter()) == 1 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 1 then
             armourClassConfig = configTable["ArmourClass"]["Enemies"]
         end
 
@@ -368,95 +361,61 @@ local function OnSessionLoaded()
         local boostPerIncrement = tonumber(armourClassConfig["BoostPerIncrement"])
         local levelIncrement = tonumber(armourClassConfig["LevelIncrement"])
 
-        -- Check if the configuration is enabled for this type of character
         if staticBoost == 0 and boostPerIncrement == 0 and levelIncrement == 0 then
             return
         end
 
-        local levelMultiplier = GetLevel(target)
+        local levelMultiplier = GetLevel(guid)
         local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
 
         local ac = "AC(" .. totalBoost .. ")"
-        AddBoosts(target, ac, "", "")
+        AddBoosts(guid, ac, "", "")
     end
 
-    -- Attack Roll
-    function GiveAttackRollBonus(target)
+    -- Re-use function for similar use case
+    function GiveRollBonus(guid, rollType)
         local rollBonusConfig
 
-        if IsBoss(target) == 1 then
-            rollBonusConfig = configTable["Rolls"]["Bosses"]["Attack"]
-        elseif IsEnemy(target, GetHostCharacter()) == 0 then
+        if IsBoss(guid) == 1 then
+            rollBonusConfig = configTable["Rolls"]["Bosses"][rollType]
+        elseif IsEnemy(guid, GetHostCharacter()) == 0 then
             if next(configTable["Rolls"]["Allies"]) == nil then
                 return
             else
-                rollBonusConfig = configTable["Rolls"]["Allies"]["Attack"]
+                rollBonusConfig = configTable["Rolls"]["Allies"][rollType]
             end
-        elseif IsEnemy(target, GetHostCharacter()) == 1 then
-            rollBonusConfig = configTable["Rolls"]["Enemies"]["Attack"]
+        elseif IsEnemy(guid, GetHostCharacter()) == 1 then
+            rollBonusConfig = configTable["Rolls"]["Enemies"][rollType]
         end
 
         local staticRollBonus = tonumber(rollBonusConfig["StaticRollBonus"])
         local rollBonusPerIncrement = tonumber(rollBonusConfig["RollBonusPerIncrement"])
         local levelIncrement = tonumber(rollBonusConfig["LevelIncrement"])
 
-        -- Check if the configuration is enabled for this type of character
         if staticRollBonus == 0 and rollBonusPerIncrement == 0 and levelIncrement == 0 then
             return
         end
 
-        local levelMultiplier = GetLevel(target)
+        local levelMultiplier = GetLevel(guid)
         local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement)
 
-        local attackRollBonus = "RollBonus(Attack," .. totalRollBonus .. ")"
-        AddBoosts(target, attackRollBonus, "", "")
-    end
-
-    -- Saving Throw Rolls
-    function GiveSavingThrowRollBonus(target)
-        local rollBonusConfig
-
-        if IsBoss(target) == 1 then
-            rollBonusConfig = configTable["Rolls"]["Bosses"]["SavingThrow"]
-        elseif IsEnemy(target, GetHostCharacter()) == 0 then
-            if next(configTable["Rolls"]["Allies"]) == nil then
-                return
-            else
-                rollBonusConfig = configTable["Rolls"]["Allies"]["SavingThrow"]
-            end
-        elseif IsEnemy(target, GetHostCharacter()) == 1 then
-            rollBonusConfig = configTable["Rolls"]["Enemies"]["SavingThrow"]
-        end
-
-        local staticRollBonus = tonumber(rollBonusConfig["StaticRollBonus"])
-        local rollBonusPerIncrement = tonumber(rollBonusConfig["RollBonusPerIncrement"])
-        local levelIncrement = tonumber(rollBonusConfig["LevelIncrement"])
-
-        -- Check if the configuration is enabled for this type of character
-        if staticRollBonus == 0 and rollBonusPerIncrement == 0 and levelIncrement == 0 then
-            return
-        end
-
-        local levelMultiplier = GetLevel(target)
-        local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement)
-
-        local savingThrowRollBonus = "RollBonus(SavingThrow," .. totalRollBonus .. ")"
-        AddBoosts(target, savingThrowRollBonus, "", "")
+        local rollBonus = "RollBonus(" .. rollType .. "," .. totalRollBonus .. ")"
+        AddBoosts(guid, rollBonus, "", "")
     end
 
     -- Damage Boost (for each attack)
-    function GiveDamageBoost(target)
+    function GiveDamageBoost(guid)
         local damageConfig
 
-        if IsBoss(target) == 1 then
+        if IsBoss(guid) == 1 then
             damageConfig = configTable["Damage"]["Bosses"]
-        elseif IsEnemy(target, GetHostCharacter()) == 0 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 0 then
             if next(configTable["Damage"]["Allies"]) == nil then
                 return
             else
                 damageConfig = configTable["Damage"]["Allies"]
             end
-        elseif IsEnemy(target, GetHostCharacter()) == 1 then
+        elseif IsEnemy(guid, GetHostCharacter()) == 1 then
             damageConfig = configTable["Damage"]["Enemies"]
         end
 
@@ -464,23 +423,22 @@ local function OnSessionLoaded()
         local damagePerIncrement = tonumber(damageConfig["DamagePerIncrement"])
         local levelIncrement = tonumber(damageConfig["LevelIncrement"])
 
-        -- Check if the configuration is enabled for this type of character
         if staticDamageBoost == 0 and damagePerIncrement == 0 and levelIncrement == 0 then
             return
         end
 
-        local levelMultiplier = GetLevel(target)
+        local levelMultiplier = GetLevel(guid)
         local totalDamageBoost = staticDamageBoost + damagePerIncrement * math.floor(levelMultiplier / levelIncrement)
 
         local damageBonus = "DamageBonus(" .. totalDamageBoost .. ")"
-        AddBoosts(target, damageBonus, "", "")
+        AddBoosts(guid, damageBonus, "", "")
     end
 
-    -- Combat Listener
     -- Apply CX_APPLIED Boost which includes CX_APPLIED Passive to each processed character
     -- This should prevent multiple boosts being granted to the same character
     local CX_APPLIED = "CX_APPLIED"
 
+    -- Combat Listener
     Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(guid, combatid)
         -- Check if configTable is loaded properly
         if not configTable or next(configTable) == nil then
@@ -491,6 +449,7 @@ local function OnSessionLoaded()
         Current_combat = combatid
         for k, d in ipairs(Osi.DB_PartyMembers:Get(nil)) do table.insert(Party, d[1]) end
 
+        -- Not everything we face is a character, thankfully this is pretty rare.
         if IsCharacter(guid) == 0 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
             local isEnemy = IsEnemy(guid, GetHostCharacter())
             if isEnemy == 1 then
@@ -510,14 +469,13 @@ local function OnSessionLoaded()
                 print("DEBUG: Boss: " .. guid)
             else
                 print("DEBUG: Ally: " .. guid)
-                --return -- Not applying boosts to Allies
             end
 
             CheckPassive(guid)
             GiveSpellSlots(guid)
             GiveHPIncrease(guid)
-            GiveAttackRollBonus(guid)
-            GiveSavingThrowRollBonus(guid)
+            GiveRollBonus(guid, "Attack")
+            GiveRollBonus(guid, "SavingThrow")
             GiveACBoost(guid)
             GiveDamageBoost(guid)
             GiveMovementBoost(guid)
