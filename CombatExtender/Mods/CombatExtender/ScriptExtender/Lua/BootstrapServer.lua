@@ -255,57 +255,32 @@ local function OnSessionLoaded()
         end
     end
 
-    -- Additional Action
-    function GiveActionPointBoost(guid)
+    -- Generic Action Point Boost
+    function GiveActionPointBoost(guid, actionType)
         local actionPointConfig
 
         if IsBoss(guid) == 1 then
-            actionPointConfig = configTable["ExtraAction"]["Bosses"]["Action"]
+            actionPointConfig = configTable["ExtraAction"]["Bosses"][actionType]
         elseif IsEnemy(guid, GetHostCharacter()) == 0 then
-            if next(configTable["ExtraAction"]["Allies"]) == nil or next(configTable["ExtraAction"]["Allies"]["Action"]) == nil then
+            if next(configTable["ExtraAction"]["Allies"]) == nil or next(configTable["ExtraAction"]["Allies"][actionType]) == nil then
                 return
             else
-                actionPointConfig = configTable["ExtraAction"]["Allies"]["Action"]
+                actionPointConfig = configTable["ExtraAction"]["Allies"][actionType]
             end
         elseif IsEnemy(guid, GetHostCharacter()) == 1 then
-            actionPointConfig = configTable["ExtraAction"]["Enemies"]["Action"]
+            actionPointConfig = configTable["ExtraAction"]["Enemies"][actionType]
         end
 
         local additional = tonumber(actionPointConfig["Additional"])
-
-        if additional == 0 then  -- Check if the configuration is enabled for this type of character
-            return
-        end
-
-        local actionPoints = "ActionResource(ActionPoint," .. additional .. ",0)"
-        AddBoosts(guid, actionPoints, "1", "1")
-    end
-
-    -- Additional Bonus Action
-    function GiveBonusActionPointBoost(guid)
-        local bonusActionPointConfig
-
-        if IsBoss(guid) == 1 then
-            bonusActionPointConfig = configTable["ExtraAction"]["Bosses"]["BonusAction"]
-        elseif IsEnemy(guid, GetHostCharacter()) == 0 then
-            if next(configTable["ExtraAction"]["Allies"]) == nil or next(configTable["ExtraAction"]["Allies"]["BonusAction"]) == nil then
-                return
-            else
-                bonusActionPointConfig = configTable["ExtraAction"]["Allies"]["BonusAction"]
-            end
-        elseif IsEnemy(guid, GetHostCharacter()) == 1 then
-            bonusActionPointConfig = configTable["ExtraAction"]["Enemies"]["BonusAction"]
-        end
-
-        local additional = tonumber(bonusActionPointConfig["Additional"])
 
         -- Check if the configuration is enabled for this type of character
         if additional == 0 then
             return
         end
 
-        local bonusActionPoints = "ActionResource(BonusActionPoint," .. additional .. ",0)"
-        AddBoosts(guid, bonusActionPoints, "1", "1")
+        local actionResource = (actionType == "Action") and "ActionPoint" or "BonusActionPoint"
+        local actionPoints = string.format("ActionResource(%s,%s,0)", actionResource, additional)
+        AddBoosts(guid, actionPoints, "1", "1")
     end
 
     -- Movement Bonus in meters
@@ -479,8 +454,8 @@ local function OnSessionLoaded()
             GiveACBoost(guid)
             GiveDamageBoost(guid)
             GiveMovementBoost(guid)
-            GiveActionPointBoost(guid)
-            GiveBonusActionPointBoost(guid)
+            GiveActionPointBoost(guid, "Action")
+            GiveActionPointBoost(guid, "BonusAction")
             ApplyStatus(guid, CX_APPLIED, -1)
         end
     end)
