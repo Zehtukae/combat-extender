@@ -28,8 +28,8 @@
 	<content contentuid="CX_Spells_L6C_I" version="1">Adds various level 6 control spells.</content>
 	<content contentuid="CX_Barbarian_Boost_N" version="1">Barbarian Boost</content>
 	<content contentuid="CX_Barbarian_Boost_I" version="1">Adds more abilities to Barbarians.</content>
-	<content contentuid="CX_Barbarian_Boost_N" version="1">Cleric Boost</content>
-	<content contentuid="CX_Barbarian_Boost_I" version="1">Adds more abilities to Clerics.</content>
+	<content contentuid="CX_Cleric_Boost_N" version="1">Cleric Boost</content>
+	<content contentuid="CX_Cleric_Boost_I" version="1">Adds more abilities to Clerics.</content>
 	<content contentuid="CX_Fighter_Boost_N" version="1">Fighter Boost</content>
 	<content contentuid="CX_Fighter_Boost_I" version="1">Adds more abilities to Fighters.</content>
 	<content contentuid="CX_Magic_Boost_N" version="1">Magic Boost</content>

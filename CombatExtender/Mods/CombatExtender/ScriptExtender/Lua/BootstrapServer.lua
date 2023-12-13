@@ -125,7 +125,8 @@ local function OnSessionLoaded()
         "S_Player_Laezel_58a69333-40bf-8358-1d17-fff240d7fb12",
         "S_Player_Minsc_0de603c5-42e2-4811-9dad-f652de080eba",
         "S_Player_ShadowHeart_3ed74f06-3c60-42dc-83f6-f034cb47c679",
-        "S_Player_Wyll_c774d764-4a17-48dc-b470-32ace9ce447d"
+        "S_Player_Wyll_c774d764-4a17-48dc-b470-32ace9ce447d",
+        "S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255"
     }
     function CheckIfExcluded(guid)
         for i=#ExcludedCharacters,1,-1 do
@@ -175,7 +176,12 @@ local function OnSessionLoaded()
         local desiredHealth = math.ceil(maxHealth * healthMultiplier)
         local hpincrease = desiredHealth - maxHealth
 
-        local hpBoost = "IncreaseMaxHP(" .. hpincrease .. ")"
+        local hpBoost
+        if guid == "S_GLO_Monitor_f65becd6-5cd7-4c88-b85e-6dd06b60f7b8" then -- Raphael exception as the normal approach doesn't work on him
+            hpBoost = "TemporaryHP(" .. hpincrease .. ")"
+        else
+            hpBoost = "IncreaseMaxHP(" .. hpincrease .. ")"
+        end
         AddBoosts(guid, hpBoost, "1", "1")
     end
 
@@ -248,7 +254,9 @@ local function OnSessionLoaded()
                         -- Extract the level from the passive name
                         local level = string.sub(passive, -1)
                         -- print ("DEBUG: Level value: " .. level)
-                        AddBoosts(guid,"ActionResource(SpellSlot," .. extraSpellSlots .. "," .. level .. ")","","")
+
+                        local boost = string.format("ActionResource(SpellSlot,%s,%s)", extraSpellSlots, level)
+                        AddBoosts(guid, boost, "", "")
                     end
                 end
             end
@@ -285,13 +293,6 @@ local function OnSessionLoaded()
 
     -- Movement Bonus in meters
     function GiveMovementBoost(guid)
-
-        local excludeGUID = "S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255" -- Grym GUID
-        if guid == excludeGUID then
-            print("DEBUG: Grym is excluded from receiving a movement boost")
-            return
-        end
-
         local movementConfig
 
         if IsBoss(guid) == 1 then
@@ -460,7 +461,7 @@ local function OnSessionLoaded()
         end
     end)
 
-    Ext.Osiris.RegisterListener("CombatEnded",1,"after",function(combat)
+    Ext.Osiris.RegisterListener("CombatEnded", 1, "after", function(combat)
         if (combat == Current_combat) then
             Party = {}
             CombatNPCS = {}

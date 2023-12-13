@@ -439,6 +439,176 @@ type "Character"
 using "LOW_VolosFate_Thugs_Ranged_03"
 data "Passives" "CX_Ranger_Boost;CrossbowExpert_PointBlank;AttackOfOpportunity;DarknessRules;Darkvision;Dwarf_DwarvenResilience"
 
+new entry "MOO_Executioner"
+type "Character"
+using "MOO_Executioner"
+data "Passives" "CX_Magic_Boost;Alert;AttackOfOpportunity;DarknessRules;DarkOnesBlessing;AgonizingBlast;TAD_PsionicBacklash"
+
+new entry "MOO_FanaticOfTheAbsolute_Dragonborn"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Dragonborn"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Drow"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Drow"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Duergar"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Duergar"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Dwarf"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Dwarf"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Elf"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Elf"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Gnome"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Gnome"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_HalfElf"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_HalfElf"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_HalfOrc"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_HalfOrc"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Halfling"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Halfling"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Human"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Human"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Tiefling"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Tiefling"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_WoodElf"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_WoodElf"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FlamingFist_Dwarf_Melee"
+type "Character"
+using "MOO_FlamingFist_Dwarf_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "MOO_FlamingFist_Gnome_Melee"
+type "Character"
+using "MOO_FlamingFist_Gnome_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "MOO_FlamingFist_Human_Melee"
+type "Character"
+using "MOO_FlamingFist_Human_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "MOO_Guard_Ranged_Drow"
+type "Character"
+using "MOO_Guard_Ranged_Drow"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_Harper_Dwarf_Ranger"
+type "Character"
+using "MOO_Harper_Dwarf_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_Harper_Halfling_Ranger"
+type "Character"
+using "MOO_Harper_Halfling_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_Harper_Human_Ranger"
+type "Character"
+using "MOO_Harper_Human_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_Harper_Tiefling_Ranger"
+type "Character"
+using "MOO_Harper_Tiefling_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_PrisonWarden"
+type "Character"
+using "MOO_PrisonWarden"
+data "Passives" "CX_Ranger_Boost;AttackOfOpportunity;Tiefling_HellishResistance;DarknessRules;Darkvision;Mobile_PassiveBonuses;Mobile_CounterAttackOfOpportunity;Mobile_DashAcrossDifficultTerrain;FightingStyle_Archery"
+
+new entry "MOO_ZealotOfTheAbsolute_Dragonborn"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Dragonborn"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Drow"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Drow"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;FeyAncestry;SunlightSensitivity;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Duergar"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Duergar"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;SuperiorDarkvision;Dwarf_DwarvenResilience;Duergar_DuergarResilience;SunlightSensitivity;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Dwarf"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Dwarf"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;Darkvision;Dwarf_DwarvenResilience;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Elf"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Elf"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;FeyAncestry;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Gnome"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Gnome"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;Darkvision;Gnome_Cunning;Gnome_Speed;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_HalfElf"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_HalfElf"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;FeyAncestry;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_HalfOrc"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_HalfOrc"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Halfling"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Halfling"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;Halfling_Lucky;Halfling_Brave;DarknessRules;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Human"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Human"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Tiefling"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Tiefling"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;Tiefling_HellishResistance;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_WoodElf"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_WoodElf"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;FeyAncestry;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
 new entry "Minotaur"
 type "Character"
 using "Minotaur"
