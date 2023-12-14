@@ -185,21 +185,12 @@ local function OnSessionLoaded()
         AddBoosts(guid, hpBoost, "1", "1")
     end
 
-    -- Passive Check (To add extra spells)
+    -- Passive Check: Add additional spells, passives and perhaps more in the future
     -- This builds upon the CX_NAME passives such as CX_Fighter_Boost
     -- You can also use any other passive from the game, or from other mods
     function CheckPassive(guid)
-        -- Check if configTable is not nil
-        if not configTable.Passives or next(configTable["Passives"]) == nil then
-            if Ext.Debug.IsDeveloperMode() then
-                print("DEBUG: Failed to load or parse JSON. Ending passive function execution.")
-            end
-            return
-        end
-
         -- Iterate over the passives
         for _, passive in ipairs(configTable["Passives"]) do
-
             -- Check if the target has the current passive
             if HasPassive(guid, passive["PassiveName"]) == 1 then
                 print(string.format("DEBUG: Target has %s", passive["PassiveName"]))
@@ -212,7 +203,13 @@ local function OnSessionLoaded()
                     -- Check if spells is not empty
                     if #spells > 0 then
                         for _, spell in ipairs(spells) do
-                            AddSpell(guid, spell)
+                            -- Check if the target already has the spell
+                            if HasSpell(guid, spell) == 0 then
+                                --AddSpell(guid, spell)
+                                AddBoosts(guid, string.format("UnlockSpell(%s,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d8bf,,)", spell), "", "")
+                            else
+                                print(string.format("DEBUG: Target already has spell %s", spell))
+                            end
                         end
                     else
                         print(string.format("DEBUG: No spells for %s. Spells array is empty.", passive["PassiveName"]))
@@ -220,9 +217,28 @@ local function OnSessionLoaded()
                 else
                     print(string.format("DEBUG: No spells for %s. Spells key is nil.", passive["PassiveName"]))
                 end
-            --  Uncomment for debug
-            --else
-                --print(string.format("DEBUG: Target does not have %s", passive["PassiveName"]))
+
+                -- Access the "ExtraPassives" key in the passive
+                local ExtraPassives = passive["ExtraPassives"]
+
+                -- Check if ExtraPassives is not nil
+                if ExtraPassives then
+                    -- Check if ExtraPassives is not empty
+                    if #ExtraPassives > 0 then
+                        for _, ExtraPassive in ipairs(ExtraPassives) do
+                            -- Check if the target already has the ExtraPassive
+                            if HasPassive(guid, ExtraPassive) == 0 then
+                                AddPassive(guid, ExtraPassive)
+                            else
+                                print(string.format("DEBUG: Target already has passive %s", ExtraPassive))
+                            end
+                        end
+                    --else
+                        --print(string.format("DEBUG: No extra passives for %s. ExtraPassives array is empty.", passive["PassiveName"]))
+                    end
+                --else
+                    --print(string.format("DEBUG: No extra passives for %s. ExtraPassives key is nil.", passive["PassiveName"]))
+                end
             end
         end
     end
