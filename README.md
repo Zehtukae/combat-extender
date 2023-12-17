@@ -1,5 +1,5 @@
 # Baldur's Gate 3 Combat Extender
-Adds extra abilities, spells and other buffs to enemies with easy user configuration. Whereas there are multiple combat mods, they tend to be (very) opiniated, outdated, abandoned or aren't really suitable for a serious campaign. This mod allows you to adjust combat difficulty while enabling you as player to easily adjust it to your needs.
+Adds extra abilities, spells and other buffs to enemies with easy user configuration. Whereas there are multiple combat mods, they tend to be opiniated, outdated, abandoned or aren't really suitable for a serious campaign. This mod allows you to adjust combat difficulty while enabling you as player to easily adjust it to your needs.
 
 ## What does it do?
 It [tags enemies](Source/Character.txt) based on archtypes using an override method. In turn these tags are used to dynamically add extra abilities, spells or passives. Besides tagged enemies it applies global boosts in the form of additional hitpoints, movement range or (bonus) actions.
