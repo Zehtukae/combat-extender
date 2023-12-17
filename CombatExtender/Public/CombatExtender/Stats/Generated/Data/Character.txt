@@ -1,0 +1,696 @@
+new entry "AnimatedArmor"
+type "Character"
+using "AnimatedArmor"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;AntimagicSusceptibility;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "CRE_Githyanki_Captain"
+type "Character"
+using "CRE_Githyanki_Captain"
+data "Passives" "CX_Fighter_Boost;WarMagic_Githyanki;Parry_Githyanki;AttackOfOpportunity;DarknessRules;Surprise_Immunity;Parry_Githyanki_EquipTrigger"
+
+new entry "CRE_Githyanki_Ghustil"
+type "Character"
+using "CRE_Githyanki_Ghustil"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L3C;WarMagic_Githyanki;AttackOfOpportunity;DarknessRules"
+
+new entry "DarkJusticiar_Boss"
+type "Character"
+using "DarkJusticiar_Boss"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;SHA_DarkVengeance;SHA_VisionOfShar;LivingShadow;SunlightSensitivity;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "DarkJusticiar_Caster"
+type "Character"
+using "DarkJusticiar_Caster"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L4;CX_Spells_L3C;CX_Spells_L4C;SHA_VisionOfShar;LivingShadow;SunlightSensitivity;AttackOfOpportunity;Darkvision;DarknessRules;"
+
+new entry "DarkJusticiar_Melee"
+type "Character"
+using "DarkJusticiar_Melee"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;LivingShadow;SunlightSensitivity;SHA_VisionOfShar;AttackOfOpportunity;Darkvision;DarknessRules;Darkvision"
+
+new entry "DarkJusticiar_Ranger"
+type "Character"
+using "DarkJusticiar_Ranger"
+data "Passives" "CX_Ranger_Boost;ExtraAttack;LivingShadow;SunlightSensitivity;SHA_VisionOfShar;ShadowStealth;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "Dwarf_Cultist_Bhaal_DeathsHead"
+type "Character"
+using "Dwarf_Cultist_Bhaal_DeathsHead"
+data "Passives" "CX_Rogue_Boost;ExtraAttack;MurderHungry;MagicResistance;Dwarf_DwarvenResilience;AttackOfOpportunitys;Darkvision;DarknessRules"
+
+new entry "Dwarf_Cultist_Bhaal_Reaper"
+type "Character"
+using "Dwarf_Cultist_Bhaal_Reaper"
+data "Passives" "CX_Rogue_Boost;ExtraAttack;Dwarf_DwarvenResilience;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "Dwarf_Duergar_Barbarian"
+type "Character"
+using "Dwarf_Duergar_Barbarian"
+data "Passives" "CX_Barbarian_Boost"
+
+new entry "Dwarf_Duergar_Caster"
+type "Character"
+using "Dwarf_Duergar_Caster"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L2C"
+
+new entry "Dwarf_Duergar_Cleric"
+type "Character"
+using "Dwarf_Duergar_Cleric"
+data "Passives" "CX_Cleric_Boost;CX_Spells_L1"
+
+new entry "Dwarf_Duergar_Cultist_Bane_Fist"
+type "Character"
+using "Dwarf_Duergar_Cultist_Bane_Fist"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;Tactical_Discipline;Dwarf_DwarvenResilience;Duergar_DuergarResilience;SunlightSensitivity;AttackOfOpportunity;SuperiorDarkvision;DarknessRules"
+
+new entry "Dwarf_Duergar_Melee"
+type "Character"
+using "Dwarf_Duergar_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "Dwarf_Duergar_Melee_StoneGuard"
+type "Character"
+using "Dwarf_Duergar_Melee_StoneGuard"
+data "Passives" "CX_Fighter_Boost;PhalanxFormation_Duergar;Dwarf_DwarvenResilience;Duergar_DuergarResilience;SunlightSensitivity;AttackOfOpportunity;SuperiorDarkvision;DarknessRules;"
+
+new entry "Dwarf_Duergar_Melee_Strong"
+type "Character"
+using "Dwarf_Duergar_Melee_Strong"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "Dwarf_Duergar_Ranger"
+type "Character"
+using "Dwarf_Duergar_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "Dwarf_Duergar_Ranger_StoneGuard"
+type "Character"
+using "Dwarf_Duergar_Ranger_StoneGuard"
+data "Passives" "CX_Ranger_Boost;Dwarf_DwarvenResilience;Duergar_DuergarResilience;SunlightSensitivity;PhalanxFormation_Duergar;AttackOfOpportunity;SuperiorDarkvision;DarknessRules"
+
+new entry "Dwarf_Duergar_Ranger_Strong"
+type "Character"
+using "Dwarf_Duergar_Ranger_Strong"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "Dwarf_Duergar_Rogue"
+type "Character"
+using "Dwarf_Duergar_Rogue"
+data "Passives" "CX_Rogue_Boost"
+
+new entry "Dwarf_Hill_Cultist_Bane_BlackGauntlet"
+type "Character"
+using "Dwarf_Hill_Cultist_Bane_BlackGauntlet"
+data "Passives" "CX_Paladin_Boost;ExtraAttack;Tactical_Discipline;Dwarf_DwarvenResilience;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "Dwarf_Hill_Cultist_Bane_Fist"
+type "Character"
+using "Dwarf_Hill_Cultist_Bane_Fist"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;Tactical_Discipline;Dwarf_DwarvenResilience;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "Dwarf_Hill_Cultist_Bane_IronConsul"
+type "Character"
+using "Dwarf_Hill_Cultist_Bane_IronConsul"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;Tactical_Discipline;Dwarf_DwarvenResilience;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "GOB_DenAttack_Warchief_Strong"
+type "Character"
+using "GOB_DenAttack_Warchief_Strong"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "GOB_Priestess"
+type "Character"
+using "GOB_Priestess"
+data "Passives" "CX_Magic_Boost;Alert;CX_Spells_L1;CX_Spells_L2;CX_Spells_L2C"
+
+new entry "Githyanki_GateMaster"
+type "Character"
+using "Githyanki_GateMaster"
+data "Passives" "CX_Magic_Boost;WarCaster_Bonuses;WarCaster_OpportunitySpell"
+
+new entry "Githyanki_Gish"
+type "Character"
+using "Githyanki_Gish"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;WarMagic_Githyanki;AttackOfOpportunity;DarknessRules"
+
+new entry "Githyanki_Gish_Strong"
+type "Character"
+using "Githyanki_Gish_Strong"
+data "Passives" "CX_Magic_Boost;CX_Spells_L3;CX_Spells_L4;CX_Spells_L4C;CX_Spells_L5;CX_Spells_L5C;WarMagic_Githyanki;AttackOfOpportunity;DarknessRules"
+
+new entry "Githyanki_Gishra_Melee"
+type "Character"
+using "Githyanki_Gishra_Melee"
+data "Passives" "CX_Fighter_Boost;PsychicStrikes_Githyanki;AttackOfOpportunity;DarknessRules"
+
+new entry "Githyanki_IntelligenceOfficer"
+type "Character"
+using "Githyanki_IntelligenceOfficer"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L3C;ExtraAttack;AttackOfOpportunity;DarknessRules;"
+
+new entry "Githyanki_Raider"
+type "Character"
+using "Githyanki_Raider"
+data "Passives" "CX_Ranger_Boost;ExtraAttack;CrossbowExpert_PointBlank;CrossbowExpert_Wounding;AttackOfOpportunity;DarknessRules"
+
+new entry "Githyanki_Warrior"
+type "Character"
+using "Githyanki_Warrior"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;Parry_Githyanki;AttackOfOpportunity;DarknessRules;Parry_Githyanki_EquipTrigger"
+
+new entry "Githyanki_Warrior_Strong"
+type "Character"
+using "Githyanki_Warrior_Strong"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;AttackOfOpportunity;DarknessRules"
+
+new entry "Goblin_Boss"
+type "Character"
+using "Goblin_Boss"
+data "Passives" "GOB_Boss_RecklessAttack;AttackOfOpportunity;Darkvision;DarknessRules"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "Goblin_Caster"
+type "Character"
+using "Goblin_Caster"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L1C"
+
+new entry "Goblin_Cleric"
+type "Character"
+using "Goblin_Cleric"
+data "Passives" "CX_Cleric_Boost;CX_Spells_L1"
+
+new entry "Goblin_Melee"
+type "Character"
+using "Goblin_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "Goblin_Ranger"
+type "Character"
+using "Goblin_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "HAV_FlamingFist_Dwarf_Melee"
+type "Character"
+using "HAV_FlamingFist_Dwarf_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HAV_FlamingFist_Elf_Melee"
+type "Character"
+using "HAV_FlamingFist_Elf_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HAV_FlamingFist_Gnome_Melee"
+type "Character"
+using "HAV_FlamingFist_Gnome_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HAV_FlamingFist_Gnome_Ranger"
+type "Character"
+using "HAV_FlamingFist_Gnome_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "HAV_FlamingFist_HalfElf_Ranger"
+type "Character"
+using "HAV_FlamingFist_HalfElf_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "HAV_FlamingFist_Human_Cleric"
+type "Character"
+using "HAV_FlamingFist_Human_Cleric"
+data "Passives" "CX_Cleric_Boost;CX_Spells_L1"
+
+new entry "HAV_FlamingFist_Human_Mart"
+type "Character"
+using "HAV_FlamingFist_Human_Mart"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HAV_FlamingFist_Human_Melee"
+type "Character"
+using "HAV_FlamingFist_Human_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HAV_FlamingFist_Human_Ranger"
+type "Character"
+using "HAV_FlamingFist_Human_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "HAV_Harper_Dwarf_Melee"
+type "Character"
+using "HAV_Harper_Dwarf_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HAV_Harper_Elf_Caster"
+type "Character"
+using "HAV_Harper_Elf_Caster"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3"
+
+new entry "HAV_Harper_Elf_Ranger"
+type "Character"
+using "HAV_Harper_Elf_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "HAV_Harper_Gnome_Melee"
+type "Character"
+using "HAV_Harper_Gnome_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HAV_Harper_HalfElf_Barbarian"
+type "Character"
+using "HAV_Harper_HalfElf_Barbarian"
+data "Passives" "CX_Barbarian_Boost"
+
+new entry "HAV_Harper_HalfElf_Caster"
+type "Character"
+using "HAV_Harper_HalfElf_Caster"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3"
+
+new entry "HAV_Harper_Human_Druid"
+type "Character"
+using "HAV_Harper_Human_Druid"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3"
+
+new entry "HAV_Harper_Human_Melee"
+type "Character"
+using "HAV_Harper_Human_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HAV_Harper_Human_Ranger"
+type "Character"
+using "HAV_Harper_Human_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "HAV_Harper_Tiefling_Caster"
+type "Character"
+using "HAV_Harper_Tiefling_Caster"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3"
+
+new entry "HAV_Harper_Tiefling_Ranger"
+type "Character"
+using "HAV_Harper_Tiefling_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "HAV_Marcus"
+type "Character"
+using "HAV_Marcus"
+data "Passives" "CX_Fighter_Boost;GreatWeaponMaster_BonusAttack;DarkDevotion;FeralInstinct;AttackOfOpportunity;DarknessRules"
+
+new entry "HAV_ShadowCursed_Harper_Elf_Ranger"
+type "Character"
+using "HAV_ShadowCursed_Harper_Elf_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "HAV_ShadowCursed_Warrior_Githyanki_Melee"
+type "Character"
+using "HAV_ShadowCursed_Warrior_Githyanki_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HAV_ShadowCursed_Warrior_Human_Melee"
+type "Character"
+using "HAV_ShadowCursed_Warrior_Human_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "HalfElf_Cultist_Bane_IronConsul"
+type "Character"
+using "HalfElf_Cultist_Bane_IronConsul"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;Tactical_Discipline;FeyAncestry;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "HalfOrc_Cultist_Bane_BlackGauntlet"
+type "Character"
+using "HalfOrc_Cultist_Bane_BlackGauntlet"
+data "Passives" "CX_Paladin_Boost;ExtraAttack;Tactical_Discipline;AttackOfOpportunity;DarknessRules"
+
+new entry "HalfOrc_Cultist_Bane_Fist"
+type "Character"
+using "HalfOrc_Cultist_Bane_Fist"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;Tactical_Discipline;AttackOfOpportunity;DarknessRules"
+
+new entry "HalfOrc_Cultist_Bane_IronConsul"
+type "Character"
+using "HalfOrc_Cultist_Bane_IronConsul"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;Tactical_Discipline;AttackOfOpportunity;DarknessRules"
+
+new entry "Human_Cultist_Bane_BlackGauntlet"
+type "Character"
+using "Human_Cultist_Bane_BlackGauntlet"
+data "Passives" "CX_Paladin_Boost;ExtraAttack;Tactical_Discipline;AttackOfOpportunity;DarknessRules"
+
+new entry "Human_Cultist_Bane_Fist"
+type "Character"
+using "Human_Cultist_Bane_Fist"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;Tactical_Discipline;AttackOfOpportunity;DarknessRules"
+
+new entry "Human_Cultist_Bane_IronConsul"
+type "Character"
+using "Human_Cultist_Bane_IronConsul"
+data "Passives" "CX_Fighter_Boost;ExtraAttack;Tactical_Discipline;AttackOfOpportunity;DarknessRules"
+
+new entry "Human_Cultist_Bhaal_DeathsHead"
+type "Character"
+using "Human_Cultist_Bhaal_DeathsHead"
+data "Passives" "CX_Rogue_Boost;ExtraAttack;MagicResistance;MurderHungry;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "Human_Cultist_Bhaal_Invoker"
+type "Character"
+using "Human_Cultist_Bhaal_Invoker"
+data "Passives" "CX_Magic_Boost;CX_Spells_L4;CX_Spells_L4C;AttackOfOpportunity;Darkvision;DarknessRules;FocusedConjuration;SpellSniper_Critical"
+
+new entry "Human_Cultist_Bhaal_Reaper"
+type "Character"
+using "Human_Cultist_Bhaal_Reaper"
+data "Passives" "CX_Rogue_Boost;ExtraAttack;AttackOfOpportunity;DarknessRules;Darkvision"
+
+new entry "Human_FFist_Cleric"
+type "Character"
+using "Human_FFist_Cleric"
+data "Passives" "CX_Cleric_Boost;CX_Spells_L1"
+
+new entry "LOW_Chasm_Sniper"
+type "Character"
+using "LOW_Chasm_Sniper"
+data "Passives" "CX_Magic_Boost;Alert;FocusedConjuration;MagicResistance;SpellSniper_Critical;AttackOfOpportunity;DarknessRules;DispelEvilAndGood_Charm_Check;DispelEvilAndGood_Frightened_Check;DispelEvilAndGood_Possessed_Check;Ethereal;IncorporealMovement;TurnResistance"
+
+new entry "LOW_Githyanki_Paladin"
+type "Character"
+using "LOW_Githyanki_Paladin"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;ExtraAttack;Parry_Githyanki_Supreme;FightingStyle_Defense;Parry_Githyanki_Supreme_EquipTrigger"
+
+new entry "LOW_HouseOfGrief_Cultist_Caster"
+type "Character"
+using "LOW_HouseOfGrief_Cultist_Caster"
+data "Passives" "CX_Magic_Boost;CX_Spells_L4;AttackOfOpportunity;Darkvision;DarknessRules;LOW_HouseOfGrief_Cultists_Sight;"
+
+new entry "LOW_HouseOfGrief_Cultist_Caster_Dwarf"
+type "Character"
+using "LOW_HouseOfGrief_Cultist_Caster_Dwarf"
+data "Passives" "CX_Magic_Boost;CX_Spells_L4;Dwarf_DwarvenResilience;AttackOfOpportunity;Darkvision;DarknessRules;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
+
+new entry "LOW_HouseOfGrief_Cultist_Caster_Elf"
+type "Character"
+using "LOW_HouseOfGrief_Cultist_Caster_Elf"
+data "Passives" "CX_Magic_Boost;CX_Spells_L4;FeyAncestry;AttackOfOpportunity;DarknessRules;Darkvision;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
+
+new entry "LOW_HouseOfGrief_Cultist_Caster_Gnome"
+type "Character"
+using "LOW_HouseOfGrief_Cultist_Caster_Gnome"
+data "Passives" "CX_Magic_Boost;CX_Spells_L4;Gnome_Cunning;Gnome_Speed;AttackOfOpportunity;DarknessRules;Darkvision;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
+
+new entry "LOW_HouseOfGrief_Cultist_Caster_Human"
+type "Character"
+using "LOW_HouseOfGrief_Cultist_Caster_Human"
+data "Passives" "CX_Magic_Boost;CX_Spells_L4;AttackOfOpportunity;DarknessRules;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
+
+new entry "LOW_HouseOfGrief_Justiciar"
+type "Character"
+using "LOW_HouseOfGrief_Justiciar"
+data "Passives" "CX_Fighter_Boost;FeyAncestry;AttackOfOpportunity;DarknessRules;Darkvision;SHA_DarkVengeance;ExtraAttack;LOW_HouseOfGrief_Cultists_Melee;LOW_HouseOfGrief_Cultists_Sight"
+
+new entry "LOW_UnholyAssassin"
+type "Character"
+using "LOW_UnholyAssassin"
+data "Passives" "CX_Rogue_Boost;MagicResistance;MurderHungry;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "LOW_VolosFate_Thugs_Melee_01"
+type "Character"
+using "LOW_VolosFate_Thugs_Melee_01"
+data "Passives" "CX_Fighter_Boost;Riposte;AttackOfOpportunity;DarknessRules"
+
+new entry "LOW_VolosFate_Thugs_Melee_02"
+type "Character"
+using "LOW_VolosFate_Thugs_Melee_02"
+data "Passives" "CX_Fighter_Boost;FightingStyle_TwoWeaponFighting;DualWielder_PassiveBonuses;AttackOfOpportunity;DarknessRules"
+
+new entry "LOW_VolosFate_Thugs_Melee_03"
+type "Character"
+using "LOW_VolosFate_Thugs_Melee_03"
+data "Passives" "CX_Fighter_Boost;Overwhelm;AttackOfOpportunity;DarknessRules"
+
+new entry "LOW_VolosFate_Thugs_Ranged_01"
+type "Character"
+using "LOW_VolosFate_Thugs_Ranged_01"
+data "Passives" "CX_Ranger_Boost;ColossusSlayer;FastMovement;AttackOfOpportunity;DarknessRules"
+
+new entry "LOW_VolosFate_Thugs_Ranged_02"
+type "Character"
+using "LOW_VolosFate_Thugs_Ranged_02"
+data "Passives" "CX_Ranger_Boost;CrossbowExpert_PointBlank;AttackOfOpportunity;DarknessRules;Darkvision;Dwarf_DwarvenResilience"
+
+new entry "LOW_VolosFate_Thugs_Ranged_03"
+type "Character"
+using "LOW_VolosFate_Thugs_Ranged_03"
+data "Passives" "CX_Ranger_Boost;CrossbowExpert_PointBlank;AttackOfOpportunity;DarknessRules;Darkvision;Dwarf_DwarvenResilience"
+
+new entry "MOO_Executioner"
+type "Character"
+using "MOO_Executioner"
+data "Passives" "CX_Magic_Boost;Alert;AttackOfOpportunity;DarknessRules;DarkOnesBlessing;AgonizingBlast;TAD_PsionicBacklash"
+
+new entry "MOO_FanaticOfTheAbsolute_Dragonborn"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Dragonborn"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Drow"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Drow"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Duergar"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Duergar"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Dwarf"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Dwarf"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Elf"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Elf"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Gnome"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Gnome"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_HalfElf"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_HalfElf"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_HalfOrc"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_HalfOrc"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Halfling"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Halfling"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Human"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Human"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_Tiefling"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_Tiefling"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FanaticOfTheAbsolute_WoodElf"
+type "Character"
+using "MOO_FanaticOfTheAbsolute_WoodElf"
+data "Passives" "CX_Cleric_Boost;CX_Magic_Boost;CX_Spells_L4C"
+
+new entry "MOO_FlamingFist_Dwarf_Melee"
+type "Character"
+using "MOO_FlamingFist_Dwarf_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "MOO_FlamingFist_Gnome_Melee"
+type "Character"
+using "MOO_FlamingFist_Gnome_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "MOO_FlamingFist_Human_Melee"
+type "Character"
+using "MOO_FlamingFist_Human_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "MOO_Guard_Ranged_Drow"
+type "Character"
+using "MOO_Guard_Ranged_Drow"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_Harper_Dwarf_Ranger"
+type "Character"
+using "MOO_Harper_Dwarf_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_Harper_Halfling_Ranger"
+type "Character"
+using "MOO_Harper_Halfling_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_Harper_Human_Ranger"
+type "Character"
+using "MOO_Harper_Human_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_Harper_Tiefling_Ranger"
+type "Character"
+using "MOO_Harper_Tiefling_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "MOO_PrisonWarden"
+type "Character"
+using "MOO_PrisonWarden"
+data "Passives" "CX_Ranger_Boost;AttackOfOpportunity;Tiefling_HellishResistance;DarknessRules;Darkvision;Mobile_PassiveBonuses;Mobile_CounterAttackOfOpportunity;Mobile_DashAcrossDifficultTerrain;FightingStyle_Archery"
+
+new entry "MOO_ZealotOfTheAbsolute_Dragonborn"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Dragonborn"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Drow"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Drow"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;FeyAncestry;SunlightSensitivity;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Duergar"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Duergar"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;SuperiorDarkvision;Dwarf_DwarvenResilience;Duergar_DuergarResilience;SunlightSensitivity;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Dwarf"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Dwarf"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;Darkvision;Dwarf_DwarvenResilience;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Elf"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Elf"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;FeyAncestry;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Gnome"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Gnome"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;Darkvision;Gnome_Cunning;Gnome_Speed;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_HalfElf"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_HalfElf"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;FeyAncestry;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_HalfOrc"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_HalfOrc"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Halfling"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Halfling"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;Halfling_Lucky;Halfling_Brave;DarknessRules;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Human"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Human"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_Tiefling"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_Tiefling"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;Tiefling_HellishResistance;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
+new entry "MOO_ZealotOfTheAbsolute_WoodElf"
+type "Character"
+using "MOO_ZealotOfTheAbsolute_WoodElf"
+data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;FeyAncestry;DarknessRules;Darkvision;FightingStyle_GreatWeaponFighting"
+
+new entry "Minotaur"
+type "Character"
+using "Minotaur"
+data "Passives" "CX_Barbarian_Boost;Alert;Muscular_Athletics;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "PLA_Githyanki_Captain"
+type "Character"
+using "PLA_Githyanki_Captain"
+data "Passives" "CX_Fighter_Boost;Alert"
+
+new entry "SCL_DriderCaravan_Bedi"
+type "Character"
+using "SCL_DriderCaravan_Bedi"
+data "Passives" "CX_Barbarian_Boost;ExtraAttack;DangerSense;TotemSpirit_Wolf;AttackOfOpportunity;DarknessRules"
+
+new entry "SCL_DriderCaravan_Kansif"
+type "Character"
+using "SCL_DriderCaravan_Kansif"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;DarkDevotion;SculptSpells;AttackOfOpportunity;DarknessRules"
+
+new entry "SCL_Harper_Dwarf_Ranger"
+type "Character"
+using "SCL_Harper_Dwarf_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "SCL_Harper_Elf_Melee"
+type "Character"
+using "SCL_Harper_Elf_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "SCL_Harper_Elf_Ranger"
+type "Character"
+using "SCL_Harper_Elf_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "SCL_Harper_Halfling_Caster"
+type "Character"
+using "SCL_Harper_Halfling_Caster"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3"
+
+new entry "SCL_Harper_Halfling_Melee"
+type "Character"
+using "SCL_Harper_Halfling_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "SCL_Harper_Human_Melee"
+type "Character"
+using "SCL_Harper_Human_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "SCL_Harper_Human_Melee_Strong"
+type "Character"
+using "SCL_Harper_Human_Melee_Strong"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "SCL_Harper_Human_Ranger"
+type "Character"
+using "SCL_Harper_Human_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "SHA_ClericOfShar"
+type "Character"
+using "SHA_ClericOfShar"
+data "Passives" "CX_Cleric_Boost;DevilsSight;FeyAncestry;AttackOfOpportunity;DarknessRules;Darkvision"
+
+new entry "Skeleton_Giant_Cultist_Myrkul_DeathShepherd"
+type "Character"
+using "Skeleton_Giant_Cultist_Myrkul_DeathShepherd"
+data "Passives" "CX_Fighter_Boost;BlockVerbalSpellcasting;SkeletonDeath_Check;AttackOfOpportunity;DarknessRules;DispelEvilAndGood_Charm_Check;DispelEvilAndGood_Frightened_Check;DispelEvilAndGood_Possessed_Check"
+
+new entry "TWN_DarkJusticiar_Wisdom"
+type "Character"
+using "TWN_DarkJusticiar_Wisdom"
+data "Passives" "CX_Cleric_Boost;TWN_PlaquePuzzle_Wisdom;SunlightSensitivity;SHA_VisionOfShar;LivingShadow;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "Tiefling_Cultist_Bhaal_DeathsHead"
+type "Character"
+using "Tiefling_Cultist_Bhaal_DeathsHead"
+data "Passives" "CX_Rogue_Boost;ExtraAttack;MagicResistance;MurderHungry;Tiefling_HellishResistance;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "Tiefling_Cultist_Bhaal_Reaper"
+type "Character"
+using "Tiefling_Cultist_Bhaal_Reaper"
+data "Passives" "CX_Rogue_Boost;ExtraAttack;Tiefling_HellishResistance;DarknessRules;AttackOfOpportunity;Darkvision"
+
