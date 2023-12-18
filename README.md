@@ -1,10 +1,10 @@
 # Baldur's Gate 3 Combat Extender
-Adds extra abilities, spells and other buffs to enemies with easy user configuration. Whereas there are multiple combat mods, they tend to be opinionated, outdated, abandoned or aren't really suitable for a serious campaign. This mod allows you to adjust combat difficulty while enabling you as player to easily adjust it to your needs.
+Adds extra abilities, spells and other buffs to enemies with easy user configuration. Whereas there are multiple combat mods, they tend to be outdated, abandoned or aren't really suitable for a serious campaign as they randomly give spells and abilities to enemies. This mod allows you to easily adjust and modify enemy abilities, spells and hitpoints while staying true to the original game design. 
 
 Nexus: https://www.nexusmods.com/baldursgate3/mods/5207
 
 ## What does it do?
-It [tags enemies](Source/Character.txt) based on archtypes using an override method. In turn these tags are used to dynamically add extra abilities, spells or passives. Besides tagged enemies it applies global boosts in the form of additional hitpoints, movement range or (bonus) actions.
+It [tags enemies](Source/Character.txt) based on archetypes using an override method. In turn these tags are used to dynamically add extra abilities, spells or passives. Besides tagged enemies it applies global boosts in the form of additional hitpoints, movement range or (bonus) actions.
 
 For example Fighters get tagged with `CX_Fighter_Boost` in the [CombatExtender.json](Source/CombatExtender.json) file which is located in `%localappdata%\Larian Studios\Baldur's Gate 3\Script Extender` (Use WINKEY + R, then paste).
 
