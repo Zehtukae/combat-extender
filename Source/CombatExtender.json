@@ -19,6 +19,11 @@
       "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection"]
     },
     {
+      "PassiveName": "CX_Monk_Boost",
+      "Spells": ["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"],
+      "ExtraPassives": []
+    },
+    {
       "PassiveName": "CX_Ranger_Boost",
       "Spells": ["Target_HuntersMark","Projectile_HailOfThorns"],
       "ExtraPassives": ["FightingStyle_Archery"]
