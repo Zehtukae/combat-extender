@@ -448,8 +448,8 @@ local function OnSessionLoaded()
             local isEnemy = IsEnemy(guid, GetHostCharacter())
             if isEnemy == 1 then
                 print("DEBUG: S_Enemy: " .. guid)
-                GiveHPIncrease(guid)
-                ApplyStatus(guid, CX_APPLIED, -1)
+                -- GiveHPIncrease(guid) -- This does work for the orbs spawning before meeting Balthazar but causes issues for the Act 3 opening fight
+                -- ApplyStatus(guid, CX_APPLIED, -1)
             end
         elseif IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
             table.insert(CombatNPCS, guid)
