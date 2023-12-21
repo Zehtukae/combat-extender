@@ -3,6 +3,101 @@ type "Character"
 using "AnimatedArmor"
 data "Passives" "CX_Fighter_Boost;ExtraAttack;AntimagicSusceptibility;AttackOfOpportunity;Darkvision;DarknessRules"
 
+new entry "CHA_BanditInterior_Duergar_Ranger"
+type "Character"
+using "CHA_BanditInterior_Duergar_Ranger"
+data "Passives" "CX_Ranger_Boost;DarknessRules;Darkvision;Duergar_DuergarResilience;SunlightSensitivity;AdditionalSpellSlot_Level_1;"
+
+new entry "CHA_BanditInterior_HalfElf_Caster"
+type "Character"
+using "CHA_BanditInterior_HalfElf_Caster"
+data "Passives" "CX_Spells_L1;CX_Spells_L1C;FeyAncestry;Darkvision;DarknessRules"
+
+new entry "CHA_BanditInterior_HalfElf_Melee"
+type "Character"
+using "CHA_BanditInterior_HalfElf_Melee"
+data "Passives" "CX_Fighter_Boost;FeyAncestry;Darkvision;DarknessRules"
+
+new entry "CHA_BanditInterior_Human_Barbarian"
+type "Character"
+using "CHA_BanditInterior_Human_Barbarian"
+data "Passives" "CX_Barbarian_Boost;DarknessRules"
+
+new entry "CHA_BanditInterior_Human_Caster"
+type "Character"
+using "CHA_BanditInterior_Human_Caster"
+data "Passives" "CX_Spells_L1;CX_Spells_L1C;DarknessRules"
+
+new entry "CHA_BanditInterior_Human_Melee"
+type "Character"
+using "CHA_BanditInterior_Human_Melee"
+data "Passives" "CX_Fighter_Boost"
+
+new entry "CHA_BanditInterior_Human_Ranger"
+type "Character"
+using "CHA_BanditInterior_Human_Ranger"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "CHA_Bandit_Elf_Caster"
+type "Character"
+using "CHA_Bandit_Elf_Caster"
+data "Passives" "CX_Spells_L1;CX_Spells_L1C;FeyAncestry;DarknessRules;Darkvision"
+
+new entry "CHA_Bandit_Gnome_Melee"
+type "Character"
+using "CHA_Bandit_Gnome_Melee"
+data "Passives" "CX_Fighter_Boost;Gnome_Cunning;Gnome_Speed;DarknessRules;Darkvision"
+
+new entry "CHA_Bandit_Gnome_Ranger"
+type "Character"
+using "CHA_Bandit_Gnome_Ranger"
+data "Passives" "CX_Ranger_Boost;Gnome_Cunning;Gnome_Speed;DarknessRules;Darkvision"
+
+new entry "CHA_Bandit_HalfElf_Melee"
+type "Character"
+using "CHA_Bandit_HalfElf_Melee"
+data "Passives" "CX_Fighter_Boost;FeyAncestry;Darkvision;DarknessRules"
+
+new entry "CHA_Bandit_Human_Barbarian"
+type "Character"
+using "CHA_Bandit_Human_Barbarian"
+data "Passives" "CX_Barbarian_Boost;DarknessRules"
+
+new entry "CHA_Bandit_Human_Melee"
+type "Character"
+using "CHA_Bandit_Human_Melee"
+data "Passives" "CX_Fighter_Boost;DarknessRules"
+
+new entry "CHA_Bandit_Human_Ranger"
+type "Character"
+using "CHA_Bandit_Human_Ranger"
+data "Passives" "CX_Ranger_Boost;DarknessRules"
+
+new entry "CHA_Bandit_Tiefling_Caster"
+type "Character"
+using "CHA_Bandit_Tiefling_Caster"
+data "Passives" "CX_Spells_L1;CX_Spells_L1C;Tiefling_HellishResistance;DarknessRules;Darkvision"
+
+new entry "CHA_Bandit_Tiefling_Ranger"
+type "Character"
+using "CHA_Bandit_Tiefling_Ranger"
+data "Passives" "CX_Ranger_Boost;DarknessRules;Tiefling_HellishResistance"
+
+new entry "CHA_Bandit_Tiefling_Ranger_B"
+type "Character"
+using "CHA_Bandit_Tiefling_Ranger_B"
+data "Passives" "CX_Ranger_Boost"
+
+new entry "CHA_Skeleton_Caster"
+type "Character"
+using "CHA_Skeleton_Caster"
+data "Passives" "CX_Spells_L1;DarknessRules;DispelEvilAndGood_Charm_Check;DispelEvilAndGood_Frightened_Check;DispelEvilAndGood_Possessed_Check"
+
+new entry "CHA_Skeleton_Strong"
+type "Character"
+using "CHA_Skeleton_Strong"
+data "Passives" "CX_Fighter_Boost;DarknessRules;DispelEvilAndGood_Charm_Check;DispelEvilAndGood_Frightened_Check;DispelEvilAndGood_Possessed_Check"
+
 new entry "CRE_Githyanki_Captain"
 type "Character"
 using "CRE_Githyanki_Captain"
