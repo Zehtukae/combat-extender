@@ -428,6 +428,32 @@ local function OnSessionLoaded()
         AddBoosts(guid, damageBonus, "", "")
     end
 
+    function GetNearbyCharacters(radius)
+        local sourceEntity = Ext.Entity.Get(Osi.GetHostCharacter())
+        local nearbyCharacters = {}
+        if sourceEntity then
+            local pos = sourceEntity.Transform.Transform.Translate
+            for _, entity in ipairs(Ext.Entity.GetAllEntitiesWithComponent("BaseHp")) do
+                if entity.ServerCharacter ~= nil then
+                    local target = entity.Transform.Transform.Translate
+                    local distance = math.sqrt((pos[1] - target[1])^2 + (pos[2] - target[2])^2 + (pos[3] - target[3])^2)
+                    if distance <= radius then
+                        table.insert(nearbyCharacters, {
+                            Entity = entity,
+                            Guid = entity.Uuid.EntityUuid,
+                            Name = entity.ServerCharacter.Character.Template.Name,
+                            Distance = distance,
+                            Handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle),
+                        })
+                    end
+                end
+            end
+        end
+
+        table.sort(nearbyCharacters, function(a,b) return a.Distance < b.Distance end)
+        return nearbyCharacters
+    end
+
     -- Apply CX_APPLIED Boost which includes CX_APPLIED Passive to each processed character
     -- This should prevent multiple boosts being granted to the same character
     local CX_APPLIED = "CX_APPLIED"
@@ -476,6 +502,43 @@ local function OnSessionLoaded()
             GiveActionPointBoost(guid, "Action")
             GiveActionPointBoost(guid, "BonusAction")
             ApplyStatus(guid, CX_APPLIED, -1)
+        end
+    end)
+
+    -- Combat Save Loading
+    -- We re-apply the boosts to all nearby characters that have status CX_APPLIED, which persists in the savefile
+    Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function (levelName, isEditorMode)
+        for k, d in ipairs(Osi.DB_PartyMembers:Get(nil)) do table.insert(Party, d[1]) end
+
+        -- 50 meters is beyond the range at which characters join the ongoing combat
+        local nearbyCharacters = GetNearbyCharacters(50)
+        print("Number of nearby characters: " .. #nearbyCharacters)
+        for _, character in ipairs(nearbyCharacters) do
+            local guid = character.Guid
+            if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 1 and CheckIfExcluded(guid) == 0 then
+                local isEnemy = IsEnemy(guid, GetHostCharacter())
+                local isBoss = IsBoss(guid)
+
+                if isEnemy == 1 and isBoss == 0 then
+                    print(string.format("DEBUG: Enemy: %s_%s, Name: %s", character.Name, guid, character.Handle))
+                elseif isEnemy == 1 and isBoss == 1 then
+                    print(string.format("DEBUG: Boss: %s_%s, Name: %s", character.Name, guid, character.Handle))
+                else
+                    print(string.format("DEBUG: Ally: %s_%s, Name: %s", character.Name, guid, character.Handle))
+                end
+                CheckPassive(guid)
+                GiveSpellSlots(guid)
+                --GiveHPIncrease(guid) -- Health adjustment persists
+                GiveRollBonus(guid, "Attack")
+                GiveRollBonus(guid, "SavingThrow")
+                GiveACBoost(guid)
+                GiveDamageBoost(guid)
+                GiveMovementBoost(guid)
+                --GiveActionPointBoost(guid, "Action") Action adjustment persists
+                --GiveActionPointBoost(guid, "BonusAction") Bonus Action adjustment persists
+            else
+                --print("DEBUG2: Invalid: " .. guid .. ", Name: " .. character.Name)
+            end
         end
     end)
 
