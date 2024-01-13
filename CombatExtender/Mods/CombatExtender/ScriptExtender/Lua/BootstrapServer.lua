@@ -3,7 +3,13 @@ local function OnSessionLoaded()
 
     -- Define global variables
     configTable = {}
+    CombatNPCS= {}
+    CurrentCombat = ""
     hasPrinted = false
+    Loaded = false
+    Party = {}
+    Entities = {}
+    EntityHealth = {}
 
     function printTableAddress(t)
         for k, v in pairs(t) do
@@ -23,6 +29,12 @@ local function OnSessionLoaded()
             else
                 print(formatting .. tostring(v))
             end
+        end
+    end
+
+    function DebugPrint(...)
+        if Ext.Debug.IsDeveloperMode() then
+            print(...)
         end
     end
 
@@ -61,7 +73,7 @@ local function OnSessionLoaded()
 
     function writeDefaultConfig()
         -- Define the default configuration
-        local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Spells":["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"]},{"PassiveName":"CX_Cleric_Boost","Spells":["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]},{"PassiveName":"CX_Fighter_Boost","Spells":["Target_DistractingStrike","Target_PushingAttack"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection"]},{"PassiveName":"CX_Paladin_Boost","Spells":["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection"]},{"PassiveName":"CX_Monk_Boost","Spells":["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"],"ExtraPassives":[]},{"PassiveName":"CX_Ranger_Boost","Spells":["Target_HuntersMark","Projectile_HailOfThorns"],"ExtraPassives":["FightingStyle_Archery"]},{"PassiveName":"CX_Rogue_Boost","Spells":["Projectile_SneakAttack","Target_SneakAttack"],"ExtraPassives":["UncannyDodge"]},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Health":{"Allies":{},"Bosses":{"HealthMultiplier":1.1},"Enemies":{"HealthMultiplier":1.1}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":3}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}}}}'
+        local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Spells":["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"]},{"PassiveName":"CX_Cleric_Boost","Spells":["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]},{"PassiveName":"CX_Fighter_Boost","Spells":["Target_DistractingStrike","Target_PushingAttack"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]},{"PassiveName":"CX_Paladin_Boost","Spells":["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]},{"PassiveName":"CX_Monk_Boost","Spells":["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"],"ExtraPassives":[]},{"PassiveName":"CX_Ranger_Boost","Spells":["Target_HuntersMark","Projectile_HailOfThorns"],"ExtraPassives":["FightingStyle_Archery"]},{"PassiveName":"CX_Rogue_Boost","Spells":["Projectile_SneakAttack","Target_SneakAttack"],"ExtraPassives":["UncannyDodge"]},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Health":{"Allies":{},"Bosses":{"HealthMultiplier":1.1},"Enemies":{"HealthMultiplier":1.1}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":3}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}}}}'
 
         -- Beautify the JSON string
         local defaultConfig = beautifyJson(defaultConfigRaw)
@@ -138,26 +150,31 @@ local function OnSessionLoaded()
         return 0
     end
 
-    CurrentCombat = ""
-    Party = {}
-    CombatNPCS= {}
-
-    --  Iterates over the Party table in reverse order, starting from the last element and going to the first
     function CheckIfParty(guid)
-        for i = #Party,1,-1 do
-            if (IsPartyMember(guid,1) == 1) then
-                return 1
-            else return 0
-            end
+        if Party[guid] then
+            return 1
+        else
+            return 0
         end
     end
 
-    -- Health Boost: Here a value of 1.5 means going from 50 -> 75 HP. And a value of 2 here means going from 50 -> 100 HP
-    function GiveHPIncrease(guid)
+    function ProcessPartyMembers()
+        local partyMembers = Osi.DB_PartyMembers:Get(nil)
+        for _, d in ipairs(partyMembers) do
+            Party[d[1]] = true
+        end
+    end
+
+    function GiveHPIncrease(guid, SkipCheck)
         local healthConfig
 
         if IsBoss(guid) == 1 then
             healthConfig = configTable["Health"]["Bosses"]
+        elseif SkipCheck then
+            healthConfig = configTable["Health"]["Enemies"]
+            if next(configTable["Health"]["Allies"]) ~= nil then
+                healthConfig = configTable["Health"]["Allies"]
+            end
         elseif IsEnemy(guid, GetHostCharacter()) == 0 then
             if next(configTable["Health"]["Allies"]) == nil then
                 return
@@ -174,17 +191,94 @@ local function OnSessionLoaded()
             return
         end
 
-        local maxHealth = Ext.Entity.Get(guid).Health.MaxHp
-        local desiredHealth = math.ceil(maxHealth * healthMultiplier)
-        local hpincrease = desiredHealth - maxHealth
+        -- Get the character's current max health and the boost parameters
+        local entity = Ext.Entity.Get(guid)
+        local handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle)
+        local currentMaxHealth = entity and entity.Health.MaxHp
+        local boostsContainer = entity and entity.BoostsContainer
+        local increaseMaxHPEntries = boostsContainer and boostsContainer.Boosts["IncreaseMaxHP"]
+        local isBoosted = false
+        local isProgressionBoosted = false
+        local boostParams
+
+        if not (currentMaxHealth and boostsContainer) then
+            print(string.format("DEBUG: Invalid entity or missing properties for Target: %s.", guid))
+            return
+        end
+
+        if handle == "Citizen" or handle == "Refugee" then
+            --print(string.format("DEBUG: Invalid Target: %s, Name: %s", guid, handle))
+            return
+        end
+
+        if increaseMaxHPEntries then
+            for _, entry in ipairs(increaseMaxHPEntries) do
+                if entry.BoostInfo.Cause.Cause == "combatextender" then
+                    isBoosted = true -- Set flag to true if a combatextender boost is found
+                    boostParams = tonumber(entry.BoostInfo.Params.Params)
+                    break -- Exit the loop as we found at least one combatextender boost
+                elseif entry.BoostInfo.Cause.Type == "Progression" then
+                    isProgressionBoosted = true
+                    break
+                end
+            end
+        end
+
+        -- Calculate healthToUse and store it in the EntityHealth table if it's not already there
+        if not EntityHealth[guid] then
+            local baseHealth = math.floor(Ext.Entity.Get(guid).BaseHp.Vitality * 1.3) -- 1.3 multiplier is default for Tactician
+            local healthToUse
+
+            if isProgressionBoosted and currentMaxHealth < 100 then
+                healthToUse = currentMaxHealth
+            else
+                healthToUse = baseHealth
+            end
+
+            EntityHealth[guid] = healthToUse
+            --print(string.format("DEBUG: Target: %s, Name: %s, currentMaxHealth: %s, baseHealth: %s, healthToUse: %s", guid, handle, currentMaxHealth, baseHealth, healthToUse))
+        end
+
+        local healthToUse = EntityHealth[guid]
+        local desiredMaxHealth = math.ceil(healthToUse * healthMultiplier)
+        local hpIncrease = desiredMaxHealth - healthToUse
 
         local hpBoost
         if guid == "S_GLO_Monitor_f65becd6-5cd7-4c88-b85e-6dd06b60f7b8" then -- Raphael exception as the normal approach doesn't work on him
-            hpBoost = "TemporaryHP(" .. hpincrease .. ")"
+            hpBoost = "TemporaryHP(" .. hpIncrease .. ")"
         else
-            hpBoost = "IncreaseMaxHP(" .. hpincrease .. ")"
+            hpBoost = "IncreaseMaxHP(" .. hpIncrease .. ")"
         end
-        AddBoosts(guid, hpBoost, "1", "1")
+
+        -- Only add the health increase if the character hasn't been boosted already
+        -- if not isBoosted and HasAppliedStatus(guid, CX_HEALTH) == 0 then
+        if not isBoosted then
+            if currentMaxHealth == desiredMaxHealth then
+                --print(string.format("DEBUG: Health already matches desired value for Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+                return
+            end
+            --print(string.format("DEBUG: NOT BOOSTED AND MISMATCH Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+
+            if currentMaxHealth > desiredMaxHealth or currentMaxHealth > 2000 or currentMaxHealth <= 0 then -- To deal with -1 health as well as Shrines with 129998 health
+                return
+            end
+
+            AddBoosts(guid, hpBoost, "combatextender", "1")
+            print(string.format("DEBUG: Boosting Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+        else
+            -- Check if there is a mismatch between the current and recalculated maximum health
+            if currentMaxHealth ~= desiredMaxHealth and IsDead(guid) == 0 then
+                local offset = math.abs(currentMaxHealth - desiredMaxHealth)
+                DebugPrint(string.format("DEBUG: Target has offset: %s, HitPoints offset: %s", guid, offset))
+                local boostRemovalString = "IncreaseMaxHP(" .. boostParams .. ")"
+                RemoveBoosts(guid, boostRemovalString, 0, "combatextender", "1")
+
+                DebugPrint(string.format("DEBUG: Adjusting Target: %s, hpBoost: %s", guid, hpBoost))
+                AddBoosts(guid, "IncreaseMaxHP(" .. hpIncrease .. ")", "combatextender", "1")
+            else
+                --print(string.format("DEBUG: Target: %s currentMaxHealth: %s desiredMaxHealth: %s", guid, currentMaxHealth, desiredMaxHealth))
+            end
+        end
     end
 
     -- Passive Check: Add additional spells, passives and perhaps more in the future
@@ -208,7 +302,7 @@ local function OnSessionLoaded()
                             -- Check if the target already has the spell
                             if HasSpell(guid, spell) == 0 then
                                 --AddSpell(guid, spell)
-                                AddBoosts(guid, string.format("UnlockSpell(%s,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d8bf,,)", spell), "", "")
+                                AddBoosts(guid, string.format("UnlockSpell(%s,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,)", spell), "", "")
                             else
                                 print(string.format("DEBUG: Target already has spell %s", spell))
                             end
@@ -235,10 +329,10 @@ local function OnSessionLoaded()
                                 print(string.format("DEBUG: Target already has passive %s", ExtraPassive))
                             end
                         end
-                    --else
+                        --else
                         --print(string.format("DEBUG: No extra passives for %s. ExtraPassives array is empty.", passive["PassiveName"]))
                     end
-                --else
+                    --else
                     --print(string.format("DEBUG: No extra passives for %s. ExtraPassives key is nil.", passive["PassiveName"]))
                 end
             end
@@ -274,7 +368,7 @@ local function OnSessionLoaded()
                         -- print ("DEBUG: Level value: " .. level)
 
                         local boost = string.format("ActionResource(SpellSlot,%s,%s)", extraSpellSlots, level)
-                        AddBoosts(guid, boost, "", "")
+                        AddBoosts(guid, boost, "combatextender", "1")
                     end
                 end
             end
@@ -306,7 +400,7 @@ local function OnSessionLoaded()
 
         local actionResource = (actionType == "Action") and "ActionPoint" or "BonusActionPoint"
         local actionPoints = string.format("ActionResource(%s,%s,0)", actionResource, additional)
-        AddBoosts(guid, actionPoints, "1", "1")
+        AddBoosts(guid, actionPoints, "combatextender", "1")
     end
 
     -- Movement Bonus in meters
@@ -332,7 +426,7 @@ local function OnSessionLoaded()
         end
 
         local movement = "ActionResource(Movement," .. staticBoost .. ",0)"
-        AddBoosts(guid, movement, "1", "1")
+        AddBoosts(guid, movement, "combatextender", "1")
     end
 
     -- Armour Class
@@ -363,10 +457,10 @@ local function OnSessionLoaded()
         local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
 
         local ac = "AC(" .. totalBoost .. ")"
-        AddBoosts(guid, ac, "", "")
+        AddBoosts(guid, ac, "combatextender", "1")
     end
 
-    -- Re-use function for similar use case
+    -- Roll Bonus
     function GiveRollBonus(guid, rollType)
         local rollBonusConfig
 
@@ -393,8 +487,33 @@ local function OnSessionLoaded()
         local levelMultiplier = GetLevel(guid)
         local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement)
 
-        local rollBonus = "RollBonus(" .. rollType .. "," .. totalRollBonus .. ")"
-        AddBoosts(guid, rollBonus, "", "")
+        -- Retrieve the BoostsContainer for the entity
+        local boostsContainer = Ext.Entity.Get(guid).BoostsContainer
+        local rollBonusBoosts = boostsContainer.Boosts["RollBonus"]
+
+        -- Check for existing boosts and remove them if necessary
+        if rollBonusBoosts then
+            for _, boost in ipairs(rollBonusBoosts) do
+                if boost.BoostInfo and boost.BoostInfo.Cause and boost.BoostInfo.Cause.Cause then
+                    local cause = boost.BoostInfo.Cause.Cause
+                    if cause:find("CX_" .. string.upper(rollType) .. "_") then
+                        DebugPrint(string.format("DEBUG: Removing existing boost: %s", cause))
+                        RemoveStatus(guid, cause, "")
+                    end
+                end
+            end
+        end
+
+        if totalRollBonus >= 1 and totalRollBonus <= 10 then -- Apply status if totalRollBonus is within the specified range
+            local status = "CX_" .. string.upper(rollType) .. "_" .. totalRollBonus
+            ApplyStatus(guid, status, -1)
+            --print(string.format("DEBUG: APPLY CX: %s", guid))
+
+        elseif totalRollBonus >= 11 then -- As the boosts for working text ingame only go to 10
+            local rollBonus = "RollBonus(" .. rollType .. "," .. totalRollBonus .. ")"
+            AddBoosts(guid, rollBonus, "combatextender", "1")
+            --print(string.format("DEBUG: APPLY ALT CX: %s", guid))
+        end
     end
 
     -- Damage Boost (for each attack)
@@ -425,7 +544,7 @@ local function OnSessionLoaded()
         local totalDamageBoost = staticDamageBoost + damagePerIncrement * math.floor(levelMultiplier / levelIncrement)
 
         local damageBonus = "DamageBonus(" .. totalDamageBoost .. ")"
-        AddBoosts(guid, damageBonus, "", "")
+        AddBoosts(guid, damageBonus, "combatextender", "1")
     end
 
     function GetNearbyCharacters(radius)
@@ -441,7 +560,8 @@ local function OnSessionLoaded()
                         table.insert(nearbyCharacters, {
                             Entity = entity,
                             Guid = entity.Uuid.EntityUuid,
-                            Name = entity.ServerCharacter.Character.Template.Name,
+                            --Name = entity.ServerCharacter.Character.Template.Name,
+                            Name = entity.ServerCharacter.Template.Name,
                             Distance = distance,
                             Handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle),
                         })
@@ -454,9 +574,137 @@ local function OnSessionLoaded()
         return nearbyCharacters
     end
 
+    function ProcessExistingEntities()
+        local count = 0
+        for guid, entity in pairs(Entities) do
+            local handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle)
+            if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 then
+                --print(string.format("DEBUG: BOOSTING: %s, Name: %s", guid, handle))
+                GiveHPIncrease(guid, true)
+                count = count + 1
+            end
+        end
+        print(string.format("INFO: Processed %s entities while loading.", count))
+    end
+
     -- Apply CX_APPLIED Boost which includes CX_APPLIED Passive to each processed character
     -- This should prevent multiple boosts being granted to the same character
     local CX_APPLIED = "CX_APPLIED"
+
+    function CleanupEntities()
+        local count = 0
+        for guid, entity in pairs(Entities) do
+            if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 1 then
+                local handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle)
+                print(string.format("DEBUG: Cleanup Target: %s, Name: %s", guid, handle))
+
+                -- Retrieve the BoostsContainer for the entity
+                local boostsContainer = Ext.Entity.Get(guid).BoostsContainer
+                if not boostsContainer then
+                    print(string.format("WARNING: No BoostsContainer found for entity %s", guid))
+                    goto continue
+                end
+
+                local boostTypes = {"AC", "ActionResource", "DamageBonus", "RollBonus"}
+                for _, boostType in ipairs(boostTypes) do
+                    local boostEntries = boostsContainer.Boosts[boostType]
+                    if not boostEntries then
+                        print(string.format("DEBUG: No boost entries of type %s found for entity %s", boostType, guid))
+                    else
+                        for _, boost in ipairs(boostEntries) do
+                            local boostInfo = boost.BoostInfo
+                            if boostInfo and boostInfo.Cause and boostInfo.Cause.Cause then
+                                local cause = boostInfo.Cause.Cause
+                                if boostType == "RollBonus" and cause and cause ~= "" and cause:find("CX_") then
+                                    RemoveStatus(guid, cause, "")
+                                    print(string.format("DEBUG: Removed boost: boostType: %s, %s", boostType, cause))
+                                elseif boostType ~= "RollBonus" and boostInfo.Cause.Cause == "combatextender" then
+                                    local boostParams = boostInfo.Params.Params
+                                    local boostRemovalString = string.format("%s(%s)", boostType, boostParams)
+                                    RemoveBoosts(guid, boostRemovalString, 0, "combatextender", "1")
+                                    print(string.format("DEBUG: Removed boost: boostType: %s, boostParams: %s", boostType, boostParams))
+                                end
+                            end
+                        end
+                    end
+                end
+                RemoveStatus(guid, CX_APPLIED, "")
+                count = count + 1
+            end
+            ::continue::
+        end
+        print(string.format("INFO: Processed %s entities after combat.", count))
+    end
+
+    -- Continuous Listener
+    Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
+        local uuid = entity.Uuid.EntityUuid
+        --local name = entity.ServerCharacter.Character.Template.Name
+        local name = entity.ServerCharacter.Template.Name
+        local guid = name .. "_" .. uuid
+        local handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle)
+
+        -- Check if the entity is not already in the Entities table
+        if not Entities[guid] then
+            Entities[guid] = entity
+            -- Check if the handle is not "Citizen" or "Refugee" as these are crowd characters
+            if Loaded and IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 and handle ~= "Citizen" and handle ~= "Refugee" then
+                DebugPrint(string.format("DEBUG: Listener Target: %s, Name: %s", guid, handle))
+                GiveHPIncrease(guid, true)
+            end
+        end
+    end)
+
+    Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function ()
+        print("Savegame Loaded")
+        Loaded = true
+        ProcessExistingEntities()
+        StartCXTimer()
+    end)
+
+    function IsPartyInCombat()
+        for member, _ in pairs(Party) do
+            if CombatGetGuidFor(member) ~= nil then
+                return true
+            end
+        end
+        return false
+    end
+
+    -- Don't forget the trigger on CombatEnded
+    function StartCXTimer()
+        if not IsPartyInCombat() then
+            Osi.TimerLaunch("cx", 10000)
+            --print("DEBUG: Starting timer")
+        else
+            DebugPrint("DEBUG: Won't start timer, a party member is in combat")
+        end
+    end
+
+    function CXTimerFinished(timer)
+        if timer == "cx" then
+            -- Check if the party is in combat before proceeding
+            if not IsPartyInCombat() then
+                --print("DEBUG: Timer Complete")
+                ProcessNearbyCharacters()
+                StartCXTimer()
+            else
+                DebugPrint("DEBUG: Timer not restarted, a party member is in combat")
+            end
+        end
+    end
+
+    Ext.Osiris.RegisterListener("TimerFinished", 1, "before", CXTimerFinished)
+
+    function ProcessNearbyCharacters()
+        local nearbyCharacters = GetNearbyCharacters(50)
+        for _, character in ipairs(nearbyCharacters) do
+            local guid = character.Name .. "_" .. character.Guid
+            if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 then
+                GiveHPIncrease(guid, true)
+            end
+        end
+    end
 
     -- Combat Listener
     Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(guid, combatid)
@@ -467,9 +715,10 @@ local function OnSessionLoaded()
         end
 
         CurrentCombat = combatid
-        for k, d in ipairs(Osi.DB_PartyMembers:Get(nil)) do table.insert(Party, d[1]) end
+        ProcessPartyMembers()
 
         -- Not everything we face is a character, thankfully this is pretty rare.
+        -- TODO: Add HasActiveStatus as second check
         if IsCharacter(guid) == 0 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
             local isEnemy = IsEnemy(guid, GetHostCharacter())
             if isEnemy == 1 then
@@ -493,7 +742,7 @@ local function OnSessionLoaded()
 
             CheckPassive(guid)
             GiveSpellSlots(guid)
-            GiveHPIncrease(guid)
+            GiveHPIncrease(guid, false)
             GiveRollBonus(guid, "Attack")
             GiveRollBonus(guid, "SavingThrow")
             GiveACBoost(guid)
@@ -508,36 +757,36 @@ local function OnSessionLoaded()
     -- Combat Save Loading
     -- We re-apply the boosts to all nearby characters that have status CX_APPLIED, which persists in the savefile
     Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function (levelName, isEditorMode)
-        for k, d in ipairs(Osi.DB_PartyMembers:Get(nil)) do table.insert(Party, d[1]) end
+        ProcessPartyMembers()
 
         -- 50 meters is beyond the range at which characters join the ongoing combat
         local nearbyCharacters = GetNearbyCharacters(50)
-        print("Number of nearby characters: " .. #nearbyCharacters)
+        print("INFO: Number of nearby characters: " .. #nearbyCharacters)
         for _, character in ipairs(nearbyCharacters) do
-            local guid = character.Guid
+            local guid = character.Name .. "_" .. character.Guid
             if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 1 and CheckIfExcluded(guid) == 0 then
                 local isEnemy = IsEnemy(guid, GetHostCharacter())
                 local isBoss = IsBoss(guid)
 
                 if isEnemy == 1 and isBoss == 0 then
-                    print(string.format("DEBUG: Enemy: %s_%s, Name: %s", character.Name, guid, character.Handle))
+                    print(string.format("DEBUG: Enemy: %s, Name: %s", guid, character.Handle))
                 elseif isEnemy == 1 and isBoss == 1 then
-                    print(string.format("DEBUG: Boss: %s_%s, Name: %s", character.Name, guid, character.Handle))
+                    print(string.format("DEBUG: Boss: %s, Name: %s", guid, character.Handle))
                 else
-                    print(string.format("DEBUG: Ally: %s_%s, Name: %s", character.Name, guid, character.Handle))
+                    print(string.format("DEBUG: Ally: %s, Name: %s", guid, character.Handle))
                 end
                 CheckPassive(guid)
                 GiveSpellSlots(guid)
-                --GiveHPIncrease(guid) -- Health adjustment persists
+                GiveHPIncrease(guid, false)
                 GiveRollBonus(guid, "Attack")
                 GiveRollBonus(guid, "SavingThrow")
                 GiveACBoost(guid)
                 GiveDamageBoost(guid)
                 GiveMovementBoost(guid)
-                --GiveActionPointBoost(guid, "Action") Action adjustment persists
-                --GiveActionPointBoost(guid, "BonusAction") Bonus Action adjustment persists
+                GiveActionPointBoost(guid, "Action")
+                GiveActionPointBoost(guid, "BonusAction")
             else
-                --print("DEBUG2: Invalid: " .. guid .. ", Name: " .. character.Name)
+                --print("DEBUG: Invalid: " .. guid .. ", Name: " .. character.Name)
             end
         end
     end)
@@ -546,8 +795,10 @@ local function OnSessionLoaded()
         if (combat == CurrentCombat) then
             Party = {}
             CombatNPCS = {}
+            StartCXTimer()
+            CleanupEntities()
         end
     end)
 
 end
- Ext.Events.SessionLoaded:Subscribe(OnSessionLoaded)
+Ext.Events.SessionLoaded:Subscribe(OnSessionLoaded)
