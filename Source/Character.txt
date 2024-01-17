@@ -6,7 +6,7 @@ data "Passives" "CX_Fighter_Boost;ExtraAttack;AntimagicSusceptibility;AttackOfOp
 new entry "CHA_BanditInterior_Duergar_Ranger"
 type "Character"
 using "CHA_BanditInterior_Duergar_Ranger"
-data "Passives" "CX_Ranger_Boost;DarknessRules;Darkvision;Duergar_DuergarResilience;SunlightSensitivity;AdditionalSpellSlot_Level_1;"
+data "Passives" "CX_Ranger_Boost;AttackOfOpportunity;DarknessRules;Darkvision;Duergar_DuergarResilience;SunlightSensitivity;AdditionalSpellSlot_Level_1;"
 
 new entry "CHA_BanditInterior_HalfElf_Caster"
 type "Character"
@@ -91,12 +91,12 @@ data "Passives" "CX_Ranger_Boost;Tiefling_HellishResistance;AttackOfOpportunity;
 new entry "CHA_Skeleton_Caster"
 type "Character"
 using "CHA_Skeleton_Caster"
-data "Passives" "CX_Spells_L1;DarknessRules;DispelEvilAndGood_Charm_Check;DispelEvilAndGood_Frightened_Check;DispelEvilAndGood_Possessed_Check"
+data "Passives" "CX_Spells_L1;AttackOfOpportunity;DarknessRules;DispelEvilAndGood_Charm_Check;DispelEvilAndGood_Frightened_Check;DispelEvilAndGood_Possessed_Check"
 
 new entry "CHA_Skeleton_Strong"
 type "Character"
 using "CHA_Skeleton_Strong"
-data "Passives" "CX_Fighter_Boost;DarknessRules;DispelEvilAndGood_Charm_Check;DispelEvilAndGood_Frightened_Check;DispelEvilAndGood_Possessed_Check"
+data "Passives" "CX_Fighter_Boost;AttackOfOpportunity;DarknessRules;DispelEvilAndGood_Charm_Check;DispelEvilAndGood_Frightened_Check;DispelEvilAndGood_Possessed_Check"
 
 new entry "CRE_Githyanki_Captain"
 type "Character"
