@@ -765,7 +765,7 @@ local function OnSessionLoaded()
                 end
             end
         else
-            print("DEBUG: entity.Uuid or entity.Uuid.EntityUuid is nil")
+            DebugPrint("DEBUG: entity.Uuid or entity.Uuid.EntityUuid is nil")
         end
     end)
 
