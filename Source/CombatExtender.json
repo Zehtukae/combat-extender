@@ -11,12 +11,12 @@
     {
       "PassiveName": "CX_Fighter_Boost",
       "Spells": ["Target_DistractingStrike","Target_PushingAttack"],
-      "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection"]
+      "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]
     },
     {
       "PassiveName": "CX_Paladin_Boost",
       "Spells": ["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],
-      "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection"]
+      "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]
     },
     {
       "PassiveName": "CX_Monk_Boost",
@@ -121,6 +121,19 @@
       "StaticBoost": 1,
       "BoostPerIncrement": 1,
       "LevelIncrement": 4
+    }
+  },
+  "SpellSaveDC": {
+    "Allies": {},
+    "Bosses": {
+      "StaticBoost": 1,
+      "BoostPerIncrement": 1,
+      "LevelIncrement": 8
+    },
+    "Enemies": {
+      "StaticBoost": 1,
+      "BoostPerIncrement": 1,
+      "LevelIncrement": 8
     }
   },
   "Movement": {
