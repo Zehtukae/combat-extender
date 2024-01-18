@@ -10,7 +10,8 @@ local function OnSessionLoaded()
     Party = {}
     Entities = {}
     EntityHealth = {}
-    EntityHealthAdjustments = {}
+    EntityHealthAdjustment = {}
+    EntityResetState = {}
 
     function printTableAddress(t)
         for k, v in pairs(t) do
@@ -74,7 +75,7 @@ local function OnSessionLoaded()
 
     function writeDefaultConfig()
         -- Define the default configuration
-        local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Spells":["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"]},{"PassiveName":"CX_Cleric_Boost","Spells":["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]},{"PassiveName":"CX_Fighter_Boost","Spells":["Target_DistractingStrike","Target_PushingAttack"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]},{"PassiveName":"CX_Paladin_Boost","Spells":["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]},{"PassiveName":"CX_Monk_Boost","Spells":["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"],"ExtraPassives":[]},{"PassiveName":"CX_Ranger_Boost","Spells":["Target_HuntersMark","Projectile_HailOfThorns"],"ExtraPassives":["FightingStyle_Archery"]},{"PassiveName":"CX_Rogue_Boost","Spells":["Projectile_SneakAttack","Target_SneakAttack"],"ExtraPassives":["UncannyDodge"]},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Health":{"Allies":{},"Bosses":{"HealthMultiplier":1.1},"Enemies":{"HealthMultiplier":1.1}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":3}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}}}}'
+        local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Spells":["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"]},{"PassiveName":"CX_Cleric_Boost","Spells":["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]},{"PassiveName":"CX_Fighter_Boost","Spells":["Target_DistractingStrike","Target_PushingAttack"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]},{"PassiveName":"CX_Paladin_Boost","Spells":["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]},{"PassiveName":"CX_Monk_Boost","Spells":["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"],"ExtraPassives":[]},{"PassiveName":"CX_Ranger_Boost","Spells":["Target_HuntersMark","Projectile_HailOfThorns"],"ExtraPassives":["FightingStyle_Archery"]},{"PassiveName":"CX_Rogue_Boost","Spells":["Projectile_SneakAttack","Target_SneakAttack"],"ExtraPassives":["UncannyDodge"]},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Health":{"Allies":{},"Bosses":{"HealthMultiplier":1.1},"Enemies":{"HealthMultiplier":1.1}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4}},"SpellSaveDC":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":3}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}}}}'
 
         -- Beautify the JSON string
         local defaultConfig = beautifyJson(defaultConfigRaw)
@@ -193,12 +194,14 @@ local function OnSessionLoaded()
                     for partyMemberGuid, _ in pairs(Party) do
                         -- Convert party member GUID to handle and back to UUID? for comparison
                         local partyMemberHandle = Ext.Entity.UuidToHandle(partyMemberGuid)
-                        local handle = Ext.Loca.GetTranslatedString(partyMemberHandle.DisplayName.NameKey.Handle.Handle)
-                        local convertedPartyMemberGuid = Ext.Entity.HandleToUuid(partyMemberHandle)
-                        --print(string.format("DEBUG: Converted party member GUID: %s to %s", partyMemberGuid, convertedPartyMemberGuid))
-                        if causeUuid == convertedPartyMemberGuid then
-                            print(string.format("DEBUG: Summon is from party member: %s, %s", handle, partyMemberGuid))
-                            return 1
+                        if partyMemberHandle then
+                            local handle = Ext.Loca.GetTranslatedString(partyMemberHandle.DisplayName.NameKey.Handle.Handle)
+                            local convertedPartyMemberGuid = Ext.Entity.HandleToUuid(partyMemberHandle)
+                            --print(string.format("DEBUG: Converted party member GUID: %s to %s", partyMemberGuid, convertedPartyMemberGuid))
+                            if causeUuid == convertedPartyMemberGuid then
+                                print(string.format("DEBUG: Summon is from party member: %s, %s", handle, partyMemberGuid))
+                                return 1
+                            end
                         end
                     end
                 end
@@ -244,6 +247,7 @@ local function OnSessionLoaded()
         local boostsContainer = entity and entity.BoostsContainer
         local increaseMaxHPEntries = boostsContainer and boostsContainer.Boosts["IncreaseMaxHP"]
         local isBoosted = false
+        local isReset = false
         local isProgressionBoosted = false
         local boostParams
 
@@ -263,6 +267,8 @@ local function OnSessionLoaded()
                     isBoosted = true -- Set flag to true if a combatextender boost is found
                     boostParams = tonumber(entry.BoostInfo.Params.Params)
                     break -- Exit the loop as we found at least one combatextender boost
+                elseif entry.BoostInfo.Cause.Cause == "reset" then
+                    isReset = true -- Set flag to true if a reset boost is found
                 elseif entry.BoostInfo.Cause.Type == "Progression" then
                     isProgressionBoosted = true
                     break
@@ -280,14 +286,12 @@ local function OnSessionLoaded()
             else
                 healthToUse = baseHealth
             end
-
             EntityHealth[guid] = healthToUse
         end
 
         local healthToUse = EntityHealth[guid]
         local desiredMaxHealth = math.ceil(healthToUse * healthMultiplier)
         local hpIncrease = desiredMaxHealth - healthToUse
-
         --print(string.format("DEBUG: Target: %s, Name: %s, healthToUse: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, healthToUse, desiredMaxHealth))
 
         local hpBoost
@@ -304,17 +308,21 @@ local function OnSessionLoaded()
             end
 
             if currentMaxHealth == desiredMaxHealth then
-                print(string.format("DEBUG: Health already matches desired value for Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+                --print(string.format("DEBUG: Health already matches desired value for Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
                 return
             end
-            print(string.format("DEBUG: NOT BOOSTED AND MISMATCH Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+            --print(string.format("DEBUG: NOT BOOSTED AND MISMATCH Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
 
             -- Essentially we do a soft reset here
             if currentMaxHealth > desiredMaxHealth then
-                print(string.format("DEBUG: Resetting Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
-                AddBoosts(guid, "IncreaseMaxHP(0)", "reset", "1")
-                EntityHealth[guid] = nil
-                return
+                if EntityResetState[guid] then
+                    return
+                else
+                    print(string.format("DEBUG: Resetting Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+                    AddBoosts(guid, "IncreaseMaxHP(0)", "reset", "1")
+                    EntityResetState[guid] = true
+                    return
+                end
             end
 
             AddBoosts(guid, hpBoost, "combatextender", "1")
@@ -328,11 +336,11 @@ local function OnSessionLoaded()
                     return
                 end
 
-                if EntityHealthAdjustments[guid] and not IsPartyInCombat() then -- Check if the guid is already in the EntityHealthAdjustments table
-                    print(string.format("DEBUG: EntityHealthAdjustments exists for Target: %s, Name: %s", guid, handle))
+                if EntityHealthAdjustment[guid] and not IsPartyInCombat() then -- Check if the guid is already in the EntityHealthAdjustment table
+                    --print(string.format("DEBUG: EntityHealthAdjustment exists for Target: %s, Name: %s", guid, handle))
                     return
                 else
-                    EntityHealthAdjustments[guid] = true -- Mark this guid as having had an adjustment attempt
+                    EntityHealthAdjustment[guid] = true -- Mark this guid as having had an adjustment attempt
                 end
 
                 DebugPrint(string.format("DEBUG: Target has offset: %s, HitPoints offset: %s", guid, offset))
@@ -342,14 +350,13 @@ local function OnSessionLoaded()
                 DebugPrint(string.format("DEBUG: Adjusting Target: %s, hpBoost: %s", guid, hpBoost))
                 AddBoosts(guid, "IncreaseMaxHP(" .. hpIncrease .. ")", "combatextender", "1")
             else
-                --EntityHealthAdjustments[guid] = nil
+                --EntityHealthAdjustment[guid] = nil
                 --print(string.format("DEBUG: Target: %s currentMaxHealth: %s desiredMaxHealth: %s", guid, currentMaxHealth, desiredMaxHealth))
             end
         end
     end
 
-    -- Passive Check: Add additional spells, passives and perhaps more in the future
-    -- This builds upon the CX_NAME passives such as CX_Fighter_Boost
+    -- Passive Check: Add additional spells, passives and perhaps more in the future. This builds upon the CX_NAME passive structure such as CX_Fighter_Boost.
     -- You can also use any other passive from the game, or from other mods
     function CheckPassive(guid)
         -- Iterate over the passives
@@ -656,7 +663,6 @@ local function OnSessionLoaded()
                         table.insert(nearbyCharacters, {
                             Entity = entity,
                             Guid = entity.Uuid.EntityUuid,
-                            --Name = entity.ServerCharacter.Character.Template.Name,
                             Name = entity.ServerCharacter.Template.Name,
                             Distance = distance,
                             Handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle),
@@ -746,7 +752,6 @@ local function OnSessionLoaded()
     Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
         if entity.Uuid and entity.Uuid.EntityUuid then
             local uuid = entity.Uuid.EntityUuid
-            --local name = entity.ServerCharacter.Character.Template.Name
             local name = entity.ServerCharacter.Template.Name
             local guid = name .. "_" .. uuid
             local handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle)
@@ -755,12 +760,12 @@ local function OnSessionLoaded()
             if not Entities[guid] then
                 Entities[guid] = entity
                 if Loaded and IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 and IsPartySummon(guid) == 0 then
-                    print(string.format("DEBUG: Listener Target: %s, Name: %s", guid, handle))
+                    DebugPrint(string.format("DEBUG: Listener Target: %s, Name: %s", guid, handle))
                     GiveHPIncrease(guid, true)
                 end
             end
         else
-            DebugPrint(string.format("DEBUG: entity.Uuid or entity.Uuid.EntityUuid is nil, name: %s", handle))
+            print("DEBUG: entity.Uuid or entity.Uuid.EntityUuid is nil")
         end
     end)
 
@@ -770,17 +775,17 @@ local function OnSessionLoaded()
         ProcessPartyMembers()
         StartCXTimer()
         if not IsPartyInCombat() then
-            print("Process existing")
+            print("DEBUG: Starting to process existing entities")
             ProcessExistingEntities()
         else
-            print("NOT Process existing")
+            print("DEBUG: Won't process existing entities, a party member is in combat")
         end
     end)
 
     -- Don't forget the trigger on CombatEnded
     function StartCXTimer()
         if not IsPartyInCombat() then
-            Osi.TimerLaunch("cx", 10000)
+            Osi.TimerLaunch("cx", 15000)
             --print("DEBUG: Starting timer")
         else
             DebugPrint("DEBUG: Won't start timer, a party member is in combat")
