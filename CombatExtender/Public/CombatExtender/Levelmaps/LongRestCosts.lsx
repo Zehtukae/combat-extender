@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="308"/>
+    <region id="LongRestCosts">
+        <node id="root">
+            <children>
+                <node id="LongRestCost">
+                    <attribute id="CampGrowthDifficulty" type="FixedString" value="CAMPGROWTH_MEDIUM"/>
+                    <attribute id="CampQuality" type="int32" value="1"/>
+                    <attribute id="RequiredSupplies" type="int32" value="80"/>
+                    <attribute id="UUID" type="guid" value="caed1ebc-a5c5-4989-b70a-4223352f3cd1"/>
+                </node>
+                <node id="LongRestCost">
+                    <attribute id="CampGrowthDifficulty" type="FixedString" value="CAMPGROWTH_MEDIUM"/>
+                    <attribute id="CampQuality" type="int32" value="2"/>
+                    <attribute id="RequiredSupplies" type="int32" value="80"/>
+                    <attribute id="UUID" type="guid" value="d4af3f49-997d-4b42-a937-779782bd90ec"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>
