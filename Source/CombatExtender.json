@@ -11,12 +11,12 @@
     {
       "PassiveName": "CX_Fighter_Boost",
       "Spells": ["Target_DistractingStrike","Target_PushingAttack"],
-      "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]
+      "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]
     },
     {
       "PassiveName": "CX_Paladin_Boost",
       "Spells": ["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],
-      "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Duelling"]
+      "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]
     },
     {
       "PassiveName": "CX_Monk_Boost",
