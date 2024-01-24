@@ -118,6 +118,21 @@ type "Character"
 using "CRE_Githyanki_Varsh"
 data "Passives" "CX_Magic_Boost;Alert;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L3C;WarMagic_Githyanki;AttackOfOpportunity;DarknessRules"
 
+new entry "DEN_Goblin_Archer"
+type "Character"
+using "DEN_Goblin_Archer"
+data "Passives" "CX_Ranger_Boost;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "DEN_Goblin_Cleric"
+type "Character"
+using "DEN_Goblin_Cleric"
+data "Passives" "CX_Cleric_Boost;CX_Spells_L1;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "DEN_Goblin_Mage"
+type "Character"
+using "DEN_Goblin_Mage"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;AttackOfOpportunity;Darkvision;DarknessRules"
+
 new entry "DarkJusticiar_Boss"
 type "Character"
 using "DarkJusticiar_Boss"
