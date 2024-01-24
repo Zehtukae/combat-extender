@@ -2,6 +2,7 @@ local function OnSessionLoaded()
     print("Combat Extender")
 
     -- Define global variables
+    Act = 1
     configTable = {}
     CombatNPCS= {}
     CurrentCombat = ""
@@ -75,7 +76,7 @@ local function OnSessionLoaded()
 
     function writeDefaultConfig()
         -- Define the default configuration
-        local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Spells":["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"]},{"PassiveName":"CX_Cleric_Boost","Spells":["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]},{"PassiveName":"CX_Fighter_Boost","Spells":["Target_DistractingStrike","Target_PushingAttack"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},{"PassiveName":"CX_Paladin_Boost","Spells":["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},{"PassiveName":"CX_Monk_Boost","Spells":["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"],"ExtraPassives":[]},{"PassiveName":"CX_Ranger_Boost","Spells":["Target_HuntersMark","Projectile_HailOfThorns"],"ExtraPassives":["FightingStyle_Archery"]},{"PassiveName":"CX_Rogue_Boost","Spells":["Projectile_SneakAttack","Target_SneakAttack"],"ExtraPassives":["UncannyDodge"]},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Health":{"Allies":{},"Bosses":{"HealthMultiplier":1.1},"Enemies":{"HealthMultiplier":1.1}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4}},"SpellSaveDC":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":3}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}}}}'
+        local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Act":{"1":{"Spells":["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"]},"2":{"ExtraPassives":["MindlessRage","FeralInstinct"]},"3":{"ExtraPassives":["BrutalCritical","RelentlessRage"]}}},{"PassiveName":"CX_Cleric_Boost","Act":{"1":{"Spells":["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]},"2":{"Spells":["Shout_SpiritGuardians"],"ExtraPassives":["PotentSpellcasting"]},"3":{"Spells":["Target_FlameStrike","Target_Contagion"]}}},{"PassiveName":"CX_Fighter_Boost","Act":{"1":{"Spells":["Target_DistractingStrike","Target_PushingAttack","Target_FeintingAttack"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},"3":{"Spells":["Zone_SweepingAttack"],"ExtraPassives":["Indomitable","ImprovedCombatSuperiority"]}}},{"PassiveName":"CX_Monk_Boost","Act":{"3":{"Spells":["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"]}}},{"PassiveName":"CX_Paladin_Boost","Act":{"1":{"Spells":["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},"3":{"Spells":["Target_Smite_Blinding"],"ExtraPassives":["ImprovedDivineSmite"]}}},{"PassiveName":"CX_Ranger_Boost","Act":{"1":{"Spells":["Target_HuntersMark","Projectile_HailOfThorns"],"ExtraPassives":["FightingStyle_Archery"]},"2":{"Spells":["Target_Silence"],"ExtraPassives":["MultiattackDefense"]},"3":{"Spells":["Shout_HideInPlainSight","Target_Volley","Shout_Whirlwind"]}}},{"PassiveName":"CX_Rogue_Boost","Act":{"1":{"Spells":["Projectile_SneakAttack","Target_SneakAttack"],"ExtraPassives":["UncannyDodge"]},"2":{"ExtraPassives":["Evasion"]},"3":{"ExtraPassives":["ReliableTalent"]}}},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":1},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Health":{"Allies":{},"Bosses":{"HealthMultiplier":1.1},"Enemies":{"HealthMultiplier":1.1}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4}},"SpellSaveDC":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":1}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}}}}'
 
         -- Beautify the JSON string
         local defaultConfig = beautifyJson(defaultConfigRaw)
@@ -90,7 +91,7 @@ local function OnSessionLoaded()
 
         -- Check if the file was loaded successfully
         if not status or not json then
-            print(string.format("INFO: Couldn't load: %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\%s Applying default", json or "CombatExtender.json"))
+            print(string.format("INFO: Couldn't load: %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\%s. Applying default configuration", json or "CombatExtender.json"))
 
             -- If the file is not present or fails to load, write the default config file
             writeDefaultConfig()
@@ -234,7 +235,6 @@ local function OnSessionLoaded()
         end
 
         local healthMultiplier = tonumber(healthConfig["HealthMultiplier"])
-        --print(string.format("DEBUG: healthMultiplier: %s for target: %s.", healthMultiplier, guid))
 
         if healthMultiplier == 1 then -- Check if the configuration is enabled for this type of character as 1 equals no change
             return
@@ -359,52 +359,68 @@ local function OnSessionLoaded()
     -- Passive Check: Add additional spells, passives and perhaps more in the future. This builds upon the CX_NAME passive structure such as CX_Fighter_Boost.
     -- You can also use any other passive from the game, or from other mods
     function CheckPassive(guid)
+        local currentAct = Act
+
         -- Iterate over the passives
         for _, passive in ipairs(configTable["Passives"]) do
             -- Check if the target has the current passive
             if HasPassive(guid, passive["PassiveName"]) == 1 then
                 print(string.format("DEBUG: Target has %s", passive["PassiveName"]))
 
-                local spells = passive["Spells"] -- Access the "Spells" key in the passive
+                -- Initialize cumulative lists for spells and extra passives
+                local cumulativeSpells = {}
+                local cumulativeExtraPassives = {}
 
-                -- Check if spells is not nil
-                if spells then
-                    -- Check if spells is not empty
-                    if #spells > 0 then
-                        for _, spell in ipairs(spells) do
-                            -- Check if the target already has the spell
-                            if HasSpell(guid, spell) == 0 then
-                                AddBoosts(guid, string.format("UnlockSpell(%s,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,)", spell), "", "")
-                            else
-                                print(string.format("DEBUG: Target already has spell %s", spell))
+                -- Check if the passive has an "Act" structure
+                if passive["Act"] then
+                    -- Accumulate spells and extra passives up to the current act
+                    for act = 1, currentAct do
+                        local actConfig = passive["Act"][tostring(act)]
+                        if actConfig then
+                            if actConfig["Spells"] then
+                                for _, spell in ipairs(actConfig["Spells"]) do
+                                    table.insert(cumulativeSpells, spell)
+                                end
+                            end
+                            if actConfig["ExtraPassives"] then
+                                for _, extraPassive in ipairs(actConfig["ExtraPassives"]) do
+                                    table.insert(cumulativeExtraPassives, extraPassive)
+                                end
                             end
                         end
-                    else
-                        print(string.format("DEBUG: No spells for %s. Spells array is empty.", passive["PassiveName"]))
                     end
                 else
-                    print(string.format("DEBUG: No spells for %s. Spells key is nil.", passive["PassiveName"]))
+                    -- Use the existing spells and extra passives from the old configuration
+                    cumulativeSpells = passive["Spells"] or {}
+                    cumulativeExtraPassives = passive["ExtraPassives"] or {}
                 end
 
-                local ExtraPassives = passive["ExtraPassives"] -- Access the "ExtraPassives" key in the passive
-
-                -- Check if ExtraPassives is not nil
-                if ExtraPassives then
-                    -- Check if ExtraPassives is not empty
-                    if #ExtraPassives > 0 then
-                        for _, ExtraPassive in ipairs(ExtraPassives) do
-                            -- Check if the target already has the ExtraPassive
-                            if HasPassive(guid, ExtraPassive) == 0 then
-                                AddPassive(guid, ExtraPassive)
-                            else
-                                print(string.format("DEBUG: Target already has passive %s", ExtraPassive))
-                            end
+                -- Process cumulative spells
+                if #cumulativeSpells > 0 then
+                    print("DEBUG: Spells to add: " .. table.concat(cumulativeSpells, ", "))
+                    for _, spell in ipairs(cumulativeSpells) do
+                        if HasSpell(guid, spell) == 0 then
+                            AddBoosts(guid, string.format("UnlockSpell(%s,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,)", spell), "", "")
+                        else
+                            print(string.format("DEBUG: Target already has spell %s", spell))
                         end
-                        --else
-                        --print(string.format("DEBUG: No extra passives for %s. ExtraPassives array is empty.", passive["PassiveName"]))
                     end
-                    --else
-                    --print(string.format("DEBUG: No extra passives for %s. ExtraPassives key is nil.", passive["PassiveName"]))
+                else
+                    print(string.format("DEBUG: No spells for %s. Spells array is empty.", passive["PassiveName"]))
+                end
+
+                -- Process cumulative extra passives
+                if #cumulativeExtraPassives > 0 then
+                    print("DEBUG: Passives to add: " .. table.concat(cumulativeExtraPassives, ", "))
+                    for _, extraPassive in ipairs(cumulativeExtraPassives) do
+                        if HasPassive(guid, extraPassive) == 0 then
+                            AddPassive(guid, extraPassive)
+                        else
+                            print(string.format("DEBUG: Target already has passive %s", extraPassive))
+                        end
+                    end
+                else
+                    print(string.format("DEBUG: No extra passives for %s. ExtraPassives array is empty.", passive["PassiveName"]))
                 end
             end
         end
@@ -696,7 +712,7 @@ local function OnSessionLoaded()
                 count = count + 1
             end
         end
-        print(string.format("INFO: Processed %s entities while loading.", count))
+        print(string.format("INFO: Processed %s entities while loading", count))
     end
 
     -- Apply CX_APPLIED Boost which includes CX_APPLIED Passive to each processed character
@@ -859,6 +875,21 @@ local function OnSessionLoaded()
     -- Combat Save Loading
     -- We re-apply the boosts to all nearby characters that have status CX_APPLIED, which persists in the savefile
     Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function (levelName, isEditorMode)
+
+        if levelName == "WLD_Main_A" or levelName == "CRE_Main_A" then
+            Act = 1
+            print("INFO: Act set to 1 for level: " .. levelName)
+        elseif levelName == "SCL_Main_A" then
+            Act = 2
+            print("INFO: Act set to 2 for level: " .. levelName)
+        elseif levelName == "BGO_Main_A" or levelName == "CTY_Main_A" then
+            Act = 3
+            print("INFO: Act set to 3 for level: " .. levelName)
+        else
+            Act = 1
+            print("DEBUG: Act is not set for level: " .. levelName)
+        end
+
         ProcessPartyMembers()
 
         -- 50 meters is beyond the range at which characters join the ongoing combat
