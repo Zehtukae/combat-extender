@@ -91,7 +91,7 @@ local function OnSessionLoaded()
 
         -- Check if the file was loaded successfully
         if not status or not json then
-            print(string.format("INFO: Couldn't load: %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\%s Applying default", json or "CombatExtender.json"))
+            print(string.format("INFO: Couldn't load: %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\%s. Applying default configuration", json or "CombatExtender.json"))
 
             -- If the file is not present or fails to load, write the default config file
             writeDefaultConfig()
