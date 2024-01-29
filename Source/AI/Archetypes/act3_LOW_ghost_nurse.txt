@@ -1,0 +1,11 @@
+USING mage
+//this is intended for use by the surgeon's nurses
+
+//Ghost nurses will not pick up weapon
+WEAPON_PICKUP_MODIFIER 							0.0
+
+//Ghost nurses do not care very much about picking up weapons they had equipped before (base 1.25)
+WEAPON_PICKUP_MODIFIER_PREVIOUSLY_EQUIPPED 0.0
+
+//The nurse tries to interrupt concentration when possible
+MODIFIER_CONCENTRATION_REMOVE_TARGET 			0.30

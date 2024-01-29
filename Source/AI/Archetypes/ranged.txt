@@ -1,0 +1,31 @@
+//This archetype is intended for average humanoids like guards/bandits/soldiers etc
+
+// Ranged characters don't like enemies nearby, but dont't mind allies
+MULTIPLIER_ENDPOS_ALLIES_NEARBY					0.00
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY				-0.50
+
+// Ranged characters don't like standing in smoke, they can't see their targets!
+MULTIPLIER_ENDPOS_NOT_IN_SMOKE					0.20
+
+// Ranged characters dont't care about contact boosts
+MULTIPLIER_CONTACT_BOOST						0.05
+
+MULTIPLIER_FALLBACK_ALLIES_NEARBY				0.00
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-0.50
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			10.00
+
+// Ranged units care a lot about standing on higher ground relative to enemies
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE				0.05 // score multiplier for height relative to the highest enemy
+
+// Multiplier for buffs as the first action - boosted for actions like Hunter's Mark
+MULTIPLIER_FIRST_ACTION_BUFF					2.25
+MULTIPLIER_BOOST_WEAPON_DAMAGE 					0.09
+
+//Characters using Ranged have better than average hit/miss reasoning
+- MODIFIER_HIT_CHANCE_STUPIDITY 				0.15
+
+//Prefer to pickup ranged weapons
+WEAPON_PICKUP_PREFER_RANGED_ENABLED 			1
+
+// Ranged units need a slightly higher Seek threshold to offset the position modifieres
+MODIFIER_SEEK_MINIMAL_THRESHOLD 				0.3

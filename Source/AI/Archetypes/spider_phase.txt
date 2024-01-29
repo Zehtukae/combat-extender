@@ -1,0 +1,7 @@
+USING beast_ranged
+
+MULTIPLIER_DAMAGE_ENEMY_POS 					1.2
+
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE				0.001 // score multiplier for height relative to the highest enemy
+
+MULTIPLIER_ENDPOS_NOT_IN_AIHINT					0.01

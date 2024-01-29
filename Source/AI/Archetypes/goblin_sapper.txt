@@ -1,0 +1,33 @@
+USING goblin_melee
+
+// Bomber really loves killing and damaging others 
+MULTIPLIER_KILL_ENEMY 								6.00
+MULTIPLIER_DAMAGE_ENEMY_POS							3.0
+
+// Bomber doesn't care about flanking
+MULTIPLIER_ENDPOS_FLANKED							0.00
+
+// Bomber doesn't care if an enemy is already being targeted, and cares less if it's so by > 2 enemies
+MULTIPLIER_TARGET_HOSTILE_COUNT_ONE					1.00
+MULTIPLIER_TARGET_HOSTILE_COUNT_TWO_OR_MORE			1.00
+
+// A general multiplier for all reflected damage
+MULTIPLIER_REFLECT_DAMAGE							0.0
+
+//Boost multiplier for the targeted item
+MULTIPLIER_DESTROY_INTERESTING_ITEM					18.00
+
+//Dont care about dangerous surfaces
+MULTIPLIER_MOVEMENT_SURFACE							0.00
+MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE			0.00
+
+MODIFIER_HIT_CHANCE_STUPIDITY 						1.00
+
+//Does not pick up weapons
+WEAPON_PICKUP_MODIFIER 								0.0
+
+//Does not reason about breaking concentration on targets
+MODIFIER_CONCENTRATION_REMOVE_TARGET 				0.0
+
+//Reduced bias to use chasms
+INSTAKILL_BASE_SCORE								1.0

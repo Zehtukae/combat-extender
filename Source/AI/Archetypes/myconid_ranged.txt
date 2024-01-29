@@ -1,0 +1,27 @@
+USING ranged
+//This archetype is intended for myconids that don't want to end turn next to an enemy
+
+// Don't really like enemies nearby, but dont't mind allies
+MULTIPLIER_ENDPOS_ALLIES_NEARBY					0.00
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY				-0.10
+
+// Don't care about  in smoke
+MULTIPLIER_ENDPOS_NOT_IN_SMOKE					0
+
+//Like buffing themselves
+MULTIPLIER_BOOST_SELF_POS		 				1.15
+
+//Do not try to look for highground
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE				0.00 
+
+//Do not reason about Attack of Opportunity
+ENABLE_MOVEMENT_AVOID_AOO						0.00
+
+//Like stunning and debuffing enemies
+MULTIPLIER_BOOST_ENEMY_POS		 				1.15
+MULTIPLIER_CONTROL_ENEMY_POS					1.15
+MULTIPLIER_BLIND								0.20
+
+//Couldn't care less about picking up weapons
+WEAPON_PICKUP_MODIFIER 							0
+WEAPON_PICKUP_PREFER_RANGED_ENABLED 			0

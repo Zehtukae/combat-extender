@@ -1,0 +1,6 @@
+USING melee
+
++ MODIFIER_HIT_CHANCE_STUPIDITY 				0.15
+
+//Reduced bias to use chasms
+INSTAKILL_BASE_SCORE							1.0
