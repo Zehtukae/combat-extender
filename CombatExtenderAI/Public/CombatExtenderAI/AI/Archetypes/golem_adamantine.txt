@@ -1,7 +1,7 @@
 USING beast
 
 //Really wants to target taunting target
-MULTIPLIER_TARGET_PREFERRED						0.00
+MULTIPLIER_TARGET_PREFERRED						100.00
 
 //Does not care about surfaces really
 MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE		0.00
