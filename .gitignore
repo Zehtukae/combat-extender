@@ -1,2 +1,9 @@
 .idea/
 changelog.txt
+Source/Calls.txt
+Source/Databases.txt
+Source/Events.txt
+Source/Procs.txt
+Source/Queries.txt
+Source/Types.tsv
+Source/UserQueries.txt
