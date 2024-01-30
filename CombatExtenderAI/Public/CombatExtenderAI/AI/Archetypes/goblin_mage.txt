@@ -1,5 +1,6 @@
 USING mage
 
+MULTIPLIER_TARGET_SUMMON						0.25
 + MODIFIER_HIT_CHANCE_STUPIDITY 				0.15
 
 //Reduced bias to use chasms

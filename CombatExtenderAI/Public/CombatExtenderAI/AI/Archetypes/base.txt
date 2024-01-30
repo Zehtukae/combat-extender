@@ -87,19 +87,19 @@ ENABLE_MOVEMENT_AVOID_AOO						1.00
 
 MULTIPLIER_TARGET_MY_ENEMY						1.25 	//multiplier used if the target is the enemy of the source, e.g. because source attacked target before
 MULTIPLIER_TARGET_MY_HOSTILE					1.50	//multiplier used if the source is the enemy of the target, e.g. because target attacked source before
-MULTIPLIER_TARGET_SUMMON						0.30
+MULTIPLIER_TARGET_SUMMON						0.25
 MULTIPLIER_TARGET_AGGRO_MARKED					5.00
 MULTIPLIER_TARGET_HOSTILE_COUNT_ONE				1.00
 MULTIPLIER_TARGET_HOSTILE_COUNT_TWO_OR_MORE		0.90
 MULTIPLIER_TARGET_IN_SIGHT						1.05
-MULTIPLIER_TARGET_INCAPACITATED					1.50
-MULTIPLIER_TARGET_KNOCKED_DOWN					1.50
+MULTIPLIER_TARGET_INCAPACITATED					2.00
+MULTIPLIER_TARGET_KNOCKED_DOWN					2.00
 MULTIPLIER_TARGET_PREFERRED						2.00
 MULTIPLIER_TARGET_UNPREFERRED					0.50
-MULTIPLIER_TARGET_HEALTH_BIAS					0.10	// How important the current HP of a target is (lower HP = higher score)
-MULTIPLIER_TARGET_ENEMY_DOWNED 					0.50
-MULTIPLIER_TARGET_ALLY_DOWNED 					1.10
-MULTIPLIER_TARGET_NEUTRAL_DOWNED				1.00
+MULTIPLIER_TARGET_HEALTH_BIAS					1.10	// How important the current HP of a target is (lower HP = higher score)
+MULTIPLIER_TARGET_ENEMY_DOWNED 					1.00
+MULTIPLIER_TARGET_ALLY_DOWNED 					0.90
+MULTIPLIER_TARGET_NEUTRAL_DOWNED				0.90
 
 //////////////////////////////////////////////////////////////////////////
 // End Position MULTIPLIERS
@@ -166,12 +166,12 @@ MULTIPLIER_DAMAGEBOOST							0.50
 MULTIPLIER_BONUS_WEAPON_BOOST					0.50
 
 // Simple multipliers when damage results in a kill
-MULTIPLIER_KILL_ENEMY							1.50
+MULTIPLIER_KILL_ENEMY							2.00
 MULTIPLIER_KILL_ENEMY_SUMMON					1.05
 MULTIPLIER_KILL_ALLY							1.50
 MULTIPLIER_KILL_ALLY_SUMMON						1.10
 MULTIPLIER_KILL_TARGET_HEALTH_BIAS 				0.0
-INSTAKILL_BASE_SCORE							3.0
+INSTAKILL_BASE_SCORE							2.0
 MULTIPLIER_INSTAKILL_TARGET_HEALTH_BIAS			0.025
 
 // Used for the distance multiplier in explosions. The multiplier scales from MIN to 1.0f.
@@ -234,8 +234,8 @@ MULTIPLIER_DODGE_BOOST							0.15
 MULTIPLIER_MOVEMENT_BOOST						0.30
 
 // How important resistances/immunities are for this character
-MULTIPLIER_RESISTANCE_STUPIDITY					1.00
-MULTIPLIER_IMMUNITY_STUPIDITY					1.00
+MULTIPLIER_RESISTANCE_STUPIDITY					0.90
+MULTIPLIER_IMMUNITY_STUPIDITY					0.00
 
 // How important max AP and AP recovery are for this character.
 MULTIPLIER_AP_RECOVERY							1.20	//changed by Edouard & Rick on 21/06/17
@@ -295,7 +295,7 @@ ENABLE_SAVING_ACTION_POINTS						1
 // Normal ranges are between 0 and 1 inclusive:
 // - 0 being the AI doesn't care if a character has shield block
 // - 1 being the AI cares a normalised amount about a character with shield block
-MULTIPLIER_SHIELD_BLOCK							1.0
+MULTIPLIER_SHIELD_BLOCK							1.5
 
 // A general multiplier for all reflected damage
 MULTIPLIER_REFLECT_DAMAGE						0.25
@@ -396,7 +396,7 @@ MULTIPLIER_BOOST_BLOCK_SOMATIC_COMPONENT 0.125
 MULTIPLIER_MOVEMENT_SURFACE 1.0
 
 // Modifier used to make AI over estimate its chances of hitting their target
-MODIFIER_HIT_CHANCE_STUPIDITY 0.7
+MODIFIER_HIT_CHANCE_STUPIDITY 0.6
 
 //////////////////////////////////////////////////////////////////////////
 // RollBonus MULTIPLIERS
@@ -435,7 +435,7 @@ WEAPON_PICKUP_PREFER_RANGED_ENABLED 0
 // Modifier used to change score of picking up a weapon when it is preferred
 WEAPON_PICKUP_MODIFIER_PREFERRED 1.25
 // Modifier used to change score of picking up a weapon when it was equipped before
-WEAPON_PICKUP_MODIFIER_PREVIOUSLY_EQUIPPED 1.25
+WEAPON_PICKUP_MODIFIER_PREVIOUSLY_EQUIPPED 1.50
 // Modifier used to change score of picking up a weapon based on the damage. Usually low, used as a tie breaker
 WEAPON_PICKUP_MODIFIER_DAMAGE 0.005
 // Modifier used to change score of picking up a weapon when the source has no profiency
@@ -470,7 +470,7 @@ USE_ITEM_MODIFIER_NO_VISIBILITY			1.0
 // Modifier used to change the score of removing the AI's own concentration
 MODIFIER_CONCENTRATION_REMOVE_SELF 						8.0
 // Modifier used to change the score of removing a target's concentration (other than itself) 
-MODIFIER_CONCENTRATION_REMOVE_TARGET 					0.5
+MODIFIER_CONCENTRATION_REMOVE_TARGET 					0.1
 
 // Used to adjust score when throw spell affects only self
 MULTIPLIER_SELF_ONLY_THROW				0.8
