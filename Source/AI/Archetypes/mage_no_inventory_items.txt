@@ -1,0 +1,5 @@
+USING mage_smart
+//This archetype is intended mages who are also traders
+
+//This mage will not use items from their inventory
+USE_INVENTORY_ITEMS_ENABLED		 				0

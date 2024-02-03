@@ -1,0 +1,11 @@
+// List of combos AI should take into account
+// TYPE			START		RESULT		CAUSE
+
+Surface SurfaceOil SurfaceFire Ignite
+Surface SurfaceGrease SurfaceFire Ignite
+Surface SurfaceWeb SurfaceFire Ignite
+
+Surface SurfaceWater SurfaceWaterElectrified Electrify
+Surface SurfaceWater SurfaceWaterFrozen	Freeze
+Surface SurfaceBlood SurfaceBloodElectrified Electrify
+Surface SurfaceBlood SurfaceBloodFrozen	Freeze

@@ -1,0 +1,15 @@
+USING beast
+
+ENDPOS_ENEMIES_NEARBY_MIN_DISTANCE				3.90
+ENDPOS_ENEMIES_NEARBY_MAX_DISTANCE				7.00
+
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			5.90
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			9.50
+
+SPELL_JUMP_MINIMUM_DISTANCE						7.50
+
+//Bulette slightly prefers attacking monstrositities instead of players (definition in osiris)
+MULTIPLIER_TARGET_PREFERRED						3.50
+
+//Slightly reduce AC priority to lower Toxic Spit spam
+MULTIPLIER_BOOST_AC 0.3

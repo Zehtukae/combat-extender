@@ -1,0 +1,8 @@
+USING beast
+
+//winged horrors are more interested in attacking characters that aren't already being attacked
+MULTIPLIER_TARGET_HOSTILE_COUNT_ONE				0.35
+MULTIPLIER_TARGET_HOSTILE_COUNT_TWO_OR_MORE		0.35
+
+//winged horrors wanna end turn away from allies
+MULTIPLIER_ENDPOS_ALLIES_NEARBY					-0.35

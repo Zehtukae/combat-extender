@@ -579,6 +579,80 @@ local function OnSessionLoaded()
         AddBoosts(guid, ssdc, "combatextender", "1")
     end
 
+    function GiveAbilityPointBoost(guid)
+        if not configTable.AbilityPoints or next(configTable["AbilityPoints"]) == nil then
+            print("DEBUG: Failed to load or parse JSON. Ending AbilityPoint boost function execution.")
+            return
+        end
+
+        local abilitiesCpp = Ext.Entity.Get(guid).Stats.Abilities
+        local spellCastingAbility = Ext.Entity.Get(guid).Stats.SpellCastingAbility
+        local abilityNames = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"}
+        local abilityBoostConfig
+
+        -- Determine the entity type and corresponding boost amount from the configuration
+        if IsBoss(guid) == 1 then
+            abilityBoostConfig = configTable["AbilityPoints"]["Bosses"]["Additional"]
+        elseif IsTargetAnEnemy(guid) == 0 then
+            if next(configTable["AbilityPoints"]["Allies"]) == nil then
+                return
+            else
+                abilityBoostConfig = configTable["AbilityPoints"]["Allies"]["Additional"]
+            end
+        elseif IsTargetAnEnemy(guid) == 1 then
+            abilityBoostConfig = configTable["AbilityPoints"]["Enemies"]["Additional"]
+        end
+
+        -- Convert C++ array to Lua table, ignoring the first value
+        local abilities = {}
+        for i = 2, #abilitiesCpp do
+            abilities[abilityNames[i-1]] = abilitiesCpp[i]
+        end
+
+        -- Sort abilities by value to find the top two
+        local sortedAbilities = {}
+        for name, value in pairs(abilities) do
+            table.insert(sortedAbilities, {name = name, value = value})
+        end
+        table.sort(sortedAbilities, function(a, b) return a.value > b.value end)
+
+        -- Check if SpellCastingAbility is one of the top two
+        local abilitiesToBoost = {}
+        local spellCastingBoosted = false
+
+        for i = 1, 2 do
+            if sortedAbilities[i] then
+                table.insert(abilitiesToBoost, sortedAbilities[i])
+                if sortedAbilities[i].name == spellCastingAbility then
+                    spellCastingBoosted = true
+                end
+            end
+        end
+
+        -- If SpellCastingAbility is not among the top two, add it to the list of abilities to boost
+        if not spellCastingBoosted then
+            table.insert(abilitiesToBoost, {name = spellCastingAbility, value = abilities[spellCastingAbility]})
+            --printTable(abilitiesToBoost)
+        end
+
+        -- Apply boost to the selected abilities
+        for _, abilityInfo in ipairs(abilitiesToBoost) do
+            local abilityName = abilityInfo.name
+            local currentAbilityValue = abilities[abilityName] or abilityInfo.value
+            local boostAmount = abilityBoostConfig
+            local finalAbilityValue = currentAbilityValue + boostAmount
+
+            -- Ensure the final ability value is an even number
+            if finalAbilityValue % 2 ~= 0 then
+                boostAmount = boostAmount + 1
+            end
+
+            local boostString = string.format("Ability(%s,%d)", abilityName, boostAmount)
+            --print(string.format("DEBUG: Ability boost: %s %s", abilityName, boostAmount))
+            AddBoosts(guid, boostString, "combatextender", "1")
+        end
+    end
+
     -- Roll Bonus
     function GiveRollBonus(guid, rollType)
         local rollBonusConfig
@@ -864,6 +938,7 @@ local function OnSessionLoaded()
             GiveRollBonus(guid, "SavingThrow")
             GiveACBoost(guid)
             GiveSpellSaveDCBoost(guid)
+            GiveAbilityPointBoost(guid)
             GiveDamageBoost(guid)
             GiveMovementBoost(guid)
             GiveActionPointBoost(guid, "Action")
@@ -915,6 +990,7 @@ local function OnSessionLoaded()
                 GiveRollBonus(guid, "SavingThrow")
                 GiveACBoost(guid)
                 GiveSpellSaveDCBoost(guid)
+                GiveAbilityPointBoost(guid)
                 GiveDamageBoost(guid)
                 GiveMovementBoost(guid)
                 GiveActionPointBoost(guid, "Action")

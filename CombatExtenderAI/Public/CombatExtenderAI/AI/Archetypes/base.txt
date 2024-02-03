@@ -1,0 +1,481 @@
+//////////////////////////////////////////////////////////////////////////
+// General Score mods
+
+// Remaps all scores - where a score of SCORE_MOD is the average dmg of this character.
+SCORE_MOD										100.0
+BASE_NEARBY_SCORE								0.2
+
+//////////////////////////////////////////////////////////////////////////
+// Archetype modifiers
+MULTIPLIER_DAMAGE_SELF_POS						1.0
+MULTIPLIER_DAMAGE_SELF_NEG						1.0
+MULTIPLIER_DAMAGE_ENEMY_POS						1.0
+MULTIPLIER_DAMAGE_ENEMY_NEG						1.0
+MULTIPLIER_DAMAGE_ALLY_POS						1.0
+MULTIPLIER_DAMAGE_ALLY_NEG						4.0 // Damaging allies looks pretty stupid.
+MULTIPLIER_DAMAGE_NEUTRAL_POS					1.0
+MULTIPLIER_DAMAGE_NEUTRAL_NEG					1.50 //Avoid damaging neutrals where possible
+
+MULTIPLIER_HEAL_SELF_POS						0.75 //We generally want AI damaging, not healing
+MULTIPLIER_HEAL_SELF_NEG						1.0
+MULTIPLIER_HEAL_ENEMY_POS						1.0
+MULTIPLIER_HEAL_ENEMY_NEG						1.0
+MULTIPLIER_HEAL_ALLY_POS						0.70 //Healing self is slightly prioritised over allies
+MULTIPLIER_HEAL_ALLY_NEG						1.0
+MULTIPLIER_HEAL_NEUTRAL_POS						1.0
+MULTIPLIER_HEAL_NEUTRAL_NEG						1.0
+
+MULTIPLIER_DOT_SELF_POS							1.0
+MULTIPLIER_DOT_SELF_NEG							1.0
+MULTIPLIER_DOT_ENEMY_POS						1.0
+MULTIPLIER_DOT_ENEMY_NEG						1.0
+MULTIPLIER_DOT_ALLY_POS		 					1.0
+MULTIPLIER_DOT_ALLY_NEG		 					1.0
+MULTIPLIER_DOT_NEUTRAL_POS		 				1.0
+MULTIPLIER_DOT_NEUTRAL_NEG		 				1.0
+
+MULTIPLIER_HOT_SELF_POS							1.0
+MULTIPLIER_HOT_SELF_NEG							1.0
+MULTIPLIER_HOT_ENEMY_POS						1.0
+MULTIPLIER_HOT_ENEMY_NEG						1.0
+MULTIPLIER_HOT_ALLY_POS		 					1.0
+MULTIPLIER_HOT_ALLY_NEG		 					1.0
+MULTIPLIER_HOT_NEUTRAL_POS		 				1.0
+MULTIPLIER_HOT_NEUTRAL_NEG		 				1.0
+
+MULTIPLIER_CONTROL_SELF_POS		 				1.0
+MULTIPLIER_CONTROL_SELF_NEG		 				2.0 // Knocking yourself down or similar always looks stupid.
+MULTIPLIER_CONTROL_ENEMY_POS					1.5
+MULTIPLIER_CONTROL_ENEMY_NEG					1.5
+MULTIPLIER_CONTROL_ALLY_POS		 				1.0
+MULTIPLIER_CONTROL_ALLY_NEG		 				2.0	// Knocking down allies is pretty stupid...
+MULTIPLIER_CONTROL_NEUTRAL_POS					1.0
+MULTIPLIER_CONTROL_NEUTRAL_NEG					1.0
+
+MULTIPLIER_BOOST_SELF_POS		 				1.0
+MULTIPLIER_BOOST_SELF_NEG		 				1.0
+MULTIPLIER_BOOST_ENEMY_POS		 				1.0
+MULTIPLIER_BOOST_ENEMY_NEG		 				1.0
+MULTIPLIER_BOOST_ALLY_POS		 				1.0
+MULTIPLIER_BOOST_ALLY_NEG		 				1.0
+MULTIPLIER_BOOST_NEUTRAL_POS					1.0
+MULTIPLIER_BOOST_NEUTRAL_NEG					1.0
+
+//////////////////////////////////////////////////////////////////////////
+// Final Score MULTIPLIERS
+// Used for when an action is free (0 AP cost)
+MULTIPLIER_FREE_ACTION 							0.90
+MULTIPLIER_MOVEMENT_COST_MULTPLIER				0.90 //Deprecated
+MULTIPLIER_INVISIBLE_MOVEMENT_COST_MULTPLIER	0.30 //Deprecated
+MULTIPLIER_COOLDOWN_MULTIPLIER					0.01
+MULTIPLIER_LOW_ITEM_AMOUNT_MULTIPLIER			0.80
+MULTIPLIER_HIGH_ITEM_AMOUNT_MULTIPLIER			1.00
+MULTIPLIER_CANNOT_EXECUTE_THIS_TURN				0.20
+MULTIPLIER_PLANNED_ACTION_WITH_MOVE_SPELL		1.50 // Used to boost the score of the action AI initially planned to do after using a move spell for it
+
+// Used to scale effect of action's resource costs
+MULTIPLIER_ACTION_RESOURCE_COST					0.01
+
+// multiplier for how much characters want to interact with things like Exploding barrels
+MULTIPLIER_USABLE_ITEM							1.00
+
+// 0.0 here means AI will not avoid AoO
+ENABLE_MOVEMENT_AVOID_AOO						1.00
+
+//////////////////////////////////////////////////////////////////////////
+// Target Selection MULTIPLIERS
+
+MULTIPLIER_TARGET_MY_ENEMY						1.25 	//multiplier used if the target is the enemy of the source, e.g. because source attacked target before
+MULTIPLIER_TARGET_MY_HOSTILE					1.50	//multiplier used if the source is the enemy of the target, e.g. because target attacked source before
+MULTIPLIER_TARGET_SUMMON						0.25
+MULTIPLIER_TARGET_AGGRO_MARKED					5.00
+MULTIPLIER_TARGET_HOSTILE_COUNT_ONE				1.00
+MULTIPLIER_TARGET_HOSTILE_COUNT_TWO_OR_MORE		0.90
+MULTIPLIER_TARGET_IN_SIGHT						1.05
+MULTIPLIER_TARGET_INCAPACITATED					2.00
+MULTIPLIER_TARGET_KNOCKED_DOWN					2.00
+MULTIPLIER_TARGET_PREFERRED						2.00
+MULTIPLIER_TARGET_UNPREFERRED					0.50
+MULTIPLIER_TARGET_HEALTH_BIAS					1.10	// How important the current HP of a target is (lower HP = higher score)
+MULTIPLIER_TARGET_ENEMY_DOWNED 					1.00
+MULTIPLIER_TARGET_ALLY_DOWNED 					0.90
+MULTIPLIER_TARGET_NEUTRAL_DOWNED				0.90
+
+//////////////////////////////////////////////////////////////////////////
+// End Position MULTIPLIERS
+
+MULTIPLIER_ENDPOS_ALLIES_NEARBY					0.00
+ENDPOS_ALLIES_NEARBY_MIN_DISTANCE				1.90 // distance at which being any closer makes no difference
+ENDPOS_ALLIES_NEARBY_MAX_DISTANCE				6.00 // ignore characters beyond this distance
+
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY				0.02
+ENDPOS_ENEMIES_NEARBY_MIN_DISTANCE				1.90 // distance at which being any closer makes no difference
+ENDPOS_ENEMIES_NEARBY_MAX_DISTANCE				6.00 // ignore characters beyond this distance
+
+MULTIPLIER_ENDPOS_FLANKED						0.05
+MULTIPLIER_ENDPOS_HEIGHT_DIFFERENCE				0.00
+MULTIPLIER_ENDPOS_TURNED_INVISIBLE				0.01
+MULTIPLIER_ENDPOS_NOT_IN_AIHINT					0.25
+MULTIPLIER_ENDPOS_NOT_IN_SMOKE					0.00
+MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE		0.10
+
+DANGEROUS_ITEM_NEARBY							0.00 // Scoring for dangerous items nearby a character
+
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE				0.002 // score for height relative to the highest enemy
+ENEMY_HEIGHT_DIFFERENCE_CLAMP					5.00 // once AI is this much higher than all of its enemies there is no point in going higher
+ENEMY_HEIGHT_SCORE_RADIUS_XZ					100.00 // radius of enemies to check heights
+
+MAX_DISTANCE_TO_CLOSEST_ENEMY					25.0
+MULTIPLIER_NO_ENEMIES_IN_MAX_DISTANCE			0.0001  // tiny score so only if there is nothing better to do then try getting closer
+
+//////////////////////////////////////////////////////////////////////////
+// Fallback Settings
+MULTIPLIER_FALLBACK_ALLIES_NEARBY				0.00
+FALLBACK_ALLIES_NEARBY_MIN_DISTANCE				1.90 // distance at which being any closer makes no difference
+FALLBACK_ALLIES_NEARBY_MAX_DISTANCE				6.00 // ignore characters beyond this distance
+
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				0.00
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			1.90 // distance at which being any closer makes no difference
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			6.00 // ignore characters beyond this distance
+
+FALLBACK_HEIGHT_DIFFERENCE						0.00
+
+FALLBACK_JUMP_OVER_WALK_PREFERRED_DISTANCE		2.00 // character will prefer doing a fallback jump forward instead of a future action walk if linear_distance_to_target+[value] < walk_distance
+FALLBACK_JUMP_BASE_SCORE						40.00 // any fallback jump action will score at least this value
+FALLBACK_MULTIPLIER_VS_FALLBACK_JUMP			0.50 // multiplier applied to regular fallback score in case we can do a fallback jump
+FALLBACK_FUTURE_SCORE							10
+FALLBACK_ATTACK_BLOCKER_SCORE					0.12 // base score for attacking an item that is blocking the path to the closest enemy
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////
+// General score multipliers
+MULTIPLIER_SCORE_ON_NEUTRAL						-0.9
+MULTIPLIER_SCORE_ON_ALLY						-1.1
+MULTIPLIER_SCORE_OUT_OF_COMBAT					0.25
+
+// Used for healing
+MAX_HEAL_MULTIPLIER								0.1  // Must be between 0 and 1, the closer to 1, the more it demands healing when someone is close to dying
+MAX_HEAL_SELF_MULTIPLIER						0.1  // Must be between 0 and 1, the closer to 1, the more it demands healing when you are close to dying
+
+// Used for vitality/damage boosts
+MULTIPLIER_VITALITYBOOST						0.50
+MULTIPLIER_DAMAGEBOOST							0.50
+MULTIPLIER_BONUS_WEAPON_BOOST					0.50
+
+// Simple multipliers when damage results in a kill
+MULTIPLIER_KILL_ENEMY							3.00
+MULTIPLIER_KILL_ENEMY_SUMMON					1.05
+MULTIPLIER_KILL_ALLY							1.50
+MULTIPLIER_KILL_ALLY_SUMMON						1.10
+MULTIPLIER_KILL_TARGET_HEALTH_BIAS 				0.0
+INSTAKILL_BASE_SCORE							2.0
+MULTIPLIER_INSTAKILL_TARGET_HEALTH_BIAS			0.025
+
+// Used for the distance multiplier in explosions. The multiplier scales from MIN to 1.0f.
+MULTIPLIER_EXPLOSION_DISTANCE_MIN				0.50
+
+// Used for status that are applied by surfaces on movement
+MULTIPLIER_SURFACE_STATUS_ON_MOVE				0.75
+SURFACE_DAMAGE_MAX_TURNS						2.00
+
+//////////////////////////////////////////////////////////////////////////
+// Status MULTIPLIERS
+MULTIPLIER_STATUS_REMOVE						1.00 // Used when a status is removed (on top of status-specific score calculation on removal)
+MULTIPLIER_STATUS_FAILED						0.50 // Used when a status has failed to be set, for the minimumscore
+MULTIPLIER_STATUS_CANCEL_INVISIBILITY			0.50 // Used when we do an action that causes INVISIBLE to break
+MULTIPLIER_STATUS_CANCEL_SLEEPING				0.50 // Used when we do an action that causes SLEEPING to break
+MULTIPLIER_STATUS_OVERWRITE						0.50 // Used when a status is overwritten, for the minimumscore
+MULTIPLIER_STATUS_REMOVE_FUNCTORS				0.50 // Used when applying the OnRemove functors
+
+MODIFIER_CONTROL_STUPIDITY						1.00
+MULTIPLIER_LOSE_CONTROL							1.00
+MULTIPLIER_INCAPACITATE							0.70
+MULTIPLIER_KNOCKDOWN							0.50
+MULTIPLIER_FEAR									1.00
+MULTIPLIER_BLIND								0.10
+MULTIPLIER_INVISIBLE							0.20
+MULTIPLIER_MUTE									0.80
+MULTIPLIER_SOURCE_MUTE							4.00
+MULTIPLIER_SHACKLES_OF_PAIN						0.50
+MULTIPLIER_HEAL_SHARING							0.50
+MULTIPLIER_DECAYING_TOUCH						0.75
+MULTIPLIER_WINDWALKER							0.50
+MULTIPLIER_GUARDIAN_ANGEL						0.20
+MULTIPLIER_ACTIVE_DEFENSE						1.00
+MULTIPLIER_SPARK								0.40
+
+MULTIPLIER_DAMAGE_ON_MOVE						10.00
+MULTIPLIER_RESURRECT							4.00
+
+//////////////////////////////////////////////////////////////////////////
+// SPELL MULTIPLIERS
+SPELL_JUMP_MINIMUM_DISTANCE						6.00
+SPELL_TELEPORT_MINIMUM_DISTANCE					6.00
+
+// Used when a surface is removed
+MULTIPLIER_SURFACE_REMOVE						0.35
+
+// Used for destroying interesting items.
+MULTIPLIER_DESTROY_INTERESTING_ITEM				3.25
+
+// How important critical strikes are for this character
+MULTIPLIER_CRITICAL								2.00
+
+// How important accuracy & chance to hit are for this character
+MULTIPLIER_ACC_BOOST							0.25
+
+// How important dodging is for this character
+MULTIPLIER_DODGE_BOOST							0.15
+
+// How important movement boosts are for this character
+MULTIPLIER_MOVEMENT_BOOST						0.30
+
+// How important resistances/immunities are for this character
+MULTIPLIER_RESISTANCE_STUPIDITY					0.90
+MULTIPLIER_IMMUNITY_STUPIDITY					0.00
+
+// How important max AP and AP recovery are for this character.
+MULTIPLIER_AP_RECOVERY							1.20	//changed by Edouard & Rick on 21/06/17
+MULTIPLIER_AP_BOOST								0.60
+MULTIPLIER_AP_MAX								0.10
+MULTIPLIER_AP_COSTBOOST							2.00
+
+// How important boosting ABILITYutes are
+MULTIPLIER_MAIN_ABILITY							1.00
+MULTIPLIER_SECONDARY_ABILITY					0.50
+
+// How important contact boosts are
+MULTIPLIER_CONTACT_BOOST						0.50
+
+// The minimum amount of turns worth of score for a status that is already applied (e.g. a fire surface is
+// worth something even when the character already has a BURNING status)
+MIN_TURNS_SCORE_EXISTING_STATUS					1
+
+// Used to limit the amount of turns calculated for a surface, status, or summon (to prevent overvaluing) as well as represent turns left for an infinite duration
+TURNS_CAP										4.0
+
+// Multiplier for the 'radius' when creating a puddle (is random, thus radius is guesstimated)
+MULTIPLIER_PUDDLE_RADIUS						1.00
+
+// Modifier used for possible combo score
+MULTIPLIER_COMBO_SCORE_INTERACTION				0.90
+MULTIPLIER_COMBO_SCORE_POSITIONING				0.80
+
+// Modifier used for jump and teleportation SPELLs for the position score of the position we're leaving
+MULTIPLIER_POSITION_LEAVE						-1.0
+
+// How important grounding someone is.
+MULTIPLIER_GROUNDED								-0.05
+
+// How important deflecting projectiles is.
+MULTIPLIER_DEFLECT_PROJECTILES					0.2
+
+// Used for the path influences cost for summons
+MULTIPLIER_SUMMON_PATH_INFLUENCES				0.04
+
+// Distance based buffs
+// Prevent buffing allies that are far away from the action.
+// lerp between 100% and 0%, when you are between BUFF_DIST_MIN and BUFF_DIST_MAX from your closet enemy. Everything before DIST_MIN is going to be at 100%.
+BUFF_DIST_MAX									30.0
+BUFF_DIST_MIN									10.0
+
+// Multiplier for positive surface scores on allies that are secondary. E.g. blessed surface on an ally that's caused by a placed fire surface that's connected to a blessed surface
+MULTIPLIER_POS_SECONDARY_SURFACE				0.25
+
+// If != 0 the active defense status can be used offensively by Ai instead of only defensively
+ENABLE_ACTIVE_DEFENSE_OFFENSIVE_USE				1
+
+// If != 0 the character will try to save/optimize action points for the next turn, if his chosen action is not executable this turn.
+ENABLE_SAVING_ACTION_POINTS						1
+
+// Multiplier for how much the Shield Block has influence over the entire AI calculation
+// Normal ranges are between 0 and 1 inclusive:
+// - 0 being the AI doesn't care if a character has shield block
+// - 1 being the AI cares a normalised amount about a character with shield block
+MULTIPLIER_SHIELD_BLOCK							1.5
+
+// A general multiplier for all reflected damage
+MULTIPLIER_REFLECT_DAMAGE						0.25
+
+// The maximum amount of consumables a character that lost control can use per turn
+LOSE_CONTROL_MAX_CONSUMABLES_PER_TURN			1
+
+// Multiplier for buffs as the first action
+MULTIPLIER_FIRST_ACTION_BUFF					1.0
+
+// Multiplier for invisibility as the first action
+MULTIPLIER_FIRST_ACTION_INVISIBILITY			0.1
+
+// Modifiers used when converting a resource of specified type to a score, where higher score means higher cost
+MULTIPLIER_RESOURCE_REPLENISH_TYPE_NEVER		1.04
+MULTIPLIER_RESOURCE_REPLENISH_TYPE_COMBAT		1.03
+MULTIPLIER_RESOURCE_REPLENISH_TYPE_REST			1.02
+MULTIPLIER_RESOURCE_REPLENISH_TYPE_SHORT_REST   1.01
+MULTIPLIER_RESOURCE_REPLENISH_TYPE_TURN			1.00
+
+// Modifiers used when calculating the advantage boost
+MULTIPLIER_ADVANTAGE_ABILITY	0.25
+MULTIPLIER_ADVANTAGE_SKILL		0.20
+MULTIPLIER_ADVANTAGE_ATTACK		0.20
+
+// Modifier used when calculating the ArmorClass boost
+MULTIPLIER_BOOST_AC 0.6
+
+// Modifier used when calculating the AbilityFailedSavingThrow boost
+MULTIPLIER_BOOST_ABILITY_FAILED_SAVING_THROW 0.085
+
+// Modifier used when calculating ActionResource boost
+MULTIPLIER_BOOST_ACTION_RESOURCE 0.4
+
+// Modifier used when calculating ActionResourceOverride boost
+MULTIPLIER_BOOST_ACTION_RESOURCE_OVERRIDE 0.4
+
+// Modifier used when calculating ActionResourceMultiplier boost
+MULTIPLIER_BOOST_ACTION_RESOURCE_MULTIPLIER 0.25
+
+// Modifier used when calculating ActionResourceBlock boost
+MULTIPLIER_BOOST_ACTION_RESOURCE_BLOCK 0.4
+
+// Modifier used when calculating IgnoreAOO boost
+MULTIPLIER_BOOST_IGNORE_AOO 0.01
+
+// Minimum movement left to consider the IgnoreAOO boost
+BOOST_IGNORE_AOO_MIN_MOVEMENT 2.0
+
+// Modifier used when calculating Ability boost
+MULTIPLIER_BOOST_ABILITY 0.6
+
+// Modifier used when calculating IgnoreFallDamage boost
+MULTIPLIER_BOOST_IGNORE_FALL_DAMAGE -0.04
+
+// Modifier used when calculating CannotHarmCauseEntity boost
+MULTIPLIER_BOOST_CANNOT_HARM_CAUSE_ENTITY 0.1
+
+// Modifiers used when calculating CriticalHit boost
+MULTIPLIER_BOOST_CRITICAL_HIT_NEVER 0.0125
+MULTIPLIER_BOOST_CRITICAL_HIT_ALWAYS 0.065
+
+// Modifier used when calculating BlockSpellCast boost
+MULTIPLIER_BOOST_BLOCK_SPELL_CAST 0.25
+
+// Modifier used when calculating BlockRegainHP boost
+MULTIPLIER_BOOST_BLOCK_REGAIN_HP 0.07
+
+// Modifier used when calculating HalveWeaponDamage boost
+MULTIPLIER_BOOST_HALVE_WEAPON_DAMAGE 0.07
+
+// Modifier used when calculating WeaponDamage boost
+MULTIPLIER_BOOST_WEAPON_DAMAGE 0.07
+
+// Modifier used when scaling the damage score for seeking a hidden character
+MULTIPLIER_SEEK_HIDDEN_DAMAGE 0.02
+
+// Modifier used as the minimum score for a seek
+MODIFIER_SEEK_MINIMAL_THRESHOLD 0.15
+
+// Modifier used when scaling the distance to last known position for seeking a hidden character
+MULTIPLIER_SEEK_HIDDEN_DISTANCE 0.001
+
+// Item count considered to be 'high', used for low and high item amount multipliers
+ITEM_HIGH_COUNT 2
+
+// Modifiers used for darkness positioning
+MULTIPLIER_DARKNESS_CLEAR 0.0
+MULTIPLIER_DARKNESS_LIGHT 0.0
+MULTIPLIER_DARKNESS_HEAVY 0.0
+
+// Modifier used when calculating BlockVerbalComponent boost
+MULTIPLIER_BOOST_BLOCK_VERBAL_COMPONENT 0.125
+// Modifier used when calculating BlockSomaticComponent boost
+MULTIPLIER_BOOST_BLOCK_SOMATIC_COMPONENT 0.125
+
+// Modifier used when calculating surface score during movement
+MULTIPLIER_MOVEMENT_SURFACE 1.0
+
+// Modifier used to make AI over estimate its chances of hitting their target
+MODIFIER_HIT_CHANCE_STUPIDITY 0.6
+
+//////////////////////////////////////////////////////////////////////////
+// RollBonus MULTIPLIERS
+MODIFIER_BOOST_ROLLBONUS_ATTACK 0.05
+MODIFIER_BOOST_ROLLBONUS_MELEEWEAPONATTACK 0.05
+MODIFIER_BOOST_ROLLBONUS_RANGEDWEAPONATTACK 0.05
+MODIFIER_BOOST_ROLLBONUS_MELEESPELLATTACK 0.05
+MODIFIER_BOOST_ROLLBONUS_RANGEDSPELLATTACK 0.05
+MODIFIER_BOOST_ROLLBONUS_MELEEUNARMEDATTACK 0.02
+MODIFIER_BOOST_ROLLBONUS_RANGEDUNARMEDATTACK 0.02
+MODIFIER_BOOST_ROLLBONUS_SKILL 0.001
+MODIFIER_BOOST_ROLLBONUS_SAVINGTHROW 0.015
+MODIFIER_BOOST_ROLLBONUS_DAMAGE 0.02
+MODIFIER_BOOST_ROLLBONUS_ABILITY 0.03
+MODIFIER_BOOST_ROLLBONUS_MELEEOFFHANDWEAPONATTACK 0.035
+MODIFIER_BOOST_ROLLBONUS_RANGEDOFFHANDWEAPONATTACK 0.035
+
+// Modifiers for aura understanding
+MULTIPLIER_POS_IN_AURA 0.3
+MODIFIER_OWN_AURA 0.3
+TURNS_CAP_AURASTATUS 2
+
+// Score that is added to any position that is marked as 'TILE_LEDGE_STATIC' 
+// so that creatures avoid standing on the ledges of objects where their feet are floating
+AVOID_CLIMBABLE_LEDGES 0.15
+
+//////////////////////////////////////////////////////////////////////////
+// Weapon pickup modifiers
+
+// Modifier used as a starting point for picking up weapons. Can be 0 to completely disable it
+WEAPON_PICKUP_MODIFIER 0.3
+// Modifier used to change the max search radius for weapons to pick up
+WEAPON_PICKUP_RADIUS 12
+// Modifier used to enable preferring ranged weapons above melee
+WEAPON_PICKUP_PREFER_RANGED_ENABLED 0
+// Modifier used to change score of picking up a weapon when it is preferred
+WEAPON_PICKUP_MODIFIER_PREFERRED 1.25
+// Modifier used to change score of picking up a weapon when it was equipped before
+WEAPON_PICKUP_MODIFIER_PREVIOUSLY_EQUIPPED 1.50
+// Modifier used to change score of picking up a weapon based on the damage. Usually low, used as a tie breaker
+WEAPON_PICKUP_MODIFIER_DAMAGE 0.005
+// Modifier used to change score of picking up a weapon when the source has no profiency
+WEAPON_PICKUP_MODIFIER_NO_PROFICIENCY 0.5
+// Modifier used to change score of picking up a weapon when the weapon used to be equipped by an allied party member
+WEAPON_PICKUP_MODIFIER_PARTY_ALLY 0.0
+
+// Modifier used when calculating SightRangeAdditive/Minimum/Override boosts
+MULTIPLIER_BOOST_SIGHT_RANGE 0.1
+
+// Modifier for the DisarmWeapon stats functor
+MULTIPLIER_STATSFUNCTOR_DISARMWEAPON 0.1
+
+// Modifier for the DisarmAndStealWeapon stats functor
+MULTIPLIER_STATSFUNCTOR_DISARMANDSTEALWEAPON 0.3
+
+//////////////////////////////////////////////////////////////////////////
+// Use item modifiers
+		
+// Modifier used as a starting point for using items, 0 disables
+USE_ITEM_MODIFIER						0.3
+// Modifier used to enable/disable using items from own inventory
+USE_INVENTORY_ITEMS_ENABLED				1
+// Modifier used to change the max search radius for items to use
+USE_ITEM_RADIUS							18.0
+// Modifier used to change score of using item when the source cannot see it
+USE_ITEM_MODIFIER_NO_VISIBILITY			1.0
+
+//////////////////////////////////////////////////////////////////////////
+// Concentration modifiers
+
+// Modifier used to change the score of removing the AI's own concentration
+MODIFIER_CONCENTRATION_REMOVE_SELF 						8.0
+// Modifier used to change the score of removing a target's concentration (other than itself) 
+MODIFIER_CONCENTRATION_REMOVE_TARGET 					0.1
+
+// Used to adjust score when throw spell affects only self
+MULTIPLIER_SELF_ONLY_THROW				0.8
+
+// Used to adjust fall damage scores
+MULTIPLIER_FALL_DAMAGE_SELF								1.0
+MULTIPLIER_FALL_DAMAGE_ENEMY							0.25
+MULTIPLIER_FALL_DAMAGE_ALLY								1.0

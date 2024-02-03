@@ -1,0 +1,4 @@
+USING healer_melee
+
+
+MULTIPLIER_DAMAGE_ENEMY_POS						0.5

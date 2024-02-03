@@ -1,0 +1,7 @@
+USING melee_smart
+
+// Watchers want to spread out to not trigger AOEs from other watchers
+MULTIPLIER_ENDPOS_ALLIES_NEARBY					-0.50
+
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-0.50
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			3.00

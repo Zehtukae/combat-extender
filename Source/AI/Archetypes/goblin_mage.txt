@@ -1,0 +1,13 @@
+USING mage
+
+MULTIPLIER_TARGET_SUMMON						0.90
++ MODIFIER_HIT_CHANCE_STUPIDITY 				0.15
+
+//Reduced bias to use chasms
+INSTAKILL_BASE_SCORE							1.0
+
+//Slightly increase bias to slow characters with Grease to offset hit stupidity
+MULTIPLIER_BOOST_ACTION_RESOURCE 				0.75
+MULTIPLIER_BOOST_ENEMY_POS		 				1.30
+
+

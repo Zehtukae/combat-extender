@@ -1,0 +1,7 @@
+USING beast
+
+//Caza Dire Wolf really excited about buffing
+MULTIPLIER_FIRST_ACTION_BUFF					2.0
+
+//Caza Dire Wolf really excited about buffing friends
+MULTIPLIER_BOOST_ALLY_POS		 				2.0

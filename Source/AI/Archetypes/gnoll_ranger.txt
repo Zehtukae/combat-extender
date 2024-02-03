@@ -1,0 +1,22 @@
+USING ranged
+
+// Gnolls really loves killing and damaging others
+MULTIPLIER_KILL_ENEMY 						1.50
+MULTIPLIER_DAMAGE_ENEMY_POS					1.5
+
+// Gnolls don't care if an enemy is already being targeted, and cares less if it's so by > 2 enemies
+MULTIPLIER_TARGET_HOSTILE_COUNT_ONE				1.00
+MULTIPLIER_TARGET_HOSTILE_COUNT_TWO_OR_MORE		0.60
+
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-0.50
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			10.00
+
+//Gnolls have worse than average hit/miss reasoning
+MODIFIER_HIT_CHANCE_STUPIDITY 				1.00
+MULTIPLIER_TARGET_SUMMON					1.00
+
+//If disarmed, gnolls don't care about picking up a new weapon
+WEAPON_PICKUP_MODIFIER 0.00
+
+//Reduced bias to use chasms
+INSTAKILL_BASE_SCORE							1.0

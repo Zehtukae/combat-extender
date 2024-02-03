@@ -1,0 +1,5 @@
+USING melee
+
+WEAPON_PICKUP_MODIFIER                          0.00
+WEAPON_PICKUP_RADIUS                            0.00
+WEAPON_PICKUP_MODIFIER_PREVIOUSLY_EQUIPPED      0.00

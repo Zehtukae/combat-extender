@@ -1,0 +1,10 @@
+USING mage_smart
+
+//Hag tries to stay away from it's allies
+MULTIPLIER_FALLBACK_ALLIES_NEARBY				-0.50
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-0.50
+
+FALLBACK_HEIGHT_DIFFERENCE						0.00
+
+//Does not pick up weapons
+WEAPON_PICKUP_MODIFIER 							0.0

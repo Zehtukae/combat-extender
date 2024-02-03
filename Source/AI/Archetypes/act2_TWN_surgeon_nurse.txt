@@ -1,0 +1,24 @@
+USING mage_smart
+//this is intended for use by the surgeon's nurses
+
+// Nurses don't want anyone nearby at the end of the turn
+MULTIPLIER_ENDPOS_ALLIES_NEARBY					-0.50
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY				-0.50
+
+// Nurses don't care about standing on higher ground relative to enemies
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE				0.00
+
+//Nurses care little about buffing themselves
+MULTIPLIER_BOOST_SELF_POS		 				1.0
+
+//Nurses care very much about picking up a surgery instrument (base 0.3)
+WEAPON_PICKUP_MODIFIER 							0.5
+
+//Nurses absolutely want to heal the surgeon as soon as they can - score is a bit horrendous to cover Mind Screech
+MULTIPLIER_HEAL_ALLY_POS						3.00
+
+//Nurses care very much about picking up weapons they had equipped before (base 1.25)
+WEAPON_PICKUP_MODIFIER_PREVIOUSLY_EQUIPPED 1.5
+
+//The nurse tries to interrupt concentration when possible
++ MODIFIER_CONCENTRATION_REMOVE_TARGET 			0.30

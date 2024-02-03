@@ -1,0 +1,17 @@
+USING ranged
+
+// Harpies care a bit less about ending their turn in an AiHint
+MULTIPLIER_ENDPOS_NOT_IN_AIHINT					0.2
+
+//Slightly reduce how much harpies care about enemies being nearby
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY			-0.20
+
+//above average stupidity modifiers
+MODIFIER_HIT_CHANCE_STUPIDITY 					1.0
+
+//Does not pick up weapons
+WEAPON_PICKUP_MODIFIER 							0.0
+
+MULTIPLIER_KILL_ENEMY 							1.15
+
+MULTIPLIER_TARGET_UNPREFERRED					0.10

@@ -1,0 +1,34 @@
+USING ranged
+
+//Don't care about weakened characters
+MULTIPLIER_KILL_ENEMY							1.00
+MULTIPLIER_KILL_ENEMY_SUMMON					1.00
+MULTIPLIER_KILL_ALLY							1.00
+MULTIPLIER_KILL_ALLY_SUMMON						1.00
+
+//Dont reason about summons differently from non-summons
+MULTIPLIER_TARGET_SUMMON						1.00
+
++ MODIFIER_HIT_CHANCE_STUPIDITY 				0.15
+
+//Reason less about Aura effects
+MULTIPLIER_POS_IN_AURA 							0.05
+MODIFIER_OWN_AURA 								0.05
+
+//Does not attack things like exploding barrels
+MULTIPLIER_USABLE_ITEM							0.0
+
+//Does not reason about breaking concentration on targets
+MODIFIER_CONCENTRATION_REMOVE_TARGET 			0.0
+
+// Does not try to look for highground
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE				0.00 
+
+//Does not reason about Attack of Opportunity
+ENABLE_MOVEMENT_AVOID_AOO						0.00
+
+//Reduced bias to use chasms
+INSTAKILL_BASE_SCORE							1.0
+
+// Used to adjust fall damage scores
+- MULTIPLIER_FALL_DAMAGE_ENEMY					0.25

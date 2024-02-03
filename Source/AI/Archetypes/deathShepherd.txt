@@ -1,0 +1,7 @@
+USING melee
+
+// death shepherd prefers resucitating other Undead than attacking
+MULTIPLIER_HEAL_ALLY_POS						1.70
+
+// death shepherd ignore the gith traps around themselves
+MULTIPLIER_DESTROY_INTERESTING_ITEM				0.00

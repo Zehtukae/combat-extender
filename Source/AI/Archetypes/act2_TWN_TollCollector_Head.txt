@@ -1,0 +1,11 @@
+USING mage
+
+//Doesn't want enemies nearby, but is ok with allies
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY				-0.02
+
+//Values stunning & debuffing enemies a little less than mage
+MULTIPLIER_BOOST_ENEMY_POS		 				1.10
+MULTIPLIER_CONTROL_ENEMY_POS					1.10
+
+//Absolutely doesn't want to pickup weapons
+WEAPON_PICKUP_MODIFIER 							0
