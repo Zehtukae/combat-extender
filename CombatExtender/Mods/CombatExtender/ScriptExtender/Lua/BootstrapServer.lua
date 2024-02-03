@@ -648,7 +648,7 @@ local function OnSessionLoaded()
             end
 
             local boostString = string.format("Ability(%s,%d)", abilityName, boostAmount)
-            DebugPrint(string.format("DEBUG: Ability boost: %s %s", abilityName, boostAmount))
+            --print(string.format("DEBUG: Ability boost: %s %s", abilityName, boostAmount))
             AddBoosts(guid, boostString, "combatextender", "1")
         end
     end
