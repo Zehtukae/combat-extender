@@ -807,7 +807,7 @@ local function OnSessionLoaded()
                     goto continue
                 end
 
-                local boostTypes = {"AC", "ActionResource", "DamageBonus", "RollBonus", "SpellSaveDC"}
+                local boostTypes = {"AC", "Ability", "ActionResource", "DamageBonus", "RollBonus", "SpellSaveDC"}
                 for _, boostType in ipairs(boostTypes) do
                     local boostEntries = boostsContainer.Boosts[boostType]
                     if not boostEntries then
