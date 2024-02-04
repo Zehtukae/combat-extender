@@ -197,6 +197,15 @@
       "LevelIncrement": 8
     }
   },
+  "AbilityPoints": {
+    "Allies": {},
+    "Bosses": {
+      "Additional": 1
+    },
+    "Enemies": {
+      "Additional": 1
+    }
+  },
   "Movement": {
     "Allies": {},
     "Bosses": {

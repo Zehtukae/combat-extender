@@ -6,7 +6,7 @@ local function OnSessionLoaded()
     configTable = {}
     CombatNPCS= {}
     CurrentCombat = ""
-    hasPrinted = false
+    HasPrinted = false
     Loaded = false
     Party = {}
     Entities = {}
@@ -118,11 +118,11 @@ local function OnSessionLoaded()
         -- Assign the result to the global configTable
         configTable = result
 
-        -- Print the entire table for debugging only if hasPrinted is false
-        if not hasPrinted and Ext.Debug.IsDeveloperMode() then
+        -- Print the entire table for debugging only if HasPrinted is false
+        if not HasPrinted and Ext.Debug.IsDeveloperMode() then
             printTableAddress(configTable)
             printTable(configTable)
-            hasPrinted = true
+            HasPrinted = true
         end
     end
 
