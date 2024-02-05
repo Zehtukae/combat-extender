@@ -295,7 +295,11 @@ local function OnSessionLoaded()
 
         local hpBoost
         if guid == "S_GLO_Monitor_f65becd6-5cd7-4c88-b85e-6dd06b60f7b8" then -- Raphael exception as the normal approach doesn't work on him
-            hpBoost = "TemporaryHP(" .. hpIncrease .. ")"
+            if not IsPartyInCombat() then
+                return -- Return early if not in combat
+            else
+                hpBoost = "TemporaryHP(" .. hpIncrease .. ")" -- If in combat, use TemporaryHP for Raphael
+            end
         else
             hpBoost = "IncreaseMaxHP(" .. hpIncrease .. ")"
         end
@@ -800,7 +804,10 @@ local function OnSessionLoaded()
         local count = 0
         for guid, entity in pairs(Entities) do
             if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 1 then
-                local handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle)
+                local handle = ""
+                if entity.DisplayName and entity.DisplayName.NameKey and entity.DisplayName.NameKey.Handle and entity.DisplayName.NameKey.Handle.Handle then
+                    handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle)
+                end
                 DebugPrint(string.format("DEBUG: Cleanup Target: %s, Name: %s", guid, handle))
 
                 -- Retrieve the BoostsContainer for the entity
