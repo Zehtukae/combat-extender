@@ -100,7 +100,7 @@ new entry "CX_Fighter_Boost"
 type "PassiveData"
 data "DisplayName" "hd382954ege821g4920gb1c0g588794653928"
 data "Description" "h914310b1ga5dbg4fcdg9123g9980b7508d4e"
-data "Boosts" "UnlockInterrupt(Interrupt_Riposte);ActionResource(SuperiorityDie,4,0)"
+data "Boosts" "ActionResource(SuperiorityDie,4,0)"
 data "Icon" "Action_CommandersStrike"
 
 new entry "CX_Magic_Boost"

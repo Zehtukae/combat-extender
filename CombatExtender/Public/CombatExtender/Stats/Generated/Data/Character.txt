@@ -118,6 +118,21 @@ type "Character"
 using "CRE_Githyanki_Varsh"
 data "Passives" "CX_Magic_Boost;Alert;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L3C;WarMagic_Githyanki;AttackOfOpportunity;DarknessRules"
 
+new entry "DEN_Adventurer_Leader"
+type "Character"
+using "DEN_Adventurer_Leader"
+data "Passives" "CX_Fighter_Boost;AttackOfOpportunity"
+
+new entry "DEN_Adventurer_Melee"
+type "Character"
+using "DEN_Adventurer_Melee"
+data "Passives" "CX_Fighter_Boost;FeyAncestry;AttackOfOpportunity;Darkvision;DarknessRules"
+
+new entry "DEN_Adventurer_Ranged"
+type "Character"
+using "DEN_Adventurer_Ranged"
+data "Passives" "CX_Ranger_Boost;AttackOfOpportunity"
+
 new entry "DEN_Goblin_Archer"
 type "Character"
 using "DEN_Goblin_Archer"
@@ -606,7 +621,7 @@ data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;FeyAncest
 new entry "HAV_Harper_Human_Druid"
 type "Character"
 using "HAV_Harper_Human_Druid"
-data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;AttackOfOpportunity"
+data "Passives" "CX_Magic_Boost;AttackOfOpportunity"
 
 new entry "HAV_Harper_Human_Melee"
 type "Character"
@@ -1117,4 +1132,49 @@ new entry "UND_PetrifiedDrow_Champion"
 type "Character"
 using "UND_PetrifiedDrow_Champion"
 data "Passives" "CX_Ranger_Boost;AttackOfOpportunity;SunlightSensitivity;DarknessRules;AdditionalSpellSlot_Level_2;AdditionalSpellSlot_Level_2; "
+
+new entry "WYR_SmugglersCave_Dragonborn_Ranger"
+type "Character"
+using "WYR_SmugglersCave_Dragonborn_Ranger"
+data "Passives" "CX_Ranger_Boost;AttackOfOpportunity;DarknessRules;DraconicAncestry_Copper;ElementalAffinity_Damage;NaturalExplorer_WastelandWander_Poison;FavoredEnemy_MageBreaker;ColossusSlayer;EscapeTheHorde;SteelWill;MultiattackDefense"
+
+new entry "WYR_SmugglersCave_Dwarf_Ranger"
+type "Character"
+using "WYR_SmugglersCave_Dwarf_Ranger"
+data "Passives" "CX_Ranger_Boost;Dwarf_DwarvenResilience;AttackOfOpportunity;Darkvision;DarknessRules;NaturalExplorer_WastelandWander_Poison;FavoredEnemy_MageBreaker;CompanionsBond;ExceptionalTraining"
+
+new entry "WYR_SmugglersCave_Dwarf_Ranger_2"
+type "Character"
+using "WYR_SmugglersCave_Dwarf_Ranger_2"
+data "Passives" "CX_Ranger_Boost;Dwarf_DwarvenResilience;AttackOfOpportunity;Darkvision;DarknessRules;FavoredEnemy_RangerKnight;NaturalExplorer_WastelandWander_Cold;DreadAmbusher;"
+
+new entry "WYR_SmugglersCave_Elf_Ranger"
+type "Character"
+using "WYR_SmugglersCave_Elf_Ranger"
+data "Passives" "CX_Ranger_Boost;FeyAncestry;AttackOfOpportunity;DarknessRules;Darkvision;FavoredEnemy_RangerKnight;NaturalExplorer_WastelandWander_Cold;DreadAmbusher;"
+
+new entry "WYR_SmugglersCave_Guild_Gnome"
+type "Character"
+using "WYR_SmugglersCave_Guild_Gnome"
+data "Passives" "CX_Rogue_Boost;Gnome_Cunning;Gnome_Speed;AttackOfOpportunity;DarknessRules;Darkvision"
+
+new entry "WYR_SmugglersCave_Human_Barbarian"
+type "Character"
+using "WYR_SmugglersCave_Human_Barbarian"
+data "Passives" "CX_Barbarian_Boost;AttackOfOpportunity;DarknessRules;UnarmouredDefence_Barbarian;DangerSense;TotemSpirit_Eagle;FastMovement;AspectOfTheBeast_Wolverine;FeralInstinct"
+
+new entry "WYR_SmugglersCave_Human_Caster"
+type "Character"
+using "WYR_SmugglersCave_Human_Caster"
+data "Passives" "CX_Magic_Boost;CX_Spells_L3;CX_Spells_L4;CX_Spells_L4C;CX_Spells_L5;CX_Spells_L5C;AttackOfOpportunity;DarknessRules;SculptSpells;PotentCantrip"
+
+new entry "WYR_SmugglersCave_Human_Caster_2"
+type "Character"
+using "WYR_SmugglersCave_Human_Caster_2"
+data "Passives" "CX_Magic_Boost;CX_Spells_L3;CX_Spells_L4;CX_Spells_L4C;CX_Spells_L5;CX_Spells_L5C;AttackOfOpportunity;DarknessRules;SculptSpells;"
+
+new entry "WYR_SmugglersCave_StoneLord_Tiefling"
+type "Character"
+using "WYR_SmugglersCave_StoneLord_Tiefling"
+data "Passives" "CX_Fighter_Boost;Tiefling_HellishResistance;AttackOfOpportunity;DarknessRules;Darkvision;Parry;Riposte;Indomitable"
 

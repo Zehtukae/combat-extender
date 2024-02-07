@@ -493,7 +493,11 @@ local function OnSessionLoaded()
     function GiveMovementBoost(guid)
         local movementConfig
 
-        if guid == "S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255" then
+        if IsSummon(guid) == 1 then
+            return
+        end
+
+        if guid == "S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255" or "S_CRE_GuardianOfFaith_5144e2e8-fbd7-41b3-a6fb-f4cf5759cb95" then
             return
         end
 
@@ -882,8 +886,7 @@ local function OnSessionLoaded()
         end
     end)
 
-    -- Don't forget the trigger on CombatEnded
-    function StartCXTimer()
+    function StartCXTimer() -- Don't forget to restart on CombatEnded
         if not IsPartyInCombat() then
             Osi.TimerLaunch("cx", 15000)
             --print("DEBUG: Starting timer")
@@ -975,8 +978,7 @@ local function OnSessionLoaded()
             print("DEBUG: Act is not set for level: " .. levelName)
         end
 
-        ProcessPartyMembers()
-
+        -- Combat Save Loading: We re-apply the boosts to all nearby characters that have status CX_APPLIED, which persists in the savefile
         -- 50 meters is beyond the range at which characters join the ongoing combat
         local nearbyCharacters = GetNearbyCharacters(50)
         print("INFO: Number of nearby characters: " .. #nearbyCharacters)
