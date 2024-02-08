@@ -34,7 +34,7 @@
       "Act": {
         "1": {
           "Spells": ["Target_DistractingStrike","Target_PushingAttack","Target_FeintingAttack"],
-          "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]
+          "ExtraPassives": ["Riposte","FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]
         },
         "3": {
           "Spells": ["Zone_SweepingAttack"],
