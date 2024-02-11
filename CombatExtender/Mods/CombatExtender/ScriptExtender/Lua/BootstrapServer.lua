@@ -304,6 +304,12 @@ local function OnSessionLoaded()
             hpBoost = "IncreaseMaxHP(" .. hpIncrease .. ")"
         end
 
+        -- As MaxHp persists in the savefile, but the boost is ephemeral
+        if currentMaxHealth == desiredMaxHealth and not isReset and not IsPartyInCombat() then
+            AddBoosts(guid, "IncreaseMaxHP(0)", "reset", "1")
+            print(string.format("DEBUG: Reset to baseline: %s, Name: %s", guid, handle))
+        end
+
         -- Only add the health increase if the character hasn't been boosted already
         if not isBoosted then
             if currentMaxHealth > 10000 or currentMaxHealth <= 0 then -- To deal with -1 health as well as Shrines with 129998 health
@@ -875,9 +881,14 @@ local function OnSessionLoaded()
 
     Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function ()
         print("Savegame Loaded")
-        Loaded = true
         ProcessPartyMembers()
         StartCXTimer()
+
+        _P(Ext.Entity.Get("95eb2b0b-a522-4ea5-8167-c5f4d1418156").Health.MaxHp)
+        _P(Ext.Entity.Get("95eb2b0b-a522-4ea5-8167-c5f4d1418156").Health.Hp)
+        local boosts = Ext.Entity.Get("95eb2b0b-a522-4ea5-8167-c5f4d1418156").BoostsContainer.Boosts["IncreaseMaxHP"]
+        if boosts then for _, entity in ipairs(boosts) do _D(entity.BoostInfo) end end
+
         if not IsPartyInCombat() then
             print("DEBUG: Starting to process existing entities")
             ProcessExistingEntities()
@@ -888,7 +899,7 @@ local function OnSessionLoaded()
 
     function StartCXTimer() -- Don't forget to restart on CombatEnded
         if not IsPartyInCombat() then
-            Osi.TimerLaunch("cx", 15000)
+            Osi.TimerLaunch("cx", 6000)
             --print("DEBUG: Starting timer")
         else
             DebugPrint("DEBUG: Won't start timer, a party member is in combat")
@@ -960,10 +971,11 @@ local function OnSessionLoaded()
         end
     end)
 
-    -- Combat Save Loading
-    -- We re-apply the boosts to all nearby characters that have status CX_APPLIED, which persists in the savefile
+    -- Order: SessionLoaded - SavegameLoaded - LevelGameplayStarted - Fade in from loading screen
     Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function (levelName, isEditorMode)
+        Loaded = true -- Game has now fully loaded
 
+        -- Identify Act and set variable
         if levelName == "WLD_Main_A" or levelName == "CRE_Main_A" then
             Act = 1
             print("INFO: Act set to 1 for level: " .. levelName)
@@ -980,7 +992,7 @@ local function OnSessionLoaded()
 
         -- Combat Save Loading: We re-apply the boosts to all nearby characters that have status CX_APPLIED, which persists in the savefile
         -- 50 meters is beyond the range at which characters join the ongoing combat
-        local nearbyCharacters = GetNearbyCharacters(50)
+        local nearbyCharacters = GetNearbyCharacters(100)
         print("INFO: Number of nearby characters: " .. #nearbyCharacters)
         for _, character in ipairs(nearbyCharacters) do
             local guid = character.Name .. "_" .. character.Guid
@@ -1002,7 +1014,7 @@ local function OnSessionLoaded()
                 GiveRollBonus(guid, "SavingThrow")
                 GiveACBoost(guid)
                 GiveSpellSaveDCBoost(guid)
-                GiveAbilityPointBoost(guid)
+                --GiveAbilityPointBoost(guid)
                 GiveDamageBoost(guid)
                 GiveMovementBoost(guid)
                 GiveActionPointBoost(guid, "Action")
