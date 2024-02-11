@@ -883,12 +883,6 @@ local function OnSessionLoaded()
         print("Savegame Loaded")
         ProcessPartyMembers()
         StartCXTimer()
-
-        _P(Ext.Entity.Get("95eb2b0b-a522-4ea5-8167-c5f4d1418156").Health.MaxHp)
-        _P(Ext.Entity.Get("95eb2b0b-a522-4ea5-8167-c5f4d1418156").Health.Hp)
-        local boosts = Ext.Entity.Get("95eb2b0b-a522-4ea5-8167-c5f4d1418156").BoostsContainer.Boosts["IncreaseMaxHP"]
-        if boosts then for _, entity in ipairs(boosts) do _D(entity.BoostInfo) end end
-
         if not IsPartyInCombat() then
             print("DEBUG: Starting to process existing entities")
             ProcessExistingEntities()
