@@ -265,12 +265,10 @@ local function OnSessionLoaded()
                 if entry.BoostInfo.Cause.Cause == "combatextender" then
                     isBoosted = true -- Set flag to true if a combatextender boost is found
                     boostParams = tonumber(entry.BoostInfo.Params.Params)
-                    break -- Exit the loop as we found at least one combatextender boost
                 elseif entry.BoostInfo.Cause.Cause == "reset" then
                     isReset = true -- Set flag to true if a reset boost is found
                 elseif entry.BoostInfo.Cause.Type == "Progression" then
                     isProgressionBoosted = true
-                    break
                 end
             end
         end
@@ -292,6 +290,7 @@ local function OnSessionLoaded()
         local desiredMaxHealth = math.ceil(healthToUse * healthMultiplier)
         local hpIncrease = desiredMaxHealth - healthToUse
         --print(string.format("DEBUG: Target: %s, Name: %s, healthToUse: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, healthToUse, desiredMaxHealth))
+        --print(string.format("DEBUG: Target: %s, Name: %s, isBoosted: %s, isReset: %s, isProgressionBoosted: %s", guid, handle, isBoosted, isReset, isProgressionBoosted))
 
         local hpBoost
         if guid == "S_GLO_Monitor_f65becd6-5cd7-4c88-b85e-6dd06b60f7b8" then -- Raphael exception as the normal approach doesn't work on him
@@ -305,9 +304,12 @@ local function OnSessionLoaded()
         end
 
         -- As MaxHp persists in the savefile, but the boost is ephemeral
-        if currentMaxHealth == desiredMaxHealth and not isReset and not IsPartyInCombat() then
-            AddBoosts(guid, "IncreaseMaxHP(0)", "reset", "1")
-            print(string.format("DEBUG: Reset to baseline: %s, Name: %s", guid, handle))
+        if currentMaxHealth == desiredMaxHealth and not isReset and not isBoosted and not IsPartyInCombat() then
+            if not EntityResetState[guid] then
+                AddBoosts(guid, "IncreaseMaxHP(0)", "reset", "1")
+                DebugPrint(string.format("DEBUG: Reset to baseline: %s, Name: %s", guid, handle))
+                EntityResetState[guid] = true
+            end
         end
 
         -- Only add the health increase if the character hasn't been boosted already
@@ -784,7 +786,7 @@ local function OnSessionLoaded()
     end
 
     function ProcessNearbyCharacters()
-        local nearbyCharacters = GetNearbyCharacters(100)
+        local nearbyCharacters = GetNearbyCharacters(150)
         for _, character in ipairs(nearbyCharacters) do
             local guid = character.Name .. "_" .. character.Guid
             if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 then
