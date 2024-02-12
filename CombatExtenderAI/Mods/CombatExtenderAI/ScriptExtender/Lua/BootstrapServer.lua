@@ -1,0 +1,24 @@
+local function OnSessionLoaded()
+
+    function DebugPrint(...)
+        if Ext.Debug.IsDeveloperMode() then
+            print(...)
+        end
+    end
+
+    -- Order: SessionLoaded - SavegameLoaded - LevelGameplayStarted - Fade in from loading screen
+    Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function (levelName, isEditorMode)
+        if levelName == "WLD_Main_A" then
+            DebugPrint("INFO: Activating CX AI archetype override")
+            RequestSetBaseArchetype("S_UND_DuergarLoyalSergeant_0aeb5411-5f13-4263-acb0-87f0689de2e5", "duergar_melee")
+            RequestSetBaseArchetype("S_UND_DuergarLoyalWry_dd93e23c-c62d-4927-9ea7-50e11621825e", "duergar_mage")
+            RequestSetBaseArchetype("S_UND_DuergarLoyalGuard_02_cc942779-3d2d-4327-9704-c6c385c12c82", "duergar_ranged")
+            RequestSetBaseArchetype("S_UND_DuergarLoyalNervous_908f6096-360e-44dc-b2ff-63a7d32c015b", "duergar_ranged")
+            RequestSetBaseArchetype("S_UND_DuergarRebelBored_30fb7e6e-40d2-4e77-b5ea-887f8eb345c9", "duergar_ranged")
+            RequestSetBaseArchetype("S_UND_DuergarRaftCaptain_473ae3b0-d8e9-428d-9129-bbffe449b8ec", "duergar_melee")
+            RequestSetBaseArchetype("S_UND_DuergarLoyalFocused_ccf9ef29-3d8e-4751-a7ae-203bec7352c3", "duergar_mage")
+            RequestSetBaseArchetype("S_UND_DuergarRebelGreedy_379fd131-79ab-4588-a8f0-28cdb51546e3", "duergar_melee")
+        end
+    end)
+end
+Ext.Events.SessionLoaded:Subscribe(OnSessionLoaded)
