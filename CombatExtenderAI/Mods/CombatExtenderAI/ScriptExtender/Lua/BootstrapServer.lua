@@ -14,6 +14,7 @@ local function OnSessionLoaded()
             RequestSetBaseArchetype("S_UND_DuergarRebelPatroller_02_407307ff-6adb-488c-9576-534e2c158e29", "duergar_ranged") -- Mirthis
             RequestSetBaseArchetype("S_UND_DuergarRebel_AtPier_01_5ff28d97-e070-4805-a856-3112df670e1f", "duergar_melee") -- Stone Guard Orgarth
             RequestSetBaseArchetype("S_UND_DuergarRebel_AtPier_02_2dd2a840-35ff-4ed6-bf43-f9aae0e69c32", "duergar_mage") -- Morghal
+            RequestSetBaseArchetype("S_UND_TheDrowNere_06bf05c5-216b-4eaf-91f5-8f1dd3d57f30", "duergar_mage") -- Nere
         end
     end)
 end
