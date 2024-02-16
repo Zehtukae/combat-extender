@@ -1,0 +1,16 @@
+USING melee
+//Rogues are setup to be a mid range type of unit. If they have ranged options available, they use those, if they have good melee options, they use those.
+
+
+// Rogue doesn't care about flanking
+MULTIPLIER_ENDPOS_FLANKED						0.00
+
+//Rogues care less about position scores, they generally have both ranged and melee options
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY				0.00
+MULTIPLIER_FALLBACK_ALLIES_NEARBY				0.00
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				0.00
+
+//Rogues like weapon boosts (poisoning their weapons)
+MULTIPLIER_BONUS_WEAPON_BOOST					0.65
+MULTIPLIER_BOOST_WEAPON_DAMAGE 					0.09
+

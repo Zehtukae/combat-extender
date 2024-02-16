@@ -1,0 +1,6 @@
+USING ranged
+
+// Modifiers used for darkness positioning
+MULTIPLIER_DARKNESS_CLEAR 						0.002
+MULTIPLIER_DARKNESS_LIGHT 						0.000
+MULTIPLIER_DARKNESS_HEAVY 						0.000

@@ -1,0 +1,4 @@
+USING melee
+
+MULTIPLIER_INCAPACITATE                     0.70
+MULTIPLIER_CONTROL_ENEMY_POS                1.00

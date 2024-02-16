@@ -1,0 +1,4 @@
+USING melee
+
+// Stop picking up weapons
+WEAPON_PICKUP_MODIFIER 							0.00

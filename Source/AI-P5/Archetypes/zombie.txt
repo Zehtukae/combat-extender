@@ -1,0 +1,35 @@
+USING melee
+
+//Zombies don't care about weakened characters
+MULTIPLIER_KILL_ENEMY							1.00
+MULTIPLIER_KILL_ENEMY_SUMMON					1.00
+MULTIPLIER_KILL_ALLY							1.00
+MULTIPLIER_KILL_ALLY_SUMMON						1.00
+
+//Zombies dont reason about hit or miss chances
+MODIFIER_HIT_CHANCE_STUPIDITY 					1.0
+MULTIPLIER_TARGET_SUMMON						1.00
+
+MULTIPLIER_ENDPOS_FLANKED						0.00
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY				0.00
+
+//Zombies dont care much about dangerous surfaces
+MULTIPLIER_MOVEMENT_SURFACE							0.00
+MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE			0.00
+
+// Zombies dont care about taking attack of Opportunity
+ENABLE_MOVEMENT_AVOID_AOO						0.00
+
+//Zombies reason less about Aura effects
+MULTIPLIER_POS_IN_AURA 							0.02
+MODIFIER_OWN_AURA 								0.0
+
+//Does not pick up weapons
+WEAPON_PICKUP_MODIFIER 							0.0
+
+//Does not attack things like exploding barrels
+MULTIPLIER_USABLE_ITEM							0.0
+
+//No bias toward Chasms
+INSTAKILL_BASE_SCORE							 0.0
+MULTIPLIER_INSTAKILL_TARGET_HEALTH_BIAS			 0.0

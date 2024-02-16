@@ -1,0 +1,4 @@
+USING melee
+//this is intended for use by the surgeon in TWN
+
+WEAPON_PICKUP_MODIFIER 0.0	//surgeon shouldn't be interested in picking up weapons

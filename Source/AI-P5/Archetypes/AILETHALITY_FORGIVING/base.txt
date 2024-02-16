@@ -1,0 +1,16 @@
+//Forgiving Difficulty base override
+
+//AI have a slight bias towards Higher AC targets
+MODIFIER_HIT_CHANCE_STUPIDITY 					1.15
+
+//AI has a slight bias against going for killing blows
+MULTIPLIER_KILL_ENEMY 							0.95
+
+//More likely to attack summons instead of players
+MULTIPLIER_TARGET_SUMMON						0.75
+
+//Less biased to used instakills (chasms etc)
+INSTAKILL_BASE_SCORE							1.0
+
+//More biased to use fall damage against targets (shoving from high places, etc)
+MULTIPLIER_FALL_DAMAGE_ENEMY					0.1

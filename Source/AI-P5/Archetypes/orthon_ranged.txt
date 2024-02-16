@@ -19,7 +19,7 @@ MULTIPLIER_DAMAGE_ALLY_NEG							1.1
 + MODIFIER_CONCENTRATION_REMOVE_TARGET 				0.1
 
 //Reduce the chance to detonate it's own bombs offensively
-MULTIPLIER_USABLE_ITEM								0.05
+MULTIPLIER_USABLE_ITEM								0.20
 
 //The Orthon goes for kills
 + MULTIPLIER_KILL_ENEMY 							0.25

@@ -1,0 +1,3 @@
+USING melee_smart
+
+MULTIPLIER_DAMAGE_SELF_NEG				4.00

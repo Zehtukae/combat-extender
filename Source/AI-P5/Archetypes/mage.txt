@@ -1,0 +1,16 @@
+USING ranged
+//This archetype is intended for average humanoids like guards/bandits/soldiers etc
+
+//Mages like buffing themselves
+MULTIPLIER_BOOST_SELF_POS		 				1.15
+
+//Mages like stunning and debuffing enemies
+MULTIPLIER_BOOST_ENEMY_POS		 				1.15
+MULTIPLIER_CONTROL_ENEMY_POS					1.15
+MULTIPLIER_BLIND								0.20
+
+//Cares less about picking up weapons
+WEAPON_PICKUP_MODIFIER 							0.15
+
+//Prefer to pickup melee weapons
+WEAPON_PICKUP_PREFER_RANGED_ENABLED 			0

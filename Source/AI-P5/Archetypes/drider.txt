@@ -1,0 +1,11 @@
+USING melee_smart
+
+//Drider couldn't care less about buffing his allies
+MULTIPLIER_BOOST_ALLY_POS		 				0.0
+MULTIPLIER_BOOST_ALLY_NEG		 				0.0
+
+//Drider also doesn't care much about hurting his allies
+MULTIPLIER_DAMAGE_ALLY_NEG					1.0
+
+//Should want to go in for the kill
+MULTIPLIER_KILL_ENEMY									0.25

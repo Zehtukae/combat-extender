@@ -1,0 +1,4 @@
+USING mage_smart
+
+// Raphael will not pick up weapon
+WEAPON_PICKUP_MODIFIER 							0.0

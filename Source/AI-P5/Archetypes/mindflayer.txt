@@ -1,0 +1,25 @@
+USING ranged_smart
+//Stays at range until it sees an opening to use Extract Brain on a target
+//
+
+// Cares a bit less about enemies nearby but will try to keep further away from enemies if possible
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY						-0.40
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE					12.00
+
+//Doesn't care as much about getting close to enemies
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY						-0.25
+
+//Cares a bit less about highground
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE						0.02
+
+//Cares a bit more about kills for extract brain
++MULTIPLIER_KILL_ENEMY									0.25
+
+//Good hit/miss reasoning
+MODIFIER_HIT_CHANCE_STUPIDITY 							-0.15
+
+//Cares more than normal about it's own  concentration
++ MODIFIER_CONCENTRATION_REMOVE_SELF 					2.00
+
+//Mindflayer NPCs should not pickup weapons
+WEAPON_PICKUP_MODIFIER 									0.0

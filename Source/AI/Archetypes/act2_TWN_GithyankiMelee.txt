@@ -1,0 +1,4 @@
+USING melee
+
+// These Githyanki don't care if they get damaged by jumping down
+MULTIPLIER_FALL_DAMAGE_SELF 0.0

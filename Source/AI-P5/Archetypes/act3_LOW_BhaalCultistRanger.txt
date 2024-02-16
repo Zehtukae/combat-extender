@@ -1,0 +1,4 @@
+USING ranged
+
+// She cannot pick weapons, she only has 1 hand
+WEAPON_PICKUP_MODIFIER 									0.0

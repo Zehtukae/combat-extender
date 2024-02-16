@@ -1,0 +1,16 @@
+USING melee
+//This archetype is intended for smarter than average humanoids like bosses
+
+//Improved Hit/Miss reasoning
+- MODIFIER_HIT_CHANCE_STUPIDITY 						0.15
+
++ MULTIPLIER_KILL_ENEMY									0.20
+
++ MODIFIER_CONCENTRATION_REMOVE_TARGET 					0.30
+
+// Used to adjust fall damage scores
++ MULTIPLIER_FALL_DAMAGE_ENEMY							0.25
+
+//Marcus wants to focus on Isobel
+MULTIPLIER_TARGET_PREFERRED						2.50
+MULTIPLIER_TARGET_UNPREFERRED					0.50

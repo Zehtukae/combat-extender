@@ -1,0 +1,4 @@
+USING melee
+
+MULTIPLIER_DAMAGE_SELF_NEG						10.0 // will try much harder to avoid using the grenade if it hits itself
+MULTIPLIER_DAMAGE_ALLY_NEG						6.0 // will try harder to avoid using the grenade if it hits its allies
