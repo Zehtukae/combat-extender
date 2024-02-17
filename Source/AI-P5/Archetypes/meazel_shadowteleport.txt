@@ -1,0 +1,36 @@
+USING ranged
+
+// Meazels don't care about height
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE				0.00
+
+// Meazels prefer to move to dark locations
+MULTIPLIER_DARKNESS_HEAVY                       2.00
+
+// Meazels prefer to move where there are no allies or enemies
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY                -1.00
+ENDPOS_ENEMIES_NEARBY_MIN_DISTANCE              1.00 // distance at which being any closer makes no difference
+ENDPOS_ENEMIES_NEARBY_MAX_DISTANCE              20.00
+
+//MULTIPLIER_ENDPOS_ALLIES_NEARBY                 -1.00
+//ENDPOS_ALLIES_NEARBY_MIN_DISTANCE				1.00
+//ENDPOS_ALLIES_NEARBY_MAX_DISTANCE 				20.00 // ignore characters beyond this distance
+
+//MULTIPLIER_FALLBACK_ALLIES_NEARBY				-1.00
+//FALLBACK_ALLIES_NEARBY_MIN_DISTANCE				1.00 // distance at which being any closer makes no difference
+//FALLBACK_ALLIES_NEARBY_MAX_DISTANCE				20.00 // ignore characters beyond this distance
+
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-1.00
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			1.00 // distance at which being any closer makes no difference
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			20.00 // ignore characters beyond this distance
+
+MULTIPLIER_MOVEMENT_COST_MULTPLIER				0.00
+
+// While Garroted is active, don't attack enemies
+// MULTIPLIER_DAMAGE_ENEMY_POS                     00.0
+// MULTIPLIER_DAMAGE_ENEMY_NEG                     00.0
+
+// Don't attack items
+MULTIPLIER_DESTROY_INTERESTING_ITEM				-3.25
+
+//Meazel cares less about ignore AoO
+MULTIPLIER_BOOST_IGNORE_AOO 					0.005

@@ -1,0 +1,5 @@
+USING melee
+//Melee archetype for characters that are able to buff themselves, which they should do prior to jumping into the action
+
+//melee_magic likes buffing themselves
+MULTIPLIER_BOOST_SELF_POS		 				1.2

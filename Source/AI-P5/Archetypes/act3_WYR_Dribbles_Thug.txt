@@ -1,0 +1,4 @@
+USING melee_smart
+
+// Make the thugs reeeally want to use the keys on the gate
+MULTIPLIER_FIRST_ACTION_BUFF 						12.25

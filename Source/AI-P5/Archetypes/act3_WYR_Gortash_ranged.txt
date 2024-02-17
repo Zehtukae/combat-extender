@@ -1,0 +1,30 @@
+//This archetype is intended for when Gortie is using his crossbow
+
+USING ranged
+//This archetype is intended for smarter than average humanoids like bosses
+
+//Improved Hit/Miss reasoning
+- MODIFIER_HIT_CHANCE_STUPIDITY 						0.15
+
++ MULTIPLIER_KILL_ENEMY									0.20
+
++ MODIFIER_CONCENTRATION_REMOVE_TARGET 					0.30
+
+// Used to adjust fall damage scores
++ MULTIPLIER_FALL_DAMAGE_ENEMY							0.25
+
+// Gortash doesn't care much about his allies
+MULTIPLIER_DAMAGE_ALLY_POS						0.7
+MULTIPLIER_DAMAGE_ALLY_NEG						0.9
+
+// Multiplier for buffs as the first action
+MULTIPLIER_FIRST_ACTION_BUFF					1.5
+
+// Multiplier for buffing self - Gort is really interested
+MULTIPLIER_BOOST_ALLY_POS		 				2.0
+
+// Multiplier for buffing allies - just to keep an eye on it
+MULTIPLIER_BOOST_ALLY_POS		 				1.0
+
+// Gortash is extra careful with auras
+MULTIPLIER_POS_IN_AURA 0.5

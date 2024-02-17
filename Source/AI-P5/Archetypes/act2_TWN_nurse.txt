@@ -1,0 +1,16 @@
+//Nurse likes buffing themselves - through the doing of which she'll actually be buffing the Surgeon
+MULTIPLIER_BOOST_SELF_POS		 				1.15
+
+//Nurse doesn't want enemies too close
+MULTIPLIER_FALLBACK_ALLIES_NEARBY				0.00
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-0.50
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			3.00
+
+//Nurse cares about picking up weapons
+WEAPON_PICKUP_MODIFIER 							1.0
+
+//Nurse prefers to pickup melee weapons
+WEAPON_PICKUP_PREFER_RANGED_ENABLED 			1
+
+//Nurse really wants to pick her weapon back up
+WEAPON_PICKUP_MODIFIER_PREVIOUSLY_EQUIPPED 1.5

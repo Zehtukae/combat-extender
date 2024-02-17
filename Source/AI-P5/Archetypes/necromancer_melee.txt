@@ -1,0 +1,14 @@
+USING mage
+
+MULTIPLIER_RESURRECT							10.00
+
+MULTIPLIER_DOT_ENEMY_NEG						1.15
+
+// Melee characters dont't care much about flanking
+MULTIPLIER_ENDPOS_FLANKED					-0.01
+
+// Melee characters loves contact boosts
+MULTIPLIER_CONTACT_BOOST					1.00
+
+MULTIPLIER_FALLBACK_ALLIES_NEARBY			0.00
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY			1.00

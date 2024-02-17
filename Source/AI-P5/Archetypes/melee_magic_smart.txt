@@ -1,0 +1,11 @@
+USING melee_magic
+//Melee archetype for characters that are spellcasters, but have a melee setup.
+
+// Multiplier for buffs as the first action - taken from Ranged arcehtype since it makes sense
+MULTIPLIER_FIRST_ACTION_BUFF					2.25
+MULTIPLIER_BOOST_WEAPON_DAMAGE 					0.09
+
+//Mages like stunning and debuffing enemies - taken from Mage archetype since again, it makes sense
+MULTIPLIER_BOOST_ENEMY_POS		 				1.15
+MULTIPLIER_CONTROL_ENEMY_POS					1.15
+MULTIPLIER_BLIND								0.20

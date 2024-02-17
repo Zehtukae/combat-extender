@@ -1,0 +1,7 @@
+USING beast
+//AI on these guys is pretty simple, if an enemy is nearby they can steal a weapon from, they prioritise that target,
+//else try to tongue attack a more distant target to steal their weapon on a subsequent turn
+
+// Mimics love to steal weapons
+MULTIPLIER_STATSFUNCTOR_DISARMWEAPON 0.15
+//MULTIPLIER_STATSFUNCTOR_DISARMANDSTEALWEAPON 0.25

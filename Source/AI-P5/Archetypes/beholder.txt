@@ -1,0 +1,5 @@
+USING mage_smart
+
+//Does not pick up weapons
+WEAPON_PICKUP_MODIFIER 							0.0
++ MULTIPLIER_KILL_ENEMY							0.25

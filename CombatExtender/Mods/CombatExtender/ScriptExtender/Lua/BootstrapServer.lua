@@ -244,7 +244,15 @@ local function OnSessionLoaded()
         local handle = Ext.Loca.GetTranslatedString(entity.DisplayName.NameKey.Handle.Handle)
         local currentMaxHealth = entity and entity.Health.MaxHp
         local boostsContainer = entity and entity.BoostsContainer
-        local increaseMaxHPEntries = boostsContainer and boostsContainer.Boosts["IncreaseMaxHP"]
+        local increaseMaxHPEntries
+        if boostsContainer then
+            for _, boostEntry in ipairs(boostsContainer.Boosts) do
+                if boostEntry.Type == "IncreaseMaxHP" then
+                    increaseMaxHPEntries = boostEntry.Boosts
+                    break
+                end
+            end
+        end
         local isBoosted = false
         local isReset = false
         local isProgressionBoosted = false
@@ -701,8 +709,15 @@ local function OnSessionLoaded()
 
         -- Retrieve the BoostsContainer for the entity
         local boostsContainer = Ext.Entity.Get(guid).BoostsContainer
-        local rollBonusBoosts = boostsContainer.Boosts["RollBonus"]
-
+        local rollBonusBoosts
+        if boostsContainer then
+            for _, boostEntry in ipairs(boostsContainer.Boosts) do
+                if boostEntry.Type == "RollBonus" then
+                    rollBonusBoosts = boostEntry.Boosts
+                    break
+                end
+            end
+        end
         -- Check for existing boosts and remove them if necessary
         if rollBonusBoosts then
             for _, boost in ipairs(rollBonusBoosts) do
@@ -830,23 +845,29 @@ local function OnSessionLoaded()
                 end
 
                 local boostTypes = {"AC", "Ability", "ActionResource", "DamageBonus", "RollBonus", "SpellSaveDC"}
-                for _, boostType in ipairs(boostTypes) do
-                    local boostEntries = boostsContainer.Boosts[boostType]
-                    if not boostEntries then
-                        DebugPrint(string.format("DEBUG: No boost entries of type %s found for entity %s", boostType, guid))
-                    else
-                        for _, boost in ipairs(boostEntries) do
+                for _, boostEntry in ipairs(boostsContainer.Boosts) do
+                    -- Directly check if the Type is in the list of interest
+                    local isTypeOfInterest = false
+                    for _, typeOfInterest in ipairs(boostTypes) do
+                        if boostEntry.Type == typeOfInterest then
+                            isTypeOfInterest = true
+                            break
+                        end
+                    end
+
+                    if isTypeOfInterest then
+                        for _, boost in ipairs(boostEntry.Boosts) do
                             local boostInfo = boost.BoostInfo
                             if boostInfo and boostInfo.Cause and boostInfo.Cause.Cause then
                                 local cause = boostInfo.Cause.Cause
-                                if boostType == "RollBonus" and cause and cause ~= "" and cause:find("CX_") then
+                                if boostEntry.Type == "RollBonus" and cause and cause ~= "" and cause:find("CX_") then
                                     RemoveStatus(guid, cause, "")
-                                    DebugPrint(string.format("DEBUG: Removed boost: boostType: %s, %s", boostType, cause))
-                                elseif boostType ~= "RollBonus" and boostInfo.Cause.Cause == "combatextender" then
+                                    DebugPrint(string.format("DEBUG: Removed boost: boostType: %s, %s", boostEntry.Type, cause))
+                                elseif boostEntry.Type ~= "RollBonus" and boostInfo.Cause.Cause == "combatextender" then
                                     local boostParams = boostInfo.Params.Params
-                                    local boostRemovalString = string.format("%s(%s)", boostType, boostParams)
+                                    local boostRemovalString = string.format("%s(%s)", boostEntry.Type, boostParams)
                                     RemoveBoosts(guid, boostRemovalString, 0, "combatextender", "1")
-                                    DebugPrint(string.format("DEBUG: Removed boost: boostType: %s, boostParams: %s", boostType, boostParams))
+                                    DebugPrint(string.format("DEBUG: Removed boost: boostType: %s, boostParams: %s", boostEntry.Type, boostParams))
                                 end
                             end
                         end

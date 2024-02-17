@@ -1,0 +1,23 @@
+USING beast
+
+// Modifiers used for darkness positioning
+MULTIPLIER_DARKNESS_CLEAR 						0.00
+MULTIPLIER_DARKNESS_LIGHT 						0.002
+MULTIPLIER_DARKNESS_HEAVY 						0.002
+
+// We want to encourage the mastiff to attack whenever possible, even at the cost of ending in light.
+MULTIPLIER_DAMAGE_ENEMY_POS						1.00
+
+// We want to encourage the Mastiff to move to attack and flee from light.
+//MULTIPLIER_MOVEMENT_COST_MULTPLIER				0.5
+
+// To make them move and not end the turn on the same spot they cast invis
+MULTIPLIER_ENDPOS_TURNED_INVISIBLE				-0.25
+
+// Mastiff wants to spread out to not be caught all in the same place
+MULTIPLIER_ENDPOS_ALLIES_NEARBY					0.00
+
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-0.50
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			10.00
+
+//MULTIPLIER_CANNOT_EXECUTE_THIS_TURN             0.00

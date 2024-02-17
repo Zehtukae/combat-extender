@@ -1,0 +1,21 @@
+USING melee_large
+
+//Lower Kill mod
+- MULTIPLIER_KILL_ENEMY 							0.15
+
+MODIFIER_HIT_CHANCE_STUPIDITY 						1.00
+MULTIPLIER_TARGET_SUMMON							0.90
+
+MULTIPLIER_USABLE_ITEM								0.25
+
+//temporarily remove ability to pick up weapons until size checks work in weapon conditions
+WEAPON_PICKUP_MODIFIER 								0.0
+
+//Does not reason about breaking concentration on targets
+MODIFIER_CONCENTRATION_REMOVE_TARGET 				0.0
+
+//cares slightly less about retrieving their weapons than melee
+WEAPON_PICKUP_MODIFIER 								0.6
+
+//Reduced bias to use chasms
+INSTAKILL_BASE_SCORE								1.0

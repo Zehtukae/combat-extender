@@ -1,0 +1,31 @@
+USING melee
+//this is intended for use by the Brewer
+
+//the Brewer is kinda big
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			2.21
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			7.00
+
+//The brewer like stunning and debuffing enemies
+MULTIPLIER_BOOST_ENEMY_POS		 				1.15
+MULTIPLIER_CONTROL_ENEMY_POS					1.15
+MULTIPLIER_BLIND								0.20
+
+//The brewer cares less about picking up weapons
+WEAPON_PICKUP_MODIFIER 							0.15
+
+//Brewer couldn't care less about picking ladle back up
+WEAPON_PICKUP_MODIFIER_PREVIOUSLY_EQUIPPED 0
+
+//Modifier used when calculating surface score during movement
+MULTIPLIER_MOVEMENT_SURFACE 1.0
+
+//End Position MULTIPLIERS
+MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE		0.10
+
+//Used for status that are applied by surfaces on movement
+MULTIPLIER_SURFACE_STATUS_ON_MOVE				0.75
+SURFACE_DAMAGE_MAX_TURNS						2.00
+
+//The brewer doesn't care much about his allies
+MULTIPLIER_DAMAGE_ALLY_POS						0.6
+MULTIPLIER_DAMAGE_ALLY_NEG						0.8
