@@ -351,7 +351,7 @@ local function OnSessionLoaded()
             if currentMaxHealth ~= desiredMaxHealth and IsDead(guid) == 0 then
                 local offset = math.abs(currentMaxHealth - desiredMaxHealth)
 
-                if offset == 1 then
+                if offset == 1 or guid == "S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a" then
                     return
                 end
 
