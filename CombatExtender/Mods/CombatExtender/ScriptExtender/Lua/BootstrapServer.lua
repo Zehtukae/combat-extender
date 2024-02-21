@@ -282,22 +282,35 @@ local function OnSessionLoaded()
         end
 
         -- Calculate healthToUse and store it in the EntityHealth table if it's not already there
+        local healthOverrides = {
+            ["S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a"] = 600, -- Ansur
+            ["S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255"] = 450, -- Grym
+            ["S_END_MindBrain_f8bb04a3-22e5-41b0-aed7-5dcf852343d1"] = 450 -- Elder Brain
+        }
+
         if not EntityHealth[guid] then
-            local baseHealth = math.floor(Ext.Entity.Get(guid).BaseHp.Vitality * 1.3) -- 1.3 multiplier is default for Tactician
+            local baseHealth
             local healthToUse
 
-            if isProgressionBoosted and currentMaxHealth < 100 then
-                healthToUse = currentMaxHealth
+            if healthOverrides[guid] then
+                healthToUse = healthOverrides[guid]
             else
-                healthToUse = baseHealth
+                baseHealth = math.floor(Ext.Entity.Get(guid).BaseHp.Vitality * 1.3) -- 1.3 multiplier is default for Tactician
+
+                if isProgressionBoosted and currentMaxHealth < 100 then
+                    healthToUse = currentMaxHealth
+                else
+                    healthToUse = baseHealth
+                end
             end
+
             EntityHealth[guid] = healthToUse
         end
 
         local healthToUse = EntityHealth[guid]
         local desiredMaxHealth = math.ceil(healthToUse * healthMultiplier)
         local hpIncrease = desiredMaxHealth - healthToUse
-        --print(string.format("DEBUG: Target: %s, Name: %s, healthToUse: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, healthToUse, desiredMaxHealth))
+        --print(string.format("DEBUG: Target: %s, Name: %s, healthToUse: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, healthToUse, currentMaxHealth, desiredMaxHealth))
         --print(string.format("DEBUG: Target: %s, Name: %s, isBoosted: %s, isReset: %s, isProgressionBoosted: %s", guid, handle, isBoosted, isReset, isProgressionBoosted))
 
         local hpBoost
@@ -337,7 +350,7 @@ local function OnSessionLoaded()
                 if EntityResetState[guid] then
                     return
                 else
-                    print(string.format("DEBUG: Resetting Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+                    print(string.format("DEBUG: Resetting Target: %s, Name: %s, currentMaxHealth: %s, desired: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
                     AddBoosts(guid, "IncreaseMaxHP(0)", "reset", "1")
                     EntityResetState[guid] = true
                     return
@@ -345,13 +358,13 @@ local function OnSessionLoaded()
             end
 
             AddBoosts(guid, hpBoost, "combatextender", "1")
-            print(string.format("DEBUG: Boosting Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+            print(string.format("DEBUG: Boosting Target: %s, Name: %s, currentMaxHealth: %s, desired: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
         else
             -- Check if there is a mismatch between the current and recalculated maximum health
             if currentMaxHealth ~= desiredMaxHealth and IsDead(guid) == 0 then
                 local offset = math.abs(currentMaxHealth - desiredMaxHealth)
 
-                if offset == 1 or guid == "S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a" then
+                if offset == 1 then
                     return
                 end
 
@@ -362,13 +375,15 @@ local function OnSessionLoaded()
                     EntityHealthAdjustment[guid] = true -- Mark this guid as having had an adjustment attempt
                 end
 
-                DebugPrint(string.format("DEBUG: Target has offset: %s, HitPoints offset: %s", guid, offset))
-                local boostRemovalString = "IncreaseMaxHP(" .. boostParams .. ")"
-                RemoveBoosts(guid, boostRemovalString, 0, "combatextender", "1")
+                --local boostRemovalString = "IncreaseMaxHP(" .. boostParams .. ")"
+                --DebugPrint(string.format("DEBUG: Target has offset: %s, HitPoints offset: %s, Removal string: %s", guid, offset, boostRemovalString))
+                --RemoveBoosts(guid, boostRemovalString, 0, "combatextender", "1")
 
-                DebugPrint(string.format("DEBUG: Adjusting Target: %s, hpBoost: %s", guid, hpBoost))
-                AddBoosts(guid, "IncreaseMaxHP(" .. hpIncrease .. ")", "combatextender", "1")
-            else
+                if currentMaxHealth < desiredMaxHealth then
+                    DebugPrint(string.format("DEBUG: Adjusting Target: %s, Name: %s, hpBoost: %s, currentMaxHealth: %s, desired: %s", guid, handle, offset, currentMaxHealth, desiredMaxHealth))
+                    AddBoosts(guid, "IncreaseMaxHP(" .. offset .. ")", "combatextender", "1")
+                end
+            --else
                 --EntityHealthAdjustment[guid] = nil
                 --print(string.format("DEBUG: Target: %s currentMaxHealth: %s desiredMaxHealth: %s", guid, currentMaxHealth, desiredMaxHealth))
             end
