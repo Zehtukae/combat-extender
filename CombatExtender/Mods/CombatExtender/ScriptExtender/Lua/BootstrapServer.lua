@@ -672,7 +672,7 @@ local function OnSessionLoaded()
         end
 
         -- If SpellCastingAbility is not among the top two, add it to the list of abilities to boost
-        if not spellCastingBoosted then
+        if not spellCastingBoosted and spellCastingAbility ~= "None" then
             table.insert(abilitiesToBoost, {name = spellCastingAbility, value = abilities[spellCastingAbility]})
             --printTable(abilitiesToBoost)
         end
