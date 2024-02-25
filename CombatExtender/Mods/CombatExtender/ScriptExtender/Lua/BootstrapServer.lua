@@ -129,8 +129,7 @@ local function OnSessionLoaded()
     -- Call the readJsonFile function to read the JSON file and store the returned table in configTable
     readJsonFile()
 
-    ExcludedCharacters=
-    {
+    ExcludedCharacters= {
         "S_GLO_Halsin_7628bc0e-52b8-42a7-856a-13a6fd413323",
         "S_GOB_DrowCommander_25721313-0c15-4935-8176-9f134385451b",
         "S_Player_Astarion_c7c13742-bacd-460a-8f65-f864fe41f255",
@@ -143,8 +142,27 @@ local function OnSessionLoaded()
         "S_Player_Wyll_c774d764-4a17-48dc-b470-32ace9ce447d"
     }
 
+    Bosses= {
+        "S_CRE_CrecheCaptain_5093da9b-237a-491f-9402-4f9da73c1565",
+        "S_MOO_PrisonWarden_66b3e4c0-2f82-4c0a-9333-73a5194f88c7",
+        "S_GLO_Cazador_2f1880e6-1297-4ca3-a79c-9fabc7f179d3",
+        "S_GLO_Gortash_b878a854-f790-4999-95c4-3f20f00f65ac"
+    }
+
     function CheckIfExcluded(guid)
         for _, v in ipairs(ExcludedCharacters) do
+            if v == guid then
+                return 1
+            end
+        end
+        return 0
+    end
+
+    function IsTargetABoss(guid)
+        if IsBoss(guid) == 1 then
+            return 1
+        end
+        for _, v in ipairs(Bosses) do
             if v == guid then
                 return 1
             end
@@ -216,7 +234,7 @@ local function OnSessionLoaded()
     function GiveHPIncrease(guid, SkipCheck)
         local healthConfig
 
-        if IsBoss(guid) == 1 then
+        if IsTargetABoss(guid) == 1 then
             healthConfig = configTable["Health"]["Bosses"]
         elseif SkipCheck then
             healthConfig = configTable["Health"]["Enemies"]
@@ -282,22 +300,40 @@ local function OnSessionLoaded()
         end
 
         -- Calculate healthToUse and store it in the EntityHealth table if it's not already there
+        local healthOverrides = {
+            ["S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a"] = 600, -- Ansur
+            ["S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255"] = 450, -- Grym
+            ["S_END_MindBrain_f8bb04a3-22e5-41b0-aed7-5dcf852343d1"] = 450 -- Elder Brain
+        }
+
         if not EntityHealth[guid] then
-            local baseHealth = math.floor(Ext.Entity.Get(guid).BaseHp.Vitality * 1.3) -- 1.3 multiplier is default for Tactician
+            local baseHealth
             local healthToUse
 
-            if isProgressionBoosted and currentMaxHealth < 100 then
-                healthToUse = currentMaxHealth
+            if healthOverrides[guid] then
+                healthToUse = healthOverrides[guid]
             else
-                healthToUse = baseHealth
+                local entity = Ext.Entity.Get(guid)
+                if not (entity and entity.BaseHp and entity.BaseHp.Vitality) then -- Early return if the entity or BaseHp.Vitality is not available
+                    return
+                end
+
+                baseHealth = math.floor(entity.BaseHp.Vitality * 1.3) -- 1.3 multiplier is default for Tactician
+
+                if isProgressionBoosted and currentMaxHealth < 100 then
+                    healthToUse = currentMaxHealth
+                else
+                    healthToUse = baseHealth
+                end
             end
+
             EntityHealth[guid] = healthToUse
         end
 
         local healthToUse = EntityHealth[guid]
         local desiredMaxHealth = math.ceil(healthToUse * healthMultiplier)
         local hpIncrease = desiredMaxHealth - healthToUse
-        --print(string.format("DEBUG: Target: %s, Name: %s, healthToUse: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, healthToUse, desiredMaxHealth))
+        --print(string.format("DEBUG: Target: %s, Name: %s, healthToUse: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, healthToUse, currentMaxHealth, desiredMaxHealth))
         --print(string.format("DEBUG: Target: %s, Name: %s, isBoosted: %s, isReset: %s, isProgressionBoosted: %s", guid, handle, isBoosted, isReset, isProgressionBoosted))
 
         local hpBoost
@@ -337,7 +373,7 @@ local function OnSessionLoaded()
                 if EntityResetState[guid] then
                     return
                 else
-                    print(string.format("DEBUG: Resetting Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+                    print(string.format("DEBUG: Resetting Target: %s, Name: %s, currentMaxHealth: %s, desired: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
                     AddBoosts(guid, "IncreaseMaxHP(0)", "reset", "1")
                     EntityResetState[guid] = true
                     return
@@ -345,13 +381,13 @@ local function OnSessionLoaded()
             end
 
             AddBoosts(guid, hpBoost, "combatextender", "1")
-            print(string.format("DEBUG: Boosting Target: %s, Name: %s, currentMaxHealth: %s, desiredMaxHealth: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+            print(string.format("DEBUG: Boosting Target: %s, Name: %s, currentMaxHealth: %s, desired: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
         else
             -- Check if there is a mismatch between the current and recalculated maximum health
             if currentMaxHealth ~= desiredMaxHealth and IsDead(guid) == 0 then
                 local offset = math.abs(currentMaxHealth - desiredMaxHealth)
 
-                if offset == 1 or guid == "S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a" then
+                if offset == 1 then
                     return
                 end
 
@@ -362,13 +398,15 @@ local function OnSessionLoaded()
                     EntityHealthAdjustment[guid] = true -- Mark this guid as having had an adjustment attempt
                 end
 
-                DebugPrint(string.format("DEBUG: Target has offset: %s, HitPoints offset: %s", guid, offset))
-                local boostRemovalString = "IncreaseMaxHP(" .. boostParams .. ")"
-                RemoveBoosts(guid, boostRemovalString, 0, "combatextender", "1")
+                --local boostRemovalString = "IncreaseMaxHP(" .. boostParams .. ")"
+                --DebugPrint(string.format("DEBUG: Target has offset: %s, HitPoints offset: %s, Removal string: %s", guid, offset, boostRemovalString))
+                --RemoveBoosts(guid, boostRemovalString, 0, "combatextender", "1")
 
-                DebugPrint(string.format("DEBUG: Adjusting Target: %s, hpBoost: %s", guid, hpBoost))
-                AddBoosts(guid, "IncreaseMaxHP(" .. hpIncrease .. ")", "combatextender", "1")
-            else
+                if currentMaxHealth < desiredMaxHealth then
+                    DebugPrint(string.format("DEBUG: Adjusting Target: %s, Name: %s, hpBoost: %s, currentMaxHealth: %s, desired: %s", guid, handle, offset, currentMaxHealth, desiredMaxHealth))
+                    AddBoosts(guid, "IncreaseMaxHP(" .. offset .. ")", "combatextender", "1")
+                end
+            --else
                 --EntityHealthAdjustment[guid] = nil
                 --print(string.format("DEBUG: Target: %s currentMaxHealth: %s desiredMaxHealth: %s", guid, currentMaxHealth, desiredMaxHealth))
             end
@@ -481,7 +519,7 @@ local function OnSessionLoaded()
     function GiveActionPointBoost(guid, actionType)
         local actionPointConfig
 
-        if IsBoss(guid) == 1 then
+        if IsTargetABoss(guid) == 1 then
             actionPointConfig = configTable["ExtraAction"]["Bosses"][actionType]
         elseif IsTargetAnEnemy(guid) == 0 then
             if next(configTable["ExtraAction"]["Allies"]) == nil or next(configTable["ExtraAction"]["Allies"][actionType]) == nil then
@@ -517,7 +555,7 @@ local function OnSessionLoaded()
             return
         end
 
-        if IsBoss(guid) == 1 then
+        if IsTargetABoss(guid) == 1 then
             movementConfig = configTable["Movement"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
             if next(configTable["Movement"]["Allies"]) == nil then
@@ -543,7 +581,7 @@ local function OnSessionLoaded()
     function GiveACBoost(guid)
         local armourClassConfig
 
-        if IsBoss(guid) == 1 then
+        if IsTargetABoss(guid) == 1 then
             armourClassConfig = configTable["ArmourClass"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
             if next(configTable["ArmourClass"]["Allies"]) == nil then
@@ -579,7 +617,7 @@ local function OnSessionLoaded()
 
         local spellSaveDCConfig
 
-        if IsBoss(guid) == 1 then
+        if IsTargetABoss(guid) == 1 then
             spellSaveDCConfig = configTable["SpellSaveDC"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
             if next(configTable["SpellSaveDC"]["Allies"]) == nil then
@@ -618,7 +656,7 @@ local function OnSessionLoaded()
         local abilityBoostConfig
 
         -- Determine the entity type and corresponding boost amount from the configuration
-        if IsBoss(guid) == 1 then
+        if IsTargetABoss(guid) == 1 then
             abilityBoostConfig = configTable["AbilityPoints"]["Bosses"]["Additional"]
         elseif IsTargetAnEnemy(guid) == 0 then
             if next(configTable["AbilityPoints"]["Allies"]) == nil then
@@ -657,7 +695,7 @@ local function OnSessionLoaded()
         end
 
         -- If SpellCastingAbility is not among the top two, add it to the list of abilities to boost
-        if not spellCastingBoosted then
+        if not spellCastingBoosted and spellCastingAbility ~= "None" then
             table.insert(abilitiesToBoost, {name = spellCastingAbility, value = abilities[spellCastingAbility]})
             --printTable(abilitiesToBoost)
         end
@@ -684,7 +722,7 @@ local function OnSessionLoaded()
     function GiveRollBonus(guid, rollType)
         local rollBonusConfig
 
-        if IsBoss(guid) == 1 then
+        if IsTargetABoss(guid) == 1 then
             rollBonusConfig = configTable["Rolls"]["Bosses"][rollType]
         elseif IsTargetAnEnemy(guid) == 0 then
             if next(configTable["Rolls"]["Allies"]) == nil then
@@ -747,7 +785,7 @@ local function OnSessionLoaded()
     function GiveDamageBoost(guid)
         local damageConfig
 
-        if IsBoss(guid) == 1 then
+        if IsTargetABoss(guid) == 1 then
             damageConfig = configTable["Damage"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
             if next(configTable["Damage"]["Allies"]) == nil then
@@ -962,7 +1000,7 @@ local function OnSessionLoaded()
             table.insert(CombatNPCS, guid)
 
             local isEnemy = IsTargetAnEnemy(guid)
-            local isBoss = IsBoss(guid)
+            local isBoss = IsTargetABoss(guid)
 
             if isEnemy == 1 and isBoss == 0 then
                 print("DEBUG: Enemy: " .. guid)
@@ -993,7 +1031,7 @@ local function OnSessionLoaded()
         Loaded = true -- Game has now fully loaded
 
         -- Identify Act and set variable
-        if levelName == "WLD_Main_A" or levelName == "CRE_Main_A" then
+        if levelName == "WLD_Main_A" or levelName == "CRE_Main_A" or levelName == "TUT_Avernus_C" then
             Act = 1
             print("INFO: Act set to 1 for level: " .. levelName)
         elseif levelName == "SCL_Main_A" then
@@ -1015,7 +1053,7 @@ local function OnSessionLoaded()
             local guid = character.Name .. "_" .. character.Guid
             if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 1 and CheckIfExcluded(guid) == 0 then
                 local isEnemy = IsTargetAnEnemy(guid)
-                local isBoss = IsBoss(guid)
+                local isBoss = IsTargetABoss(guid)
 
                 if isEnemy == 1 and isBoss == 0 then
                     print(string.format("DEBUG: Enemy: %s, Name: %s", guid, character.Handle))
