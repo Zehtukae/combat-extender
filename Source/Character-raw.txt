@@ -846,7 +846,7 @@ data "Constitution" "10"
 data "Intelligence" "11"
 data "Wisdom" "10"
 data "Progressions" "532203c2-7bcb-4162-9a7c-2bb20e227a30"
-data "Passives" "CX_Fighter_Boost;AttackOfOpportunity"
+data "Passives" "CX_Rogue_Boost;AttackOfOpportunity"
 
 new entry "CHA_BanditInterior_Human_Ranger"
 type "Character"

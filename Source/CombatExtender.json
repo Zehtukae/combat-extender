@@ -96,7 +96,7 @@
     },
     {
       "PassiveName": "CX_Spells_L1",
-      "Spells": ["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave"],
+      "Spells": ["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave","Projectile_ChromaticOrb"],
       "ExtraSpellSlots": 1
     },
     {
@@ -168,7 +168,7 @@
     "Enemies": {
       "StaticDamageBoost": 1,
       "DamagePerIncrement": 1,
-      "LevelIncrement": 4
+      "LevelIncrement": 6
     }
   },
   "ArmourClass": {
@@ -252,12 +252,12 @@
       "Attack": {
         "StaticRollBonus": 1,
         "RollBonusPerIncrement": 1,
-        "LevelIncrement": 4
+        "LevelIncrement": 8
       },
       "SavingThrow": {
         "StaticRollBonus": 1,
         "RollBonusPerIncrement": 1,
-        "LevelIncrement": 4
+        "LevelIncrement": 8
       }
     }
   }

@@ -31,7 +31,7 @@ data "Passives" "CX_Spells_L1;CX_Spells_L1C;AttackOfOpportunity"
 new entry "CHA_BanditInterior_Human_Melee"
 type "Character"
 using "CHA_BanditInterior_Human_Melee"
-data "Passives" "CX_Fighter_Boost;AttackOfOpportunity"
+data "Passives" "CX_Rogue_Boost;AttackOfOpportunity"
 
 new entry "CHA_BanditInterior_Human_Ranger"
 type "Character"
