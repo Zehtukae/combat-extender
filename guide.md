@@ -62,6 +62,8 @@ NOTE: You can only save the file directly using Chrome or Edge. Firefox will dow
 
 ![bg3mm](./Source/Guide/vscode-error.png)
 
-16. [Here is an easier to use version of the default configuration](Source/CombatExtender.json). You can replace `CombatExtender.json` with this file.
+16. You can edit this configuration while the game is running. Reloading a quick save will apply the new settings!
 
-17. Done! For questions here's the [Combat Extender thread on the Official Larian Discord](https://discord.com/channels/98922182746329088/1186718074875957298), you can also use the posts section of Nexus Mods.
+17. [Here is an easier to use version](Source/CombatExtender.json) of the default configuration. You can replace `CombatExtender.json` with this file.
+
+18. Done! For questions here's the [Combat Extender thread on the Official Larian Discord](https://discord.com/channels/98922182746329088/1186718074875957298), you can also use the posts section of Nexus Mods.
