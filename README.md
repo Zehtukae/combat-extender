@@ -3,6 +3,11 @@ Adds extra abilities, spells and other buffs to enemies with easy user configura
 
 Nexus: https://www.nexusmods.com/baldursgate3/mods/5207
 
+
+## Setup guide
+[Click here](guide.md)
+
+
 ## What does it do?
 It [tags enemies](Source/Character.txt) based on archetypes using an override method. In turn these tags are used to dynamically add extra abilities, spells or passives. Besides tagged enemies it applies global boosts in the form of additional hitpoints, movement range or (bonus) actions.
 
