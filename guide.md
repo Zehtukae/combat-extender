@@ -31,7 +31,7 @@ Highlighted is the mod file: `CombatExtender.pak`
 
 ![bg3mm](./Source/Guide/refresh.png)
 
-The mod will now be visible on the left hand side.
+The mod will now be visible on the right hand side, drag it to the left as shown in the picture below.
 
 ![bg3mm](./Source/Guide/mod-manager-complete.png)
 
