@@ -179,7 +179,7 @@
       "LevelIncrement": 4
     },
     "Enemies": {
-      "StaticBoost": 1,
+      "StaticBoost": 0,
       "BoostPerIncrement": 1,
       "LevelIncrement": 4
     }
@@ -200,7 +200,7 @@
   "AbilityPoints": {
     "Allies": {},
     "Bosses": {
-      "Additional": 1
+      "Additional": 2
     },
     "Enemies": {
       "Additional": 1
