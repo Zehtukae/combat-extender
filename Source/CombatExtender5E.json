@@ -168,7 +168,7 @@
     "Enemies": {
       "StaticDamageBoost": 1,
       "DamagePerIncrement": 1,
-      "LevelIncrement": 4
+      "LevelIncrement": 6
     }
   },
   "ArmourClass": {
@@ -179,7 +179,7 @@
       "LevelIncrement": 4
     },
     "Enemies": {
-      "StaticBoost": 1,
+      "StaticBoost": 0,
       "BoostPerIncrement": 1,
       "LevelIncrement": 4
     }
@@ -200,7 +200,7 @@
   "AbilityPoints": {
     "Allies": {},
     "Bosses": {
-      "Additional": 1
+      "Additional": 2
     },
     "Enemies": {
       "Additional": 1
@@ -252,12 +252,12 @@
       "Attack": {
         "StaticRollBonus": 1,
         "RollBonusPerIncrement": 1,
-        "LevelIncrement": 4
+        "LevelIncrement": 8
       },
       "SavingThrow": {
         "StaticRollBonus": 1,
         "RollBonusPerIncrement": 1,
-        "LevelIncrement": 4
+        "LevelIncrement": 8
       }
     }
   }
