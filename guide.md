@@ -50,6 +50,8 @@ The mod will now be visible on the right hand side, drag it to the left as shown
 
 13. This is the Script Extender folder which contains the configuration file `CombatExtender.json`.
 
+NOTE: If you want to replace this configuration with a pre-made one, this is the time to do that.
+
 ![bg3mm](./Source/Guide/json.png)
 
 14. You can edit your configuration in a browser using [Visual Studio Code](https://vscode.dev/)
