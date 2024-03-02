@@ -50,7 +50,7 @@ The mod will now be visible on the right hand side, drag it to the left as shown
 
 13. This is the Script Extender folder which contains the configuration file `CombatExtender.json`.
 
-NOTE: If you want to replace this configuration with a pre-made one, this is the time to do that. Make sure to override the existing `CombatExtender.json`!
+NOTE: If you want to replace this configuration with a premade one, this is the time to do that. Make sure to override the existing `CombatExtender.json`!
 
 ![bg3mm](./Source/Guide/json.png)
 
