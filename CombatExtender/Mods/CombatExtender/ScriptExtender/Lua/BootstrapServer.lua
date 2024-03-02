@@ -139,7 +139,8 @@ local function OnSessionLoaded()
         "S_Player_Laezel_58a69333-40bf-8358-1d17-fff240d7fb12",
         "S_Player_Minsc_0de603c5-42e2-4811-9dad-f652de080eba",
         "S_Player_ShadowHeart_3ed74f06-3c60-42dc-83f6-f034cb47c679",
-        "S_Player_Wyll_c774d764-4a17-48dc-b470-32ace9ce447d"
+        "S_Player_Wyll_c774d764-4a17-48dc-b470-32ace9ce447d",
+        "S_DEN_ScoutCaptive_f5b5819f-1636-4f2e-82bb-709522cc399f"
     }
 
     Bosses= {
