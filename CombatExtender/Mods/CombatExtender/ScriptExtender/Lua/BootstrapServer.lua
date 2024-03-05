@@ -1,5 +1,6 @@
 local function OnSessionLoaded()
-    print("Combat Extender")
+    modTable = Ext.Mod.GetMod("0c692104-c83f-48b8-9fcd-ca7e33be5098")
+    print(string.format("Combat Extender v%s.%s.%s", modTable["Info"]["ModVersion"][1], modTable["Info"]["ModVersion"][2], modTable["Info"]["ModVersion"][3]))
 
     -- Define global variables
     Act = 1
@@ -13,6 +14,8 @@ local function OnSessionLoaded()
     EntityHealth = {}
     EntityHealthAdjustment = {}
     EntityResetState = {}
+    PersistentVars = Mods["CombatExtender"].PersistentVars or {}
+    PersistentVars["baseLevel"] = PersistentVars["baseLevel"] or {}
 
     function printTableAddress(t)
         for k, v in pairs(t) do
@@ -195,6 +198,17 @@ local function OnSessionLoaded()
         return false
     end
 
+    function GetPartyLevel()
+        local highestLevel = GetLevel(Osi.GetHostCharacter())
+        for member, _ in pairs(Party) do
+            local memberLevel = GetLevel(member)
+            if memberLevel > highestLevel then
+                highestLevel = memberLevel
+            end
+        end
+        return highestLevel
+    end
+
     function IsTargetAnEnemy(guid)
         for partyMemberGuid, _ in pairs(Party) do
             if IsEnemy(guid, partyMemberGuid) == 1 then
@@ -233,28 +247,28 @@ local function OnSessionLoaded()
     end
 
     function GiveHPIncrease(guid, SkipCheck)
-        local healthConfig
-
+        local healthConfig = configTable["Health"]["Enemies"]
         if IsTargetABoss(guid) == 1 then
             healthConfig = configTable["Health"]["Bosses"]
-        elseif SkipCheck then
-            healthConfig = configTable["Health"]["Enemies"]
-            if next(configTable["Health"]["Allies"]) ~= nil then
-                healthConfig = configTable["Health"]["Allies"]
-            end
+        elseif SkipCheck and next(configTable["Health"]["Allies"]) ~= nil then
+            healthConfig = configTable["Health"]["Allies"]
         elseif IsTargetAnEnemy(guid) == 0 then
             if next(configTable["Health"]["Allies"]) == nil then
                 return
             else
                 healthConfig = configTable["Health"]["Allies"]
             end
-        elseif IsTargetAnEnemy(guid) == 1 then
-            healthConfig = configTable["Health"]["Enemies"]
         end
 
         local healthMultiplier = tonumber(healthConfig["HealthMultiplier"])
 
-        if healthMultiplier == 1 then -- Check if the configuration is enabled for this type of character as 1 equals no change
+        -- Check if the configuration is enabled for this type of character as 0 equals level-based scaling
+        if healthMultiplier == 0 then
+            local playerLevel = GetPartyLevel()
+            local staticBoost = tonumber(healthConfig["StaticBoost"])
+            local healthPerLevel = tonumber(healthConfig["HealthPerLevel"])
+            healthMultiplier = 1 + staticBoost + healthPerLevel * playerLevel
+        elseif healthMultiplier == 1 then -- Check if the configuration is enabled for this type of character as 1 equals no change
             return
         end
 
@@ -374,7 +388,7 @@ local function OnSessionLoaded()
                 if EntityResetState[guid] then
                     return
                 else
-                    print(string.format("DEBUG: Resetting Target: %s, Name: %s, currentMaxHealth: %s, desired: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+                    print(string.format("DEBUG: Resetting: %s, Name: %s, currentMaxHealth: %s, desired: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
                     AddBoosts(guid, "IncreaseMaxHP(0)", "reset", "1")
                     EntityResetState[guid] = true
                     return
@@ -382,7 +396,7 @@ local function OnSessionLoaded()
             end
 
             AddBoosts(guid, hpBoost, "combatextender", "1")
-            print(string.format("DEBUG: Boosting Target: %s, Name: %s, currentMaxHealth: %s, desired: %s", guid, handle, currentMaxHealth, desiredMaxHealth))
+            print(string.format("DEBUG: Boosting: %s, Name: %s, currentMaxHealth: %s, desired: %s, x: %s", guid, handle, currentMaxHealth, desiredMaxHealth, healthMultiplier))
         else
             -- Check if there is a mismatch between the current and recalculated maximum health
             if currentMaxHealth ~= desiredMaxHealth and IsDead(guid) == 0 then
@@ -404,7 +418,7 @@ local function OnSessionLoaded()
                 --RemoveBoosts(guid, boostRemovalString, 0, "combatextender", "1")
 
                 if currentMaxHealth < desiredMaxHealth then
-                    DebugPrint(string.format("DEBUG: Adjusting Target: %s, Name: %s, hpBoost: %s, currentMaxHealth: %s, desired: %s", guid, handle, offset, currentMaxHealth, desiredMaxHealth))
+                    DebugPrint(string.format("DEBUG: Adjusting: %s, Name: %s, hpBoost: %s, currentMaxHealth: %s, desired: %s, x: %s", guid, handle, offset, currentMaxHealth, desiredMaxHealth, healthMultiplier))
                     AddBoosts(guid, "IncreaseMaxHP(" .. offset .. ")", "combatextender", "1")
                 end
             --else
@@ -612,7 +626,7 @@ local function OnSessionLoaded()
     -- Spell Save Difficulty Class
     function GiveSpellSaveDCBoost(guid)
         if not configTable.SpellSaveDC or next(configTable["SpellSaveDC"]) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending SpellSaveDC boost function execution.")
+            DebugPrint("DEBUG: Failed to load or parse JSON. Ending SpellSaveDC boost function execution.")
             return
         end
 
@@ -647,7 +661,7 @@ local function OnSessionLoaded()
 
     function GiveAbilityPointBoost(guid)
         if not configTable.AbilityPoints or next(configTable["AbilityPoints"]) == nil then
-            print("DEBUG: Failed to load or parse JSON. Ending AbilityPoint boost function execution.")
+            DebugPrint("DEBUG: Failed to load or parse JSON. Ending AbilityPoint boost function execution.")
             return
         end
 
@@ -813,6 +827,55 @@ local function OnSessionLoaded()
         AddBoosts(guid, damageBonus, "combatextender", "1")
     end
 
+    Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function(character)
+        print(character)
+    end)
+
+    function GiveLevel(guid)
+        if not configTable.Level or next(configTable["Level"]) == nil then
+            DebugPrint("DEBUG: Failed to load or parse JSON. Ending Level function execution.")
+            return
+        end
+
+        local currentAct = Act
+        local entityType = "Characters"
+
+        if IsTargetABoss(guid) == 1 then
+            entityType = "Bosses"
+        end
+
+        -- Attempt to get the configuration for the current act and entity type
+        local actConfig = configTable["Level"][entityType]["Act"][tostring(currentAct)]
+        if not actConfig then
+            DebugPrint(string.format("DEBUG: No Level configuration found for entity %s in act %d", guid, currentAct))
+            return
+        end
+
+        local playerLevel = GetPartyLevel()
+        -- local maxLevel = actConfig["MaxLevel"] or playerLevel
+        local maxLevel = actConfig["MaxLevel"]
+        local offset = actConfig["Offset"] or 0
+        local baseLevel = PersistentVars["baseLevel"][guid] or GetLevel(guid)
+        PersistentVars["baseLevel"][guid] = baseLevel
+        local currentLevel = GetLevel(guid)
+        local desiredLevel = playerLevel + offset
+
+        if desiredLevel > maxLevel then -- Ensure new level does not exceed max level
+            desiredLevel = maxLevel
+        end
+
+        -- Debug print current level before making changes
+        --DebugPrint(string.format("DEBUG: Current level of entity %s is %d", guid, currentLevel))
+
+        -- Check if there's an actual change to be made
+        if desiredLevel > currentLevel then
+            SetLevel(guid, desiredLevel)
+            DebugPrint(string.format("DEBUG: Level of entity %s set to %d", guid, desiredLevel))
+        else
+            --DebugPrint(string.format("DEBUG: No level change for entity %s. Calculated level: %d", guid, desiredLevel))
+        end
+    end
+
     function GetNearbyCharacters(radius)
         local sourceEntity = Ext.Entity.Get(Osi.GetHostCharacter())
         local nearbyCharacters = {}
@@ -845,6 +908,7 @@ local function OnSessionLoaded()
             local guid = character.Name .. "_" .. character.Guid
             if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 then
                 GiveHPIncrease(guid, true)
+                GiveLevel(guid)
             end
         end
     end
@@ -982,7 +1046,7 @@ local function OnSessionLoaded()
     Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(guid, combatid)
         -- Check if configTable is loaded properly
         if not configTable or next(configTable) == nil then
-            print("INFO: Failed to load or parse JSON.")
+            print("ERROR: Failed to load or parse JSON.")
             return
         end
 
