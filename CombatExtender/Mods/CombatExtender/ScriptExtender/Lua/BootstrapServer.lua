@@ -262,7 +262,7 @@ local function OnSessionLoaded()
 
         local healthMultiplier = tonumber(healthConfig["HealthMultiplier"])
 
-        -- Check if the configuration is enabled for this type of character as 0 equals level-based scaling
+        -- 0 equals level-based scaling
         if healthMultiplier == 0 then
             local playerLevel = GetPartyLevel()
             local staticBoost = tonumber(healthConfig["StaticBoost"])
@@ -832,8 +832,35 @@ local function OnSessionLoaded()
     end)
 
     function GiveLevel(guid)
+        local reset = false
+
+        -- Check if "Level" configuration is empty
         if not configTable.Level or next(configTable["Level"]) == nil then
-            DebugPrint("DEBUG: Failed to load or parse JSON. Ending Level function execution.")
+            if configTable.Level == nil then
+                DebugPrint("DEBUG: Failed to load or parse JSON. Ending Level function execution.")
+                return
+            else
+                reset = true
+            end
+        end
+
+        local baseLevel = PersistentVars["baseLevel"][guid] or GetLevel(guid)
+        PersistentVars["baseLevel"][guid] = baseLevel
+
+        if reset then
+            local entity = Ext.Entity.Get(guid)
+            local currentLevel = GetLevel(guid)
+            if currentLevel ~= baseLevel then
+                -- Directly set the AvailableLevel.Level and EocLevel.Level properties
+                entity.AvailableLevel.Level = baseLevel
+                entity.EocLevel.Level = baseLevel
+
+                -- Explicitly replicate changes for AvailableLevel and EocLevel
+                Ext.Entity.Get(guid):Replicate("AvailableLevel")
+                Ext.Entity.Get(guid):Replicate("EocLevel")
+
+                DebugPrint(string.format("DEBUG: Level of entity %s reset to base level %d", guid, baseLevel))
+            end
             return
         end
 
@@ -855,8 +882,6 @@ local function OnSessionLoaded()
         -- local maxLevel = actConfig["MaxLevel"] or playerLevel
         local maxLevel = actConfig["MaxLevel"]
         local offset = actConfig["Offset"] or 0
-        local baseLevel = PersistentVars["baseLevel"][guid] or GetLevel(guid)
-        PersistentVars["baseLevel"][guid] = baseLevel
         local currentLevel = GetLevel(guid)
         local desiredLevel = playerLevel + offset
 
@@ -864,15 +889,10 @@ local function OnSessionLoaded()
             desiredLevel = maxLevel
         end
 
-        -- Debug print current level before making changes
-        --DebugPrint(string.format("DEBUG: Current level of entity %s is %d", guid, currentLevel))
-
         -- Check if there's an actual change to be made
         if desiredLevel > currentLevel then
             SetLevel(guid, desiredLevel)
             DebugPrint(string.format("DEBUG: Level of entity %s set to %d", guid, desiredLevel))
-        else
-            --DebugPrint(string.format("DEBUG: No level change for entity %s. Calculated level: %d", guid, desiredLevel))
         end
     end
 
