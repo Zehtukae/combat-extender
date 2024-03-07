@@ -467,6 +467,21 @@ local function OnSessionLoaded()
                     cumulativeExtraPassives = passive["ExtraPassives"] or {}
                 end
 
+                -- Check for overrides
+                local override = configTable["Overrides"][guid]
+                if override then
+                    if override["Spells"] then
+                        for _, spell in ipairs(override["Spells"]) do
+                            table.insert(cumulativeSpells, spell)
+                        end
+                    end
+                    if override["Passives"] then
+                        for _, extraPassive in ipairs(override["Passives"]) do
+                            table.insert(cumulativeExtraPassives, extraPassive)
+                        end
+                    end
+                end
+
                 -- Process cumulative spells
                 if #cumulativeSpells > 0 then
                     print("DEBUG: Spells to add: " .. table.concat(cumulativeSpells, ", "))
@@ -517,13 +532,23 @@ local function OnSessionLoaded()
                     if config["PassiveName"] == passive then
                         -- Access the "ExtraSpellSlots" key in the config
                         local extraSpellSlots = config["ExtraSpellSlots"]
-                        -- print ("DEBUG: extraSpellSlots: " .. extraSpellSlots)
-
-                        local level = string.sub(passive, -1) -- Extract the level from the passive name
-                        -- print ("DEBUG: Level value: " .. level)
-
-                        local boost = string.format("ActionResource(SpellSlot,%s,%s)", extraSpellSlots, level)
-                        AddBoosts(guid, boost, "combatextender", "1")
+                        -- Check if ExtraSpellSlots is a number or an array
+                        if type(extraSpellSlots) == "number" then
+                            -- Handle the old format (ExtraSpellSlots is a number)
+                            local boost = string.format("ActionResource(SpellSlot,%s,%s)", extraSpellSlots, string.sub(passive, -1))
+                            AddBoosts(guid, boost, "combatextender", "1")
+                        elseif type(extraSpellSlots) == "table" then
+                            -- Handle the new format (ExtraSpellSlots is an array of strings)
+                            for level, slots in ipairs(extraSpellSlots) do
+                                local numSlots = tonumber(slots)
+                                if numSlots > 0 then
+                                    local boost = string.format("ActionResource(SpellSlot,%s,%s)", numSlots, level)
+                                    AddBoosts(guid, boost, "combatextender", "1")
+                                end
+                            end
+                        else
+                            print("DEBUG: ExtraSpellSlots is neither a number nor an array. Skipping passive: " .. passive)
+                        end
                     end
                 end
             end
