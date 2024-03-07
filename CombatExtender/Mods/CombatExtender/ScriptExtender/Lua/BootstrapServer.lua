@@ -852,10 +852,6 @@ local function OnSessionLoaded()
         AddBoosts(guid, damageBonus, "combatextender", "1")
     end
 
-    Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function(character)
-        print(character)
-    end)
-
     function GiveLevel(guid)
         local reset = false
 
