@@ -7,7 +7,7 @@ local function OnSessionLoaded()
     configTable = {}
     CombatNPCS= {}
     CurrentCombat = ""
-    HasPrinted = false
+    HasPrinted = {}
     Loaded = false
     Party = {}
     Entities = {}
@@ -122,10 +122,10 @@ local function OnSessionLoaded()
         configTable = result
 
         -- Print the entire table for debugging only if HasPrinted is false
-        if not HasPrinted and Ext.Debug.IsDeveloperMode() then
+        if not HasPrinted["ConfigTable"] and Ext.Debug.IsDeveloperMode() then
             printTableAddress(configTable)
             printTable(configTable)
-            HasPrinted = true
+            HasPrinted["ConfigTable"] = true
         end
     end
 
@@ -413,10 +413,6 @@ local function OnSessionLoaded()
                     EntityHealthAdjustment[guid] = true -- Mark this guid as having had an adjustment attempt
                 end
 
-                --local boostRemovalString = "IncreaseMaxHP(" .. boostParams .. ")"
-                --DebugPrint(string.format("DEBUG: Target has offset: %s, HitPoints offset: %s, Removal string: %s", guid, offset, boostRemovalString))
-                --RemoveBoosts(guid, boostRemovalString, 0, "combatextender", "1")
-
                 if currentMaxHealth < desiredMaxHealth then
                     DebugPrint(string.format("DEBUG: Adjusting: %s, Name: %s, hpBoost: %s, currentMaxHealth: %s, desired: %s, x: %s", guid, handle, offset, currentMaxHealth, desiredMaxHealth, healthMultiplier))
                     AddBoosts(guid, "IncreaseMaxHP(" .. offset .. ")", "combatextender", "1")
@@ -693,19 +689,30 @@ local function OnSessionLoaded()
         local abilitiesCpp = Ext.Entity.Get(guid).Stats.Abilities
         local spellCastingAbility = Ext.Entity.Get(guid).Stats.SpellCastingAbility
         local abilityNames = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"}
-        local abilityBoostConfig
+        local abilityBoostConfig = configTable["AbilityPoints"]["Enemies"]
 
         -- Determine the entity type and corresponding boost amount from the configuration
         if IsTargetABoss(guid) == 1 then
-            abilityBoostConfig = configTable["AbilityPoints"]["Bosses"]["Additional"]
+            abilityBoostConfig = configTable["AbilityPoints"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
-            if next(configTable["AbilityPoints"]["Allies"]) == nil then
+            abilityBoostConfig = configTable["AbilityPoints"]["Allies"]
+            if next(abilityBoostConfig) == nil then
                 return
-            else
-                abilityBoostConfig = configTable["AbilityPoints"]["Allies"]["Additional"]
             end
-        elseif IsTargetAnEnemy(guid) == 1 then
-            abilityBoostConfig = configTable["AbilityPoints"]["Enemies"]["Additional"]
+        end
+
+        -- Check if the configuration has the new format
+        local staticBoost = tonumber(abilityBoostConfig["StaticBoost"]) or 0
+        local boostPerIncrement = tonumber(abilityBoostConfig["BoostPerIncrement"]) or 0
+        local levelIncrement = tonumber(abilityBoostConfig["LevelIncrement"]) or 0
+
+        -- If all new format values are 0, fall back to the old format
+        if staticBoost == 0 and boostPerIncrement == 0 and levelIncrement == 0 then
+            abilityBoostConfig = abilityBoostConfig["Additional"] or 0
+        else
+            -- Calculate the total boost based on the new format
+            local levelMultiplier = GetLevel(guid)
+            abilityBoostConfig = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
         end
 
         -- Convert C++ array to Lua table, ignoring the first value
@@ -858,7 +865,10 @@ local function OnSessionLoaded()
         -- Check if "Level" configuration is empty
         if not configTable.Level or next(configTable["Level"]) == nil then
             if configTable.Level == nil then
-                DebugPrint("DEBUG: Failed to load or parse JSON. Ending Level function execution.")
+                if not HasPrinted["GiveLevel"] then
+                    DebugPrint("DEBUG: Failed to load or parse JSON. Ending Level function execution.")
+                    HasPrinted["GiveLevel"] = true
+                end
                 return
             else
                 reset = true
@@ -1024,6 +1034,24 @@ local function OnSessionLoaded()
         end
         print(string.format("INFO: Processed %s entities after combat.", count))
     end
+
+    -- Damage Listener
+    Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function (defender, attackerOwner, attacker2, damageType, damageAmount, damageCause, storyActionID)
+        --print(string.format("DEBUG: defender: %s, attackerOwner: %s, attacker2: %s, damageType: %s, damageAmount: %s, damageCause: %s", defender, attackerOwner, attacker2, damageType, tostring(damageAmount), damageCause))
+        if IsCharacter(defender) == 1 then
+            local defenderName = Ext.Loca.GetTranslatedString(Ext.Entity.UuidToHandle(defender).DisplayName.NameKey.Handle.Handle) or "Unknown"
+            local attackerName = Ext.Loca.GetTranslatedString(Ext.Entity.UuidToHandle(attacker2).DisplayName.NameKey.Handle.Handle) or "Unknown"
+            local attackerOwnerName = Ext.Loca.GetTranslatedString(Ext.Entity.UuidToHandle(attackerOwner).DisplayName.NameKey.Handle.Handle) or "Unknown"
+
+            local cause = damageCause or "Unknown Cause"
+            local damageType = damageType or "Unknown Damage Type"
+            local amount = damageAmount or "Unknown Amount"
+
+            -- Determine which attacker name to print
+            local attackerToPrint = (attackerName ~= attackerOwnerName) and attackerOwnerName or attackerName
+            print(string.format("DAMAGE: Defender: %s, Attacker: %s, Type: %s, Damage: %s, Cause: %s", defenderName, attackerToPrint, damageType, tostring(amount), cause))
+        end
+    end)
 
     -- Continuous Listener
     Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
