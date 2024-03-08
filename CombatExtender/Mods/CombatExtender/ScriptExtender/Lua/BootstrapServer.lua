@@ -247,17 +247,23 @@ local function OnSessionLoaded()
     end
 
     function GiveHPIncrease(guid, SkipCheck)
-        local healthConfig = configTable["Health"]["Enemies"]
+        local healthConfig
+
         if IsTargetABoss(guid) == 1 then
             healthConfig = configTable["Health"]["Bosses"]
-        elseif SkipCheck and next(configTable["Health"]["Allies"]) ~= nil then
-            healthConfig = configTable["Health"]["Allies"]
+        elseif SkipCheck then
+            healthConfig = configTable["Health"]["Enemies"]
+            if next(configTable["Health"]["Allies"]) ~= nil then
+                healthConfig = configTable["Health"]["Allies"]
+            end
         elseif IsTargetAnEnemy(guid) == 0 then
             if next(configTable["Health"]["Allies"]) == nil then
                 return
             else
                 healthConfig = configTable["Health"]["Allies"]
             end
+        elseif IsTargetAnEnemy(guid) == 1 then
+            healthConfig = configTable["Health"]["Enemies"]
         end
 
         local healthMultiplier = tonumber(healthConfig["HealthMultiplier"])
@@ -463,17 +469,19 @@ local function OnSessionLoaded()
                     cumulativeExtraPassives = passive["ExtraPassives"] or {}
                 end
 
-                -- Check for overrides
-                local override = configTable["Overrides"][guid]
-                if override then
-                    if override["Spells"] then
-                        for _, spell in ipairs(override["Spells"]) do
-                            table.insert(cumulativeSpells, spell)
+                -- Check if "Overrides" exists and is not empty
+                if configTable.Overrides and next(configTable["Overrides"]) ~= nil then
+                    local override = configTable["Overrides"][guid]
+                    if override then
+                        if override["Spells"] then
+                            for _, spell in ipairs(override["Spells"]) do
+                                table.insert(cumulativeSpells, spell)
+                            end
                         end
-                    end
-                    if override["Passives"] then
-                        for _, extraPassive in ipairs(override["Passives"]) do
-                            table.insert(cumulativeExtraPassives, extraPassive)
+                        if override["Passives"] then
+                            for _, extraPassive in ipairs(override["Passives"]) do
+                                table.insert(cumulativeExtraPassives, extraPassive)
+                            end
                         end
                     end
                 end
