@@ -55,17 +55,18 @@ NOTE: If you want to replace this configuration with a premade one, this is the 
 ![bg3mm](./Source/Guide/json.png)
 
 14. You can edit your configuration in a browser using [Visual Studio Code](https://vscode.dev/)
+15. Here is the [configuration explained](./Source/ConfigurationExplained.json) with comments.
 
 NOTE: You can only save the file directly using Chrome or Edge. Firefox will download the file for you.
 
 ![bg3mm](./Source/Guide/vscode.png)
 
-15. The file is in a JSON format. Visual Studio Code will inform you about errors.
+16. The file is in a JSON format. Visual Studio Code will inform you about errors.
 
 ![bg3mm](./Source/Guide/vscode-error.png)
 
-16. You can edit this configuration while the game is running. Reloading a quick save will apply the new settings!
+17. You can edit this configuration while the game is running. Reloading a quick save will apply the new settings!
 
-17. [Here is an easier to use version](Source/CombatExtender.json) of the default configuration. You can replace `CombatExtender.json` with this file.
+18. [Here is an easier to use version](Source/CombatExtender.json) of the default configuration. You can replace `CombatExtender.json` with this file.
 
-18. Done! For questions here's the [Combat Extender thread on the Official Larian Discord](https://discord.com/channels/98922182746329088/1186718074875957298), you can also use the posts section of Nexus Mods.
+19. Done! For questions here's the [Combat Extender thread on the Official Larian Discord](https://discord.com/channels/98922182746329088/1186718074875957298), you can also use the posts section of Nexus Mods.
