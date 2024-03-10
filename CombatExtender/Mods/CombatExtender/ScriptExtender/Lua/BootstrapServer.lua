@@ -469,23 +469,6 @@ local function OnSessionLoaded()
                     cumulativeExtraPassives = passive["ExtraPassives"] or {}
                 end
 
-                -- Check if "Overrides" exists and is not empty
-                if configTable.Overrides and next(configTable["Overrides"]) ~= nil then
-                    local override = configTable["Overrides"][guid]
-                    if override then
-                        if override["Spells"] then
-                            for _, spell in ipairs(override["Spells"]) do
-                                table.insert(cumulativeSpells, spell)
-                            end
-                        end
-                        if override["Passives"] then
-                            for _, extraPassive in ipairs(override["Passives"]) do
-                                table.insert(cumulativeExtraPassives, extraPassive)
-                            end
-                        end
-                    end
-                end
-
                 -- Process cumulative spells
                 if #cumulativeSpells > 0 then
                     print("DEBUG: Spells to add: " .. table.concat(cumulativeSpells, ", "))
@@ -512,6 +495,36 @@ local function OnSessionLoaded()
                     end
                 else
                     print(string.format("DEBUG: No extra passives for %s. ExtraPassives array is empty.", passive["PassiveName"]))
+                end
+            end
+        end
+    end
+
+    function CheckOverride(guid)
+        -- Check if "Overrides" exists and is not empty
+        if configTable.Overrides and next(configTable["Overrides"]) ~= nil then
+            local override = configTable["Overrides"][guid]
+            if override then
+                if override["Spells"] then
+                    --print("DEBUG: Spells to add: " .. table.concat(override["Spells"], ", "))
+                    for _, spell in ipairs(override["Spells"]) do
+                        if HasSpell(guid, spell) == 0 then
+                            AddBoosts(guid, string.format("UnlockSpell(%s,AddChildren,d136c5d9-0ff0-43da-acce-a74a07f8d6bf,,)", spell), "", "")
+                        else
+                            --print(string.format("DEBUG: Target already has spell %s", spell))
+                        end
+                    end
+                end
+
+                if override["Passives"] then
+                    --print("DEBUG: Passives to add: " .. table.concat(override["Passives"], ", "))
+                    for _, extraPassive in ipairs(override["Passives"]) do
+                        if HasPassive(guid, extraPassive) == 0 then
+                            AddPassive(guid, extraPassive)
+                        else
+                            --print(string.format("DEBUG: Target already has passive %s", extraPassive))
+                        end
+                    end
                 end
             end
         end
@@ -968,6 +981,7 @@ local function OnSessionLoaded()
             if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 then
                 GiveHPIncrease(guid, true)
                 GiveLevel(guid)
+                CheckOverride(guid)
             end
         end
     end
@@ -1153,6 +1167,7 @@ local function OnSessionLoaded()
             end
 
             CheckPassive(guid)
+            CheckOverride(guid)
             GiveSpellSlots(guid)
             GiveHPIncrease(guid, false)
             GiveRollBonus(guid, "Attack")
@@ -1205,6 +1220,7 @@ local function OnSessionLoaded()
                     print(string.format("DEBUG: Ally: %s, Name: %s", guid, character.Handle))
                 end
                 CheckPassive(guid)
+                CheckOverride(guid)
                 GiveSpellSlots(guid)
                 GiveHPIncrease(guid, false)
                 GiveRollBonus(guid, "Attack")
