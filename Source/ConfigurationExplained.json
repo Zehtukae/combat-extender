@@ -1,0 +1,357 @@
+//
+// You cannot use this file as your configuration. It is used to explain how this file and the mod work.
+//
+
+{
+  "Passives": [
+    // This is the primary building block of Combat Extender (CX).
+    // I tag enemies based on their archetypes and then use those tags to configure their abilities, spells and passives.
+    // The tagging was done by hand over a significant amount of time, if you spot a mistake ingame do let me know!
+    // You can add passives, spells and abilities from mods, make sure you load those mods before CX.
+    {
+      "PassiveName": "CX_Barbarian_Boost",
+      // Here we introduce the Act separator, allowing you to configure the difficulty per act.
+      // Act configuration is cumulative, meaning Act 3 = Act 1 + Act 2 + Act 3 pieces of the config.
+      "Act": {
+        "1": {
+          "Spells": ["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"],
+          // Here we just give spells and no additional passives.
+        },
+        "2": {
+          "ExtraPassives": ["MindlessRage","FeralInstinct"],
+          // And here we do the opposite.
+        },
+        "3": {
+          "ExtraPassives": ["BrutalCritical","RelentlessRage"]
+        }
+      }
+    },
+    {
+      "PassiveName": "CX_Cleric_Boost",
+      "Act": {
+        "1": {
+          "Spells": ["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]
+        },
+        "2": {
+          "Spells": ["Shout_SpiritGuardians"],
+          "ExtraPassives": ["PotentSpellcasting"]
+        },
+        "3": {
+          "Spells": ["Target_FlameStrike","Target_Contagion"]
+        }
+      }
+    },
+    {
+      "PassiveName": "CX_Fighter_Boost",
+      "Act": {
+        "1": {
+          "Spells": ["Target_DistractingStrike","Target_PushingAttack","Target_FeintingAttack"],
+          "ExtraPassives": ["Riposte","FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]
+        },
+        // Notice how there is no entry for Act 2. This is supported as the configuration is cumulative.
+        "3": {
+          "Spells": ["Zone_SweepingAttack"],
+          "ExtraPassives": ["Indomitable","ImprovedCombatSuperiority"]
+        }
+      }
+    },
+    {
+      "PassiveName": "CX_Monk_Boost",
+      "Act": {
+        "3": {
+          "Spells": ["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"]
+        }
+      }
+    },
+    {
+      "PassiveName": "CX_Paladin_Boost",
+      "Act": {
+        "1": {
+          "Spells": ["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],
+          "ExtraPassives": ["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]
+        },
+        "3": {
+          "Spells": ["Target_Smite_Blinding"],
+          "ExtraPassives": ["ImprovedDivineSmite"]
+        }
+      }
+    },
+    {
+      "PassiveName": "CX_Ranger_Boost",
+      "Act": {
+        "1": {
+          "Spells": ["Target_HuntersMark","Projectile_HailOfThorns"],
+          "ExtraPassives": ["FightingStyle_Archery"]
+        },
+        "2": {
+          "Spells": ["Target_Silence"],
+          "ExtraPassives": ["MultiattackDefense"]
+        },
+        "3": {
+          "Spells": ["Shout_HideInPlainSight","Target_Volley","Shout_Whirlwind"]
+        }
+      }
+    },
+    // If at this point you are wondering, where are the missing classes? The answer is that they are very rare ingame.
+    // Basically every spell caster is a wizard, and there's only a handful of Sorcerers, which include characters like Mizora.
+    // Generally speaking because they are so rare they already have all the abilities and spells they should have.
+    {
+      "PassiveName": "CX_Rogue_Boost",
+      "Act": {
+        "1": {
+          "Spells": ["Projectile_SneakAttack","Target_SneakAttack"],
+          "ExtraPassives": ["UncannyDodge"]
+        },
+        "2": {
+          "ExtraPassives": ["Evasion"]
+        },
+        "3": {
+          "ExtraPassives": ["ReliableTalent"]
+        }
+      }
+    },
+    // These passives were assigned during the manual tagging process following vanilla rules.
+    // This means you will never see level 5 (CX_Spells_L5) in Act 1.
+    {
+      "PassiveName": "CX_Spells_L1",
+      "Spells": ["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave","Projectile_ChromaticOrb"],
+      // The line below indicates how many spell slots and of what level should be granted.
+      // From left to right is level 1, 2, 3, 4, 5, 6
+      // So in this case if a character has CX_Spells_L1 they only get one additional level 1 spell slot.
+      "ExtraSpellSlots": ["1","0","0","0","0","0"]
+    },
+    {
+      "PassiveName": "CX_Spells_L2",
+      "Spells": ["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],
+      "ExtraSpellSlots": ["0","1","0","0","0","0"]
+    },
+    {
+      "PassiveName": "CX_Spells_L3",
+      "Spells": ["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],
+      "ExtraSpellSlots": ["0","0","1","0","0","0"]
+    },
+    {
+      "PassiveName": "CX_Spells_L4",
+      "Spells": ["Target_Blight","Target_IceStorm"],
+      "ExtraSpellSlots": ["0","0","0","1","0","0"]
+    },
+    {
+      "PassiveName": "CX_Spells_L5",
+      "Spells": ["Target_Cloudkill","Zone_ConeOfCold"],
+      "ExtraSpellSlots": ["0","0","0","0","1","0"]
+    },
+    {
+      "PassiveName": "CX_Spells_L6",
+      "Spells": ["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],
+      "ExtraSpellSlots": ["0","0","0","0","0","1"]
+    },
+    // These are the crowd control (CC) variation of the regular spell passives.
+    // Due to the massive impact CC spells have on balance not every spell caster will have them.
+    {
+      "PassiveName": "CX_Spells_L1C",
+      "Spells": ["Target_FogCloud","Target_Grease"]
+    },
+    {
+      "PassiveName": "CX_Spells_L2C",
+      "Spells": ["Target_HoldPerson","Target_Silence"]
+    },
+    {
+      "PassiveName": "CX_Spells_L3C",
+      "Spells": ["Target_HypnoticPattern","Zone_Fear"]
+    },
+    {
+      "PassiveName": "CX_Spells_L4C",
+      "Spells": ["Target_Banishment"]
+    },
+    {
+      "PassiveName": "CX_Spells_L5C",
+      "Spells": ["Throw_Telekinesis","Target_DominatePerson"]
+    },
+    {
+      "PassiveName": "CX_Spells_L6C",
+      "Spells": ["Target_FleshToStone"]
+    }
+  ],
+  // This is the level scaling part, this is not in the vanilla configuration, and it will never be.
+  // The calculation is: take player level, apply (optional) offset, if the value is under or equal to max value, set target to this level
+  // Max means max, targets will never get leveled beyond this value. Nobody will ever get down leveled unless you run the reset configuration.
+  // The original levels of targets are stored in your save file. The reset configuration is as follows: "Level": {}
+  // This will return all targets back to their original level.
+  // We do not differentiate between allies or enemies here, levels are just a number in this game for NPCs.
+  // If your configuration is similar to the default one and doesn't give any stats boosts to allies like the end result is identical.
+  "Level": {
+    "Characters": {
+      "Act": {
+        "1": {
+          "MaxLevel": 6,
+          "Offset": 1
+        },
+        "2": {
+          "MaxLevel": 9,
+          "Offset": 2
+        },
+        "3": {
+          "MaxLevel": 12,
+          "Offset": 2
+        }
+      }
+    },
+    "Bosses": {
+      "Act": {
+        "1": {
+          "MaxLevel": 10,
+          "Offset": 2
+        },
+        "2": {
+          "MaxLevel": 12,
+          "Offset": 2
+        },
+        "3": {
+          "MaxLevel": 14,
+          "Offset": 2
+        }
+      }
+    }
+  },
+  // This is the health scaling part. If you want enemies to scale based on the level of the player use that.
+  // "HealthMultiplier" has to be 0 to activate scaling based on player level.
+  //
+  // If you want static multipliers, simply use:
+  //     "Enemies": {
+  //      "HealthMultiplier": 2
+  //    }
+  //
+  // Check the pinned post for how to calculate the curve.
+  "Health": {
+    "Allies": {},
+    "Bosses": {
+      "HealthMultiplier": 0,
+      "StaticBoost": 0.1,
+      "HealthPerLevel": 0.020
+    },
+    "Enemies": {
+      "HealthMultiplier": 0,
+      "StaticBoost": 0.1,
+      "HealthPerLevel": 0.010
+    }
+  },
+  // The blocks here follow a similar structure
+  // Here is the calculation: totalBoost = staticBoost + boostPerIncrement * math.floor(targetLevel / levelIncrement)
+  // The floor value of a number is the value that is rounded to the closest integer less than or equal to that integer
+  // Example with a level 5 target: totalBoost = 1 + 1 * (5 / 4) = 2
+  "Damage": {
+    "Allies": {},
+    "Bosses": {
+      "StaticDamageBoost": 1,
+      "DamagePerIncrement": 1,
+      "LevelIncrement": 4
+    },
+    "Enemies": {
+      "StaticDamageBoost": 1,
+      "DamagePerIncrement": 1,
+      "LevelIncrement": 6
+    }
+  },
+  "ArmourClass": {
+    "Allies": {},
+    "Bosses": {
+      "StaticBoost": 1,
+      "BoostPerIncrement": 1,
+      "LevelIncrement": 4
+    },
+    "Enemies": {
+      "StaticBoost": 0,
+      "BoostPerIncrement": 1,
+      "LevelIncrement": 4
+    }
+  },
+  "SpellSaveDC": {
+    "Allies": {},
+    "Bosses": {
+      "StaticBoost": 1,
+      "BoostPerIncrement": 1,
+      "LevelIncrement": 8
+    },
+    "Enemies": {
+      "StaticBoost": 1,
+      "BoostPerIncrement": 1,
+      "LevelIncrement": 8
+    }
+  },
+  // I sort enemy abilities by value to find the top 2, and check if SpellCastingAbility is one of those.
+  // If SpellCastingAbility is not among the top 2, I add it to the list of abilities to boost.
+  // In most situations you will see 2 abilities being boosted, but sometimes 3.
+  // Furthermore I ensure the final ability value is an even number, rounded up from what it would have been.
+  "AbilityPoints": {
+    "Allies": {},
+    "Bosses": {
+      "StaticBoost": 1,
+      "BoostPerIncrement": 1,
+      "LevelIncrement": 4
+    },
+    "Enemies": {
+      "StaticBoost": 1,
+      "BoostPerIncrement": 1,
+      "LevelIncrement": 6
+    }
+  },
+  // Movement is in meters.
+  "Movement": {
+    "Allies": {},
+    "Bosses": {
+      "StaticBoost": 3
+    },
+    "Enemies": {
+      "StaticBoost": 1
+    }
+  },
+  // 1 means give the target an additional (bonus) action
+  "ExtraAction": {
+    "Allies": {},
+    "Bosses": {
+      "Action": {
+        "Additional": 0
+      },
+      "BonusAction": {
+        "Additional": 0
+      }
+    },
+    "Enemies": {
+      "Action": {
+        "Additional": 0
+      },
+      "BonusAction": {
+        "Additional": 1
+      }
+    }
+  },
+  "Rolls": {
+    "Allies": {},
+    "Bosses": {
+      "Attack": {
+        "StaticRollBonus": 1,
+        "RollBonusPerIncrement": 1,
+        "LevelIncrement": 4
+      },
+      // This applies to any saving throw. Use this to increase the floor.
+      // However primarily use AbilityPoints boosts to keep targets unique.
+      "SavingThrow": {
+        "StaticRollBonus": 1,
+        "RollBonusPerIncrement": 1,
+        "LevelIncrement": 4
+      }
+    },
+    "Enemies": {
+      "Attack": {
+        "StaticRollBonus": 1,
+        "RollBonusPerIncrement": 1,
+        "LevelIncrement": 8
+      },
+      "SavingThrow": {
+        "StaticRollBonus": 1,
+        "RollBonusPerIncrement": 1,
+        "LevelIncrement": 8
+      }
+    }
+  }
+}
