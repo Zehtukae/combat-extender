@@ -77,7 +77,7 @@ MULTIPLIER_PLANNED_ACTION_WITH_MOVE_SPELL		1.50 // Used to boost the score of th
 MULTIPLIER_ACTION_RESOURCE_COST					0.01
 
 // multiplier for how much characters want to interact with things like Exploding barrels
-MULTIPLIER_USABLE_ITEM							1.00
+MULTIPLIER_USABLE_ITEM							1.20
 
 // 0.0 here means AI will not avoid AoO
 ENABLE_MOVEMENT_AVOID_AOO						1.00
