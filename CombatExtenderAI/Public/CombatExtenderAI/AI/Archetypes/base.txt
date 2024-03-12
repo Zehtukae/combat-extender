@@ -295,7 +295,7 @@ ENABLE_SAVING_ACTION_POINTS						1
 // Normal ranges are between 0 and 1 inclusive:
 // - 0 being the AI doesn't care if a character has shield block
 // - 1 being the AI cares a normalised amount about a character with shield block
-MULTIPLIER_SHIELD_BLOCK							1.5
+MULTIPLIER_SHIELD_BLOCK							1.0
 
 // A general multiplier for all reflected damage
 MULTIPLIER_REFLECT_DAMAGE						0.25
@@ -396,7 +396,7 @@ MULTIPLIER_BOOST_BLOCK_SOMATIC_COMPONENT 0.125
 MULTIPLIER_MOVEMENT_SURFACE 1.0
 
 // Modifier used to make AI over estimate its chances of hitting their target
-MODIFIER_HIT_CHANCE_STUPIDITY 0.6
+MODIFIER_HIT_CHANCE_STUPIDITY 0.7
 
 //////////////////////////////////////////////////////////////////////////
 // RollBonus MULTIPLIERS
@@ -468,9 +468,9 @@ USE_ITEM_MODIFIER_NO_VISIBILITY			1.0
 // Concentration modifiers
 
 // Modifier used to change the score of removing the AI's own concentration
-MODIFIER_CONCENTRATION_REMOVE_SELF 						8.0
+MODIFIER_CONCENTRATION_REMOVE_SELF 						12.0
 // Modifier used to change the score of removing a target's concentration (other than itself) 
-MODIFIER_CONCENTRATION_REMOVE_TARGET 					0.1
+MODIFIER_CONCENTRATION_REMOVE_TARGET 					0.0
 
 // Used to adjust score when throw spell affects only self
 MULTIPLIER_SELF_ONLY_THROW				0.8
