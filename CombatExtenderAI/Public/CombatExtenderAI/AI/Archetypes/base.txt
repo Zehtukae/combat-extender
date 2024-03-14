@@ -468,7 +468,7 @@ USE_ITEM_MODIFIER_NO_VISIBILITY			1.0
 // Concentration modifiers
 
 // Modifier used to change the score of removing the AI's own concentration
-MODIFIER_CONCENTRATION_REMOVE_SELF 						12.0
+MODIFIER_CONCENTRATION_REMOVE_SELF 						10.0
 // Modifier used to change the score of removing a target's concentration (other than itself) 
 MODIFIER_CONCENTRATION_REMOVE_TARGET 					0.0
 
