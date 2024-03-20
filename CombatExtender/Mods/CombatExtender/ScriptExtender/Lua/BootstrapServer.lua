@@ -199,10 +199,11 @@ local function OnSessionLoaded()
     end
 
     function GetPartyLevel()
-        local highestLevel = GetLevel(Osi.GetHostCharacter())
+        local hostCharacter = Osi.GetHostCharacter()
+        local highestLevel = hostCharacter and GetLevel(hostCharacter) or 0
         for member, _ in pairs(Party) do
             local memberLevel = GetLevel(member)
-            if memberLevel > highestLevel then
+            if memberLevel and memberLevel > highestLevel then
                 highestLevel = memberLevel
             end
         end
