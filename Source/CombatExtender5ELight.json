@@ -71,7 +71,7 @@
           "ExtraPassives": ["FightingStyle_Archery"]
         },
         "2": {
-          "Spells": ["Target_Silence"],
+          "Spells": ["Target_MistyStep"],
           "ExtraPassives": ["MultiattackDefense"]
         },
         "3": {

@@ -4,7 +4,7 @@ local function OnSessionLoaded()
 
     -- Define global variables
     Act = 1
-    configTable = {}
+    ConfigTable = {}
     CombatNPCS= {}
     CurrentCombat = ""
     HasPrinted = {}
@@ -79,7 +79,7 @@ local function OnSessionLoaded()
 
     function writeDefaultConfig()
         -- Define the default configuration
-        local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Act":{"1":{"Spells":["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"]},"2":{"ExtraPassives":["MindlessRage","FeralInstinct"]},"3":{"ExtraPassives":["BrutalCritical","RelentlessRage"]}}},{"PassiveName":"CX_Cleric_Boost","Act":{"1":{"Spells":["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]},"2":{"Spells":["Shout_SpiritGuardians"],"ExtraPassives":["PotentSpellcasting"]},"3":{"Spells":["Target_FlameStrike","Target_Contagion"]}}},{"PassiveName":"CX_Fighter_Boost","Act":{"1":{"Spells":["Target_DistractingStrike","Target_PushingAttack","Target_FeintingAttack"],"ExtraPassives":["Riposte","FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},"3":{"Spells":["Zone_SweepingAttack"],"ExtraPassives":["Indomitable","ImprovedCombatSuperiority"]}}},{"PassiveName":"CX_Monk_Boost","Act":{"3":{"Spells":["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"]}}},{"PassiveName":"CX_Paladin_Boost","Act":{"1":{"Spells":["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},"3":{"Spells":["Target_Smite_Blinding"],"ExtraPassives":["ImprovedDivineSmite"]}}},{"PassiveName":"CX_Ranger_Boost","Act":{"1":{"Spells":["Target_HuntersMark","Projectile_HailOfThorns"],"ExtraPassives":["FightingStyle_Archery"]},"2":{"Spells":["Target_Silence"],"ExtraPassives":["MultiattackDefense"]},"3":{"Spells":["Shout_HideInPlainSight","Target_Volley","Shout_Whirlwind"]}}},{"PassiveName":"CX_Rogue_Boost","Act":{"1":{"Spells":["Projectile_SneakAttack","Target_SneakAttack"],"ExtraPassives":["UncannyDodge"]},"2":{"ExtraPassives":["Evasion"]},"3":{"ExtraPassives":["ReliableTalent"]}}},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave","Projectile_ChromaticOrb"],"ExtraSpellSlots":["1","0","0","0","0","0"]},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":["0","1","0","0","0","0"]},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":["0","0","1","0","0","0"]},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":["0","0","0","1","0","0"]},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":["0","0","0","0","1","0"]},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":["0","0","0","0","0","1"]},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Health":{"Allies":{},"Bosses":{"HealthMultiplier":0,"StaticBoost":0.1,"HealthPerLevel":0.02},"Enemies":{"HealthMultiplier":0,"StaticBoost":0.1,"HealthPerLevel":0.01}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":6}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":0,"BoostPerIncrement":1,"LevelIncrement":4}},"SpellSaveDC":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8}},"AbilityPoints":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":6}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":1}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":8},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":8}}}}'
+        local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Act":{"1":{"Spells":["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"]},"2":{"ExtraPassives":["MindlessRage","FeralInstinct"]},"3":{"ExtraPassives":["BrutalCritical","RelentlessRage"]}}},{"PassiveName":"CX_Cleric_Boost","Act":{"1":{"Spells":["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]},"2":{"Spells":["Shout_SpiritGuardians"],"ExtraPassives":["PotentSpellcasting"]},"3":{"Spells":["Target_FlameStrike","Target_Contagion"]}}},{"PassiveName":"CX_Fighter_Boost","Act":{"1":{"Spells":["Target_DistractingStrike","Target_PushingAttack","Target_FeintingAttack"],"ExtraPassives":["Riposte","FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},"3":{"Spells":["Zone_SweepingAttack"],"ExtraPassives":["Indomitable","ImprovedCombatSuperiority"]}}},{"PassiveName":"CX_Monk_Boost","Act":{"3":{"Spells":["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"]}}},{"PassiveName":"CX_Paladin_Boost","Act":{"1":{"Spells":["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},"3":{"Spells":["Target_Smite_Blinding"],"ExtraPassives":["ImprovedDivineSmite"]}}},{"PassiveName":"CX_Ranger_Boost","Act":{"1":{"Spells":["Target_HuntersMark","Projectile_HailOfThorns"],"ExtraPassives":["FightingStyle_Archery"]},"2":{"Spells":["Target_MistyStep"],"ExtraPassives":["MultiattackDefense"]},"3":{"Spells":["Shout_HideInPlainSight","Target_Volley","Shout_Whirlwind"]}}},{"PassiveName":"CX_Rogue_Boost","Act":{"1":{"Spells":["Projectile_SneakAttack","Target_SneakAttack"],"ExtraPassives":["UncannyDodge"]},"2":{"ExtraPassives":["Evasion"]},"3":{"ExtraPassives":["ReliableTalent"]}}},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave","Projectile_ChromaticOrb"],"ExtraSpellSlots":["1","0","0","0","0","0"]},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":["0","1","0","0","0","0"]},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":["0","0","1","0","0","0"]},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":["0","0","0","1","0","0"]},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":["0","0","0","0","1","0"]},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":["0","0","0","0","0","1"]},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Health":{"Allies":{},"Bosses":{"HealthMultiplier":0,"StaticBoost":0.1,"HealthPerLevel":0.02},"Enemies":{"HealthMultiplier":0,"StaticBoost":0.1,"HealthPerLevel":0.01}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":6}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":0,"BoostPerIncrement":1,"LevelIncrement":4}},"SpellSaveDC":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8}},"AbilityPoints":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":6}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":1}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":8},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":8}}}}'
 
         -- Beautify the JSON string
         local defaultConfig = beautifyJson(defaultConfigRaw)
@@ -118,18 +118,18 @@ local function OnSessionLoaded()
             return nil
         end
 
-        -- Assign the result to the global configTable
-        configTable = result
+        -- Assign the result to the global ConfigTable
+        ConfigTable = result
 
         -- Print the entire table for debugging only if HasPrinted is false
         if not HasPrinted["ConfigTable"] and Ext.Debug.IsDeveloperMode() then
-            printTableAddress(configTable)
-            printTable(configTable)
+            printTableAddress(ConfigTable)
+            printTable(ConfigTable)
             HasPrinted["ConfigTable"] = true
         end
     end
 
-    -- Call the readJsonFile function to read the JSON file and store the returned table in configTable
+    -- Call the readJsonFile function to read the JSON file and store the returned table in ConfigTable
     readJsonFile()
 
     ExcludedCharacters= {
@@ -149,8 +149,11 @@ local function OnSessionLoaded()
     Bosses= {
         "S_CRE_CrecheCaptain_5093da9b-237a-491f-9402-4f9da73c1565",
         "S_MOO_PrisonWarden_66b3e4c0-2f82-4c0a-9333-73a5194f88c7",
+        "S_LOW_Lorroakan_a9d4b71d-b0ef-429e-8210-6dc8be986ee9",
         "S_GLO_Cazador_2f1880e6-1297-4ca3-a79c-9fabc7f179d3",
-        "S_GLO_Gortash_b878a854-f790-4999-95c4-3f20f00f65ac"
+        "S_GLO_Gortash_b878a854-f790-4999-95c4-3f20f00f65ac",
+        "S_LOW_Viconia_b1ea974d-96fb-47ca-b6d9-9c85fcb69313",
+        "S_GLO_Monitor_f65becd6-5cd7-4c88-b85e-6dd06b60f7b8"
     }
 
     function CheckIfExcluded(guid)
@@ -251,20 +254,20 @@ local function OnSessionLoaded()
         local healthConfig
 
         if IsTargetABoss(guid) == 1 then
-            healthConfig = configTable["Health"]["Bosses"]
+            healthConfig = ConfigTable["Health"]["Bosses"]
         elseif SkipCheck then
-            healthConfig = configTable["Health"]["Enemies"]
-            if next(configTable["Health"]["Allies"]) ~= nil then
-                healthConfig = configTable["Health"]["Allies"]
+            healthConfig = ConfigTable["Health"]["Enemies"]
+            if next(ConfigTable["Health"]["Allies"]) ~= nil then
+                healthConfig = ConfigTable["Health"]["Allies"]
             end
         elseif IsTargetAnEnemy(guid) == 0 then
-            if next(configTable["Health"]["Allies"]) == nil then
+            if next(ConfigTable["Health"]["Allies"]) == nil then
                 return
             else
-                healthConfig = configTable["Health"]["Allies"]
+                healthConfig = ConfigTable["Health"]["Allies"]
             end
         elseif IsTargetAnEnemy(guid) == 1 then
-            healthConfig = configTable["Health"]["Enemies"]
+            healthConfig = ConfigTable["Health"]["Enemies"]
         end
 
         local healthMultiplier = tonumber(healthConfig["HealthMultiplier"])
@@ -437,7 +440,7 @@ local function OnSessionLoaded()
         local currentAct = Act
 
         -- Iterate over the passives
-        for _, passive in ipairs(configTable["Passives"]) do
+        for _, passive in ipairs(ConfigTable["Passives"]) do
             -- Check if the target has the current passive
             if HasPassive(guid, passive["PassiveName"]) == 1 then
                 print(string.format("DEBUG: Target has %s", passive["PassiveName"]))
@@ -503,8 +506,8 @@ local function OnSessionLoaded()
 
     function CheckOverride(guid)
         -- Check if "Overrides" exists and is not empty
-        if configTable.Overrides and next(configTable["Overrides"]) ~= nil then
-            local override = configTable["Overrides"][guid]
+        if ConfigTable.Overrides and next(ConfigTable["Overrides"]) ~= nil then
+            local override = ConfigTable["Overrides"][guid]
             if override then
                 if override["Spells"] then
                     --print("DEBUG: Spells to add: " .. table.concat(override["Spells"], ", "))
@@ -532,7 +535,7 @@ local function OnSessionLoaded()
     end
 
     function GiveSpellSlots(guid)
-        if not configTable.Passives or next(configTable["Passives"]) == nil then -- Check if configTable is not nil
+        if not ConfigTable.Passives or next(ConfigTable["Passives"]) == nil then -- Check if ConfigTable is not nil
                 print("DEBUG: Failed to load or parse JSON. Ending SpellSlot boost function execution.")
             return
         end
@@ -544,8 +547,8 @@ local function OnSessionLoaded()
         for _, passive in ipairs(passives) do
             -- Check if the target has the current passive
             if HasPassive(guid, passive) == 1 then
-                -- Iterate over the Passives array in the configTable
-                for _, config in ipairs(configTable.Passives) do
+                -- Iterate over the Passives array in the ConfigTable
+                for _, config in ipairs(ConfigTable.Passives) do
                     -- Check if the PassiveName matches the current passive
                     if config["PassiveName"] == passive then
                         -- Access the "ExtraSpellSlots" key in the config
@@ -578,15 +581,15 @@ local function OnSessionLoaded()
         local actionPointConfig
 
         if IsTargetABoss(guid) == 1 then
-            actionPointConfig = configTable["ExtraAction"]["Bosses"][actionType]
+            actionPointConfig = ConfigTable["ExtraAction"]["Bosses"][actionType]
         elseif IsTargetAnEnemy(guid) == 0 then
-            if next(configTable["ExtraAction"]["Allies"]) == nil or next(configTable["ExtraAction"]["Allies"][actionType]) == nil then
+            if next(ConfigTable["ExtraAction"]["Allies"]) == nil or next(ConfigTable["ExtraAction"]["Allies"][actionType]) == nil then
                 return
             else
-                actionPointConfig = configTable["ExtraAction"]["Allies"][actionType]
+                actionPointConfig = ConfigTable["ExtraAction"]["Allies"][actionType]
             end
         elseif IsTargetAnEnemy(guid) == 1 then
-            actionPointConfig = configTable["ExtraAction"]["Enemies"][actionType]
+            actionPointConfig = ConfigTable["ExtraAction"]["Enemies"][actionType]
         end
 
         local additional = tonumber(actionPointConfig["Additional"])
@@ -614,15 +617,15 @@ local function OnSessionLoaded()
         end
 
         if IsTargetABoss(guid) == 1 then
-            movementConfig = configTable["Movement"]["Bosses"]
+            movementConfig = ConfigTable["Movement"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
-            if next(configTable["Movement"]["Allies"]) == nil then
+            if next(ConfigTable["Movement"]["Allies"]) == nil then
                 return
             else
-                movementConfig = configTable["Movement"]["Allies"]
+                movementConfig = ConfigTable["Movement"]["Allies"]
             end
         elseif IsTargetAnEnemy(guid) == 1 then
-            movementConfig = configTable["Movement"]["Enemies"]
+            movementConfig = ConfigTable["Movement"]["Enemies"]
         end
 
         local staticBoost = tonumber(movementConfig["StaticBoost"])
@@ -640,15 +643,15 @@ local function OnSessionLoaded()
         local armourClassConfig
 
         if IsTargetABoss(guid) == 1 then
-            armourClassConfig = configTable["ArmourClass"]["Bosses"]
+            armourClassConfig = ConfigTable["ArmourClass"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
-            if next(configTable["ArmourClass"]["Allies"]) == nil then
+            if next(ConfigTable["ArmourClass"]["Allies"]) == nil then
                 return
             else
-                armourClassConfig = configTable["ArmourClass"]["Allies"]
+                armourClassConfig = ConfigTable["ArmourClass"]["Allies"]
             end
         elseif IsTargetAnEnemy(guid) == 1 then
-            armourClassConfig = configTable["ArmourClass"]["Enemies"]
+            armourClassConfig = ConfigTable["ArmourClass"]["Enemies"]
         end
 
         local staticBoost = tonumber(armourClassConfig["StaticBoost"])
@@ -668,7 +671,7 @@ local function OnSessionLoaded()
 
     -- Spell Save Difficulty Class
     function GiveSpellSaveDCBoost(guid)
-        if not configTable.SpellSaveDC or next(configTable["SpellSaveDC"]) == nil then
+        if not ConfigTable.SpellSaveDC or next(ConfigTable["SpellSaveDC"]) == nil then
             DebugPrint("DEBUG: Failed to load or parse JSON. Ending SpellSaveDC boost function execution.")
             return
         end
@@ -676,15 +679,15 @@ local function OnSessionLoaded()
         local spellSaveDCConfig
 
         if IsTargetABoss(guid) == 1 then
-            spellSaveDCConfig = configTable["SpellSaveDC"]["Bosses"]
+            spellSaveDCConfig = ConfigTable["SpellSaveDC"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
-            if next(configTable["SpellSaveDC"]["Allies"]) == nil then
+            if next(ConfigTable["SpellSaveDC"]["Allies"]) == nil then
                 return
             else
-                spellSaveDCConfig = configTable["SpellSaveDC"]["Allies"]
+                spellSaveDCConfig = ConfigTable["SpellSaveDC"]["Allies"]
             end
         elseif IsTargetAnEnemy(guid) == 1 then
-            spellSaveDCConfig = configTable["SpellSaveDC"]["Enemies"]
+            spellSaveDCConfig = ConfigTable["SpellSaveDC"]["Enemies"]
         end
 
         local staticBoost = tonumber(spellSaveDCConfig["StaticBoost"])
@@ -703,7 +706,7 @@ local function OnSessionLoaded()
     end
 
     function GiveAbilityPointBoost(guid)
-        if not configTable.AbilityPoints or next(configTable["AbilityPoints"]) == nil then
+        if not ConfigTable.AbilityPoints or next(ConfigTable["AbilityPoints"]) == nil then
             DebugPrint("DEBUG: Failed to load or parse JSON. Ending AbilityPoint boost function execution.")
             return
         end
@@ -711,13 +714,13 @@ local function OnSessionLoaded()
         local abilitiesCpp = Ext.Entity.Get(guid).Stats.Abilities
         local spellCastingAbility = Ext.Entity.Get(guid).Stats.SpellCastingAbility
         local abilityNames = {"Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"}
-        local abilityBoostConfig = configTable["AbilityPoints"]["Enemies"]
+        local abilityBoostConfig = ConfigTable["AbilityPoints"]["Enemies"]
 
         -- Determine the entity type and corresponding boost amount from the configuration
         if IsTargetABoss(guid) == 1 then
-            abilityBoostConfig = configTable["AbilityPoints"]["Bosses"]
+            abilityBoostConfig = ConfigTable["AbilityPoints"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
-            abilityBoostConfig = configTable["AbilityPoints"]["Allies"]
+            abilityBoostConfig = ConfigTable["AbilityPoints"]["Allies"]
             if next(abilityBoostConfig) == nil then
                 return
             end
@@ -792,15 +795,15 @@ local function OnSessionLoaded()
         local rollBonusConfig
 
         if IsTargetABoss(guid) == 1 then
-            rollBonusConfig = configTable["Rolls"]["Bosses"][rollType]
+            rollBonusConfig = ConfigTable["Rolls"]["Bosses"][rollType]
         elseif IsTargetAnEnemy(guid) == 0 then
-            if next(configTable["Rolls"]["Allies"]) == nil then
+            if next(ConfigTable["Rolls"]["Allies"]) == nil then
                 return
             else
-                rollBonusConfig = configTable["Rolls"]["Allies"][rollType]
+                rollBonusConfig = ConfigTable["Rolls"]["Allies"][rollType]
             end
         elseif IsTargetAnEnemy(guid) == 1 then
-            rollBonusConfig = configTable["Rolls"]["Enemies"][rollType]
+            rollBonusConfig = ConfigTable["Rolls"]["Enemies"][rollType]
         end
 
         local staticRollBonus = tonumber(rollBonusConfig["StaticRollBonus"])
@@ -855,15 +858,15 @@ local function OnSessionLoaded()
         local damageConfig
 
         if IsTargetABoss(guid) == 1 then
-            damageConfig = configTable["Damage"]["Bosses"]
+            damageConfig = ConfigTable["Damage"]["Bosses"]
         elseif IsTargetAnEnemy(guid) == 0 then
-            if next(configTable["Damage"]["Allies"]) == nil then
+            if next(ConfigTable["Damage"]["Allies"]) == nil then
                 return
             else
-                damageConfig = configTable["Damage"]["Allies"]
+                damageConfig = ConfigTable["Damage"]["Allies"]
             end
         elseif IsTargetAnEnemy(guid) == 1 then
-            damageConfig = configTable["Damage"]["Enemies"]
+            damageConfig = ConfigTable["Damage"]["Enemies"]
         end
 
         local staticDamageBoost = tonumber(damageConfig["StaticDamageBoost"])
@@ -885,8 +888,8 @@ local function OnSessionLoaded()
         local reset = false
 
         -- Check if "Level" configuration is empty
-        if not configTable.Level or next(configTable["Level"]) == nil then
-            if configTable.Level == nil then
+        if not ConfigTable.Level or next(ConfigTable["Level"]) == nil then
+            if ConfigTable.Level == nil then
                 if not HasPrinted["GiveLevel"] then
                     DebugPrint("DEBUG: Failed to load or parse JSON. Ending Level function execution.")
                     HasPrinted["GiveLevel"] = true
@@ -925,7 +928,7 @@ local function OnSessionLoaded()
         end
 
         -- Attempt to get the configuration for the current act and entity type
-        local actConfig = configTable["Level"][entityType]["Act"][tostring(currentAct)]
+        local actConfig = ConfigTable["Level"][entityType]["Act"][tostring(currentAct)]
         if not actConfig then
             DebugPrint(string.format("DEBUG: No Level configuration found for entity %s in act %d", guid, currentAct))
             return
@@ -1136,8 +1139,8 @@ local function OnSessionLoaded()
 
     -- Combat Listener
     Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(guid, combatid)
-        -- Check if configTable is loaded properly
-        if not configTable or next(configTable) == nil then
+        -- Check if ConfigTable is loaded properly
+        if not ConfigTable or next(ConfigTable) == nil then
             print("ERROR: Failed to load or parse JSON.")
             return
         end
