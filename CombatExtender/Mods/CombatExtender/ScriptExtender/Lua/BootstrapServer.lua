@@ -366,7 +366,13 @@ local function OnSessionLoaded()
             if not IsPartyInCombat() then
                 return -- Return early if not in combat
             else
-                hpBoost = "TemporaryHP(" .. hpIncrease .. ")" -- If in combat, use TemporaryHP for Raphael
+                local entity = Ext.Entity.Get(guid)
+                local currentMaxHealth = entity.Health.MaxHp
+                local currentMaxTemporaryHp = entity.Health.MaxTemporaryHp
+                local currentTotalHealth = currentMaxHealth + currentMaxTemporaryHp
+                local desiredTotalHealth = math.ceil(currentMaxHealth * healthMultiplier)
+                local temporaryHpIncrease = desiredTotalHealth - currentTotalHealth
+                hpBoost = "TemporaryHP(" .. temporaryHpIncrease .. ")" -- If in combat, use TemporaryHP for Raphael
             end
         else
             hpBoost = "IncreaseMaxHP(" .. hpIncrease .. ")"
