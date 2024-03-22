@@ -147,6 +147,7 @@ local function OnSessionLoaded()
     }
 
     Bosses= {
+        "S_UND_TheDrowNere_06bf05c5-216b-4eaf-91f5-8f1dd3d57f30",
         "S_CRE_CrecheCaptain_5093da9b-237a-491f-9402-4f9da73c1565",
         "S_MOO_PrisonWarden_66b3e4c0-2f82-4c0a-9333-73a5194f88c7",
         "S_LOW_Lorroakan_a9d4b71d-b0ef-429e-8210-6dc8be986ee9",
