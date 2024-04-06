@@ -336,8 +336,9 @@ local function OnSessionLoaded()
             local baseHealth
             local healthToUse
 
-            if healthOverrides[guid] then
-                healthToUse = healthOverrides[guid]
+            -- Check if there is a health override for the entity in the configuration
+            if ConfigTable.Overrides and ConfigTable.Overrides[guid] and ConfigTable.Overrides[guid].HealthOverride then
+                healthToUse = ConfigTable.Overrides[guid].HealthOverride
             else
                 local entity = Ext.Entity.Get(guid)
                 if not (entity and entity.BaseHp and entity.BaseHp.Vitality) then -- Early return if the entity or BaseHp.Vitality is not available
