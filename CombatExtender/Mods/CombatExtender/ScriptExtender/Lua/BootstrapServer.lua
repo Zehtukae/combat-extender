@@ -186,12 +186,7 @@ local function OnSessionLoaded()
         end
     end
 
-    function ProcessPartyMembers()
-        local partyMembers = Osi.DB_PartyMembers:Get(nil)
-        for _, d in ipairs(partyMembers) do
-            Party[d[1]] = true
-        end
-    end
+  
 
     function IsPartyInCombat()
         for member, _ in pairs(Party) do
@@ -1108,17 +1103,6 @@ local function OnSessionLoaded()
         end
     end)
 
-    Ext.Osiris.RegisterListener("SavegameLoaded", 0, "after", function ()
-        print("Savegame Loaded")
-        ProcessPartyMembers()
-        StartCXTimer()
-        if not IsPartyInCombat() then
-            print("DEBUG: Starting to process existing entities")
-            ProcessExistingEntities()
-        else
-            print("DEBUG: Won't process existing entities, a party member is in combat")
-        end
-    end)
 
     function StartCXTimer() -- Don't forget to restart on CombatEnded
         if not IsPartyInCombat() then
@@ -1129,19 +1113,6 @@ local function OnSessionLoaded()
         end
     end
 
-    function CXTimerFinished(timer)
-        if timer == "cx" then
-            -- Check if the party is in combat before proceeding
-            if not IsPartyInCombat() then
-                --print("DEBUG: Timer Complete")
-                ProcessPartyMembers()
-                ProcessNearbyCharacters()
-                StartCXTimer()
-            else
-                DebugPrint("DEBUG: Timer not restarted, a party member is in combat")
-            end
-        end
-    end
 
     Ext.Osiris.RegisterListener("TimerFinished", 1, "before", CXTimerFinished)
 
@@ -1154,7 +1125,7 @@ local function OnSessionLoaded()
         end
 
         CurrentCombat = combatid
-        ProcessPartyMembers()
+      
 
         -- TODO: Add HasActiveStatus as second check?
         if IsCharacter(guid) == 0 and CheckIfParty(guid) == 0 and HasAppliedStatus(guid, CX_APPLIED) == 0 and CheckIfExcluded(guid) == 0 then
@@ -1250,14 +1221,7 @@ local function OnSessionLoaded()
         end
     end)
 
-    Ext.Osiris.RegisterListener("CombatEnded", 1, "after", function(combat)
-        if (combat == CurrentCombat) then
-            ProcessPartyMembers()
-            CombatNPCS = {}
-            StartCXTimer()
-            CleanupEntities()
-        end
-    end)
+
 
 end
 Ext.Events.SessionLoaded:Subscribe(OnSessionLoaded)
