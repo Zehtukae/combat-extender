@@ -206,9 +206,11 @@ local function OnSessionLoaded()
         local hostCharacter = Osi.GetHostCharacter()
         local highestLevel = hostCharacter and GetLevel(hostCharacter) or 0
         for member, _ in pairs(Party) do
-            local memberLevel = GetLevel(member)
-            if memberLevel and memberLevel > highestLevel then
-                highestLevel = memberLevel
+            if IsSummon(member) == 0 then
+                local memberLevel = GetLevel(member)
+                if memberLevel and memberLevel > highestLevel then
+                    highestLevel = memberLevel
+                end
             end
         end
         return highestLevel
@@ -324,13 +326,6 @@ local function OnSessionLoaded()
                 end
             end
         end
-
-        -- Calculate healthToUse and store it in the EntityHealth table if it's not already there
-        local healthOverrides = {
-            ["S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a"] = 600, -- Ansur
-            ["S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255"] = 450, -- Grym
-            ["S_END_MindBrain_f8bb04a3-22e5-41b0-aed7-5dcf852343d1"] = 450 -- Elder Brain
-        }
 
         if not EntityHealth[guid] then
             local baseHealth
@@ -671,7 +666,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(guid)
-        local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
+        local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
 
         local ac = "AC(" .. totalBoost .. ")"
         AddBoosts(guid, ac, "combatextender", "1")
@@ -707,7 +702,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(guid)
-        local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
+        local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
 
         local ssdc = "SpellSaveDC(" .. totalBoost .. ")"
         AddBoosts(guid, ssdc, "combatextender", "1")
@@ -745,7 +740,7 @@ local function OnSessionLoaded()
         else
             -- Calculate the total boost based on the new format
             local levelMultiplier = GetLevel(guid)
-            abilityBoostConfig = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
+            abilityBoostConfig = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
         end
 
         -- Convert C++ array to Lua table, ignoring the first value
@@ -823,7 +818,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(guid)
-        local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement)
+        local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
 
         -- Retrieve the BoostsContainer for the entity
         local boostsContainer = Ext.Entity.Get(guid).BoostsContainer
@@ -886,7 +881,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(guid)
-        local totalDamageBoost = staticDamageBoost + damagePerIncrement * math.floor(levelMultiplier / levelIncrement)
+        local totalDamageBoost = staticDamageBoost + damagePerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
 
         local damageBonus = "DamageBonus(" .. totalDamageBoost .. ")"
         AddBoosts(guid, damageBonus, "combatextender", "1")
