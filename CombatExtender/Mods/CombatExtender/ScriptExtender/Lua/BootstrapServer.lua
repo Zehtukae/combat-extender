@@ -595,6 +595,20 @@ local function OnSessionLoaded()
                     print("DEBUG: Clone already exists for GUID: " .. guid .. ". Rechecking inventory sync.")
                 end
 
+                -- Sync passives
+                local originalPassives = Ext.Entity.Get(guid).PassiveContainer.Passives
+                --local clonePassives = Ext.Entity.Get(clonedEntity).PassiveContainer.Passives
+
+                for _, passive in ipairs(originalPassives) do
+                    local passiveId = passive.Passive.PassiveId
+                    if HasPassive(clonedEntity, passiveId) == 0 then
+                        print("DEBUG: Adding missing passive " .. passiveId .. " to clone.")
+                        AddPassive(clonedEntity, passiveId)
+                    else
+                        print("DEBUG: Clone already has passive " .. passiveId)
+                    end
+                end
+
                 local originalEntity = Ext.Entity.Get(guid)
                 local clonedEntityData = Ext.Entity.Get(clonedEntity)
                 local originalItems = GetInventoryItems(originalEntity)
