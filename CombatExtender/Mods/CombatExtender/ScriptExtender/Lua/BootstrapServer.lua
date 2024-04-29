@@ -16,6 +16,7 @@ local function OnSessionLoaded()
     EntityResetState = {}
     PersistentVars = Mods["CombatExtender"].PersistentVars or {}
     PersistentVars["baseLevel"] = PersistentVars["baseLevel"] or {}
+    PersistentVars["clonedEntities"] = PersistentVars["clonedEntities"] or {}
 
     function printTableAddress(t)
         for k, v in pairs(t) do
@@ -534,6 +535,90 @@ local function OnSessionLoaded()
                     end
                 end
             end
+        end
+    end
+
+    function hasPartialMatch(originalItems, clonedItems)
+        local clonedItemTemplates = {}
+        for _, item in ipairs(clonedItems) do
+            clonedItemTemplates[item[1]] = true
+        end
+
+        for _, item in ipairs(originalItems) do
+            if clonedItemTemplates[item[1]] then
+                return true
+            end
+        end
+        return false
+    end
+
+    -- Function to extract inventory items from an entity
+    function GetInventoryItems(entity)
+        local inventoryItems = {}
+        if entity.InventoryOwner and entity.InventoryOwner.Inventories ~= nil then
+            for i = 1, #entity.InventoryOwner.Inventories do
+                if #entity.InventoryOwner.Inventories[i].InventoryContainer.Items ~= 0 then
+                    for k, _ in pairs(entity.InventoryOwner.Inventories[i].InventoryContainer.Items) do
+                        local item = entity.InventoryOwner.Inventories[i].InventoryContainer.Items[k].Item
+                        local itemTemplate = item.ServerItem.Template.Id
+                        local itemName = Ext.Loca.GetTranslatedString(item.DisplayName.NameKey.Handle.Handle)
+                        local itemUuid = item.Uuid.EntityUuid
+                        table.insert(inventoryItems, {itemTemplate, itemName, itemUuid})
+                    end
+                end
+            end
+        end
+        return inventoryItems
+    end
+
+    -- Check and handle cloning
+    function CheckClone(guid)
+        local clonedEntity = PersistentVars["clonedEntities"][guid]
+
+        -- Check if "Clones" exists and is not empty
+        if ConfigTable.Clones and next(ConfigTable["Clones"]) ~= nil then
+            local cloneConfig = ConfigTable["Clones"][guid]
+
+            -- Check if the guid is in the "Clones" config
+            if cloneConfig then
+                if not clonedEntity then
+                    local clone_x, clone_y, clone_z = GetPosition(guid)
+                    print("DEBUG: Creating a clone of: " .. guid)
+                    clonedEntity = CreateAt(GetTemplate(guid), clone_x + Random(5) - 5, clone_y, clone_z + Random(5) - 5, 0, 0, "")
+                    print("DEBUG: Clone: " .. clonedEntity)
+                    Transform(clonedEntity, guid, "4acc6277-6dcd-4110-9450-b9379beaedac")
+                    SetFaction(clonedEntity, GetFaction(guid))
+                    SetCanJoinCombat(clonedEntity, 1)
+                    SetLevel(clonedEntity, GetLevel(guid))
+                    PersistentVars["clonedEntities"][guid] = clonedEntity
+                else
+                    print("DEBUG: Clone already exists for GUID: " .. guid .. ". Rechecking inventory sync.")
+                end
+
+                local originalEntity = Ext.Entity.Get(guid)
+                local clonedEntityData = Ext.Entity.Get(clonedEntity)
+                local originalItems = GetInventoryItems(originalEntity)
+                local clonedItems = GetInventoryItems(clonedEntityData)
+
+                print("DEBUG: Original character's item list:")
+                printTable(originalItems)
+                print("DEBUG: Cloned character's item list:")
+                printTable(clonedItems)
+
+                if not hasPartialMatch(originalItems, clonedItems) then
+                    print("DEBUG: No partial match found. Adding missing items from the original character to the cloned character.")
+                    for _, item in pairs(originalItems) do
+                        Osi.TemplateAddTo(item[1], clonedEntity, 1, 1)
+                    end
+                end
+
+                for _, item in pairs(clonedItems) do
+                local itemUuid = item[3]
+                Osi.Equip(clonedEntity, itemUuid, 1, 1, 0)
+                    end
+                end
+            else
+            --print("DEBUG: No cloning configuration found.")
         end
     end
 
