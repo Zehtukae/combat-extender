@@ -187,6 +187,15 @@ local function OnSessionLoaded()
         end
     end
 
+    function IsClone(guid)
+        for _, cloneGuid in pairs(PersistentVars["clonedEntities"]) do
+            if cloneGuid == guid then
+                return 1
+            end
+        end
+        return 0
+    end
+
     function ProcessPartyMembers()
         local partyMembers = Osi.DB_PartyMembers:Get(nil)
         for _, d in ipairs(partyMembers) do
@@ -584,16 +593,30 @@ local function OnSessionLoaded()
                 if not clonedEntity then
                     local clone_x, clone_y, clone_z = GetPosition(guid)
                     print("DEBUG: Creating a clone of: " .. guid)
-                    clonedEntity = CreateAt(GetTemplate(guid), clone_x + Random(5) - 5, clone_y, clone_z + Random(5) - 5, 0, 0, "")
-                    print("DEBUG: Clone: " .. clonedEntity)
-                    Transform(clonedEntity, guid, "4acc6277-6dcd-4110-9450-b9379beaedac")
+                    clonedEntity = CreateAt(GetTemplate(guid), clone_x + Random(4) - 4, clone_y, clone_z + Random(4) - 4, 0, 0, "")
+                    print("DEBUG: Clone created: " .. clonedEntity)
+                    Transform(clonedEntity, guid, "a2ff752c-84da-442b-bee1-0e593c377a71") -- Doppelganger shape shift rule
                     SetFaction(clonedEntity, GetFaction(guid))
                     SetCanJoinCombat(clonedEntity, 1)
                     SetLevel(clonedEntity, GetLevel(guid))
+                    MakeWar(clonedEntity,GetHostCharacter(),1)
                     PersistentVars["clonedEntities"][guid] = clonedEntity
                 else
                     print("DEBUG: Clone already exists for GUID: " .. guid .. ". Rechecking inventory sync.")
                 end
+
+                local originalEntity = Ext.Entity.Get(guid)
+                local clonedEntityData = Ext.Entity.Get(clonedEntity)
+
+                -- Set name
+                if cloneConfig.DisplayName then
+                    SetStoryDisplayName(clonedEntity, cloneConfig.DisplayName)
+                    print("DEBUG: Set display name for clone " .. clonedEntity .. " to " .. cloneConfig.DisplayName)
+                end
+
+                -- Sync health
+                local originalVitality = originalEntity.BaseHp.Vitality
+                clonedEntityData.BaseHp.Vitality = originalVitality
 
                 -- Sync passives
                 local originalPassives = Ext.Entity.Get(guid).PassiveContainer.Passives
@@ -609,8 +632,7 @@ local function OnSessionLoaded()
                     end
                 end
 
-                local originalEntity = Ext.Entity.Get(guid)
-                local clonedEntityData = Ext.Entity.Get(clonedEntity)
+                -- Sync inventory
                 local originalItems = GetInventoryItems(originalEntity)
                 local clonedItems = GetInventoryItems(clonedEntityData)
 
@@ -626,6 +648,7 @@ local function OnSessionLoaded()
                     end
                 end
 
+                -- Equip weapons
                 for _, item in pairs(clonedItems) do
                 local itemUuid = item[3]
                 Osi.Equip(clonedEntity, itemUuid, 1, 1, 0)
@@ -1192,7 +1215,7 @@ local function OnSessionLoaded()
             -- Check if the entity is not already in the Entities table
             if not Entities[guid] then
                 Entities[guid] = entity
-                if Loaded and IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 and IsPartySummon(guid) == 0 and not IsPartyInCombat() then
+                if Loaded and IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 and IsPartySummon(guid) == 0 and IsClone(guid) == 0 and not IsPartyInCombat() then
                     DebugPrint(string.format("DEBUG: Listener Target: %s, Name: %s", guid, handle))
                     GiveHPIncrease(guid, true)
                 end
