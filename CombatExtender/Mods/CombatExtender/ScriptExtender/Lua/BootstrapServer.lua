@@ -593,13 +593,26 @@ local function OnSessionLoaded()
                 if not clonedEntity then
                     local clone_x, clone_y, clone_z = GetPosition(guid)
                     print("DEBUG: Creating a clone of: " .. guid)
-                    clonedEntity = CreateAt(GetTemplate(guid), clone_x + Random(4) - 4, clone_y, clone_z + Random(4) - 4, 0, 0, "")
+
+                    -- Check if a template is specified in the config, otherwise use the original guid
+                    local template
+                    if cloneConfig.Template then
+                        template = GetTemplate(cloneConfig.Template)
+                    else
+                        template = GetTemplate(guid)
+                    end
+
+                    clonedEntity = CreateAt(template, clone_x + Random(4) - 4, clone_y, clone_z + Random(4) - 4, 0, 0, "")
                     print("DEBUG: Clone created: " .. clonedEntity)
-                    Transform(clonedEntity, guid, "a2ff752c-84da-442b-bee1-0e593c377a71") -- Doppelganger shape shift rule
+
+                    -- Use the specified template for Transform if available
+                    local transformTemplate = cloneConfig.Template or guid
+                    Transform(clonedEntity, transformTemplate, "a2ff752c-84da-442b-bee1-0e593c377a71") -- Doppelganger shape shift rule
+
                     SetFaction(clonedEntity, GetFaction(guid))
                     SetCanJoinCombat(clonedEntity, 1)
                     SetLevel(clonedEntity, GetLevel(guid))
-                    MakeWar(clonedEntity,GetHostCharacter(),1)
+                    MakeWar(clonedEntity, GetHostCharacter(), 1)
                     PersistentVars["clonedEntities"][guid] = clonedEntity
                 else
                     print("DEBUG: Clone already exists for GUID: " .. guid .. ". Rechecking inventory sync.")
