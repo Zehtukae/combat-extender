@@ -16,6 +16,7 @@ local function OnSessionLoaded()
     EntityResetState = {}
     PersistentVars = Mods["CombatExtender"].PersistentVars or {}
     PersistentVars["baseLevel"] = PersistentVars["baseLevel"] or {}
+    PersistentVars["clonedEntities"] = PersistentVars["clonedEntities"] or {}
 
     function printTableAddress(t)
         for k, v in pairs(t) do
@@ -186,6 +187,15 @@ local function OnSessionLoaded()
         end
     end
 
+    function IsClone(guid)
+        for _, cloneGuid in pairs(PersistentVars["clonedEntities"]) do
+            if cloneGuid == guid then
+                return 1
+            end
+        end
+        return 0
+    end
+
     function ProcessPartyMembers()
         local partyMembers = Osi.DB_PartyMembers:Get(nil)
         for _, d in ipairs(partyMembers) do
@@ -206,9 +216,11 @@ local function OnSessionLoaded()
         local hostCharacter = Osi.GetHostCharacter()
         local highestLevel = hostCharacter and GetLevel(hostCharacter) or 0
         for member, _ in pairs(Party) do
-            local memberLevel = GetLevel(member)
-            if memberLevel and memberLevel > highestLevel then
-                highestLevel = memberLevel
+            if IsSummon(member) == 0 then
+                local memberLevel = GetLevel(member)
+                if memberLevel and memberLevel > highestLevel then
+                    highestLevel = memberLevel
+                end
             end
         end
         return highestLevel
@@ -324,13 +336,6 @@ local function OnSessionLoaded()
                 end
             end
         end
-
-        -- Calculate healthToUse and store it in the EntityHealth table if it's not already there
-        local healthOverrides = {
-            ["S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a"] = 600, -- Ansur
-            ["S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255"] = 450, -- Grym
-            ["S_END_MindBrain_f8bb04a3-22e5-41b0-aed7-5dcf852343d1"] = 450 -- Elder Brain
-        }
 
         if not EntityHealth[guid] then
             local baseHealth
@@ -542,6 +547,131 @@ local function OnSessionLoaded()
         end
     end
 
+    function hasPartialMatch(originalItems, clonedItems)
+        local clonedItemTemplates = {}
+        for _, item in ipairs(clonedItems) do
+            clonedItemTemplates[item[1]] = true
+        end
+
+        for _, item in ipairs(originalItems) do
+            if clonedItemTemplates[item[1]] then
+                return true
+            end
+        end
+        return false
+    end
+
+    -- Function to extract inventory items from an entity
+    function GetInventoryItems(entity)
+        local inventoryItems = {}
+        if entity.InventoryOwner and entity.InventoryOwner.Inventories ~= nil then
+            for i = 1, #entity.InventoryOwner.Inventories do
+                if #entity.InventoryOwner.Inventories[i].InventoryContainer.Items ~= 0 then
+                    for k, _ in pairs(entity.InventoryOwner.Inventories[i].InventoryContainer.Items) do
+                        local item = entity.InventoryOwner.Inventories[i].InventoryContainer.Items[k].Item
+                        local itemTemplate = item.ServerItem.Template.Id
+                        local itemName = Ext.Loca.GetTranslatedString(item.DisplayName.NameKey.Handle.Handle)
+                        local itemUuid = item.Uuid.EntityUuid
+                        table.insert(inventoryItems, {itemTemplate, itemName, itemUuid})
+                    end
+                end
+            end
+        end
+        return inventoryItems
+    end
+
+    -- Check and handle cloning
+    function CheckClone(guid)
+        local clonedEntity = PersistentVars["clonedEntities"][guid]
+
+        -- Check if "Clones" exists and is not empty
+        if ConfigTable.Clones and next(ConfigTable["Clones"]) ~= nil then
+            local cloneConfig = ConfigTable["Clones"][guid]
+
+            -- Check if the guid is in the "Clones" config
+            if cloneConfig then
+                if not clonedEntity then
+                    local clone_x, clone_y, clone_z = GetPosition(guid)
+                    print("DEBUG: Creating a clone of: " .. guid)
+
+                    -- Check if a template is specified in the config, otherwise use the original guid
+                    local template
+                    if cloneConfig.Template then
+                        template = GetTemplate(cloneConfig.Template)
+                    else
+                        template = GetTemplate(guid)
+                    end
+
+                    clonedEntity = CreateAt(template, clone_x + Random(4) - 4, clone_y, clone_z + Random(4) - 4, 0, 0, "")
+                    print("DEBUG: Clone created: " .. clonedEntity)
+
+                    -- Use the specified template for Transform if available
+                    local transformTemplate = cloneConfig.Template or guid
+                    Transform(clonedEntity, transformTemplate, "a2ff752c-84da-442b-bee1-0e593c377a71") -- Doppelganger shape shift rule
+
+                    SetFaction(clonedEntity, GetFaction(guid))
+                    SetCanJoinCombat(clonedEntity, 1)
+                    SetLevel(clonedEntity, GetLevel(guid))
+                    MakeWar(clonedEntity, GetHostCharacter(), 1)
+                    PersistentVars["clonedEntities"][guid] = clonedEntity
+                else
+                    print("DEBUG: Clone already exists for GUID: " .. guid .. ". Rechecking inventory sync.")
+                end
+
+                local originalEntity = Ext.Entity.Get(guid)
+                local clonedEntityData = Ext.Entity.Get(clonedEntity)
+
+                -- Set name
+                if cloneConfig.DisplayName then
+                    SetStoryDisplayName(clonedEntity, cloneConfig.DisplayName)
+                    print("DEBUG: Set display name for clone " .. clonedEntity .. " to " .. cloneConfig.DisplayName)
+                end
+
+                -- Sync health
+                local originalVitality = originalEntity.BaseHp.Vitality
+                clonedEntityData.BaseHp.Vitality = originalVitality
+
+                -- Sync passives
+                local originalPassives = Ext.Entity.Get(guid).PassiveContainer.Passives
+                --local clonePassives = Ext.Entity.Get(clonedEntity).PassiveContainer.Passives
+
+                for _, passive in ipairs(originalPassives) do
+                    local passiveId = passive.Passive.PassiveId
+                    if HasPassive(clonedEntity, passiveId) == 0 then
+                        print("DEBUG: Adding missing passive " .. passiveId .. " to clone.")
+                        AddPassive(clonedEntity, passiveId)
+                    else
+                        print("DEBUG: Clone already has passive " .. passiveId)
+                    end
+                end
+
+                -- Sync inventory
+                local originalItems = GetInventoryItems(originalEntity)
+                local clonedItems = GetInventoryItems(clonedEntityData)
+
+                print("DEBUG: Original character's item list:")
+                printTable(originalItems)
+                print("DEBUG: Cloned character's item list:")
+                printTable(clonedItems)
+
+                if not hasPartialMatch(originalItems, clonedItems) then
+                    print("DEBUG: No partial match found. Adding missing items from the original character to the cloned character.")
+                    for _, item in pairs(originalItems) do
+                        Osi.TemplateAddTo(item[1], clonedEntity, 1, 1)
+                    end
+                end
+
+                -- Equip weapons
+                for _, item in pairs(clonedItems) do
+                local itemUuid = item[3]
+                Osi.Equip(clonedEntity, itemUuid, 1, 1, 0)
+                    end
+                end
+            else
+            --print("DEBUG: No cloning configuration found.")
+        end
+    end
+
     function GiveSpellSlots(guid)
         if not ConfigTable.Passives or next(ConfigTable["Passives"]) == nil then -- Check if ConfigTable is not nil
                 print("DEBUG: Failed to load or parse JSON. Ending SpellSlot boost function execution.")
@@ -671,7 +801,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(guid)
-        local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
+        local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
 
         local ac = "AC(" .. totalBoost .. ")"
         AddBoosts(guid, ac, "combatextender", "1")
@@ -707,7 +837,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(guid)
-        local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
+        local totalBoost = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
 
         local ssdc = "SpellSaveDC(" .. totalBoost .. ")"
         AddBoosts(guid, ssdc, "combatextender", "1")
@@ -745,7 +875,7 @@ local function OnSessionLoaded()
         else
             -- Calculate the total boost based on the new format
             local levelMultiplier = GetLevel(guid)
-            abilityBoostConfig = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement)
+            abilityBoostConfig = staticBoost + boostPerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
         end
 
         -- Convert C++ array to Lua table, ignoring the first value
@@ -823,7 +953,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(guid)
-        local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement)
+        local totalRollBonus = staticRollBonus + rollBonusPerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
 
         -- Retrieve the BoostsContainer for the entity
         local boostsContainer = Ext.Entity.Get(guid).BoostsContainer
@@ -886,7 +1016,7 @@ local function OnSessionLoaded()
         end
 
         local levelMultiplier = GetLevel(guid)
-        local totalDamageBoost = staticDamageBoost + damagePerIncrement * math.floor(levelMultiplier / levelIncrement)
+        local totalDamageBoost = staticDamageBoost + damagePerIncrement * math.floor(levelMultiplier / levelIncrement - 0.1)
 
         local damageBonus = "DamageBonus(" .. totalDamageBoost .. ")"
         AddBoosts(guid, damageBonus, "combatextender", "1")
@@ -1098,7 +1228,7 @@ local function OnSessionLoaded()
             -- Check if the entity is not already in the Entities table
             if not Entities[guid] then
                 Entities[guid] = entity
-                if Loaded and IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 and IsPartySummon(guid) == 0 and not IsPartyInCombat() then
+                if Loaded and IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 and IsPartySummon(guid) == 0 and IsClone(guid) == 0 and not IsPartyInCombat() then
                     DebugPrint(string.format("DEBUG: Listener Target: %s, Name: %s", guid, handle))
                     GiveHPIncrease(guid, true)
                 end

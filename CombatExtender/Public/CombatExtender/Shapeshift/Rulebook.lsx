@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="5" revision="0" build="0"/>
+    <region id="Rulebook">
+        <node id="root">
+            <children>
+                <node id="Rule">
+                    <attribute id="ApplySpellsFromTemplate" type="bool" value="true"/>
+                    <attribute id="ApplyTagsFromTemplate" type="bool" value="true"/>
+                    <attribute id="ApplyVisual" type="bool" value="false"/>
+                    <attribute id="ChangeAi" type="bool" value="true"/>
+                    <attribute id="ChangeBodyType" type="bool" value="false"/>
+                    <attribute id="ChangeIcon" type="bool" value="true"/>
+                    <attribute id="ChangeRace" type="bool" value="false"/>
+                    <attribute id="FootstepsType" type="bool" value="true"/>
+                    <attribute id="KillEntityAtZeroHP" type="bool" value="true"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="false"/>
+                    <attribute id="RetainDisplayName" type="bool" value="false"/>
+                    <attribute id="RuleName" type="LSString" value="DoppelgangerCX"/>
+                    <attribute id="SpellsRemove" type="LSString" value="Target_Slam_Doppelganger;Target_Multiattack_Doppelganger"/>
+                    <attribute id="UUID" type="guid" value="a2ff752c-84da-442b-bee1-0e593c377a72"/>
+                    <attribute id="UseShapeshiftIdentity" type="bool" value="true"/>
+                    <children>
+                        <node id="Hp">
+                            <attribute id="type" type="uint8" value="0"/>
+                        </node>
+                        <node id="Weight">
+                            <attribute id="type" type="uint8" value="4"/>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>
