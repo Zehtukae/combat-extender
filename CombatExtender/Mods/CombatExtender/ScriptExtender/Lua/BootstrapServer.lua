@@ -588,37 +588,31 @@ local function OnSessionLoaded()
         if ConfigTable.Clones and next(ConfigTable["Clones"]) ~= nil then
             local cloneConfig = ConfigTable["Clones"][guid]
 
-            -- Check if the guid is in the "Clones" config
             if cloneConfig then
+                -- Use the specified template if available, otherwise use the original guid
+                local entityToClone = cloneConfig.Template or guid
+
                 if not clonedEntity then
                     local clone_x, clone_y, clone_z = GetPosition(guid)
-                    print("DEBUG: Creating a clone of: " .. guid)
+                    print("DEBUG: Creating a clone of: " .. entityToClone)
 
-                    -- Check if a template is specified in the config, otherwise use the original guid
-                    local template
-                    if cloneConfig.Template then
-                        template = GetTemplate(cloneConfig.Template)
-                    else
-                        template = GetTemplate(guid)
-                    end
+                    local template = GetTemplate(entityToClone)
 
                     clonedEntity = CreateAt(template, clone_x + Random(4) - 4, clone_y, clone_z + Random(4) - 4, 0, 0, "")
                     print("DEBUG: Clone created: " .. clonedEntity)
 
-                    -- Use the specified template for Transform if available
-                    local transformTemplate = cloneConfig.Template or guid
-                    Transform(clonedEntity, transformTemplate, "a2ff752c-84da-442b-bee1-0e593c377a71") -- Doppelganger shape shift rule
+                    Transform(clonedEntity, entityToClone, "a2ff752c-84da-442b-bee1-0e593c377a72") -- Doppelganger shape shift rule
 
                     SetFaction(clonedEntity, GetFaction(guid))
                     SetCanJoinCombat(clonedEntity, 1)
-                    SetLevel(clonedEntity, GetLevel(guid))
+                    SetLevel(clonedEntity, GetLevel(entityToClone))
                     MakeWar(clonedEntity, GetHostCharacter(), 1)
                     PersistentVars["clonedEntities"][guid] = clonedEntity
                 else
                     print("DEBUG: Clone already exists for GUID: " .. guid .. ". Rechecking inventory sync.")
                 end
 
-                local originalEntity = Ext.Entity.Get(guid)
+                local originalEntity = Ext.Entity.Get(entityToClone)
                 local clonedEntityData = Ext.Entity.Get(clonedEntity)
 
                 -- Set name
@@ -631,9 +625,18 @@ local function OnSessionLoaded()
                 local originalVitality = originalEntity.BaseHp.Vitality
                 clonedEntityData.BaseHp.Vitality = originalVitality
 
+                -- Sync abilities
+                local originalAbilities = originalEntity.Stats.Abilities
+                local clonedAbilities = clonedEntityData.Stats.Abilities
+
+                for i, abilityValue in ipairs(originalAbilities) do
+                    clonedAbilities[i] = abilityValue
+                end
+                Ext.Entity.Get(clonedEntity):Replicate("Stats")
+
                 -- Sync passives
-                local originalPassives = Ext.Entity.Get(guid).PassiveContainer.Passives
-                --local clonePassives = Ext.Entity.Get(clonedEntity).PassiveContainer.Passives
+                local originalPassives = Ext.Entity.Get(entityToClone).PassiveContainer.Passives
+                local clonePassives = Ext.Entity.Get(clonedEntity).PassiveContainer.Passives
 
                 for _, passive in ipairs(originalPassives) do
                     local passiveId = passive.Passive.PassiveId

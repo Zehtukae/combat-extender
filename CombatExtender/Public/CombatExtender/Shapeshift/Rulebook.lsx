@@ -7,14 +7,16 @@
                 <node id="Rule">
                     <attribute id="ApplySpellsFromTemplate" type="bool" value="true"/>
                     <attribute id="ApplyTagsFromTemplate" type="bool" value="true"/>
-                    <attribute id="ApplyVisual" type="bool" value="false"/>
+                    <attribute id="ApplyVisual" type="bool" value="true"/>
                     <attribute id="ChangeAi" type="bool" value="true"/>
-                    <attribute id="ChangeBodyType" type="bool" value="false"/>
+                    <attribute id="ChangeBodyType" type="bool" value="true"/>
                     <attribute id="ChangeIcon" type="bool" value="true"/>
-                    <attribute id="ChangeRace" type="bool" value="false"/>
+                    <attribute id="ChangeRace" type="bool" value="true"/>
                     <attribute id="FootstepsType" type="bool" value="true"/>
                     <attribute id="KillEntityAtZeroHP" type="bool" value="true"/>
-                    <attribute id="RemovePrevSpells" type="bool" value="false"/>
+                    <attribute id="PassivesInheritanceType" type="FixedString" value="ReplaceOriginal"/>
+                    <attribute id="RemovePrevSpells" type="bool" value="true"/>
+                    <attribute id="RemoveOldTags" type="bool" value="true"/>
                     <attribute id="RetainDisplayName" type="bool" value="false"/>
                     <attribute id="RuleName" type="LSString" value="DoppelgangerCX"/>
                     <attribute id="SpellsRemove" type="LSString" value="Target_Slam_Doppelganger;Target_Multiattack_Doppelganger"/>
