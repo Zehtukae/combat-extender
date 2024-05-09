@@ -14,6 +14,7 @@ local function OnSessionLoaded()
     EntityHealth = {}
     EntityHealthAdjustment = {}
     EntityResetState = {}
+    CloneState = {}
     PersistentVars = Mods["CombatExtender"].PersistentVars or {}
     PersistentVars["baseLevel"] = PersistentVars["baseLevel"] or {}
     PersistentVars["clonedEntities"] = PersistentVars["clonedEntities"] or {}
@@ -585,11 +586,11 @@ local function OnSessionLoaded()
         local clonedEntity = PersistentVars["clonedEntities"][guid]
 
         -- Check if "Clones" exists and is not empty
-        if ConfigTable.Clones and next(ConfigTable["Clones"]) ~= nil then
+        if ConfigTable.Clones and next(ConfigTable["Clones"]) ~= nil and IsDead(guid) == 0 then
             local cloneConfig = ConfigTable["Clones"][guid]
 
             if cloneConfig then
-                -- Use the specified template if available, otherwise use the original guid
+                -- Use the specified guid if available, otherwise use the original guid
                 local entityToClone = cloneConfig.Template or guid
 
                 if not clonedEntity then
@@ -597,26 +598,49 @@ local function OnSessionLoaded()
                     print("DEBUG: Creating a clone of: " .. entityToClone)
 
                     local template = GetTemplate(entityToClone)
-
                     clonedEntity = CreateAt(template, clone_x + Random(4) - 4, clone_y, clone_z + Random(4) - 4, 0, 0, "")
                     print("DEBUG: Clone created: " .. clonedEntity)
 
-                    Transform(clonedEntity, entityToClone, "a2ff752c-84da-442b-bee1-0e593c377a72") -- Doppelganger shape shift rule
-
+                    Transform(clonedEntity, entityToClone, "a2ff752c-84da-442b-bee1-0e593c377a72") -- Custom shape shift rule
                     SetFaction(clonedEntity, GetFaction(guid))
                     SetCanJoinCombat(clonedEntity, 1)
                     SetLevel(clonedEntity, GetLevel(entityToClone))
                     MakeWar(clonedEntity, GetHostCharacter(), 1)
-                    PersistentVars["clonedEntities"][guid] = clonedEntity
+
+                    -- Store in persistent variables
+                    local cloneEntityKey = Ext.Entity.Get(clonedEntity).ServerCharacter.Template.Name .. "_" .. clonedEntity
+                    PersistentVars["clonedEntities"][guid] = cloneEntityKey
                 else
-                    print("DEBUG: Clone already exists for GUID: " .. guid .. ". Rechecking inventory sync.")
+                    --print("DEBUG: Clone already exists for GUID: " .. guid .. ". Running sync")
                 end
 
                 local originalEntity = Ext.Entity.Get(entityToClone)
                 local clonedEntityData = Ext.Entity.Get(clonedEntity)
 
+                -- Get the cloneEntityKey
+                local cloneEntityKey = PersistentVars["clonedEntities"][guid]
+
+                -- Check if the cloning limit has been reached for the cloned entity
+                if cloneEntityKey and not CloneState[cloneEntityKey] then
+                    CloneState[cloneEntityKey] = 0
+                end
+
+                if cloneEntityKey and CloneState[cloneEntityKey] >= 2 then
+                    --print("DEBUG: Sync limit reached for cloned entity: " .. cloneEntityKey)
+                    local originalMaxHp = originalEntity.Health.MaxHp
+                    local clonedMaxHp = clonedEntityData.Health.MaxHp
+
+                    if originalMaxHp > clonedMaxHp then
+                        local hpBoost = originalMaxHp - clonedMaxHp
+                        local boostString = "IncreaseMaxHP(" .. hpBoost .. ")"
+                        AddBoosts(clonedEntity, boostString, "combatextender", "1")
+                        print("DEBUG: Added HP boost of " .. hpBoost .. " to clone " .. clonedEntity)
+                    end
+                    return
+                end
+
                 -- Set name
-                if cloneConfig.DisplayName then
+                if cloneConfig.DisplayName and CloneState[cloneEntityKey] == 0 then
                     SetStoryDisplayName(clonedEntity, cloneConfig.DisplayName)
                     print("DEBUG: Set display name for clone " .. clonedEntity .. " to " .. cloneConfig.DisplayName)
                 end
@@ -625,16 +649,41 @@ local function OnSessionLoaded()
                 local originalVitality = originalEntity.BaseHp.Vitality
                 clonedEntityData.BaseHp.Vitality = originalVitality
 
-                -- Sync abilities
+                -- Sync abilities and ability modifiers
                 local originalAbilities = originalEntity.Stats.Abilities
                 local clonedAbilities = clonedEntityData.Stats.Abilities
 
                 for i, abilityValue in ipairs(originalAbilities) do
                     clonedAbilities[i] = abilityValue
                 end
+
+                local originalAbilityModifiers = originalEntity.Stats.AbilityModifiers
+                local clonedAbilityModifiers = clonedEntityData.Stats.AbilityModifiers
+
+                for i, modifierValue in ipairs(originalAbilityModifiers) do
+                    clonedAbilityModifiers[i] = modifierValue
+                end
+
+                -- Sync stats
+                clonedEntityData.Stats.ArmorType = originalEntity.Stats.ArmorType
+                clonedEntityData.Stats.ArmorType2 = originalEntity.Stats.ArmorType2
+                clonedEntityData.Stats.InitiativeBonus = originalEntity.Stats.InitiativeBonus
+                clonedEntityData.Stats.ProficiencyBonus = originalEntity.Stats.ProficiencyBonus
+                clonedEntityData.Stats.RangedAttackAbility = originalEntity.Stats.RangedAttackAbility
+                clonedEntityData.Stats.SpellCastingAbility = originalEntity.Stats.SpellCastingAbility
+                clonedEntityData.Resistances.AC = originalEntity.Resistances.AC
+
+                -- Sync skills
+                local originalSkills = originalEntity.Stats.Skills
+                local clonedSkills = clonedEntityData.Stats.Skills
+
+                for i, skillValue in ipairs(originalSkills) do
+                    clonedSkills[i] = skillValue
+                end
+
                 Ext.Entity.Get(clonedEntity):Replicate("Stats")
 
-                -- Sync passives
+                --[[ Sync passives
                 local originalPassives = Ext.Entity.Get(entityToClone).PassiveContainer.Passives
                 local clonePassives = Ext.Entity.Get(clonedEntity).PassiveContainer.Passives
 
@@ -646,32 +695,49 @@ local function OnSessionLoaded()
                     else
                         print("DEBUG: Clone already has passive " .. passiveId)
                     end
-                end
+                end]]
+
+                --[[if CloneState[cloneEntityKey] == 1 then
+                    local originalMaxHp = originalEntity.Health.MaxHp
+                    local clonedMaxHp = clonedEntityData.Health.MaxHp
+
+                    if originalMaxHp > clonedMaxHp then
+                        local hpBoost = originalMaxHp - clonedMaxHp
+                        local boostString = "IncreaseMaxHP(" .. hpBoost .. ")"
+                        --AddBoosts(clonedEntity, boostString, "combatextender", "1")
+                        print("DEBUG: Added HP boost of " .. hpBoost .. " to clone " .. clonedEntity)
+                    end
+                end]]
 
                 -- Sync inventory
-                local originalItems = GetInventoryItems(originalEntity)
-                local clonedItems = GetInventoryItems(clonedEntityData)
+                if CloneState[cloneEntityKey] == 0 then
+                    local originalItems = GetInventoryItems(originalEntity)
+                    local clonedItems = GetInventoryItems(clonedEntityData)
 
-                print("DEBUG: Original character's item list:")
-                printTable(originalItems)
-                print("DEBUG: Cloned character's item list:")
-                printTable(clonedItems)
+                    --print("DEBUG: Original character's item list:")
+                    --printTable(originalItems)
+                    --print("DEBUG: Cloned character's item list:")
+                    --printTable(clonedItems)
 
-                if not hasPartialMatch(originalItems, clonedItems) then
-                    print("DEBUG: No partial match found. Adding missing items from the original character to the cloned character.")
-                    for _, item in pairs(originalItems) do
-                        Osi.TemplateAddTo(item[1], clonedEntity, 1, 1)
+                    if not hasPartialMatch(originalItems, clonedItems) then
+                        print("DEBUG: No partial match found. Adding missing items from the original character to the cloned character.")
+                        for _, item in pairs(originalItems) do
+                            Osi.TemplateAddTo(item[1], clonedEntity, 1, 1)
+                        end
                     end
                 end
 
                 -- Equip weapons
+                local clonedItems = GetInventoryItems(clonedEntityData)
                 for _, item in pairs(clonedItems) do
-                local itemUuid = item[3]
-                Osi.Equip(clonedEntity, itemUuid, 1, 1, 0)
-                    end
+                    local itemUuid = item[3]
+                    Osi.Equip(clonedEntity, itemUuid, 1, 1, 0)
                 end
-            else
-            --print("DEBUG: No cloning configuration found.")
+
+                CloneState[cloneEntityKey] = CloneState[cloneEntityKey] + 1
+            --else
+                --print("DEBUG: No cloning configuration found.")
+            end
         end
     end
 
@@ -1120,13 +1186,14 @@ local function OnSessionLoaded()
     end
 
     function ProcessNearbyCharacters()
-        local nearbyCharacters = GetNearbyCharacters(150)
+        local nearbyCharacters = GetNearbyCharacters(160)
         for _, character in ipairs(nearbyCharacters) do
             local guid = character.Name .. "_" .. character.Guid
             if IsCharacter(guid) == 1 and CheckIfParty(guid) == 0 and CheckIfExcluded(guid) == 0 then
                 GiveHPIncrease(guid, true)
                 GiveLevel(guid)
                 CheckOverride(guid)
+                CheckClone(guid)
             end
         end
     end
@@ -1255,7 +1322,7 @@ local function OnSessionLoaded()
 
     function StartCXTimer() -- Don't forget to restart on CombatEnded
         if not IsPartyInCombat() then
-            Osi.TimerLaunch("cx", 6000)
+            Osi.TimerLaunch("cx", 4000)
             --print("DEBUG: Starting timer")
         else
             DebugPrint("DEBUG: Won't start timer, a party member is in combat")
