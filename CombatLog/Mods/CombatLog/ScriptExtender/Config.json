@@ -1,0 +1,5 @@
+{
+    "RequiredVersion": 13,
+    "ModTable": "CombatLog",
+    "FeatureFlags": ["Lua"]
+}
