@@ -213,15 +213,59 @@
       }
     }
   },
+  // This is the clones part, refer to the documentation for this feature specifically
+  "Clones": {
+    "S_WYR_SmugglersCave_StoneLord_Caster_01_7f160186-c30a-40d3-86b6-978df3e72732": {
+      "DisplayName": "Fist Polo",
+      "Template": "S_WYR_Rivington_FlamingFist_005_abe8c280-a943-4ec0-96ff-0f0caf9ebdfa"
+    }
+  },
+  // This is the overrides part. This can be useful to override the base health to be used prior to calculating desired health
+  // Furthermore you can add additional spells or passives to particular enemies, such as bosses as shown in the example below.
+  "Overrides": {
+    "S_LOW_Lorroakan_a9d4b71d-b0ef-429e-8210-6dc8be986ee9": {
+      "Passives": ["Alert", "WarCaster_Bonuses", "WarCaster_OpportunitySpell"],
+      "Spells": ["Zone_Sunbeam","Projectile_CursedTome_CurriculumofStrategy"],
+      "HealthOverride": 200
+    },
+    "S_HAG_ForestIllusion_Redcap_01_ff840420-d46a-4837-868b-ac02f45e4586": {
+      "HealthOverride": 35
+    },
+    "S_HAG_ForestIllusion_Redcap_02_2b08981e-5cb0-496d-98cf-15e6a92121ec": {
+      "HealthOverride": 58
+    },
+    "S_HAG_ForestIllusion_Redcap_03_14026955-2546-4d31-bc0c-4bfe0c34bd8a": {
+      "HealthOverride": 35
+    },
+    "S_HAG_ForestIllusion_Redcap_04_30a871b1-9df3-42bb-87cb-c284cafd32eb": {
+      "HealthOverride": 58
+    },
+    "S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a": {
+      "HealthOverride": 600
+    },
+    "S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255": {
+      "HealthOverride": 450
+    },
+    "S_END_MindBrain_f8bb04a3-22e5-41b0-aed7-5dcf852343d1": {
+      "HealthOverride": 450
+    }
+  },
   // This is the health scaling part. If you want enemies to scale based on the level of the player use that.
   // "HealthMultiplier" has to be 0 to activate scaling based on player level.
   //
-  // If you want static multipliers, simply use:
+  // If you want static multipliers, use:
   //     "Enemies": {
   //      "HealthMultiplier": 2
   //    }
   //
   // Check the pinned post for how to calculate the curve.
+  //
+  // If you want to scale health based on the size of the party use:
+  //     "Allies": {
+  //      "HealthMultiplier": 2,
+  //      "HealthMultiplierPartyScaling": 0.333
+  //    },
+  // HealthMultiplier is not used, however if it is set to "1" it disables the feature.
   "Health": {
     "Allies": {},
     "Bosses": {
