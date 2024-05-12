@@ -149,7 +149,29 @@
       "Spells": ["Target_FleshToStone"]
     }
   ],
-  "Overrides": {},
+  "Overrides": {
+    "S_HAG_ForestIllusion_Redcap_01_ff840420-d46a-4837-868b-ac02f45e4586": {
+      "HealthOverride": 35
+    },
+    "S_HAG_ForestIllusion_Redcap_02_2b08981e-5cb0-496d-98cf-15e6a92121ec": {
+      "HealthOverride": 58
+    },
+    "S_HAG_ForestIllusion_Redcap_03_14026955-2546-4d31-bc0c-4bfe0c34bd8a": {
+      "HealthOverride": 35
+    },
+    "S_HAG_ForestIllusion_Redcap_04_30a871b1-9df3-42bb-87cb-c284cafd32eb": {
+      "HealthOverride": 58
+    },
+    "S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a": {
+      "HealthOverride": 600
+    },
+    "S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255": {
+      "HealthOverride": 450
+    },
+    "S_END_MindBrain_f8bb04a3-22e5-41b0-aed7-5dcf852343d1": {
+      "HealthOverride": 450
+    }
+  },
   "Health": {
     "Allies": {},
     "Bosses": {
