@@ -197,6 +197,19 @@ local function OnSessionLoaded()
         return 0
     end
 
+    function GetPartySize()
+        local partyMembers = Osi.DB_PartyMembers:Get(nil)
+        local partySize = 0
+
+        for _, d in ipairs(partyMembers) do
+            local guid = d[1]
+            if IsSummon(guid) == 0 then
+                partySize = partySize + 1
+            end
+        end
+        return partySize
+    end
+
     function ProcessPartyMembers()
         local partyMembers = Osi.DB_PartyMembers:Get(nil)
         for _, d in ipairs(partyMembers) do
@@ -286,7 +299,17 @@ local function OnSessionLoaded()
 
         local healthMultiplier = tonumber(healthConfig["HealthMultiplier"])
 
-        -- 0 equals level-based scaling
+        -- Check if Party Scaling is configured
+        if healthConfig["HealthMultiplierPartyScaling"] then
+            local partySize = GetPartySize()
+            if partySize <= 4 then
+                return
+            end
+            local partyScalingMultiplier = tonumber(healthConfig["HealthMultiplierPartyScaling"])
+            healthMultiplier = partyScalingMultiplier * partySize
+        end
+
+        -- For healthMultiplier 0 equals level-based scaling
         if healthMultiplier == 0 then
             local playerLevel = GetPartyLevel()
             local staticBoost = tonumber(healthConfig["StaticBoost"])
@@ -586,7 +609,7 @@ local function OnSessionLoaded()
         local clonedEntity = PersistentVars["clonedEntities"][guid]
 
         -- Check if "Clones" exists and is not empty
-        if ConfigTable.Clones and next(ConfigTable["Clones"]) ~= nil and IsDead(guid) == 0 then
+        if ConfigTable.Clones and next(ConfigTable["Clones"]) ~= nil then
             local cloneConfig = ConfigTable["Clones"][guid]
 
             if cloneConfig then
@@ -694,18 +717,6 @@ local function OnSessionLoaded()
                         AddPassive(clonedEntity, passiveId)
                     else
                         print("DEBUG: Clone already has passive " .. passiveId)
-                    end
-                end]]
-
-                --[[if CloneState[cloneEntityKey] == 1 then
-                    local originalMaxHp = originalEntity.Health.MaxHp
-                    local clonedMaxHp = clonedEntityData.Health.MaxHp
-
-                    if originalMaxHp > clonedMaxHp then
-                        local hpBoost = originalMaxHp - clonedMaxHp
-                        local boostString = "IncreaseMaxHP(" .. hpBoost .. ")"
-                        --AddBoosts(clonedEntity, boostString, "combatextender", "1")
-                        print("DEBUG: Added HP boost of " .. hpBoost .. " to clone " .. clonedEntity)
                     end
                 end]]
 
