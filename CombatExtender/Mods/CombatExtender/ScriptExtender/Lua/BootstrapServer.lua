@@ -338,6 +338,10 @@ local function OnSessionLoaded()
         local isProgressionBoosted = false
         local boostParams
 
+        if currentMaxHealth == 1 then -- Primarily for potential character creation issues
+            return
+        end
+
         if not (currentMaxHealth and boostsContainer) then
             print(string.format("DEBUG: Invalid entity or missing properties for Target: %s.", guid))
             return
@@ -1411,7 +1415,7 @@ local function OnSessionLoaded()
         Loaded = true -- Game has now fully loaded
 
         -- Identify Act and set variable
-        if levelName == "WLD_Main_A" or levelName == "CRE_Main_A" or levelName == "TUT_Avernus_C" then
+        if levelName == "WLD_Main_A" or levelName == "CRE_Main_A" or levelName == "TUT_Avernus_C" or levelName == "SYS_CC_I" then
             Act = 1
             print("INFO: Act set to 1 for level: " .. levelName)
         elseif levelName == "SCL_Main_A" then
