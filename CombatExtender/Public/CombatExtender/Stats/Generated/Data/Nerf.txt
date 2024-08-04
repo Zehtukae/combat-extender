@@ -102,20 +102,6 @@ data "PassivesOnEquip" "MageSlayer_Advantage;MageSlayer_AttackCaster;MageSlayer_
 data "StatusOnEquip" "MAG_BHAALIST_ARMOR_TECHNICAL"
 data "Unique" "1"
 
-new entry "MAG_Critical_Force_Gloves"
-type "Armor"
-using "MAG_Critical_Force_Gloves"
-data "PassivesOnEquip" "MAG_Critical_Force_Critical_Passive;DarkOnesBlessing;ORI_Gale_ShadowSpellSlots"
-
-new entry "MAG_Critical_Force_Critical_Passive"
-type "PassiveData"
-data "DisplayName" "h14b285aag980cg4e8dg9d1fgec61e7aba0e4;2"
-data "Description" "h485c5d37g241dg453fg8555g0406d28f1476;3"
-data "DescriptionParams" "DealDamage(1d6, Force)"
-data "Properties" "OncePerTurn"
-data "StatsFunctorContext" "OnDamage"
-data "StatsFunctors" "IF(IsCritical()):DealDamage(1d6, Force,Magical)"
-
 new entry "MAG_StrongString_Longbow"
 type "Weapon"
 using "WPN_Longbow_1"
