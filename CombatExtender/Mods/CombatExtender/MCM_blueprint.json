@@ -1,0 +1,1402 @@
+{
+    "SchemaVersion": 1,
+    "ModName": "Combat Extender",
+    "Tabs": [
+        {
+            "TabId": "general_settings",
+            "TabName": "General Settings",
+            "Sections": [
+                {
+                    "SectionId": "general_info",
+                    "SectionName": "General Information",
+                    "Settings": [
+                        {
+                            "Id": "General_Info",
+                            "Name": "General Information",
+                            "Type": "text",
+                            "Default": "PLEASE READ",
+                            "Tooltip": "Information about applying settings.",
+                            "Description": "INFO: You must reload a (quick) save to apply all settings in this mod."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "health",
+                    "SectionName": "Health",
+                    "Settings": [
+                        {
+                            "Id": "Enable_Allies_Health_Overrides",
+                            "Name": "Enable Allies Health Overrides",
+                            "Type": "checkbox",
+                            "Default": false,
+                            "Tooltip": "Enable this to use the custom health settings for allies. If not checked, enemies' settings will be used.",
+                            "Description": "Enable this to use the custom health settings for allies. If not\nchecked, enemies' settings will be used"
+                        },
+                        {
+                            "Id": "Allies_HealthMultiplier",
+                            "Name": "Allies Health Multiplier",
+                            "Type": "slider_float",
+                            "Default": 0.0,
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 10.0
+                            },
+                            "Tooltip": "Multiplier for allies' health."
+                        },
+                        {
+                            "Id": "Allies_StaticBoost",
+                            "Name": "Allies Static Boost",
+                            "Type": "slider_float",
+                            "Default": 0.0,
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 10.0
+                            },
+                            "Tooltip": "Static boost for allies' health."
+                        },
+                        {
+                            "Id": "Allies_HealthPerLevel",
+                            "Name": "Allies Health Per Level",
+                            "Type": "slider_float",
+                            "Default": 0.0,
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 1.0
+                            },
+                            "Tooltip": "Health increase per level for allies.",
+                            "Description": "---                      BOSSES                      ---"
+                        },
+                        {
+                            "Id": "Bosses_HealthMultiplier",
+                            "Name": "Bosses Health Multiplier",
+                            "Type": "slider_float",
+                            "Default": 0.0,
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 10.0
+                            },
+                            "Tooltip": "Multiplier for bosses' health."
+                        },
+                        {
+                            "Id": "Bosses_StaticBoost",
+                            "Name": "Bosses Static Boost",
+                            "Type": "slider_float",
+                            "Default": 0.1,
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 10.0
+                            },
+                            "Tooltip": "Static boost for bosses' health."
+                        },
+                        {
+                            "Id": "Bosses_HealthPerLevel",
+                            "Name": "Bosses Health Per Level",
+                            "Type": "slider_float",
+                            "Default": 0.02,
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 1.0
+                            },
+                            "Tooltip": "Health increase per level for bosses.",
+                            "Description": "---                      ENEMIES                      ---"
+                        },
+                        {
+                            "Id": "Enemies_HealthMultiplier",
+                            "Name": "Enemies Health Multiplier",
+                            "Type": "slider_float",
+                            "Default": 0.0,
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 10.0
+                            },
+                            "Tooltip": "Multiplier for enemies' health."
+                        },
+                        {
+                            "Id": "Enemies_StaticBoost",
+                            "Name": "Enemies Static Boost",
+                            "Type": "slider_float",
+                            "Default": 0.1,
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 10.0
+                            },
+                            "Tooltip": "Static boost for enemies' health."
+                        },
+                        {
+                            "Id": "Enemies_HealthPerLevel",
+                            "Name": "Enemies Health Per Level",
+                            "Type": "slider_float",
+                            "Default": 0.01,
+                            "Options": {
+                                "Min": 0.0,
+                                "Max": 1.0
+                            },
+                            "Tooltip": "Health increase per level for enemies.",
+                            "Description": "This is the health scaling part. If you want enemies to scale based on\nthe level of the player use this. 'HealthMultiplier' has to be 0 to\nactivate scaling based on player level. If you want static multipliers,\nset 'Enemies Health Multiplier' to a value greater than 0 and set boost\nand set StaticBoost and HealthPerLevel to 0."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "damage",
+                    "SectionName": "Damage",
+                    "Settings": [
+                        {
+                            "Id": "Bosses_StaticDamageBoost",
+                            "Name": "Bosses Static Damage Boost",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static damage boost for bosses."
+                        },
+                        {
+                            "Id": "Bosses_DamagePerIncrement",
+                            "Name": "Bosses Damage Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Damage increase per increment for bosses."
+                        },
+                        {
+                            "Id": "Bosses_LevelIncrement",
+                            "Name": "Bosses Level Increment",
+                            "Type": "slider_int",
+                            "Default": 4,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for bosses' damage.",
+                            "Description": "---                      ENEMIES                      ---"
+                        },
+                        {
+                            "Id": "Enemies_StaticDamageBoost",
+                            "Name": "Enemies Static Damage Boost",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static damage boost for enemies."
+                        },
+                        {
+                            "Id": "Enemies_DamagePerIncrement",
+                            "Name": "Enemies Damage Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Damage increase per increment for enemies."
+                        },
+                        {
+                            "Id": "Enemies_LevelIncrement",
+                            "Name": "Enemies Level Increment",
+                            "Type": "slider_int",
+                            "Default": 6,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for enemies' damage.",
+                            "Description": "The blocks here follow a similar structure Here is the calculation:\ntotalBoost = staticBoost + boostPerIncrement * math.floor(targetLevel /\nlevelIncrement) The floor value of a number is the value that is rounded\nto the closest integer less than or equal to that integer Example with a\nlevel 5 target: totalBoost = 1 + 1 * (5 / 4) = 2"
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "armour_class",
+                    "SectionName": "Armour Class",
+                    "Settings": [
+                        {
+                            "Id": "Bosses_ArmourClass_StaticBoost",
+                            "Name": "Bosses Armour Class Static Boost",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static boost for bosses' armour class."
+                        },
+                        {
+                            "Id": "Bosses_ArmourClass_BoostPerIncrement",
+                            "Name": "Bosses Armour Class Boost Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Boost per increment for bosses' armour class."
+                        },
+                        {
+                            "Id": "Bosses_ArmourClass_LevelIncrement",
+                            "Name": "Bosses Armour Class Level Increment",
+                            "Type": "slider_int",
+                            "Default": 4,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for bosses' armour class.",
+                            "Description": "---                      ENEMIES                      ---"
+                        },
+                        {
+                            "Id": "Enemies_ArmourClass_StaticBoost",
+                            "Name": "Enemies Armour Class Static Boost",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static boost for enemies' armour class."
+                        },
+                        {
+                            "Id": "Enemies_ArmourClass_BoostPerIncrement",
+                            "Name": "Enemies Armour Class Boost Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Boost per increment for enemies' armour class."
+                        },
+                        {
+                            "Id": "Enemies_ArmourClass_LevelIncrement",
+                            "Name": "Enemies Armour Class Level Increment",
+                            "Type": "slider_int",
+                            "Default": 4,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for enemies' armour class.",
+                            "Description": "Refer to the Damage Section description"
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spell_save_dc",
+                    "SectionName": "Spell Save DC",
+                    "Settings": [
+                        {
+                            "Id": "Bosses_SpellSaveDC_StaticBoost",
+                            "Name": "Bosses Spell Save DC Static Boost",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static boost for bosses' spell save DC."
+                        },
+                        {
+                            "Id": "Bosses_SpellSaveDC_BoostPerIncrement",
+                            "Name": "Bosses Spell Save DC Boost Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Boost per increment for bosses spell save DC."
+                        },
+                        {
+                            "Id": "Bosses_SpellSaveDC_LevelIncrement",
+                            "Name": "Bosses Spell Save DC Level Increment",
+                            "Type": "slider_int",
+                            "Default": 8,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for bosses' spell save DC.",
+                            "Description": "---                      ENEMIES                      ---"
+                        },
+                        {
+                            "Id": "Enemies_SpellSaveDC_StaticBoost",
+                            "Name": "Enemies Spell Save DC Static Boost",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static boost for enemies' spell save DC."
+                        },
+                        {
+                            "Id": "Enemies_SpellSaveDC_BoostPerIncrement",
+                            "Name": "Enemies Spell Save DC Boost Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Boost per increment for enemies' spell save DC."
+                        },
+                        {
+                            "Id": "Enemies_SpellSaveDC_LevelIncrement",
+                            "Name": "Enemies Spell Save DC Level Increment",
+                            "Type": "slider_int",
+                            "Default": 8,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for enemies' spell save DC.",
+                            "Description": "Refer to the Damage Section description"
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "ability_points",
+                    "SectionName": "Ability Points",
+                    "Settings": [
+                        {
+                            "Id": "Bosses_AbilityPoints_StaticBoost",
+                            "Name": "Bosses Ability Points Static Boost",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static boost for bosses' ability points."
+                        },
+                        {
+                            "Id": "Bosses_AbilityPoints_BoostPerIncrement",
+                            "Name": "Bosses Ability Points Boost Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Boost per increment for bosses' ability points."
+                        },
+                        {
+                            "Id": "Bosses_AbilityPoints_LevelIncrement",
+                            "Name": "Bosses Ability Points Level Increment",
+                            "Type": "slider_int",
+                            "Default": 4,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for bosses' ability points.",
+                            "Description": "---                      ENEMIES                      ---"
+                        },
+                        {
+                            "Id": "Enemies_AbilityPoints_StaticBoost",
+                            "Name": "Enemies Ability Points Static Boost",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static boost for enemies' ability points."
+                        },
+                        {
+                            "Id": "Enemies_AbilityPoints_BoostPerIncrement",
+                            "Name": "Enemies Ability Points Boost Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Boost per increment for enemies' ability points."
+                        },
+                        {
+                            "Id": "Enemies_AbilityPoints_LevelIncrement",
+                            "Name": "Enemies Ability Points Level Increment",
+                            "Type": "slider_int",
+                            "Default": 6,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for enemies' ability points.",
+                            "Description": "I sort enemy abilities by value to find the top 2, and check if\nSpellCastingAbility is one of those. If SpellCastingAbility is not among\nthe top 2, I add it to the list of abilities to boost. In most\nsituations you will see 2 abilities being boosted, but sometimes 3.\nFurthermore I ensure the final ability value is an even number, rounded\nup from what it would have been."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "movement",
+                    "SectionName": "Movement",
+                    "Settings": [
+                        {
+                            "Id": "Bosses_Movement_StaticBoost",
+                            "Name": "Bosses Movement Static Boost",
+                            "Type": "slider_int",
+                            "Default": 3,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static boost for bosses' movement.",
+                            "Description": "---                      ENEMIES                      ---"
+                        },
+                        {
+                            "Id": "Enemies_Movement_StaticBoost",
+                            "Name": "Enemies Movement Static Boost",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static boost for enemies' movement.",
+                            "Description": "Movement is in meters."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "extra_action",
+                    "SectionName": "Extra Action",
+                    "Settings": [
+                        {
+                            "Id": "Bosses_ExtraAction_Action_Additional",
+                            "Name": "Bosses Extra Action Additional",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Additional actions for bosses."
+                        },
+                        {
+                            "Id": "Bosses_ExtraAction_BonusAction_Additional",
+                            "Name": "Bosses Extra Bonus Action Additional",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Additional bonus actions for bosses.",
+                            "Description": "---                      ENEMIES                      ---"
+                        },
+                        {
+                            "Id": "Enemies_ExtraAction_Action_Additional",
+                            "Name": "Enemies Extra Action Additional",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Additional actions for enemies."
+                        },
+                        {
+                            "Id": "Enemies_ExtraAction_BonusAction_Additional",
+                            "Name": "Enemies Extra Bonus Action Additional",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Additional bonus actions for enemies.",
+                            "Description": "1 means give the target an additional (bonus) action."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "rolls",
+                    "SectionName": "Rolls",
+                    "Settings": [
+                        {
+                            "Id": "Bosses_Rolls_Attack_StaticRollBonus",
+                            "Name": "Bosses Attack Roll Static Bonus",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static bonus for bosses' attack rolls."
+                        },
+                        {
+                            "Id": "Bosses_Rolls_Attack_RollBonusPerIncrement",
+                            "Name": "Bosses Attack Roll Bonus Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Bonus per increment for bosses' attack rolls."
+                        },
+                        {
+                            "Id": "Bosses_Rolls_Attack_LevelIncrement",
+                            "Name": "Bosses Attack Roll Level Increment",
+                            "Type": "slider_int",
+                            "Default": 4,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for bosses' attack rolls."
+                        },
+                        {
+                            "Id": "Bosses_Rolls_SavingThrow_StaticRollBonus",
+                            "Name": "Bosses Saving Throw Static Bonus",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static bonus for bosses' saving throws."
+                        },
+                        {
+                            "Id": "Bosses_Rolls_SavingThrow_RollBonusPerIncrement",
+                            "Name": "Bosses Saving Throw Bonus Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Bonus per increment for bosses' saving throws."
+                        },
+                        {
+                            "Id": "Bosses_Rolls_SavingThrow_LevelIncrement",
+                            "Name": "Bosses Saving Throw Level Increment",
+                            "Type": "slider_int",
+                            "Default": 4,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for bosses' saving throws.",
+                            "Description": "---                      ENEMIES                      ---"
+                        },
+                        {
+                            "Id": "Enemies_Rolls_Attack_StaticRollBonus",
+                            "Name": "Enemies Attack Roll Static Bonus",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static bonus for enemies' attack rolls."
+                        },
+                        {
+                            "Id": "Enemies_Rolls_Attack_RollBonusPerIncrement",
+                            "Name": "Enemies Attack Roll Bonus Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Bonus per increment for enemies' attack rolls."
+                        },
+                        {
+                            "Id": "Enemies_Rolls_Attack_LevelIncrement",
+                            "Name": "Enemies Attack Roll Level Increment",
+                            "Type": "slider_int",
+                            "Default": 8,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for enemies' attack rolls."
+                        },
+                        {
+                            "Id": "Enemies_Rolls_SavingThrow_StaticRollBonus",
+                            "Name": "Enemies Saving Throw Static Bonus",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Static bonus for enemies' saving throws."
+                        },
+                        {
+                            "Id": "Enemies_Rolls_SavingThrow_RollBonusPerIncrement",
+                            "Name": "Enemies Saving Throw Bonus Per Increment",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Bonus per increment for enemies' saving throws."
+                        },
+                        {
+                            "Id": "Enemies_Rolls_SavingThrow_LevelIncrement",
+                            "Name": "Enemies Saving Throw Level Increment",
+                            "Type": "slider_int",
+                            "Default": 8,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 20
+                            },
+                            "Tooltip": "Level increment for enemies' saving throws.",
+                            "Description": "Refering to saving throw settings: These apply to any saving throw. Use\nthis to increase the floor. However primarily use AbilityPoints boosts\nto keep targets unique."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "TabId": "passives",
+            "TabName": "Passives",
+            "Sections": [
+                {
+                    "SectionId": "barbarian",
+                    "SectionName": "Barbarian",
+                    "Settings": [
+                        {
+                            "Id": "CX_Barbarian_Boost_Act1_Spells",
+                            "Name": "Act 1 Spells",
+                            "Type": "list",
+                            "Default": ["Throw_FrenziedThrow", "Target_FrenziedStrike", "Target_RecklessAttack"],
+                            "Tooltip": "Spells available in Act 1 for Barbarian."
+                        },
+                        {
+                            "Id": "CX_Barbarian_Boost_Act1_ExtraPassives",
+                            "Name": "Act 1 Extra Passives",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Extra passives available in Act 1 for Barbarian.",
+                            "Description": "Act 2:"
+                        },
+                        {
+                            "Id": "CX_Barbarian_Boost_Act2_Spells",
+                            "Name": "Act 2 Spells",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Spells available in Act 2 for Barbarian."
+                        },
+                        {
+                            "Id": "CX_Barbarian_Boost_Act2_ExtraPassives",
+                            "Name": "Act 2 Extra Passives",
+                            "Type": "list",
+                            "Default": ["MindlessRage", "FeralInstinct"],
+                            "Tooltip": "Extra passives available in Act 2 for Barbarian.",
+                            "Description": "Act 3:"
+                        },
+                        {
+                            "Id": "CX_Barbarian_Boost_Act3_Spells",
+                            "Name": "Act 3 Spells",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Spells available in Act 3 for Barbarian."
+                        },
+                        {
+                            "Id": "CX_Barbarian_Boost_Act3_ExtraPassives",
+                            "Name": "Act 3 Extra Passives",
+                            "Type": "list",
+                            "Default": ["BrutalCritical", "RelentlessRage"],
+                            "Tooltip": "Extra passives available in Act 3 for Barbarian.",
+                            "Description": "Combat Extender (CX) is built around tagging enemies based on their\narchetypes and using those tags to configure their abilities, spells,\nand passives. The tagging process was done manually over a significant\namount of time. If you spot any mistakes in-game, please let me know!\nYou can also add passives, spells, and abilities from other mods, but\nmake sure to load those mods before CX.\n\nThe configuration allows you to set up difficulty per act using the Act\nseparator. Act configuration is cumulative, meaning Act 3 includes the\nconfigurations from Act 1, Act 2, and Act 3.\n\n For example, in the configuration for the Barbarian class:\n-In Act 1, only spells are given without additional passives.\n- In Act 2, additional passives are provided without new spells.\n- In Act 3, more passives are added.\n\nThe configuration supports missing entries for certain acts. For\ninstance, if there is no entry for Act 2, the configuration will still\nbe cumulative, combining the settings from Act 1 and Act 3.\n\nRegarding missing classes, some classes are very rare in the game. Most\nspellcasters are wizards, and there are only a handful of sorcerers,\nsuch as characters like Mizora. Because they are so rare, they already\nhave all the abilities and spells they should have."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "cleric",
+                    "SectionName": "Cleric",
+                    "Settings": [
+                        {
+                            "Id": "CX_Cleric_Boost_Act1_Spells",
+                            "Name": "Act 1 Spells",
+                            "Type": "list",
+                            "Default": ["Projectile_GuidingBolt", "Target_InflictWounds", "Target_HealingWord", "Shout_HealingWord_Mass"],
+                            "Tooltip": "Spells available in Act 1 for Cleric."
+                        },
+                        {
+                            "Id": "CX_Cleric_Boost_Act1_ExtraPassives",
+                            "Name": "Act 1 Extra Passives",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Extra passives available in Act 1 for Cleric.",
+                            "Description": "Act 2:"
+                        },
+                        {
+                            "Id": "CX_Cleric_Boost_Act2_Spells",
+                            "Name": "Act 2 Spells",
+                            "Type": "list",
+                            "Default": ["Shout_SpiritGuardians"],
+                            "Tooltip": "Spells available in Act 2 for Cleric."
+                        },
+                        {
+                            "Id": "CX_Cleric_Boost_Act2_ExtraPassives",
+                            "Name": "Act 2 Extra Passives",
+                            "Type": "list",
+                            "Default": ["PotentSpellcasting"],
+                            "Tooltip": "Extra passives available in Act 2 for Cleric.",
+                            "Description": "Act 3:"
+                        },
+                        {
+                            "Id": "CX_Cleric_Boost_Act3_Spells",
+                            "Name": "Act 3 Spells",
+                            "Type": "list",
+                            "Default": ["Target_FlameStrike", "Target_Contagion"],
+                            "Tooltip": "Spells available in Act 3 for Cleric."
+                        },
+                        {
+                            "Id": "CX_Cleric_Boost_Act3_ExtraPassives",
+                            "Name": "Act 3 Extra Passives",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Extra passives available in Act 3 for Cleric."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "fighter",
+                    "SectionName": "Fighter",
+                    "Settings": [
+                        {
+                            "Id": "CX_Fighter_Boost_Act1_Spells",
+                            "Name": "Act 1 Spells",
+                            "Type": "list",
+                            "Default": ["Target_DistractingStrike", "Target_PushingAttack", "Target_FeintingAttack"],
+                            "Tooltip": "Spells available in Act 1 for Fighter."
+                        },
+                        {
+                            "Id": "CX_Fighter_Boost_Act1_ExtraPassives",
+                            "Name": "Act 1 Extra Passives",
+                            "Type": "list",
+                            "Default": ["Riposte", "FightingStyle_GreatWeaponFighting", "FightingStyle_TwoWeaponFighting", "FightingStyle_Protection", "FightingStyle_Dueling"],
+                            "Tooltip": "Extra passives available in Act 1 for Fighter.",
+                            "Description": "Act 2:"
+                        },
+                        {
+                            "Id": "CX_Fighter_Boost_Act2_Spells",
+                            "Name": "Act 2 Spells",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Spells available in Act 2 for Fighter."
+                        },
+                        {
+                            "Id": "CX_Fighter_Boost_Act2_ExtraPassives",
+                            "Name": "Act 2 Extra Passives",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Extra passives available in Act 2 for Fighter.",
+                            "Description": "Act 3:"
+                        },
+                        {
+                            "Id": "CX_Fighter_Boost_Act3_Spells",
+                            "Name": "Act 3 Spells",
+                            "Type": "list",
+                            "Default": ["Zone_SweepingAttack"],
+                            "Tooltip": "Spells available in Act 3 for Fighter."
+                        },
+                        {
+                            "Id": "CX_Fighter_Boost_Act3_ExtraPassives",
+                            "Name": "Act 3 Extra Passives",
+                            "Type": "list",
+                            "Default": ["Indomitable", "ImprovedCombatSuperiority"],
+                            "Tooltip": "Extra passives available in Act 3 for Fighter."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "monk",
+                    "SectionName": "Monk",
+                    "Settings": [
+                        {
+                            "Id": "CX_Monk_Boost_Act1_Spells",
+                            "Name": "Act 1 Spells",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Spells available in Act 1 for Monk."
+                        },
+                        {
+                            "Id": "CX_Monk_Boost_Act1_ExtraPassives",
+                            "Name": "Act 1 Extra Passives",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Extra passives available in Act 1 for Monk.",
+                            "Description": "Act 2:"
+                        },
+                        {
+                            "Id": "CX_Monk_Boost_Act2_Spells",
+                            "Name": "Act 2 Spells",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Spells available in Act 2 for Monk."
+                        },
+                        {
+                            "Id": "CX_Monk_Boost_Act2_ExtraPassives",
+                            "Name": "Act 2 Extra Passives",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Extra passives available in Act 2 for Monk.",
+                            "Description": "Act 3:"
+                        },
+                        {
+                            "Id": "CX_Monk_Boost_Act3_Spells",
+                            "Name": "Act 3 Spells",
+                            "Type": "list",
+                            "Default": ["Target_WaterWhip", "Projectile_FangsOfTheFireSnake", "Zone_Thunderwave_Monk", "Target_FistOfUnbrokenAir"],
+                            "Tooltip": "Spells available in Act 3 for Monk."
+                        },
+                        {
+                            "Id": "CX_Monk_Boost_Act3_ExtraPassives",
+                            "Name": "Act 3 Extra Passives",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Extra passives available in Act 3 for Monk."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "paladin",
+                    "SectionName": "Paladin",
+                    "Settings": [
+                        {
+                            "Id": "CX_Paladin_Boost_Act1_Spells",
+                            "Name": "Act 1 Spells",
+                            "Type": "list",
+                            "Default": ["Target_Smite_Thunderous", "Target_Smite_Wrathful", "Target_Smite_Searing", "Target_Smite_Divine"],
+                            "Tooltip": "Spells available in Act 1 for Paladin."
+                        },
+                        {
+                            "Id": "CX_Paladin_Boost_Act1_ExtraPassives",
+                            "Name": "Act 1 Extra Passives",
+                            "Type": "list",
+                            "Default": ["FightingStyle_GreatWeaponFighting", "FightingStyle_TwoWeaponFighting", "FightingStyle_Protection", "FightingStyle_Dueling"],
+                            "Tooltip": "Extra passives available in Act 1 for Paladin.",
+                            "Description": "Act 2:"
+                        },
+                        {
+                            "Id": "CX_Paladin_Boost_Act2_Spells",
+                            "Name": "Act 2 Spells",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Spells available in Act 2 for Paladin."
+                        },
+                        {
+                            "Id": "CX_Paladin_Boost_Act2_ExtraPassives",
+                            "Name": "Act 2 Extra Passives",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Extra passives available in Act 2 for Paladin.",
+                            "Description": "Act 3:"
+                        },
+                        {
+                            "Id": "CX_Paladin_Boost_Act3_Spells",
+                            "Name": "Act 3 Spells",
+                            "Type": "list",
+                            "Default": ["Target_Smite_Blinding"],
+                            "Tooltip": "Spells available in Act 3 for Paladin."
+                        },
+                        {
+                            "Id": "CX_Paladin_Boost_Act3_ExtraPassives",
+                            "Name": "Act 3 Extra Passives",
+                            "Type": "list",
+                            "Default": ["ImprovedDivineSmite"],
+                            "Tooltip": "Extra passives available in Act 3 for Paladin."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "ranger",
+                    "SectionName": "Ranger",
+                    "Settings": [
+                        {
+                            "Id": "CX_Ranger_Boost_Act1_Spells",
+                            "Name": "Act 1 Spells",
+                            "Type": "list",
+                            "Default": ["Target_HuntersMark", "Projectile_HailOfThorns"],
+                            "Tooltip": "Spells available in Act 1 for Ranger."
+                        },
+                        {
+                            "Id": "CX_Ranger_Boost_Act1_ExtraPassives",
+                            "Name": "Act 1 Extra Passives",
+                            "Type": "list",
+                            "Default": ["FightingStyle_Archery"],
+                            "Tooltip": "Extra passives available in Act 1 for Ranger.",
+                            "Description": "Act 2:"
+                        },
+                        {
+                            "Id": "CX_Ranger_Boost_Act2_Spells",
+                            "Name": "Act 2 Spells",
+                            "Type": "list",
+                            "Default": ["Target_MistyStep"],
+                            "Tooltip": "Spells available in Act 2 for Ranger."
+                        },
+                        {
+                            "Id": "CX_Ranger_Boost_Act2_ExtraPassives",
+                            "Name": "Act 2 Extra Passives",
+                            "Type": "list",
+                            "Default": ["MultiattackDefense"],
+                            "Tooltip": "Extra passives available in Act 2 for Ranger.",
+                            "Description": "Act 3:"
+                        },
+                        {
+                            "Id": "CX_Ranger_Boost_Act3_Spells",
+                            "Name": "Act 3 Spells",
+                            "Type": "list",
+                            "Default": ["Shout_HideInPlainSight", "Target_Volley", "Shout_Whirlwind"],
+                            "Tooltip": "Spells available in Act 3 for Ranger."
+                        },
+                        {
+                            "Id": "CX_Ranger_Boost_Act3_ExtraPassives",
+                            "Name": "Act 3 Extra Passives",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Extra passives available in Act 3 for Ranger."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "rogue",
+                    "SectionName": "Rogue",
+                    "Settings": [
+                        {
+                            "Id": "CX_Rogue_Boost_Act1_Spells",
+                            "Name": "Act 1 Spells",
+                            "Type": "list",
+                            "Default": ["Projectile_SneakAttack", "Target_SneakAttack"],
+                            "Tooltip": "Spells available in Act 1 for Rogue."
+                        },
+                        {
+                            "Id": "CX_Rogue_Boost_Act1_ExtraPassives",
+                            "Name": "Act 1 Extra Passives",
+                            "Type": "list",
+                            "Default": ["UncannyDodge"],
+                            "Tooltip": "Extra passives available in Act 1 for Rogue.",
+                            "Description": "Act 2:"
+                        },
+                        {
+                            "Id": "CX_Rogue_Boost_Act2_Spells",
+                            "Name": "Act 2 Spells",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Spells available in Act 2 for Rogue."
+                        },
+                        {
+                            "Id": "CX_Rogue_Boost_Act2_ExtraPassives",
+                            "Name": "Act 2 Extra Passives",
+                            "Type": "list",
+                            "Default": ["Evasion"],
+                            "Tooltip": "Extra passives available in Act 2 for Rogue.",
+                            "Description": "Act 3:"
+                        },
+                        {
+                            "Id": "CX_Rogue_Boost_Act3_Spells",
+                            "Name": "Act 3 Spells",
+                            "Type": "list",
+                            "Default": [],
+                            "Tooltip": "Spells available in Act 3 for Rogue."
+                        },
+                        {
+                            "Id": "CX_Rogue_Boost_Act3_ExtraPassives",
+                            "Name": "Act 3 Extra Passives",
+                            "Type": "list",
+                            "Default": ["ReliableTalent"],
+                            "Tooltip": "Extra passives available in Act 3 for Rogue."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "TabId": "spells",
+            "TabName": "Spells",
+            "Sections": [
+                {
+                    "SectionId": "spells_l1",
+                    "SectionName": "Level 1 Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L1",
+                            "Name": "Level 1 Spells",
+                            "Type": "list",
+                            "Default": ["Projectile_IceKnife", "Projectile_MagicMissile", "Projectile_RayOfSickness", "Zone_Thunderwave", "Projectile_ChromaticOrb"],
+                            "Tooltip": "Spells available at level 1."
+                        },
+                        {
+                            "Id": "CX_Spells_L1_ExtraSpellSlots",
+                            "Name": "Extra Spell Slots (Level 1)",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Extra spell slots for level 1 spells.",
+                            "Description": "These passives were assigned during the manual tagging process following\nvanilla rules. This means you will never see level 5 (CX_Spells_L5) in\nAct 1."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l2",
+                    "SectionName": "Level 2 Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L2",
+                            "Name": "Level 2 Spells",
+                            "Type": "list",
+                            "Default": ["Projectile_AcidArrow", "Projectile_ScorchingRay", "Target_CloudOfDaggers", "Zone_GustOfWind", "Target_Shatter", "Target_MistyStep"],
+                            "Tooltip": "Spells available at level 2."
+                        },
+                        {
+                            "Id": "CX_Spells_L2_ExtraSpellSlots",
+                            "Name": "Extra Spell Slots (Level 2)",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Extra spell slots for level 2 spells."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l3",
+                    "SectionName": "Level 3 Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L3",
+                            "Name": "Level 3 Spells",
+                            "Type": "list",
+                            "Default": ["Projectile_Fireball", "Target_CallLightning", "Zone_LightningBolt"],
+                            "Tooltip": "Spells available at level 3."
+                        },
+                        {
+                            "Id": "CX_Spells_L3_ExtraSpellSlots",
+                            "Name": "Extra Spell Slots (Level 3)",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Extra spell slots for level 3 spells."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l4",
+                    "SectionName": "Level 4 Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L4",
+                            "Name": "Level 4 Spells",
+                            "Type": "list",
+                            "Default": ["Target_Blight", "Target_IceStorm"],
+                            "Tooltip": "Spells available at level 4."
+                        },
+                        {
+                            "Id": "CX_Spells_L4_ExtraSpellSlots",
+                            "Name": "Extra Spell Slots (Level 4)",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Extra spell slots for level 4 spells."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l5",
+                    "SectionName": "Level 5 Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L5",
+                            "Name": "Level 5 Spells",
+                            "Type": "list",
+                            "Default": ["Target_Cloudkill", "Zone_ConeOfCold"],
+                            "Tooltip": "Spells available at level 5."
+                        },
+                        {
+                            "Id": "CX_Spells_L5_ExtraSpellSlots",
+                            "Name": "Extra Spell Slots (Level 5)",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Extra spell slots for level 5 spells."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l6",
+                    "SectionName": "Level 6 Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L6",
+                            "Name": "Level 6 Spells",
+                            "Type": "list",
+                            "Default": ["Projectile_Disintegrate", "Target_CircleOfDeath", "Projectile_ChainLightning", "Zone_Sunbeam"],
+                            "Tooltip": "Spells available at level 6.",
+                            "Description": "INFO: Level 6 spells are not granted by default as no vanilla enemies are eligible."
+                        },
+                        {
+                            "Id": "CX_Spells_L6_ExtraSpellSlots",
+                            "Name": "Extra Spell Slots (Level 6)",
+                            "Type": "slider_int",
+                            "Default": 1,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Extra spell slots for level 6 spells."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l1c",
+                    "SectionName": "Level 1 Control Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L1C",
+                            "Name": "Level 1 Control Spells",
+                            "Type": "list",
+                            "Default": ["Target_FogCloud", "Target_Grease"],
+                            "Tooltip": "Control spells available at level 1."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l2c",
+                    "SectionName": "Level 2 Control Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L2C",
+                            "Name": "Level 2 Control Spells",
+                            "Type": "list",
+                            "Default": ["Target_HoldPerson", "Target_Silence"],
+                            "Tooltip": "Control spells available at level 2."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l3c",
+                    "SectionName": "Level 3 Control Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L3C",
+                            "Name": "Level 3 Control Spells",
+                            "Type": "list",
+                            "Default": ["Target_HypnoticPattern", "Zone_Fear"],
+                            "Tooltip": "Control spells available at level 3."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l4c",
+                    "SectionName": "Level 4 Control Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L4C",
+                            "Name": "Level 4 Control Spells",
+                            "Type": "list",
+                            "Default": ["Target_Banishment"],
+                            "Tooltip": "Control spells available at level 4."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l5c",
+                    "SectionName": "Level 5 Control Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L5C",
+                            "Name": "Level 5 Control Spells",
+                            "Type": "list",
+                            "Default": ["Throw_Telekinesis", "Target_DominatePerson"],
+                            "Tooltip": "Control spells available at level 5."
+                        }
+                    ]
+                },
+                {
+                    "SectionId": "spells_l6c",
+                    "SectionName": "Level 6 Control Spells",
+                    "Settings": [
+                        {
+                            "Id": "CX_Spells_L6C",
+                            "Name": "Level 6 Control Spells",
+                            "Type": "list",
+                            "Default": ["Target_FleshToStone"],
+                            "Tooltip": "Control spells available at level 6.",
+                            "Description": "INFO: Level 6 control spells are not granted by default as no vanilla enemies are eligible."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "TabId": "level_scaling",
+            "TabName": "Level Scaling",
+            "Sections": [
+                {
+                    "SectionId": "level_scaling_settings",
+                    "SectionName": "Level Scaling Settings",
+                    "Settings": [
+                        {
+                            "Id": "Use_Level_Scaling",
+                            "Name": "Use Level Scaling",
+                            "Type": "checkbox",
+                            "Default": false,
+                            "Tooltip": "Enable or disable level scaling.",
+                            "Description": "WARNING: Do not use level scaling unless you know what you need it for!"
+                        },
+                        {
+                            "Id": "Characters_Act1_MaxLevel",
+                            "Name": "Characters Act 1 Max Level",
+                            "Type": "slider_int",
+                            "Default": 20,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 30
+                            },
+                            "Tooltip": "Max level for characters in Act 1."
+                        },
+                        {
+                            "Id": "Characters_Act1_Offset",
+                            "Name": "Characters Act 1 Offset",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Level offset for characters in Act 1."
+                        },
+                        {
+                            "Id": "Characters_Act2_MaxLevel",
+                            "Name": "Characters Act 2 Max Level",
+                            "Type": "slider_int",
+                            "Default": 20,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 30
+                            },
+                            "Tooltip": "Max level for characters in Act 2."
+                        },
+                        {
+                            "Id": "Characters_Act2_Offset",
+                            "Name": "Characters Act 2 Offset",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Level offset for characters in Act 2."
+                        },
+                        {
+                            "Id": "Characters_Act3_MaxLevel",
+                            "Name": "Characters Act 3 Max Level",
+                            "Type": "slider_int",
+                            "Default": 20,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 30
+                            },
+                            "Tooltip": "Max level for characters in Act 3."
+                        },
+                        {
+                            "Id": "Characters_Act3_Offset",
+                            "Name": "Characters Act 3 Offset",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Level offset for characters in Act 3.",
+                            "Description": "---                      BOSSES                      ---"
+                        },
+                        {
+                            "Id": "Bosses_Act1_MaxLevel",
+                            "Name": "Bosses Act 1 Max Level",
+                            "Type": "slider_int",
+                            "Default": 20,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 30
+                            },
+                            "Tooltip": "Max level for bosses in Act 1."
+                        },
+                        {
+                            "Id": "Bosses_Act1_Offset",
+                            "Name": "Bosses Act 1 Offset",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Level offset for bosses in Act 1."
+                        },
+                        {
+                            "Id": "Bosses_Act2_MaxLevel",
+                            "Name": "Bosses Act 2 Max Level",
+                            "Type": "slider_int",
+                            "Default": 20,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 30
+                            },
+                            "Tooltip": "Max level for bosses in Act 2."
+                        },
+                        {
+                            "Id": "Bosses_Act2_Offset",
+                            "Name": "Bosses Act 2 Offset",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Level offset for bosses in Act 2."
+                        },
+                        {
+                            "Id": "Bosses_Act3_MaxLevel",
+                            "Name": "Bosses Act 3 Max Level",
+                            "Type": "slider_int",
+                            "Default": 20,
+                            "Options": {
+                                "Min": 1,
+                                "Max": 30
+                            },
+                            "Tooltip": "Max level for bosses in Act 3."
+                        },
+                        {
+                            "Id": "Bosses_Act3_Offset",
+                            "Name": "Bosses Act 3 Offset",
+                            "Type": "slider_int",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 10
+                            },
+                            "Tooltip": "Level offset for bosses in Act 3.",
+                            "Description": "This is the level scaling part, this is not in the vanilla configuration,\nand it will never be. The calculation is: take player level,\napply (optional) offset, if the value is under or equal to max\nvalue, set target to this level. Max means max, targets will never get\nleveled beyond this value. Nobody will ever get down leveled unless you\nrun the reset configuration. The original levels of targets are stored\nin your save file. \n\n We do not differentiate between allies or enemies here,\n levels are just a number in this game for NPCs. If your configuration is\n similar to the default one and doesn't give any stats boosts to allies\n the end result will be identical."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

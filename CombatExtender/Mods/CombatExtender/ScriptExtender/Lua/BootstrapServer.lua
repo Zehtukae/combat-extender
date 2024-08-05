@@ -46,85 +46,472 @@ local function OnSessionLoaded()
         end
     end
 
-    -- Without JSON beautify in SE this will have to do
-    function beautifyJson(json)
-        local result = ""
-        local indent = 0
-        local inString = false
-        local currentChar = ""
-
-        for i = 1, #json do
-            currentChar = json:sub(i, i)
-
-            if currentChar == '"' and json:sub(i - 1, i - 1) ~= "\\" then
-                inString = not inString
-            end
-
-            if inString then
-                result = result .. currentChar
-            else
-                if currentChar == "{" or currentChar == "[" then
-                    indent = indent + 2
-                    result = result .. currentChar .. "\n" .. string.rep(" ", indent)
-                elseif currentChar == "}" or currentChar == "]" then
-                    indent = indent - 2
-                    result = result .. "\n" .. string.rep(" ", indent) .. currentChar
-                elseif currentChar == "," then
-                    result = result .. currentChar .. "\n" .. string.rep(" ", indent)
-                else
-                    result = result .. currentChar
-                end
-            end
-        end
-        return result
-    end
-
-    function writeDefaultConfig()
+    function WriteDefaultConfig()
         -- Define the default configuration
         local defaultConfigRaw = '{"Passives":[{"PassiveName":"CX_Barbarian_Boost","Act":{"1":{"Spells":["Throw_FrenziedThrow","Target_FrenziedStrike","Target_RecklessAttack"]},"2":{"ExtraPassives":["MindlessRage","FeralInstinct"]},"3":{"ExtraPassives":["BrutalCritical","RelentlessRage"]}}},{"PassiveName":"CX_Cleric_Boost","Act":{"1":{"Spells":["Projectile_GuidingBolt","Target_InflictWounds","Target_HealingWord","Shout_HealingWord_Mass"]},"2":{"Spells":["Shout_SpiritGuardians"],"ExtraPassives":["PotentSpellcasting"]},"3":{"Spells":["Target_FlameStrike","Target_Contagion"]}}},{"PassiveName":"CX_Fighter_Boost","Act":{"1":{"Spells":["Target_DistractingStrike","Target_PushingAttack","Target_FeintingAttack"],"ExtraPassives":["Riposte","FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},"3":{"Spells":["Zone_SweepingAttack"],"ExtraPassives":["Indomitable","ImprovedCombatSuperiority"]}}},{"PassiveName":"CX_Monk_Boost","Act":{"3":{"Spells":["Target_WaterWhip","Projectile_FangsOfTheFireSnake","Zone_Thunderwave_Monk","Target_FistOfUnbrokenAir"]}}},{"PassiveName":"CX_Paladin_Boost","Act":{"1":{"Spells":["Target_Smite_Thunderous","Target_Smite_Wrathful","Target_Smite_Searing","Target_Smite_Divine"],"ExtraPassives":["FightingStyle_GreatWeaponFighting","FightingStyle_TwoWeaponFighting","FightingStyle_Protection","FightingStyle_Dueling"]},"3":{"Spells":["Target_Smite_Blinding"],"ExtraPassives":["ImprovedDivineSmite"]}}},{"PassiveName":"CX_Ranger_Boost","Act":{"1":{"Spells":["Target_HuntersMark","Projectile_HailOfThorns"],"ExtraPassives":["FightingStyle_Archery"]},"2":{"Spells":["Target_MistyStep"],"ExtraPassives":["MultiattackDefense"]},"3":{"Spells":["Shout_HideInPlainSight","Target_Volley","Shout_Whirlwind"]}}},{"PassiveName":"CX_Rogue_Boost","Act":{"1":{"Spells":["Projectile_SneakAttack","Target_SneakAttack"],"ExtraPassives":["UncannyDodge"]},"2":{"ExtraPassives":["Evasion"]},"3":{"ExtraPassives":["ReliableTalent"]}}},{"PassiveName":"CX_Spells_L1","Spells":["Projectile_IceKnife","Projectile_MagicMissile","Projectile_RayOfSickness","Zone_Thunderwave","Projectile_ChromaticOrb"],"ExtraSpellSlots":["1","0","0","0","0","0"]},{"PassiveName":"CX_Spells_L2","Spells":["Projectile_AcidArrow","Projectile_ScorchingRay","Target_CloudOfDaggers","Zone_GustOfWind","Target_Shatter","Target_MistyStep"],"ExtraSpellSlots":["0","1","0","0","0","0"]},{"PassiveName":"CX_Spells_L3","Spells":["Projectile_Fireball","Target_CallLightning","Zone_LightningBolt"],"ExtraSpellSlots":["0","0","1","0","0","0"]},{"PassiveName":"CX_Spells_L4","Spells":["Target_Blight","Target_IceStorm"],"ExtraSpellSlots":["0","0","0","1","0","0"]},{"PassiveName":"CX_Spells_L5","Spells":["Target_Cloudkill","Zone_ConeOfCold"],"ExtraSpellSlots":["0","0","0","0","1","0"]},{"PassiveName":"CX_Spells_L6","Spells":["Projectile_Disintegrate","Target_CircleOfDeath","Projectile_ChainLightning","Zone_Sunbeam"],"ExtraSpellSlots":["0","0","0","0","0","1"]},{"PassiveName":"CX_Spells_L1C","Spells":["Target_FogCloud","Target_Grease"]},{"PassiveName":"CX_Spells_L2C","Spells":["Target_HoldPerson","Target_Silence"]},{"PassiveName":"CX_Spells_L3C","Spells":["Target_HypnoticPattern","Zone_Fear"]},{"PassiveName":"CX_Spells_L4C","Spells":["Target_Banishment"]},{"PassiveName":"CX_Spells_L5C","Spells":["Throw_Telekinesis","Target_DominatePerson"]},{"PassiveName":"CX_Spells_L6C","Spells":["Target_FleshToStone"]}],"Overrides":{"S_HAG_ForestIllusion_Redcap_01_ff840420-d46a-4837-868b-ac02f45e4586":{"HealthOverride":35},"S_HAG_ForestIllusion_Redcap_02_2b08981e-5cb0-496d-98cf-15e6a92121ec":{"HealthOverride":58},"S_HAG_ForestIllusion_Redcap_03_14026955-2546-4d31-bc0c-4bfe0c34bd8a":{"HealthOverride":35},"S_HAG_ForestIllusion_Redcap_04_30a871b1-9df3-42bb-87cb-c284cafd32eb":{"HealthOverride":58},"S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a":{"HealthOverride":600},"S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255":{"HealthOverride":450},"S_END_MindBrain_f8bb04a3-22e5-41b0-aed7-5dcf852343d1":{"HealthOverride":450}},"Health":{"Allies":{},"Bosses":{"HealthMultiplier":0,"StaticBoost":0.1,"HealthPerLevel":0.02},"Enemies":{"HealthMultiplier":0,"StaticBoost":0.1,"HealthPerLevel":0.01}},"Damage":{"Allies":{},"Bosses":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticDamageBoost":1,"DamagePerIncrement":1,"LevelIncrement":6}},"ArmourClass":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":0,"BoostPerIncrement":1,"LevelIncrement":4}},"SpellSaveDC":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":8}},"AbilityPoints":{"Allies":{},"Bosses":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":4},"Enemies":{"StaticBoost":1,"BoostPerIncrement":1,"LevelIncrement":6}},"Movement":{"Allies":{},"Bosses":{"StaticBoost":3},"Enemies":{"StaticBoost":1}},"ExtraAction":{"Allies":{},"Bosses":{"Action":{"Additional":0},"BonusAction":{"Additional":0}},"Enemies":{"Action":{"Additional":0},"BonusAction":{"Additional":1}}},"Rolls":{"Allies":{},"Bosses":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":4}},"Enemies":{"Attack":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":8},"SavingThrow":{"StaticRollBonus":1,"RollBonusPerIncrement":1,"LevelIncrement":8}}}}'
 
+        -- Parse the raw JSON string into a Lua table
+        local defaultConfigTable = Ext.Json.Parse(defaultConfigRaw)
+
         -- Beautify the JSON string
-        local defaultConfig = beautifyJson(defaultConfigRaw)
+        local defaultConfig = Ext.Json.Stringify(defaultConfigTable, { Beautify = true })
 
         -- Write the default configuration to the file
-        Ext.IO.SaveFile("CombatExtender.json", defaultConfig)
+        pcall(Ext.IO.SaveFile, "CombatExtender.json", defaultConfig)
     end
 
-    function readJsonFile()
-        -- Load the file and get its content
-        local status, json = pcall(Ext.IO.LoadFile, "CombatExtender.json")
+    function IsMCMLoaded()
+        local modUUID = "755a8a72-407f-4f0d-9a33-274ac0f0b53d"
 
-        -- Check if the file was loaded successfully
-        if not status or not json then
-            print(string.format("INFO: Couldn't load: %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\%s. Applying default configuration", json or "CombatExtender.json"))
+        if Ext.Mod.IsModLoaded(modUUID) then
+            print(string.format("MCM with UUID %s is loaded.", modUUID))
+            return true
+        else
+            print(string.format("MCM with UUID %s is not loaded (this is not an error).", modUUID))
+            return false
+        end
+    end
 
-            -- If the file is not present or fails to load, write the default config file
-            writeDefaultConfig()
+    function MCMGet(settingID)
+        return Mods.BG3MCM.MCMAPI:GetSettingValue(settingID, ModuleUUID)
+    end
 
-            -- Try to load the file again after writing the default config
-            status, json = pcall(Ext.IO.LoadFile, "CombatExtender.json")
+    local function saveConfigTable()
+        -- Serialize the current ConfigTable to a JSON string
+        local currentJsonString = Ext.Json.Stringify(ConfigTable, { Beautify = true })
 
-            -- If the file still fails to load, return nil
-            if not status or not json then
-                print("ERROR: Failed to load config file after writing default config")
+        -- Read the existing CombatExtender.json file
+        local status, existingFileContent = pcall(Ext.IO.LoadFile, "CombatExtender.json")
+
+        -- Compare the existing file content with the current ConfigTable JSON string
+        if status and existingFileContent == currentJsonString then
+            -- No changes detected, skip saving to save excessive writes
+            return
+        end
+
+        -- Save the new config file
+        local saveStatus, saveErr = pcall(Ext.IO.SaveFile, "CombatExtender.json", currentJsonString)
+        if not saveStatus then
+            print(string.format("ERROR: Failed to save config file: %s", saveErr))
+        else
+            print("INFO: Config file saved successfully.")
+        end
+    end
+
+    -- This is far easier to read, understand and maintain than a complex set of functions
+    function CreateConfigTable()
+        -- Utility functions to do extra formatting on the returned MCM values
+
+        local function formatExtraSpellSlots(level, slots)
+            local formattedSlots = {"0", "0", "0", "0", "0", "0"}
+            formattedSlots[level] = tostring(slots)
+            return formattedSlots
+        end
+
+        local function getAlliesHealthSettings()
+            if MCMGet("Enable_Allies_Health_Overrides") then
+                return {
+                    HealthMultiplier = MCMGet("Allies_HealthMultiplier"),
+                    StaticBoost = MCMGet("Allies_StaticBoost"),
+                    HealthPerLevel = MCMGet("Allies_HealthPerLevel")
+                }
+            else
+                return {}
+            end
+        end
+
+        local function getLevelScalingSettings()
+            if MCMGet("Use_Level_Scaling") then
+                return {
+                    Characters = {
+                        Act = {
+                            ["1"] = {
+                                MaxLevel = MCMGet("Characters_Act1_MaxLevel"),
+                                Offset = MCMGet("Characters_Act1_Offset")
+                            },
+                            ["2"] = {
+                                MaxLevel = MCMGet("Characters_Act2_MaxLevel"),
+                                Offset = MCMGet("Characters_Act2_Offset")
+                            },
+                            ["3"] = {
+                                MaxLevel = MCMGet("Characters_Act3_MaxLevel"),
+                                Offset = MCMGet("Characters_Act3_Offset")
+                            }
+                        }
+                    },
+                    Bosses = {
+                        Act = {
+                            ["1"] = {
+                                MaxLevel = MCMGet("Bosses_Act1_MaxLevel"),
+                                Offset = MCMGet("Bosses_Act1_Offset")
+                            },
+                            ["2"] = {
+                                MaxLevel = MCMGet("Bosses_Act2_MaxLevel"),
+                                Offset = MCMGet("Bosses_Act2_Offset")
+                            },
+                            ["3"] = {
+                                MaxLevel = MCMGet("Bosses_Act3_MaxLevel"),
+                                Offset = MCMGet("Bosses_Act3_Offset")
+                            }
+                        }
+                    }
+                }
+            else
                 return nil
             end
         end
 
-        -- Parse the JSON string into a Lua table
-        local status, result = pcall(Ext.Json.Parse, json)
+        ConfigTable = {
+            Overrides = {
+                ["S_END_MindBrain_f8bb04a3-22e5-41b0-aed7-5dcf852343d1"] = {
+                    HealthOverride = 450
+                },
+                ["S_HAG_ForestIllusion_Redcap_01_ff840420-d46a-4837-868b-ac02f45e4586"] = {
+                    HealthOverride = 35
+                },
+                ["S_HAG_ForestIllusion_Redcap_02_2b08981e-5cb0-496d-98cf-15e6a92121ec"] = {
+                    HealthOverride = 58
+                },
+                ["S_HAG_ForestIllusion_Redcap_03_14026955-2546-4d31-bc0c-4bfe0c34bd8a"] = {
+                    HealthOverride = 35
+                },
+                ["S_HAG_ForestIllusion_Redcap_04_30a871b1-9df3-42bb-87cb-c284cafd32eb"] = {
+                    HealthOverride = 58
+                },
+                ["S_UND_KethericCity_AdamantineGolem_2a5997fc-5f2a-4a13-b309-bed16da3b255"] = {
+                    HealthOverride = 450
+                },
+                ["S_WYR_SkeletalDragon_67770922-5e0a-40c5-b3f0-67e8eb50493a"] = {
+                    HealthOverride = 600
+                }
+            },
+            Passives = {
+                {
+                    PassiveName = "CX_Barbarian_Boost",
+                    Act = {
+                        ["1"] = {
+                            Spells = MCMGet("CX_Barbarian_Boost_Act1_Spells"),
+                            ExtraPassives = MCMGet("CX_Barbarian_Boost_Act1_ExtraPassives")
+                        },
+                        ["2"] = {
+                            Spells = MCMGet("CX_Barbarian_Boost_Act2_Spells"),
+                            ExtraPassives = MCMGet("CX_Barbarian_Boost_Act2_ExtraPassives")
+                        },
+                        ["3"] = {
+                            Spells = MCMGet("CX_Barbarian_Boost_Act3_Spells"),
+                            ExtraPassives = MCMGet("CX_Barbarian_Boost_Act3_ExtraPassives")
+                        }
+                    },
+                },
+                {
+                    PassiveName = "CX_Cleric_Boost",
+                    Act = {
+                        ["1"] = {
+                            Spells = MCMGet("CX_Cleric_Boost_Act1_Spells"),
+                            ExtraPassives = MCMGet("CX_Cleric_Boost_Act1_ExtraPassives")
+                        },
+                        ["2"] = {
+                            Spells = MCMGet("CX_Cleric_Boost_Act2_Spells"),
+                            ExtraPassives = MCMGet("CX_Cleric_Boost_Act2_ExtraPassives")
+                        },
+                        ["3"] = {
+                            Spells = MCMGet("CX_Cleric_Boost_Act3_Spells"),
+                            ExtraPassives = MCMGet("CX_Cleric_Boost_Act3_ExtraPassives")
+                        }
+                    },
+                },
+                {
+                    PassiveName = "CX_Fighter_Boost",
+                    Act = {
+                        ["1"] = {
+                            Spells = MCMGet("CX_Fighter_Boost_Act1_Spells"),
+                            ExtraPassives = MCMGet("CX_Fighter_Boost_Act1_ExtraPassives")
+                        },
+                        ["2"] = {
+                            Spells = MCMGet("CX_Fighter_Boost_Act2_Spells"),
+                            ExtraPassives = MCMGet("CX_Fighter_Boost_Act2_ExtraPassives")
+                        },
+                        ["3"] = {
+                            Spells = MCMGet("CX_Fighter_Boost_Act3_Spells"),
+                            ExtraPassives = MCMGet("CX_Fighter_Boost_Act3_ExtraPassives")
+                        }
+                    },
+                },
+                {
+                    PassiveName = "CX_Monk_Boost",
+                    Act = {
+                        ["1"] = {
+                            Spells = MCMGet("CX_Monk_Boost_Act1_Spells"),
+                            ExtraPassives = MCMGet("CX_Monk_Boost_Act1_ExtraPassives")
+                        },
+                        ["2"] = {
+                            Spells = MCMGet("CX_Monk_Boost_Act2_Spells"),
+                            ExtraPassives = MCMGet("CX_Monk_Boost_Act2_ExtraPassives")
+                        },
+                        ["3"] = {
+                            Spells = MCMGet("CX_Monk_Boost_Act3_Spells"),
+                            ExtraPassives = MCMGet("CX_Monk_Boost_Act3_ExtraPassives")
+                        }
+                    },
+                },
+                {
+                    PassiveName = "CX_Paladin_Boost",
+                    Act = {
+                        ["1"] = {
+                            Spells = MCMGet("CX_Paladin_Boost_Act1_Spells"),
+                            ExtraPassives = MCMGet("CX_Paladin_Boost_Act1_ExtraPassives")
+                        },
+                        ["2"] = {
+                            Spells = MCMGet("CX_Paladin_Boost_Act2_Spells"),
+                            ExtraPassives = MCMGet("CX_Paladin_Boost_Act2_ExtraPassives")
+                        },
+                        ["3"] = {
+                            Spells = MCMGet("CX_Paladin_Boost_Act3_Spells"),
+                            ExtraPassives = MCMGet("CX_Paladin_Boost_Act3_ExtraPassives")
+                        }
+                    },
+                },
+                {
+                    PassiveName = "CX_Ranger_Boost",
+                    Act = {
+                        ["1"] = {
+                            Spells = MCMGet("CX_Ranger_Boost_Act1_Spells"),
+                            ExtraPassives = MCMGet("CX_Ranger_Boost_Act1_ExtraPassives")
+                        },
+                        ["2"] = {
+                            Spells = MCMGet("CX_Ranger_Boost_Act2_Spells"),
+                            ExtraPassives = MCMGet("CX_Ranger_Boost_Act2_ExtraPassives")
+                        },
+                        ["3"] = {
+                            Spells = MCMGet("CX_Ranger_Boost_Act3_Spells"),
+                            ExtraPassives = MCMGet("CX_Ranger_Boost_Act3_ExtraPassives")
+                        }
+                    },
+                },
+                {
+                    PassiveName = "CX_Rogue_Boost",
+                    Act = {
+                        ["1"] = {
+                            Spells = MCMGet("CX_Rogue_Boost_Act1_Spells"),
+                            ExtraPassives = MCMGet("CX_Rogue_Boost_Act1_ExtraPassives")
+                        },
+                        ["2"] = {
+                            Spells = MCMGet("CX_Rogue_Boost_Act2_Spells"),
+                            ExtraPassives = MCMGet("CX_Rogue_Boost_Act2_ExtraPassives")
+                        },
+                        ["3"] = {
+                            Spells = MCMGet("CX_Rogue_Boost_Act3_Spells"),
+                            ExtraPassives = MCMGet("CX_Rogue_Boost_Act3_ExtraPassives")
+                        }
+                    },
+                },
+                {
+                    PassiveName = "CX_Spells_L1",
+                    Spells = MCMGet("CX_Spells_L1"),
+                    ExtraSpellSlots = formatExtraSpellSlots(1, MCMGet("CX_Spells_L1_ExtraSpellSlots"))
+                },
+                {
+                    PassiveName = "CX_Spells_L2",
+                    Spells = MCMGet("CX_Spells_L2"),
+                    ExtraSpellSlots = formatExtraSpellSlots(2, MCMGet("CX_Spells_L2_ExtraSpellSlots"))
+                },
+                {
+                    PassiveName = "CX_Spells_L3",
+                    Spells = MCMGet("CX_Spells_L3"),
+                    ExtraSpellSlots = formatExtraSpellSlots(3, MCMGet("CX_Spells_L3_ExtraSpellSlots"))
+                },
+                {
+                    PassiveName = "CX_Spells_L4",
+                    Spells = MCMGet("CX_Spells_L4"),
+                    ExtraSpellSlots = formatExtraSpellSlots(4, MCMGet("CX_Spells_L4_ExtraSpellSlots"))
+                },
+                {
+                    PassiveName = "CX_Spells_L5",
+                    Spells = MCMGet("CX_Spells_L5"),
+                    ExtraSpellSlots = formatExtraSpellSlots(5, MCMGet("CX_Spells_L5_ExtraSpellSlots"))
+                },
+                {
+                    PassiveName = "CX_Spells_L6",
+                    Spells = MCMGet("CX_Spells_L6"),
+                    ExtraSpellSlots = formatExtraSpellSlots(6, MCMGet("CX_Spells_L6_ExtraSpellSlots"))
+                },
+                {
+                    PassiveName = "CX_Spells_L1C",
+                    Spells = MCMGet("CX_Spells_L1C")
+                },
+                {
+                    PassiveName = "CX_Spells_L2C",
+                    Spells = MCMGet("CX_Spells_L2C")
+                },
+                {
+                    PassiveName = "CX_Spells_L3C",
+                    Spells = MCMGet("CX_Spells_L3C")
+                },
+                {
+                    PassiveName = "CX_Spells_L4C",
+                    Spells = MCMGet("CX_Spells_L4C")
+                },
+                {
+                    PassiveName = "CX_Spells_L5C",
+                    Spells = MCMGet("CX_Spells_L5C")
+                },
+                {
+                    PassiveName = "CX_Spells_L6C",
+                    Spells = MCMGet("CX_Spells_L6C")
+                }
+            },
+            Health = {
+                Allies = getAlliesHealthSettings(),
+                Bosses = {
+                    HealthMultiplier = MCMGet("Bosses_HealthMultiplier"),
+                    StaticBoost = MCMGet("Bosses_StaticBoost"),
+                    HealthPerLevel = MCMGet("Bosses_HealthPerLevel")
+                },
+                Enemies = {
+                    HealthMultiplier = MCMGet("Enemies_HealthMultiplier"),
+                    StaticBoost = MCMGet("Enemies_StaticBoost"),
+                    HealthPerLevel = MCMGet("Enemies_HealthPerLevel")
+                }
+            },
+            Damage = {
+                Allies = {},
+                Bosses = {
+                    StaticDamageBoost = MCMGet("Bosses_StaticDamageBoost"),
+                    DamagePerIncrement = MCMGet("Bosses_DamagePerIncrement"),
+                    LevelIncrement = MCMGet("Bosses_LevelIncrement")
+                },
+                Enemies = {
+                    StaticDamageBoost = MCMGet("Enemies_StaticDamageBoost"),
+                    DamagePerIncrement = MCMGet("Enemies_DamagePerIncrement"),
+                    LevelIncrement = MCMGet("Enemies_LevelIncrement")
+                }
+            },
+            ArmourClass = {
+                Allies = {},
+                Bosses = {
+                    StaticBoost = MCMGet("Bosses_ArmourClass_StaticBoost"),
+                    BoostPerIncrement = MCMGet("Bosses_ArmourClass_BoostPerIncrement"),
+                    LevelIncrement = MCMGet("Bosses_ArmourClass_LevelIncrement")
+                },
+                Enemies = {
+                    StaticBoost = MCMGet("Enemies_ArmourClass_StaticBoost"),
+                    BoostPerIncrement = MCMGet("Enemies_ArmourClass_BoostPerIncrement"),
+                    LevelIncrement = MCMGet("Enemies_ArmourClass_LevelIncrement")
+                }
+            },
+            SpellSaveDC = {
+                Allies = {},
+                Bosses = {
+                    StaticBoost = MCMGet("Bosses_SpellSaveDC_StaticBoost"),
+                    BoostPerIncrement = MCMGet("Bosses_SpellSaveDC_BoostPerIncrement"),
+                    LevelIncrement = MCMGet("Bosses_SpellSaveDC_LevelIncrement")
+                },
+                Enemies = {
+                    StaticBoost = MCMGet("Enemies_SpellSaveDC_StaticBoost"),
+                    BoostPerIncrement = MCMGet("Enemies_SpellSaveDC_BoostPerIncrement"),
+                    LevelIncrement = MCMGet("Enemies_SpellSaveDC_LevelIncrement")
+                }
+            },
+            AbilityPoints = {
+                Allies = {},
+                Bosses = {
+                    StaticBoost = MCMGet("Bosses_AbilityPoints_StaticBoost"),
+                    BoostPerIncrement = MCMGet("Bosses_AbilityPoints_BoostPerIncrement"),
+                    LevelIncrement = MCMGet("Bosses_AbilityPoints_LevelIncrement")
+                },
+                Enemies = {
+                    StaticBoost = MCMGet("Enemies_AbilityPoints_StaticBoost"),
+                    BoostPerIncrement = MCMGet("Enemies_AbilityPoints_BoostPerIncrement"),
+                    LevelIncrement = MCMGet("Enemies_AbilityPoints_LevelIncrement")
+                }
+            },
+            Movement = {
+                Allies = {},
+                Bosses = {
+                    StaticBoost = MCMGet("Bosses_Movement_StaticBoost")
+                },
+                Enemies = {
+                    StaticBoost = MCMGet("Enemies_Movement_StaticBoost")
+                }
+            },
+            ExtraAction = {
+                Allies = {},
+                Bosses = {
+                    Action = {
+                        Additional = MCMGet("Bosses_ExtraAction_Action_Additional")
+                    },
+                    BonusAction = {
+                        Additional = MCMGet("Bosses_ExtraAction_BonusAction_Additional")
+                    }
+                },
+                Enemies = {
+                    Action = {
+                        Additional = MCMGet("Enemies_ExtraAction_Action_Additional")
+                    },
+                    BonusAction = {
+                        Additional = MCMGet("Enemies_ExtraAction_BonusAction_Additional")
+                    }
+                }
+            },
+            Rolls = {
+                Allies = {},
+                Bosses = {
+                    Attack = {
+                        StaticRollBonus = MCMGet("Bosses_Rolls_Attack_StaticRollBonus"),
+                        RollBonusPerIncrement = MCMGet("Bosses_Rolls_Attack_RollBonusPerIncrement"),
+                        LevelIncrement = MCMGet("Bosses_Rolls_Attack_LevelIncrement")
+                    },
+                    SavingThrow = {
+                        StaticRollBonus = MCMGet("Bosses_Rolls_SavingThrow_StaticRollBonus"),
+                        RollBonusPerIncrement = MCMGet("Bosses_Rolls_SavingThrow_RollBonusPerIncrement"),
+                        LevelIncrement = MCMGet("Bosses_Rolls_SavingThrow_LevelIncrement")
+                    }
+                },
+                Enemies = {
+                    Attack = {
+                        StaticRollBonus = MCMGet("Enemies_Rolls_Attack_StaticRollBonus"),
+                        RollBonusPerIncrement = MCMGet("Enemies_Rolls_Attack_RollBonusPerIncrement"),
+                        LevelIncrement = MCMGet("Enemies_Rolls_Attack_LevelIncrement")
+                    },
+                    SavingThrow = {
+                        StaticRollBonus = MCMGet("Enemies_Rolls_SavingThrow_StaticRollBonus"),
+                        RollBonusPerIncrement = MCMGet("Enemies_Rolls_SavingThrow_RollBonusPerIncrement"),
+                        LevelIncrement = MCMGet("Enemies_Rolls_SavingThrow_LevelIncrement")
+                    }
+                }
+            },
+            Level = getLevelScalingSettings()
+        }
+        DebugPrint("Config table created from MCM settings:", ConfigTable)
+        return ConfigTable
+    end
 
-        -- Check if the JSON was parsed successfully
-        if not status then
-            print(string.format("ERROR: Failed to parse JSON: %s", result)) -- result contains the error message
-            return nil
+    function readJsonFile()
+        if IsMCMLoaded() then
+            ConfigTable = CreateConfigTable()
+            saveConfigTable()
+        else
+            local status, fileContent = pcall(Ext.IO.LoadFile, "CombatExtender.json")
+            if not status or not fileContent then
+                print(string.format("INFO: Couldn't load: %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\CombatExtender.json. Applying default configuration"))
+                WriteDefaultConfig()
+                status, fileContent = pcall(Ext.IO.LoadFile, "CombatExtender.json")
+                if not status or not fileContent then
+                    print("ERROR: Failed to load config file after writing default config")
+                    return nil
+                end
+            end
+
+            local parseStatus, result = pcall(Ext.Json.Parse, fileContent)
+            if not parseStatus then
+                print(string.format("ERROR: Failed to parse JSON: %s", result))
+                return
+            end
+
+            ConfigTable = result
         end
 
-        -- Assign the result to the global ConfigTable
-        ConfigTable = result
-
-        -- Print the entire table for debugging only if HasPrinted is false
-        if not HasPrinted["ConfigTable"] and Ext.Debug.IsDeveloperMode() then
+        if Ext.Debug.IsDeveloperMode() and not HasPrinted["ConfigTable"] then
             printTableAddress(ConfigTable)
             printTable(ConfigTable)
             HasPrinted["ConfigTable"] = true
@@ -397,9 +784,9 @@ local function OnSessionLoaded()
         --print(string.format("DEBUG: Target: %s, Name: %s, isBoosted: %s, isReset: %s, isProgressionBoosted: %s", guid, handle, isBoosted, isReset, isProgressionBoosted))
 
         local hpBoost
-        if guid == "S_GLO_Monitor_f65becd6-5cd7-4c88-b85e-6dd06b60f7b8" then -- Raphael exception as the normal approach doesn't work on him
+        if guid == "S_GLO_Monitor_f65becd6-5cd7-4c88-b85e-6dd06b60f7b8" or guid == "S_HAG_Hag_c457d064-83fb-4ec6-b74d-1f30dfafd12d" then -- Raphael and Auntie Ethel exception as the normal approach doesn't work for them
             if not IsPartyInCombat() then
-                return -- Return early if not in combat
+                return -- Return early if not in combat for these two
             else
                 local entity = Ext.Entity.Get(guid)
                 local currentMaxHealth = entity.Health.MaxHp
@@ -407,7 +794,7 @@ local function OnSessionLoaded()
                 local currentTotalHealth = currentMaxHealth + currentMaxTemporaryHp
                 local desiredTotalHealth = math.ceil(currentMaxHealth * healthMultiplier)
                 local temporaryHpIncrease = desiredTotalHealth - currentTotalHealth
-                hpBoost = "TemporaryHP(" .. temporaryHpIncrease .. ")" -- If in combat, use TemporaryHP for Raphael
+                hpBoost = "TemporaryHP(" .. temporaryHpIncrease .. ")" -- If in combat, use TemporaryHP for Raphael and Auntie Ethel
             end
         else
             hpBoost = "IncreaseMaxHP(" .. hpIncrease .. ")"
@@ -468,7 +855,7 @@ local function OnSessionLoaded()
                     DebugPrint(string.format("DEBUG: Adjusting: %s, Name: %s, hpBoost: %s, currentMaxHealth: %s, desired: %s, x: %s", guid, handle, offset, currentMaxHealth, desiredMaxHealth, healthMultiplier))
                     AddBoosts(guid, "IncreaseMaxHP(" .. offset .. ")", "combatextender", "1")
                 end
-            --else
+                --else
                 --EntityHealthAdjustment[guid] = nil
                 --print(string.format("DEBUG: Target: %s currentMaxHealth: %s desiredMaxHealth: %s", guid, currentMaxHealth, desiredMaxHealth))
             end
@@ -750,7 +1137,7 @@ local function OnSessionLoaded()
                 end
 
                 CloneState[cloneEntityKey] = CloneState[cloneEntityKey] + 1
-            --else
+                --else
                 --print("DEBUG: No cloning configuration found.")
             end
         end
