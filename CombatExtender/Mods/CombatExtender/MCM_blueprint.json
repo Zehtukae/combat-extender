@@ -19,7 +19,7 @@
                             "Id": "Use_MCM_Settings",
                             "Name": "Use MCM Settings",
                             "Type": "checkbox",
-                            "Default": true,
+                            "Default": false,
                             "Tooltip": "Enable or disable the use of MCM settings",
                             "Description": "Enable or disable the use of MCM settings. If disabled, the\ncombatextender.json config will be used, otherwise it will be\noverwritten by the MCM settings.",
                             "Handles": {
