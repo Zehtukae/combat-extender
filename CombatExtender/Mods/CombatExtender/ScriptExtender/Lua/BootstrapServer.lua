@@ -110,15 +110,23 @@ local function OnSessionLoaded()
 
         local function getAlliesHealthSettings()
             if MCMGet("Enable_Allies_Health_Overrides") then
-                return {
-                    HealthMultiplier = MCMGet("Allies_HealthMultiplier"),
-                    StaticBoost = MCMGet("Allies_StaticBoost"),
-                    HealthPerLevel = MCMGet("Allies_HealthPerLevel")
-                }
+                if MCMGet("Enable_Allies_HealthMultiplierPartyScaling") then
+                    return {
+                        HealthMultiplier = 2,
+                        HealthMultiplierPartyScaling = 0.333
+                    }
+                else
+                    return {
+                        HealthMultiplier = MCMGet("Allies_HealthMultiplier"),
+                        StaticBoost = MCMGet("Allies_StaticBoost"),
+                        HealthPerLevel = MCMGet("Allies_HealthPerLevel")
+                    }
+                end
             else
                 return {}
             end
         end
+
 
         local function getLevelScalingSettings()
             if MCMGet("Use_Level_Scaling") then
@@ -487,7 +495,7 @@ local function OnSessionLoaded()
     end
 
     function readJsonFile()
-        if IsMCMLoaded() then
+        if IsMCMLoaded() and MCMGet("Use_MCM_Settings") then
             ConfigTable = CreateConfigTable()
             saveConfigTable()
         else
