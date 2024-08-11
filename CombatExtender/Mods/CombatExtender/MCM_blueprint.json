@@ -32,12 +32,24 @@
                 {
                     "SectionId": "health",
                     "SectionName": "Health",
-                    "SectionDescription": "---                      ALLIES                      ---",
+                    "SectionDescription": "---     Health Multiplier Party Scaling     ---",
                     "Handles": {
                         "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
                         "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
                     },
                     "Settings": [
+                        {
+                            "Id": "Health_Multiplier_Party_Scaling",
+                            "Name": "Health Multiplier Party Scaling",
+                            "Type": "slider_float",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 2
+                            },
+                            "Tooltip": "Scale health based on the size of the party",
+                            "Description": "If this value is not 0, Health multiplier scaling will be used, scaling\nAllies, Enemies, Boss health based on the size of the party with your\ngiven scaling multiplier, healthMultiplier = partyScalingMultiplier *\npartySize. 0.333 is a good place to start.\n---                      ALLIES                      ---"
+                        },
                         {
                             "Id": "Enable_Allies_Health_Overrides",
                             "Name": "Enable Allies Health Overrides",
@@ -45,18 +57,6 @@
                             "Default": false,
                             "Tooltip": "Enable this to use the custom health settings for allies. If not checked, enemies' settings will be used.",
                             "Description": "Enable this to use the custom health settings for allies. If not\nchecked, enemies' settings will be used",
-                            "Handles": {
-                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
-                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
-                            }
-                        },
-                        {
-                            "Id": "Enable_Allies_HealthMultiplierPartyScaling",
-                            "Name": "Enable Allies Health Multiplier Party Scaling",
-                            "Type": "checkbox",
-                            "Default": false,
-                            "Tooltip": "Enable this to use predefined health multiplier and party scaling for\nallies. This will overide Allies config settings so HealthMultiplier: 2,\nHealthMultiplierPartyScaling: 0.333, scaling health based on the size of\nthe party.",
-                            "Description": "Enable this to use predefined health multiplier and party scaling for\nallies. This will overide Allies config settings so HealthMultiplier: 2,\nHealthMultiplierPartyScaling: 0.333, scaling health based on the size of\nthe party.",
                             "Handles": {
                                 "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
                                 "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"

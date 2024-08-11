@@ -108,23 +108,37 @@ local function OnSessionLoaded()
             return formattedSlots
         end
 
-        local function getAlliesHealthSettings()
+        local function getHealthSettings()
+            local healthMultiplierPartyScaling = MCMGet("Health_Multiplier_Party_Scaling")
+            local healthSettings = {
+                Allies = {},
+                Bosses = {
+                    HealthMultiplier = MCMGet("Bosses_HealthMultiplier"),
+                    StaticBoost = MCMGet("Bosses_StaticBoost"),
+                    HealthPerLevel = MCMGet("Bosses_HealthPerLevel")
+                },
+                Enemies = {
+                    HealthMultiplier = MCMGet("Enemies_HealthMultiplier"),
+                    StaticBoost = MCMGet("Enemies_StaticBoost"),
+                    HealthPerLevel = MCMGet("Enemies_HealthPerLevel")
+                }
+            }
+
             if MCMGet("Enable_Allies_Health_Overrides") then
-                if MCMGet("Enable_Allies_HealthMultiplierPartyScaling") then
-                    return {
-                        HealthMultiplier = 2,
-                        HealthMultiplierPartyScaling = 0.333
-                    }
-                else
-                    return {
-                        HealthMultiplier = MCMGet("Allies_HealthMultiplier"),
-                        StaticBoost = MCMGet("Allies_StaticBoost"),
-                        HealthPerLevel = MCMGet("Allies_HealthPerLevel")
-                    }
-                end
-            else
-                return {}
+                healthSettings.Allies = {
+                    HealthMultiplier = MCMGet("Allies_HealthMultiplier"),
+                    StaticBoost = MCMGet("Allies_StaticBoost"),
+                    HealthPerLevel = MCMGet("Allies_HealthPerLevel")
+                }
             end
+
+            if healthMultiplierPartyScaling ~= 0 then
+                healthSettings.Allies.HealthMultiplierPartyScaling = healthMultiplierPartyScaling
+                healthSettings.Bosses.HealthMultiplierPartyScaling = healthMultiplierPartyScaling
+                healthSettings.Enemies.HealthMultiplierPartyScaling = healthMultiplierPartyScaling
+            end
+
+            return healthSettings
         end
 
 
@@ -368,19 +382,7 @@ local function OnSessionLoaded()
                     Spells = MCMGet("CX_Spells_L6C")
                 }
             },
-            Health = {
-                Allies = getAlliesHealthSettings(),
-                Bosses = {
-                    HealthMultiplier = MCMGet("Bosses_HealthMultiplier"),
-                    StaticBoost = MCMGet("Bosses_StaticBoost"),
-                    HealthPerLevel = MCMGet("Bosses_HealthPerLevel")
-                },
-                Enemies = {
-                    HealthMultiplier = MCMGet("Enemies_HealthMultiplier"),
-                    StaticBoost = MCMGet("Enemies_StaticBoost"),
-                    HealthPerLevel = MCMGet("Enemies_HealthPerLevel")
-                }
-            },
+            Health = getHealthSettings(),
             Damage = {
                 Allies = {},
                 Bosses = {
