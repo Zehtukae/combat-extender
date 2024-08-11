@@ -9,28 +9,58 @@
                 {
                     "SectionId": "general_info",
                     "SectionName": "General Information",
+                    "SectionDescription": "INFO: You must reload a (quick) save to apply all settings in this mod.",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
-                            "Id": "General_Info",
-                            "Name": "General Information",
-                            "Type": "text",
-                            "Default": "PLEASE READ",
-                            "Tooltip": "Information about applying settings.",
-                            "Description": "INFO: You must reload a (quick) save to apply all settings in this mod."
+                            "Id": "Use_MCM_Settings",
+                            "Name": "Use MCM Settings",
+                            "Type": "checkbox",
+                            "Default": false,
+                            "Tooltip": "Enable or disable the use of MCM settings",
+                            "Description": "Enable or disable the use of MCM settings. If disabled, the\ncombatextender.json config will be used, otherwise it will be\noverwritten by the MCM settings.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
                 {
                     "SectionId": "health",
                     "SectionName": "Health",
+                    "SectionDescription": "---     Health Multiplier Party Scaling     ---",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
+                        {
+                            "Id": "Health_Multiplier_Party_Scaling",
+                            "Name": "Health Multiplier Party Scaling",
+                            "Type": "slider_float",
+                            "Default": 0,
+                            "Options": {
+                                "Min": 0,
+                                "Max": 2
+                            },
+                            "Tooltip": "Scale health based on the size of the party",
+                            "Description": "If this value is not 0, Health multiplier scaling will be used, scaling\nAllies, Enemies, Boss health based on the size of the party with your\ngiven scaling multiplier, healthMultiplier = partyScalingMultiplier *\npartySize. 0.333 is a good place to start.\n---                      ALLIES                      ---"
+                        },
                         {
                             "Id": "Enable_Allies_Health_Overrides",
                             "Name": "Enable Allies Health Overrides",
                             "Type": "checkbox",
                             "Default": false,
                             "Tooltip": "Enable this to use the custom health settings for allies. If not checked, enemies' settings will be used.",
-                            "Description": "Enable this to use the custom health settings for allies. If not\nchecked, enemies' settings will be used"
+                            "Description": "Enable this to use the custom health settings for allies. If not\nchecked, enemies' settings will be used",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Allies_HealthMultiplier",
@@ -64,7 +94,11 @@
                                 "Max": 1.0
                             },
                             "Tooltip": "Health increase per level for allies.",
-                            "Description": "---                      BOSSES                      ---"
+                            "Description": "---                      BOSSES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Bosses_HealthMultiplier",
@@ -98,7 +132,11 @@
                                 "Max": 1.0
                             },
                             "Tooltip": "Health increase per level for bosses.",
-                            "Description": "---                      ENEMIES                      ---"
+                            "Description": "---                      ENEMIES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Enemies_HealthMultiplier",
@@ -132,13 +170,22 @@
                                 "Max": 1.0
                             },
                             "Tooltip": "Health increase per level for enemies.",
-                            "Description": "This is the health scaling part. If you want enemies to scale based on\nthe level of the player use this. 'HealthMultiplier' has to be 0 to\nactivate scaling based on player level. If you want static multipliers,\nset 'Enemies Health Multiplier' to a value greater than 0 and set boost\nand set StaticBoost and HealthPerLevel to 0."
+                            "Description": "This is the health scaling part. If you want enemies to scale based on\nthe level of the player use this. 'HealthMultiplier' has to be 0 to\nactivate scaling based on player level. If you want static multipliers,\nset 'Enemies Health Multiplier' to a value greater than 0 and set boost\nand set StaticBoost and HealthPerLevel to 0.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
                 {
                     "SectionId": "damage",
                     "SectionName": "Damage",
+                    "SectionDescription": "---                      BOSSES                      ---",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "Bosses_StaticDamageBoost",
@@ -172,7 +219,11 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for bosses' damage.",
-                            "Description": "---                      ENEMIES                      ---"
+                            "Description": "---                      ENEMIES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Enemies_StaticDamageBoost",
@@ -206,13 +257,22 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for enemies' damage.",
-                            "Description": "The blocks here follow a similar structure Here is the calculation:\ntotalBoost = staticBoost + boostPerIncrement * math.floor(targetLevel /\nlevelIncrement) The floor value of a number is the value that is rounded\nto the closest integer less than or equal to that integer Example with a\nlevel 5 target: totalBoost = 1 + 1 * (5 / 4) = 2"
+                            "Description": "The blocks here follow a similar structure Here is the calculation:\ntotalBoost = staticBoost + boostPerIncrement * math.floor(targetLevel /\nlevelIncrement) The floor value of a number is the value that is rounded\nto the closest integer less than or equal to that integer Example with a\nlevel 5 target: totalBoost = 1 + 1 * (5 / 4) = 2",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
                 {
                     "SectionId": "armour_class",
                     "SectionName": "Armour Class",
+                    "SectionDescription": "---                      BOSSES                      ---",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "Bosses_ArmourClass_StaticBoost",
@@ -246,7 +306,11 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for bosses' armour class.",
-                            "Description": "---                      ENEMIES                      ---"
+                            "Description": "---                      ENEMIES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Enemies_ArmourClass_StaticBoost",
@@ -280,13 +344,22 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for enemies' armour class.",
-                            "Description": "Refer to the Damage Section description"
+                            "Description": "Refer to the Damage Section description",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
                 {
                     "SectionId": "spell_save_dc",
                     "SectionName": "Spell Save DC",
+                    "SectionDescription": "---                      BOSSES                      ---",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "Bosses_SpellSaveDC_StaticBoost",
@@ -320,7 +393,11 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for bosses' spell save DC.",
-                            "Description": "---                      ENEMIES                      ---"
+                            "Description": "---                      ENEMIES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Enemies_SpellSaveDC_StaticBoost",
@@ -354,13 +431,22 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for enemies' spell save DC.",
-                            "Description": "Refer to the Damage Section description"
+                            "Description": "Refer to the Damage Section description",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
                 {
                     "SectionId": "ability_points",
                     "SectionName": "Ability Points",
+                    "SectionDescription": "---                      BOSSES                      ---",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "Bosses_AbilityPoints_StaticBoost",
@@ -394,7 +480,11 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for bosses' ability points.",
-                            "Description": "---                      ENEMIES                      ---"
+                            "Description": "---                      ENEMIES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Enemies_AbilityPoints_StaticBoost",
@@ -428,13 +518,22 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for enemies' ability points.",
-                            "Description": "I sort enemy abilities by value to find the top 2, and check if\nSpellCastingAbility is one of those. If SpellCastingAbility is not among\nthe top 2, I add it to the list of abilities to boost. In most\nsituations you will see 2 abilities being boosted, but sometimes 3.\nFurthermore I ensure the final ability value is an even number, rounded\nup from what it would have been."
+                            "Description": "I sort enemy abilities by value to find the top 2, and check if\nSpellCastingAbility is one of those. If SpellCastingAbility is not among\nthe top 2, I add it to the list of abilities to boost. In most\nsituations you will see 2 abilities being boosted, but sometimes 3.\nFurthermore I ensure the final ability value is an even number, rounded\nup from what it would have been.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
                 {
                     "SectionId": "movement",
                     "SectionName": "Movement",
+                    "SectionDescription": "---                      BOSSES                      ---",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "Bosses_Movement_StaticBoost",
@@ -446,7 +545,11 @@
                                 "Max": 10
                             },
                             "Tooltip": "Static boost for bosses' movement.",
-                            "Description": "---                      ENEMIES                      ---"
+                            "Description": "---                      ENEMIES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Enemies_Movement_StaticBoost",
@@ -458,13 +561,22 @@
                                 "Max": 10
                             },
                             "Tooltip": "Static boost for enemies' movement.",
-                            "Description": "Movement is in meters."
+                            "Description": "Movement is in meters.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
                 {
                     "SectionId": "extra_action",
                     "SectionName": "Extra Action",
+                    "SectionDescription": "---                      BOSSES                      ---",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "Bosses_ExtraAction_Action_Additional",
@@ -487,7 +599,11 @@
                                 "Max": 10
                             },
                             "Tooltip": "Additional bonus actions for bosses.",
-                            "Description": "---                      ENEMIES                      ---"
+                            "Description": "---                      ENEMIES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Enemies_ExtraAction_Action_Additional",
@@ -510,7 +626,11 @@
                                 "Max": 10
                             },
                             "Tooltip": "Additional bonus actions for enemies.",
-                            "Description": "1 means give the target an additional (bonus) action."
+                            "Description": "1 means give the target an additional (bonus) action.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
@@ -583,7 +703,11 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for bosses' saving throws.",
-                            "Description": "---                      ENEMIES                      ---"
+                            "Description": "---                      ENEMIES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Enemies_Rolls_Attack_StaticRollBonus",
@@ -650,7 +774,11 @@
                                 "Max": 20
                             },
                             "Tooltip": "Level increment for enemies' saving throws.",
-                            "Description": "Refering to saving throw settings: These apply to any saving throw. Use\nthis to increase the floor. However primarily use AbilityPoints boosts\nto keep targets unique."
+                            "Description": "Refering to saving throw settings: These apply to any saving throw. Use\nthis to increase the floor. However primarily use AbilityPoints boosts\nto keep targets unique.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 }
@@ -663,6 +791,11 @@
                 {
                     "SectionId": "barbarian",
                     "SectionName": "Barbarian",
+                    "SectionDescription": "Act 1:",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "CX_Barbarian_Boost_Act1_Spells",
@@ -677,7 +810,11 @@
                             "Type": "list",
                             "Default": [],
                             "Tooltip": "Extra passives available in Act 1 for Barbarian.",
-                            "Description": "Act 2:"
+                            "Description": "Act 2:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Barbarian_Boost_Act2_Spells",
@@ -692,7 +829,11 @@
                             "Type": "list",
                             "Default": ["MindlessRage", "FeralInstinct"],
                             "Tooltip": "Extra passives available in Act 2 for Barbarian.",
-                            "Description": "Act 3:"
+                            "Description": "Act 3:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Barbarian_Boost_Act3_Spells",
@@ -707,13 +848,22 @@
                             "Type": "list",
                             "Default": ["BrutalCritical", "RelentlessRage"],
                             "Tooltip": "Extra passives available in Act 3 for Barbarian.",
-                            "Description": "Combat Extender (CX) is built around tagging enemies based on their\narchetypes and using those tags to configure their abilities, spells,\nand passives. The tagging process was done manually over a significant\namount of time. If you spot any mistakes in-game, please let me know!\nYou can also add passives, spells, and abilities from other mods, but\nmake sure to load those mods before CX.\n\nThe configuration allows you to set up difficulty per act using the Act\nseparator. Act configuration is cumulative, meaning Act 3 includes the\nconfigurations from Act 1, Act 2, and Act 3.\n\n For example, in the configuration for the Barbarian class:\n-In Act 1, only spells are given without additional passives.\n- In Act 2, additional passives are provided without new spells.\n- In Act 3, more passives are added.\n\nThe configuration supports missing entries for certain acts. For\ninstance, if there is no entry for Act 2, the configuration will still\nbe cumulative, combining the settings from Act 1 and Act 3.\n\nRegarding missing classes, some classes are very rare in the game. Most\nspellcasters are wizards, and there are only a handful of sorcerers,\nsuch as characters like Mizora. Because they are so rare, they already\nhave all the abilities and spells they should have."
+                            "Description": "Combat Extender (CX) is built around tagging enemies based on their\narchetypes and using those tags to configure their abilities, spells,\nand passives. The tagging process was done manually over a significant\namount of time. If you spot any mistakes in-game, please let me know!\nYou can also add passives, spells, and abilities from other mods, but\nmake sure to load those mods before CX.\n\nThe configuration allows you to set up difficulty per act using the Act\nseparator. Act configuration is cumulative, meaning Act 3 includes the\nconfigurations from Act 1, Act 2, and Act 3.\n\n For example, in the configuration for the Barbarian class:\n-In Act 1, only spells are given without additional passives.\n- In Act 2, additional passives are provided without new spells.\n- In Act 3, more passives are added.\n\nThe configuration supports missing entries for certain acts. For\ninstance, if there is no entry for Act 2, the configuration will still\nbe cumulative, combining the settings from Act 1 and Act 3.\n\nRegarding missing classes, some classes are very rare in the game. Most\nspellcasters are wizards, and there are only a handful of sorcerers,\nsuch as characters like Mizora. Because they are so rare, they already\nhave all the abilities and spells they should have.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
                 {
                     "SectionId": "cleric",
                     "SectionName": "Cleric",
+                    "SectionDescription": "Act 1:",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "CX_Cleric_Boost_Act1_Spells",
@@ -728,7 +878,11 @@
                             "Type": "list",
                             "Default": [],
                             "Tooltip": "Extra passives available in Act 1 for Cleric.",
-                            "Description": "Act 2:"
+                            "Description": "Act 2:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Cleric_Boost_Act2_Spells",
@@ -743,7 +897,11 @@
                             "Type": "list",
                             "Default": ["PotentSpellcasting"],
                             "Tooltip": "Extra passives available in Act 2 for Cleric.",
-                            "Description": "Act 3:"
+                            "Description": "Act 3:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Cleric_Boost_Act3_Spells",
@@ -764,6 +922,11 @@
                 {
                     "SectionId": "fighter",
                     "SectionName": "Fighter",
+                    "SectionDescription": "Act 1:",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "CX_Fighter_Boost_Act1_Spells",
@@ -778,7 +941,11 @@
                             "Type": "list",
                             "Default": ["Riposte", "FightingStyle_GreatWeaponFighting", "FightingStyle_TwoWeaponFighting", "FightingStyle_Protection", "FightingStyle_Dueling"],
                             "Tooltip": "Extra passives available in Act 1 for Fighter.",
-                            "Description": "Act 2:"
+                            "Description": "Act 2:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Fighter_Boost_Act2_Spells",
@@ -793,7 +960,11 @@
                             "Type": "list",
                             "Default": [],
                             "Tooltip": "Extra passives available in Act 2 for Fighter.",
-                            "Description": "Act 3:"
+                            "Description": "Act 3:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Fighter_Boost_Act3_Spells",
@@ -814,6 +985,11 @@
                 {
                     "SectionId": "monk",
                     "SectionName": "Monk",
+                    "SectionDescription": "Act 1:",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "CX_Monk_Boost_Act1_Spells",
@@ -828,7 +1004,11 @@
                             "Type": "list",
                             "Default": [],
                             "Tooltip": "Extra passives available in Act 1 for Monk.",
-                            "Description": "Act 2:"
+                            "Description": "Act 2:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Monk_Boost_Act2_Spells",
@@ -843,7 +1023,11 @@
                             "Type": "list",
                             "Default": [],
                             "Tooltip": "Extra passives available in Act 2 for Monk.",
-                            "Description": "Act 3:"
+                            "Description": "Act 3:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Monk_Boost_Act3_Spells",
@@ -864,6 +1048,11 @@
                 {
                     "SectionId": "paladin",
                     "SectionName": "Paladin",
+                    "SectionDescription": "Act 1:",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "CX_Paladin_Boost_Act1_Spells",
@@ -878,7 +1067,11 @@
                             "Type": "list",
                             "Default": ["FightingStyle_GreatWeaponFighting", "FightingStyle_TwoWeaponFighting", "FightingStyle_Protection", "FightingStyle_Dueling"],
                             "Tooltip": "Extra passives available in Act 1 for Paladin.",
-                            "Description": "Act 2:"
+                            "Description": "Act 2:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Paladin_Boost_Act2_Spells",
@@ -893,7 +1086,11 @@
                             "Type": "list",
                             "Default": [],
                             "Tooltip": "Extra passives available in Act 2 for Paladin.",
-                            "Description": "Act 3:"
+                            "Description": "Act 3:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Paladin_Boost_Act3_Spells",
@@ -914,6 +1111,11 @@
                 {
                     "SectionId": "ranger",
                     "SectionName": "Ranger",
+                    "SectionDescription": "Act 1:",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "CX_Ranger_Boost_Act1_Spells",
@@ -928,7 +1130,11 @@
                             "Type": "list",
                             "Default": ["FightingStyle_Archery"],
                             "Tooltip": "Extra passives available in Act 1 for Ranger.",
-                            "Description": "Act 2:"
+                            "Description": "Act 2:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Ranger_Boost_Act2_Spells",
@@ -943,7 +1149,11 @@
                             "Type": "list",
                             "Default": ["MultiattackDefense"],
                             "Tooltip": "Extra passives available in Act 2 for Ranger.",
-                            "Description": "Act 3:"
+                            "Description": "Act 3:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Ranger_Boost_Act3_Spells",
@@ -964,6 +1174,11 @@
                 {
                     "SectionId": "rogue",
                     "SectionName": "Rogue",
+                    "SectionDescription": "Act 1:",
+                    "Handles": {
+                        "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                        "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                    },
                     "Settings": [
                         {
                             "Id": "CX_Rogue_Boost_Act1_Spells",
@@ -978,7 +1193,11 @@
                             "Type": "list",
                             "Default": ["UncannyDodge"],
                             "Tooltip": "Extra passives available in Act 1 for Rogue.",
-                            "Description": "Act 2:"
+                            "Description": "Act 2:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Rogue_Boost_Act2_Spells",
@@ -993,7 +1212,11 @@
                             "Type": "list",
                             "Default": ["Evasion"],
                             "Tooltip": "Extra passives available in Act 2 for Rogue.",
-                            "Description": "Act 3:"
+                            "Description": "Act 3:",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Rogue_Boost_Act3_Spells",
@@ -1038,7 +1261,11 @@
                                 "Max": 10
                             },
                             "Tooltip": "Extra spell slots for level 1 spells.",
-                            "Description": "These passives were assigned during the manual tagging process following\nvanilla rules. This means you will never see level 5 (CX_Spells_L5) in\nAct 1."
+                            "Description": "These passives were assigned during the manual tagging process following\nvanilla rules. This means you will never see level 5 (CX_Spells_L5) in\nAct 1.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 },
@@ -1148,7 +1375,11 @@
                             "Type": "list",
                             "Default": ["Projectile_Disintegrate", "Target_CircleOfDeath", "Projectile_ChainLightning", "Zone_Sunbeam"],
                             "Tooltip": "Spells available at level 6.",
-                            "Description": "INFO: Level 6 spells are not granted by default as no vanilla enemies are eligible."
+                            "Description": "INFO: Level 6 spells are not granted by default as no vanilla enemies are eligible.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "CX_Spells_L6_ExtraSpellSlots",
@@ -1238,7 +1469,11 @@
                             "Type": "list",
                             "Default": ["Target_FleshToStone"],
                             "Tooltip": "Control spells available at level 6.",
-                            "Description": "INFO: Level 6 control spells are not granted by default as no vanilla enemies are eligible."
+                            "Description": "INFO: Level 6 control spells are not granted by default as no vanilla enemies are eligible.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 }
@@ -1258,7 +1493,11 @@
                             "Type": "checkbox",
                             "Default": false,
                             "Tooltip": "Enable or disable level scaling.",
-                            "Description": "WARNING: Do not use level scaling unless you know what you need it for!"
+                            "Description": "WARNING: Do not use level scaling unless you know what you need it for!\n---                      CHARACTERS                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Characters_Act1_MaxLevel",
@@ -1325,7 +1564,11 @@
                                 "Max": 10
                             },
                             "Tooltip": "Level offset for characters in Act 3.",
-                            "Description": "---                      BOSSES                      ---"
+                            "Description": "---                      BOSSES                      ---",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         },
                         {
                             "Id": "Bosses_Act1_MaxLevel",
@@ -1392,7 +1635,11 @@
                                 "Max": 10
                             },
                             "Tooltip": "Level offset for bosses in Act 3.",
-                            "Description": "This is the level scaling part, this is not in the vanilla configuration,\nand it will never be. The calculation is: take player level,\napply (optional) offset, if the value is under or equal to max\nvalue, set target to this level. Max means max, targets will never get\nleveled beyond this value. Nobody will ever get down leveled unless you\nrun the reset configuration. The original levels of targets are stored\nin your save file. \n\n We do not differentiate between allies or enemies here,\n levels are just a number in this game for NPCs. If your configuration is\n similar to the default one and doesn't give any stats boosts to allies\n the end result will be identical."
+                            "Description": "This is the level scaling part, this is not in the vanilla configuration,\nand it will never be. The calculation is: take player level,\napply (optional) offset, if the value is under or equal to max\nvalue, set target to this level. Max means max, targets will never get\nleveled beyond this value. Nobody will ever get down leveled unless you\nrun the reset configuration. The original levels of targets are stored\nin your save file. \n\n We do not differentiate between allies or enemies here,\n levels are just a number in this game for NPCs. If your configuration is\n similar to the default one and doesn't give any stats boosts to allies\n the end result will be identical.",
+                            "Handles": {
+                                "NameHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1b",
+                                "DescriptionHandle": "hb4de04cbgd263g4819gb313gd85f95bf6b1c"
+                            }
                         }
                     ]
                 }
