@@ -1,0 +1,4 @@
+USING ranged
+
+// Nine Fingers doesn't pickup or equip weapons
+WEAPON_PICKUP_MODIFIER 0.3

@@ -1,0 +1,12 @@
+USING melee_smart
+
+//Focus harder on Keth
+MULTIPLIER_TARGET_PREFERRED						4.50
+
+//Care less about killing the minions
+- MULTIPLIER_KILL_ENEMY							-0.20
+
+//To stop her from overvaluing shoves on the necromites
+- MULTIPLIER_FALL_DAMAGE_ENEMY					0.2
+
+MODIFIER_HIT_CHANCE_STUPIDITY 					0.8

@@ -1,0 +1,29 @@
+USING ranged
+
+//Beasts don't care about weakened characters
+MULTIPLIER_KILL_ENEMY							1.00
+MULTIPLIER_KILL_ENEMY_SUMMON					1.00
+MULTIPLIER_KILL_ALLY							1.00
+MULTIPLIER_KILL_ALLY_SUMMON						1.00
+
+//Beasts dont reason about summons differently from non-summons
+MULTIPLIER_TARGET_SUMMON						1.00
+
+MODIFIER_HIT_CHANCE_STUPIDITY 1.0
+
+//Beasts reason less about Aura effects
+MULTIPLIER_POS_IN_AURA 							0.05
+MODIFIER_OWN_AURA 								0.05
+
+//Does not pick up weapons
+WEAPON_PICKUP_MODIFIER 							0.0
+
+//Does not attack things like exploding barrels
+MULTIPLIER_USABLE_ITEM							0.0
+
+//Does not reason about breaking concentration on targets
+MODIFIER_CONCENTRATION_REMOVE_TARGET 0.0
+
+//No bias toward Chasms
+INSTAKILL_BASE_SCORE							 0.0
+MULTIPLIER_INSTAKILL_TARGET_HEALTH_BIAS			 0.0

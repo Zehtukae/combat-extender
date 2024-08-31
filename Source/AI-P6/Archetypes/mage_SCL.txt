@@ -1,0 +1,13 @@
+USING mage
+
+// Modifiers used for darkness positioning
+MULTIPLIER_DARKNESS_CLEAR 						0.002
+MULTIPLIER_DARKNESS_LIGHT 						0.000
+MULTIPLIER_DARKNESS_HEAVY 						0.000
+
+//We don't want them to decide to pick up another weapon if it was not equipped before, 
+//since mostly they will have a torch and we don't want them to replace it by 
+//a different weapon and thus unequip it.
+WEAPON_PICKUP_MODIFIER                          0.10
+WEAPON_PICKUP_RADIUS                            6.00
+WEAPON_PICKUP_MODIFIER_PREVIOUSLY_EQUIPPED      2.00

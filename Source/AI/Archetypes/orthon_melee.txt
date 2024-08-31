@@ -20,3 +20,6 @@ MULTIPLIER_USABLE_ITEM								0.05
 
 //The Orthon goes for kills
 + MULTIPLIER_KILL_ENEMY 							0.25
+
+//Move while invisible
+MULTIPLIER_ENDPOS_TURNED_INVISIBLE					0.00

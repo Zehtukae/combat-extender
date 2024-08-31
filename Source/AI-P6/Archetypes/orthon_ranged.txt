@@ -1,0 +1,26 @@
+USING ranged
+
+//stays away from allies and enemies
+MULTIPLIER_ENDPOS_ALLIES_NEARBY						-0.1
+MULTIPLIER_FALLBACK_ALLIES_NEARBY					-0.1
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE				12.00
+FALLBACK_ALLIES_NEARBY_MAX_DISTANCE					8.00
+
+//Destroying his own bombs makes the fight a bit too hard, dissuade him from doing this
+MULTIPLIER_USABLE_ITEM								0.25
+
+//The Orthon doesn't care too much if he harms his allies
+MULTIPLIER_DAMAGE_ALLY_NEG							1.1
+
+//Lower than average hit stupidity
+- MODIFIER_HIT_CHANCE_STUPIDITY 					0.15
+
+//Will target casters while in this phase
++ MODIFIER_CONCENTRATION_REMOVE_TARGET 				0.1
+
+//Reduce the chance to detonate it's own bombs offensively
+MULTIPLIER_USABLE_ITEM								0.05
+
+//The Orthon goes for kills
++ MULTIPLIER_KILL_ENEMY 							0.25
+

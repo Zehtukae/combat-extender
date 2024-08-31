@@ -22,10 +22,6 @@ MULTIPLIER_MOVEMENT_SURFACE 1.0
 //End Position MULTIPLIERS
 MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE		0.10
 
-//Used for status that are applied by surfaces on movement
-MULTIPLIER_SURFACE_STATUS_ON_MOVE				0.75
-SURFACE_DAMAGE_MAX_TURNS						2.00
-
 //The brewer doesn't care much about his allies
 MULTIPLIER_DAMAGE_ALLY_POS						0.6
 MULTIPLIER_DAMAGE_ALLY_NEG						0.8

@@ -1,0 +1,32 @@
+USING melee
+
+//Healers care a bit less about going for kills
+MULTIPLIER_KILL_ENEMY 							1.1
+
+// Healer will prefer to heal allies over themselves 
+MULTIPLIER_HEAL_SELF_POS						1.00 
+MULTIPLIER_HEAL_ALLY_POS						1.05
+MAX_HEAL_MULTIPLIER								0.65
+MAX_HEAL_SELF_MULTIPLIER						0.6
+
+MULTIPLIER_BOOST_ALLY_POS		 				1.35
+MULTIPLIER_BOOST_SELF_POS		 				1.30
+
+// Healer tries to debuff enemies
+MULTIPLIER_BOOST_ENEMY_POS		 				1.15
+
+// Healer doesn't try to damage as enemies as much
+MULTIPLIER_DAMAGE_ENEMY_POS						0.95
+
+// Boosts for spells that force a ST on enemy
+MODIFIER_BOOST_ROLLBONUS_SAVINGTHROW            0.040
+
+MODIFIER_BOOST_ROLLBONUS_ATTACK                 0.06
+
+//Healers will try to stabilize downed players
+MULTIPLIER_TARGET_ALLY_DOWNED 					1.25
+
+//Cares less about picking up weapons
+WEAPON_PICKUP_MODIFIER 							0.20
+
+MULTIPLIER_RESURRECT							5.00

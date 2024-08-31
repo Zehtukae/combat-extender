@@ -1,0 +1,4 @@
+USING ogre_melee
+
+//Minotaurs prefer attacking Bulette instead of players (definition in osiris)
+MULTIPLIER_TARGET_PREFERRED						3.00

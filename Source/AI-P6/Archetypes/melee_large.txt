@@ -1,0 +1,5 @@
+USING melee
+//Melee archetype for larger bound characters. Mostly used for Wildshapes like bears, wolves and badgers.
+
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			3.50
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			7.00

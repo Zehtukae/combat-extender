@@ -7,9 +7,6 @@ MULTIPLIER_ENDPOS_ENEMIES_NEARBY				-0.50
 // Ranged characters don't like standing in smoke, they can't see their targets!
 MULTIPLIER_ENDPOS_NOT_IN_SMOKE					0.25
 
-// Ranged characters dont't care about contact boosts
-MULTIPLIER_CONTACT_BOOST						0.05
-
 MULTIPLIER_FALLBACK_ALLIES_NEARBY				0.00
 MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-0.50
 FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			10.00

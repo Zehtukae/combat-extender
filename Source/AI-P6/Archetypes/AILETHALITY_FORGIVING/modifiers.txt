@@ -1,0 +1,5 @@
+//////////////////////////////////////////////////////////////////////////
+// General Score mods for the Forgiving difficulty
+
+//AI does not reason about removing Concentration
+MODIFIER_CONCENTRATION_REMOVE_TARGET 			0.0

@@ -1,0 +1,14 @@
+USING melee
+
+// multiplier for how much characters want to interact with things like Exploding barrels
+MULTIPLIER_USABLE_ITEM							0.00
+
+//////////////////////////////////////////////////////////////////////////
+// Use item modifiers
+		
+// Modifier used as a starting point for using items, 0 disables
+USE_ITEM_MODIFIER						0.00
+// Modifier used to enable/disable using items from own inventory
+USE_INVENTORY_ITEMS_ENABLED				0.00
+// Modifier used to change the max search radius for items to use
+USE_ITEM_RADIUS							0.00

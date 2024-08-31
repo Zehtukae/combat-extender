@@ -1,0 +1,13 @@
+USING melee
+
+//above average stupidity modifiers
+MODIFIER_HIT_CHANCE_STUPIDITY 					1.0
+
+//Does not pick up weapons
+WEAPON_PICKUP_MODIFIER 							0.0
+
+MULTIPLIER_KILL_ENEMY 							1.15
+
+MULTIPLIER_TARGET_UNPREFERRED					0.10
+
+MULTIPLIER_CONTROL_ENEMY_NEG					0.40

@@ -1,0 +1,8 @@
+USING melee
+
+//Wyll cares more about not damaging and killing allies/neutrals
+
+MULTIPLIER_DAMAGE_ALLY_NEG						5.5
+MULTIPLIER_DAMAGE_NEUTRAL_NEG					2.5
+MULTIPLIER_KILL_ALLY							2.00
+MULTIPLIER_KILL_ALLY_SUMMON						1.50

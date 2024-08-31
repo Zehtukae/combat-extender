@@ -1,0 +1,5 @@
+USING ranged
+
+// Don't reason about the acid surface
+MULTIPLIER_MOVEMENT_SURFACE						0.00
+MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE		0.00
