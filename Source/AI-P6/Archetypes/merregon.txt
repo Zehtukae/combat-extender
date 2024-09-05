@@ -1,0 +1,9 @@
+USING melee
+
+//We dont want them to destroy the grenades on their own too much
+MULTIPLIER_USABLE_ITEM							0.05
+
+//Merregon's group up together - makes it easier to AoE them down
+MULTIPLIER_ENDPOS_ALLIES_NEARBY					0.25
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				0.00
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			2.5

@@ -1,0 +1,13 @@
+USING melee_smart
+
+//Likes doing stuff without moving
+MULTIPLIER_MOVEMENT_COST_MULTPLIER				1.50
+
+//Is smart about what's gonna hit, and what's gonna miss
+- MODIFIER_HIT_CHANCE_STUPIDITY 				0.15
+
+//Couldn't care less about picking up weapons
+WEAPON_PICKUP_MODIFIER 							0.00
+
+//The TC tries to interrupt concentration when possible
++ MODIFIER_CONCENTRATION_REMOVE_TARGET 			0.30

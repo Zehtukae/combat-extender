@@ -1,0 +1,26 @@
+//This archetype is intended for average humanoids like guards/bandits/soldiers etc
+
+// Melee characters dont't care much about flanking
+MULTIPLIER_ENDPOS_FLANKED						-0.01
+
+// Melee characters loves contact boosts
+MULTIPLIER_CONTACT_BOOST						1.00
+
+MULTIPLIER_FALLBACK_ALLIES_NEARBY				0.00
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				1.00
+
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			2.3
+
+//Characters using Melee have better than average hit/miss reasoning
+- MODIFIER_HIT_CHANCE_STUPIDITY 				0.15
+
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE				0.0
+
+//melee cares less about ignore AoO
+MULTIPLIER_BOOST_IGNORE_AOO 					0.005
+
+//Don't care as much about sight range as they are melee anyways
+MULTIPLIER_BOOST_SIGHT_RANGE 0.02
+
+//melee cares more about retrieving their weapons
+WEAPON_PICKUP_MODIFIER							 1.0

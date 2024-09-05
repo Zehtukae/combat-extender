@@ -160,11 +160,6 @@ MULTIPLIER_SCORE_OUT_OF_COMBAT					0.25
 MAX_HEAL_MULTIPLIER								0.1  // Must be between 0 and 1, the closer to 1, the more it demands healing when someone is close to dying
 MAX_HEAL_SELF_MULTIPLIER						0.1  // Must be between 0 and 1, the closer to 1, the more it demands healing when you are close to dying
 
-// Used for vitality/damage boosts
-MULTIPLIER_VITALITYBOOST						0.50
-MULTIPLIER_DAMAGEBOOST							0.50
-MULTIPLIER_BONUS_WEAPON_BOOST					0.50
-
 // Simple multipliers when damage results in a kill
 MULTIPLIER_KILL_ENEMY							1.25
 MULTIPLIER_KILL_ENEMY_SUMMON					1.05
@@ -174,19 +169,11 @@ MULTIPLIER_KILL_TARGET_HEALTH_BIAS 				0.0
 INSTAKILL_BASE_SCORE							1.5
 MULTIPLIER_INSTAKILL_TARGET_HEALTH_BIAS			0.025
 
-// Used for the distance multiplier in explosions. The multiplier scales from MIN to 1.0f.
-MULTIPLIER_EXPLOSION_DISTANCE_MIN				0.50
-
-// Used for status that are applied by surfaces on movement
-MULTIPLIER_SURFACE_STATUS_ON_MOVE				0.75
-SURFACE_DAMAGE_MAX_TURNS						2.00
-
 //////////////////////////////////////////////////////////////////////////
 // Status MULTIPLIERS
 MULTIPLIER_STATUS_REMOVE						1.00 // Used when a status is removed (on top of status-specific score calculation on removal)
 MULTIPLIER_STATUS_FAILED						0.50 // Used when a status has failed to be set, for the minimumscore
 MULTIPLIER_STATUS_CANCEL_INVISIBILITY			0.50 // Used when we do an action that causes INVISIBLE to break
-MULTIPLIER_STATUS_CANCEL_SLEEPING				0.50 // Used when we do an action that causes SLEEPING to break
 MULTIPLIER_STATUS_OVERWRITE						0.50 // Used when a status is overwritten, for the minimumscore
 MULTIPLIER_STATUS_REMOVE_FUNCTORS				0.50 // Used when applying the OnRemove functors
 
@@ -197,17 +184,6 @@ MULTIPLIER_KNOCKDOWN							0.50
 MULTIPLIER_FEAR									1.00
 MULTIPLIER_BLIND								0.10
 MULTIPLIER_INVISIBLE							0.20
-MULTIPLIER_MUTE									0.80
-MULTIPLIER_SOURCE_MUTE							4.00
-MULTIPLIER_SHACKLES_OF_PAIN						0.50
-MULTIPLIER_HEAL_SHARING							0.50
-MULTIPLIER_DECAYING_TOUCH						0.75
-MULTIPLIER_WINDWALKER							0.50
-MULTIPLIER_GUARDIAN_ANGEL						0.20
-MULTIPLIER_ACTIVE_DEFENSE						1.00
-MULTIPLIER_SPARK								0.40
-
-MULTIPLIER_DAMAGE_ON_MOVE						10.00
 MULTIPLIER_RESURRECT							4.00
 
 //////////////////////////////////////////////////////////////////////////
@@ -221,44 +197,16 @@ MULTIPLIER_SURFACE_REMOVE						0.35
 // Used for destroying interesting items.
 MULTIPLIER_DESTROY_INTERESTING_ITEM				3.25
 
-// How important critical strikes are for this character
-MULTIPLIER_CRITICAL								1.00
-
-// How important accuracy & chance to hit are for this character
-MULTIPLIER_ACC_BOOST							0.25
-
-// How important dodging is for this character
-MULTIPLIER_DODGE_BOOST							0.15
-
-// How important movement boosts are for this character
-MULTIPLIER_MOVEMENT_BOOST						0.30
-
 // How important resistances/immunities are for this character
 MULTIPLIER_RESISTANCE_STUPIDITY					1.00
 MULTIPLIER_IMMUNITY_STUPIDITY					0.00
-
-// How important max AP and AP recovery are for this character.
-MULTIPLIER_AP_RECOVERY							1.20	//changed by Edouard & Rick on 21/06/17
-MULTIPLIER_AP_BOOST								0.60
-MULTIPLIER_AP_MAX								0.10
-MULTIPLIER_AP_COSTBOOST							2.00
 
 // How important boosting ABILITYutes are
 MULTIPLIER_MAIN_ABILITY							1.00
 MULTIPLIER_SECONDARY_ABILITY					0.50
 
-// How important contact boosts are
-MULTIPLIER_CONTACT_BOOST						0.50
-
-// The minimum amount of turns worth of score for a status that is already applied (e.g. a fire surface is
-// worth something even when the character already has a BURNING status)
-MIN_TURNS_SCORE_EXISTING_STATUS					1
-
 // Used to limit the amount of turns calculated for a surface, status, or summon (to prevent overvaluing) as well as represent turns left for an infinite duration
 TURNS_CAP										4.0
-
-// Multiplier for the 'radius' when creating a puddle (is random, thus radius is guesstimated)
-MULTIPLIER_PUDDLE_RADIUS						1.00
 
 // Modifier used for possible combo score
 MULTIPLIER_COMBO_SCORE_INTERACTION				0.90
@@ -269,9 +217,6 @@ MULTIPLIER_POSITION_LEAVE						-1.0
 
 // How important grounding someone is.
 MULTIPLIER_GROUNDED								-0.05
-
-// How important deflecting projectiles is.
-MULTIPLIER_DEFLECT_PROJECTILES					0.2
 
 // Used for the path influences cost for summons
 MULTIPLIER_SUMMON_PATH_INFLUENCES				0.04
@@ -284,18 +229,6 @@ BUFF_DIST_MIN									10.0
 
 // Multiplier for positive surface scores on allies that are secondary. E.g. blessed surface on an ally that's caused by a placed fire surface that's connected to a blessed surface
 MULTIPLIER_POS_SECONDARY_SURFACE				0.25
-
-// If != 0 the active defense status can be used offensively by Ai instead of only defensively
-ENABLE_ACTIVE_DEFENSE_OFFENSIVE_USE				0
-
-// If != 0 the character will try to save/optimize action points for the next turn, if his chosen action is not executable this turn.
-ENABLE_SAVING_ACTION_POINTS						1
-
-// Multiplier for how much the Shield Block has influence over the entire AI calculation
-// Normal ranges are between 0 and 1 inclusive:
-// - 0 being the AI doesn't care if a character has shield block
-// - 1 being the AI cares a normalised amount about a character with shield block
-MULTIPLIER_SHIELD_BLOCK							1.0
 
 // A general multiplier for all reflected damage
 MULTIPLIER_REFLECT_DAMAGE						0.1
@@ -418,6 +351,7 @@ MODIFIER_BOOST_ROLLBONUS_RANGEDOFFHANDWEAPONATTACK 0.035
 MULTIPLIER_POS_IN_AURA 0.3
 MODIFIER_OWN_AURA 0.3
 TURNS_CAP_AURASTATUS 2
+MODIFIER_MOVE_INTO_DANGEROUS_AURA 0.5
 
 // Score that is added to any position that is marked as 'TILE_LEDGE_STATIC' 
 // so that creatures avoid standing on the ledges of objects where their feet are floating
@@ -472,8 +406,14 @@ MODIFIER_CONCENTRATION_REMOVE_SELF 						8.0
 // Modifier used to change the score of removing a target's concentration (other than itself) 
 MODIFIER_CONCENTRATION_REMOVE_TARGET 					0.0
 
+//////////////////////////////////////////////////////////////////////////
+// Throwing modifiers
+
 // Used to adjust score when throw spell affects only self
 MULTIPLIER_SELF_ONLY_THROW				0.8
+// Modifier to limit how many items from the inventory are eligible to be thrown.
+// It is used to prevent ai with many throw-able items from spending too much time considering each item
+THROW_INVENTORY_ITEM_LIMIT				100
 
 // Used to adjust fall damage scores
 MULTIPLIER_FALL_DAMAGE_SELF								1.0

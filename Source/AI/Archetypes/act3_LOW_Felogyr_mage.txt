@@ -12,3 +12,10 @@ USE_ITEM_MODIFIER						0.00
 USE_INVENTORY_ITEMS_ENABLED				0.00
 // Modifier used to change the max search radius for items to use
 USE_ITEM_RADIUS							0.00
+
+//////////////////////////////////////////////////////////////////////////
+// Throwing modifiers
+
+// Modifier to limit how many items from the inventory are eligible to be thrown.
+// It is used to prevent ai with many throw-able items from spending too much time considering each item
+THROW_INVENTORY_ITEM_LIMIT				1

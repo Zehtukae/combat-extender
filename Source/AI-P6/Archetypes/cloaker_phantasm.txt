@@ -1,0 +1,18 @@
+USING melee
+
+//We don't want Phantasms staying close together, they clip too much
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY                -1.00
+ENDPOS_ENEMIES_NEARBY_MIN_DISTANCE              1.00 // distance at which being any closer makes no difference
+ENDPOS_ENEMIES_NEARBY_MAX_DISTANCE              3.00
+
+MULTIPLIER_ENDPOS_ALLIES_NEARBY                 -1.00
+ENDPOS_ALLIES_NEARBY_MIN_DISTANCE				1.00
+ENDPOS_ALLIES_NEARBY_MAX_DISTANCE 				5.00 // ignore characters beyond this distance
+
+MULTIPLIER_FALLBACK_ALLIES_NEARBY				-1.00
+FALLBACK_ALLIES_NEARBY_MIN_DISTANCE				1.00 // distance at which being any closer makes no difference
+FALLBACK_ALLIES_NEARBY_MAX_DISTANCE				3.00 // ignore characters beyond this distance
+
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-1.00
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			1.00 // distance at which being any closer makes no difference
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			5.00 // ignore characters beyond this distance

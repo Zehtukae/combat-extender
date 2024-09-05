@@ -1,0 +1,10 @@
+USING mage_smart
+
+//Cazador really wants to whack preferred targets, either Astarion or whoever's blocking the ritual
+MULTIPLIER_TARGET_PREFERRED						3.00
+
+//Cazador couldn't care less about buffing his allies
+MULTIPLIER_BOOST_ALLY_POS		 				0.0
+
+//Also doesn't care much about hurting his allies
+MULTIPLIER_DAMAGE_ALLY_NEG					1.0

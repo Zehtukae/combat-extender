@@ -1,0 +1,17 @@
+USING mage
+//This archetype is intended for the grease wizard
+
+//Mages like buffing themselves
+MULTIPLIER_BOOST_SELF_POS		 				1.15
+
+//Fire Wizard doesn't care about hurting allies
+MULTIPLIER_DAMAGE_ALLY_NEG						0.5
+MULTIPLIER_DOT_ALLY_NEG                                                 0.5
+MULTIPLIER_BOOST_ALLY_NEG                                               0.5
+MULTIPLIER_KILL_ALLY							0.5
+
+//Cares less about picking up weapons
+WEAPON_PICKUP_MODIFIER 							0.15
+
+//Prefer to pickup melee weapons
+WEAPON_PICKUP_PREFER_RANGED_ENABLED 			0

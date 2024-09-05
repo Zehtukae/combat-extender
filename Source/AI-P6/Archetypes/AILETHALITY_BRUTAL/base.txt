@@ -1,0 +1,25 @@
+//Brutal Difficulty base override
+
+//Higher Hit/Miss reasoning, will target low AC targets much more frequently
+MODIFIER_HIT_CHANCE_STUPIDITY 					0.65
+
+//More biased toward killing blows
+MULTIPLIER_KILL_ENEMY 							1.5
+
+//Less likely to attack summons instead of players
+MULTIPLIER_TARGET_SUMMON						0.40
+
+//Has some bias towards attacking concentrating targets
+MODIFIER_CONCENTRATION_REMOVE_TARGET 			0.1
+
+//Slightly more likely to attack downed targets
+MULTIPLIER_TARGET_ENEMY_DOWNED					0.3
+
+//More biased to use instakills (chasms etc)
+INSTAKILL_BASE_SCORE							2.0
+
+//More biased to use fall damage against targets (shoving from high places, etc)
+MULTIPLIER_FALL_DAMAGE_ENEMY					0.50
+
+//AI will reason about relative player power when using control spells
+MODIFIER_CONTROL_STUPIDITY						0.75

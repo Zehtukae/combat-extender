@@ -1,0 +1,44 @@
+USING melee
+
+SPELL_JUMP_MINIMUM_DISTANCE						6.50
+
+//Beasts don't care about weakened characters
+MULTIPLIER_KILL_ENEMY							1.00
+MULTIPLIER_KILL_ENEMY_SUMMON					1.00
+MULTIPLIER_KILL_ALLY							1.00
+MULTIPLIER_KILL_ALLY_SUMMON						1.00
+
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			3.50
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			7.00
+
+//Beasts dont reason about summons differently from non-summons
+MULTIPLIER_TARGET_SUMMON						1.00
+
+//Beasts dont reason about hit or miss chances
+MODIFIER_HIT_CHANCE_STUPIDITY 					1.00
+
+MULTIPLIER_ENDPOS_FLANKED						0.00
+
+//Beasts reason less about Aura effects
+MULTIPLIER_POS_IN_AURA 							0.05
+MODIFIER_OWN_AURA 								0.05
+
+//Does not pick up weapons
+WEAPON_PICKUP_MODIFIER 							0.0
+
+//Does not attack things like exploding barrels
+MULTIPLIER_USABLE_ITEM							0.0
+
+//Does not reason about breaking concentration on targets
+MODIFIER_CONCENTRATION_REMOVE_TARGET 0.0
+
+//Does not reason about removing control from allies
+MULTIPLIER_CONTROL_ALLY_POS		 				-1.0
+
+//Beasts reason less about dangerous surfaces
+MULTIPLIER_MOVEMENT_SURFACE						0.50
+MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE		0.50
+
+//No bias toward Chasms
+INSTAKILL_BASE_SCORE							 0.0
+MULTIPLIER_INSTAKILL_TARGET_HEALTH_BIAS			 0.0

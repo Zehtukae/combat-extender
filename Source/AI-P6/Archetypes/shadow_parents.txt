@@ -1,0 +1,34 @@
+USING ranged
+
+// Shadows care little about surfaces
+MULTIPLIER_MOVEMENT_SURFACE						0.00
+MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE		0.00
+
+// Shadows aren't particularly good at estimating their chances to hit a target
+MODIFIER_HIT_CHANCE_STUPIDITY                   1.00
+
+// Modifiers used for darkness positioning
+MULTIPLIER_DARKNESS_CLEAR 						0.00
+MULTIPLIER_DARKNESS_LIGHT 						0.002
+MULTIPLIER_DARKNESS_HEAVY 						0.002
+
+// We want to encourage the shadow to attack whenever possible, even at the cost of ending in light.
+MULTIPLIER_DAMAGE_ENEMY_POS						1.00
+
+// We want to encourage the shadow to move to attack and flee from light.
+//MULTIPLIER_MOVEMENT_COST_MULTPLIER			0.5
+
+// To make them move and not end the turn on the same spot they turn invis
+MULTIPLIER_ENDPOS_TURNED_INVISIBLE				-0.25
+
+// Shadows wants to spread out to not be caught all in the same place
+MULTIPLIER_ENDPOS_ALLIES_NEARBY					0.00
+//MULTIPLIER_FALLBACK_ENEMIES_NEARBY		    -0.50
+//FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			10.00
+
+MULTIPLIER_BOOST_ENEMY_POS		 				3.50
+
+MULTIPLIER_ENDPOS_NOT_IN_AIHINT					-0.25
+
+//Shadow Parents try to interrupt concentration when possible
+MODIFIER_CONCENTRATION_REMOVE_TARGET 			0.30

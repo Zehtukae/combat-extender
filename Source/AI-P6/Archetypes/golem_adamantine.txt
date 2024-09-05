@@ -1,0 +1,11 @@
+USING beast
+
+//Really wants to target taunting target
+MULTIPLIER_TARGET_PREFERRED						100.00
+
+//Does not care about surfaces really
+MULTIPLIER_ENDPOS_NOT_IN_DANGEROUS_SURFACE		0.00
+SURFACE_DAMAGE_MAX_TURNS						0.00
+
+//Does not avoid AoO
+ENABLE_MOVEMENT_AVOID_AOO						0.00

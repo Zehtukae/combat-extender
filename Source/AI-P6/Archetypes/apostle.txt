@@ -1,0 +1,9 @@
+USING melee_stupid
+
+//Does not care about damaging allies
+MULTIPLIER_DAMAGE_ALLY_NEG						1.0
+MULTIPLIER_DOT_ALLY_NEG							1.0
+
+WEAPON_PICKUP_MODIFIER							0.0
+
+

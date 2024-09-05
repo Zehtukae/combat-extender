@@ -1,0 +1,46 @@
+USING ranged
+
+//does not reason about damaging effects
+MULTIPLIER_DAMAGE_SELF_POS						0.0
+MULTIPLIER_DAMAGE_SELF_NEG						0.0
+MULTIPLIER_DAMAGE_ENEMY_POS						0.0
+MULTIPLIER_DAMAGE_ENEMY_NEG						0.0
+MULTIPLIER_DAMAGE_ALLY_POS						0.0
+MULTIPLIER_DAMAGE_ALLY_NEG						0.0 
+MULTIPLIER_DAMAGE_NEUTRAL_POS					0.0
+MULTIPLIER_DAMAGE_NEUTRAL_NEG					0.0 
+
+//Don't care about weakened characters
+MULTIPLIER_KILL_ENEMY							1.00
+MULTIPLIER_KILL_ENEMY_SUMMON					1.00
+MULTIPLIER_KILL_ALLY							1.00
+MULTIPLIER_KILL_ALLY_SUMMON						1.00
+
+//Dont reason about summons differently from non-summons
+MULTIPLIER_TARGET_SUMMON						1.00
+
+MODIFIER_HIT_CHANCE_STUPIDITY 1.0
+
+//Reason less about Aura effects
+MULTIPLIER_POS_IN_AURA 							0.02
+MODIFIER_OWN_AURA 								0.02
+
+//Does not attack things like exploding barrels
+MULTIPLIER_USABLE_ITEM							0.0
+
+//Does not reason about breaking concentration on targets
+MODIFIER_CONCENTRATION_REMOVE_TARGET 			0.0
+
+//cannot pick up weapons
+WEAPON_PICKUP_MODIFIER 							0.0
+
+//cannot use items
+USE_ITEM_MODIFIER								0.0
+
+//does not avoid aoo
+ENABLE_MOVEMENT_AVOID_AOO						0.00
+
+//scrying eyes care a bit less about enemies nearby and stay further back if possible
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-0.25
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY				-0.25
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			12.00

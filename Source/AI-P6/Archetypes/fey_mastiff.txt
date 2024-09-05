@@ -1,0 +1,9 @@
+USING beast
+
+// We want to encourage the mastiff to attack whenever possible, even at the cost of ending in light.
+MULTIPLIER_DAMAGE_ENEMY_POS						1.00
+
+// We want to encourage the Mastiff to move to attack and flee from light.
+//MULTIPLIER_MOVEMENT_COST_MULTPLIER				0.5
+
+//MULTIPLIER_CANNOT_EXECUTE_THIS_TURN             0.00

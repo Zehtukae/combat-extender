@@ -1,0 +1,11 @@
+USING ranged
+
+//Goblins get disengage as a BA
+MULTIPLIER_BOOST_IGNORE_AOO 					0.08
+
+
+MULTIPLIER_TARGET_SUMMON						0.90
++ MODIFIER_HIT_CHANCE_STUPIDITY 				0.15
+
+//Reduced bias to use chasms
+INSTAKILL_BASE_SCORE							1.0

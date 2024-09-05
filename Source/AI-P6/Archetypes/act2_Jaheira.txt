@@ -1,0 +1,14 @@
+USING melee_magic
+//Melee archetype for characters that are able to buff themselves, which they should do prior to jumping into the action
+
+//melee_magic likes buffing themselves
+MULTIPLIER_BOOST_SELF_POS		 				1.2
+
+//She treats neutrals like allies
+MULTIPLIER_DAMAGE_NEUTRAL_NEG                   2.5        
+MULTIPLIER_CONTROL_NEUTRAL_NEG					2.0   
+MULTIPLIER_TARGET_NEUTRAL_DOWNED				1.10
+MULTIPLIER_SCORE_ON_NEUTRAL						-1.1
+
+//She doesn't want to damage characters out of combat
+MULTIPLIER_SCORE_OUT_OF_COMBAT                  1.00

@@ -1,0 +1,22 @@
+USING melee
+
+//cloakers attempt to attack then move away from their enemy, sometimes risking attack of opportunity
+MULTIPLIER_ENDPOS_ENEMIES_NEARBY                -1.00
+ENDPOS_ENEMIES_NEARBY_MIN_DISTANCE              1.00 // distance at which being any closer makes no difference
+ENDPOS_ENEMIES_NEARBY_MAX_DISTANCE              10.00
+
+MULTIPLIER_ENDPOS_ALLIES_NEARBY                 -1.00
+ENDPOS_ALLIES_NEARBY_MIN_DISTANCE				1.00
+ENDPOS_ALLIES_NEARBY_MAX_DISTANCE 				10.00 // ignore characters beyond this distance
+
+MULTIPLIER_FALLBACK_ALLIES_NEARBY				-1.00
+FALLBACK_ALLIES_NEARBY_MIN_DISTANCE				1.00 // distance at which being any closer makes no difference
+FALLBACK_ALLIES_NEARBY_MAX_DISTANCE				10.00 // ignore characters beyond this distance
+
+MULTIPLIER_FALLBACK_ENEMIES_NEARBY				-1.00
+FALLBACK_ENEMIES_NEARBY_MIN_DISTANCE			1.00 // distance at which being any closer makes no difference
+FALLBACK_ENEMIES_NEARBY_MAX_DISTANCE			10.00 // ignore characters beyond this distance
+
+MULTIPLIER_ENEMY_HEIGHT_DIFFERENCE			    0.9
+
+ENABLE_MOVEMENT_AVOID_AOO						0.00 // remove this, it should reason about AoO
