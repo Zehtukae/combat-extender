@@ -61,17 +61,17 @@ data "Passives" "CX_Fighter_Boost;FeyAncestry;AttackOfOpportunity;Darkvision;Dar
 new entry "CHA_Bandit_Human_Barbarian"
 type "Character"
 using "CHA_Bandit_Human_Barbarian"
-data "Passives" "CX_Barbarian_Boost;AttackOfOpportunity"
+data "Passives" "CX_Barbarian_Boost;AttackOfOpportunity;DarknessRules"
 
 new entry "CHA_Bandit_Human_Melee"
 type "Character"
 using "CHA_Bandit_Human_Melee"
-data "Passives" "CX_Fighter_Boost;AttackOfOpportunity"
+data "Passives" "CX_Fighter_Boost;AttackOfOpportunity;DarknessRules"
 
 new entry "CHA_Bandit_Human_Ranger"
 type "Character"
 using "CHA_Bandit_Human_Ranger"
-data "Passives" "CX_Ranger_Boost;AttackOfOpportunity"
+data "Passives" "CX_Ranger_Boost;AttackOfOpportunity;DarknessRules"
 
 new entry "CHA_Bandit_Tiefling_Caster"
 type "Character"
@@ -741,27 +741,27 @@ data "Passives" "CX_Paladin_Boost;AttackOfOpportunity;DarknessRules;ExtraAttack;
 new entry "LOW_HouseOfGrief_Cultist_Caster"
 type "Character"
 using "LOW_HouseOfGrief_Cultist_Caster"
-data "Passives" "CX_Magic_Boost;CX_Spells_L4;AttackOfOpportunity;Darkvision;DarknessRules;LOW_HouseOfGrief_Cultists_Sight;"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L4;AttackOfOpportunity;Darkvision;DarknessRules;LOW_HouseOfGrief_Cultists_Sight;"
 
 new entry "LOW_HouseOfGrief_Cultist_Caster_Dwarf"
 type "Character"
 using "LOW_HouseOfGrief_Cultist_Caster_Dwarf"
-data "Passives" "CX_Magic_Boost;CX_Spells_L4;Dwarf_DwarvenResilience;AttackOfOpportunity;Darkvision;DarknessRules;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L4;Dwarf_DwarvenResilience;AttackOfOpportunity;Darkvision;DarknessRules;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
 
 new entry "LOW_HouseOfGrief_Cultist_Caster_Elf"
 type "Character"
 using "LOW_HouseOfGrief_Cultist_Caster_Elf"
-data "Passives" "CX_Magic_Boost;CX_Spells_L4;FeyAncestry;AttackOfOpportunity;DarknessRules;Darkvision;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L4;CX_Spells_L4C;FeyAncestry;AttackOfOpportunity;DarknessRules;Darkvision;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
 
 new entry "LOW_HouseOfGrief_Cultist_Caster_Gnome"
 type "Character"
 using "LOW_HouseOfGrief_Cultist_Caster_Gnome"
-data "Passives" "CX_Magic_Boost;CX_Spells_L4;Gnome_Cunning;Gnome_Speed;AttackOfOpportunity;DarknessRules;Darkvision;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L4;Gnome_Cunning;Gnome_Speed;AttackOfOpportunity;DarknessRules;Darkvision;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
 
 new entry "LOW_HouseOfGrief_Cultist_Caster_Human"
 type "Character"
 using "LOW_HouseOfGrief_Cultist_Caster_Human"
-data "Passives" "CX_Magic_Boost;CX_Spells_L4;AttackOfOpportunity;DarknessRules;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
+data "Passives" "CX_Magic_Boost;CX_Spells_L1;CX_Spells_L2;CX_Spells_L3;CX_Spells_L4;AttackOfOpportunity;DarknessRules;LOW_HouseOfGrief_Cultists_Sight;LOW_HouseOfGrief_Cultists_Melee;"
 
 new entry "LOW_HouseOfGrief_Justiciar"
 type "Character"
@@ -1177,4 +1177,3 @@ new entry "WYR_SmugglersCave_StoneLord_Tiefling"
 type "Character"
 using "WYR_SmugglersCave_StoneLord_Tiefling"
 data "Passives" "CX_Fighter_Boost;Tiefling_HellishResistance;AttackOfOpportunity;DarknessRules;Darkvision;Parry;Riposte;Indomitable"
-
